@@ -35,6 +35,7 @@
         var rectObj;
         function load(){
             canvas=document.getElementById("mycanvas");
+            container=document.getElementById("container");
             var context=canvas.getContext("2d");
             var arr=[];
             var rows=0;
@@ -56,12 +57,16 @@
             if(canvas.width < window.innerWidth){
                 canvas.style.width="600px";
                 canvas.style.height="1200px";
+                container.style.width="100%";
+                container.style.backgroundColor="antiquewhite";
             }
             window.addEventListener("resize", resizeCanvas, false);
             function resizeCanvas() {
                 if(canvas.width < window.innerWidth){
                     canvas.style.width="600px";
                     canvas.style.height="1200px";
+                    container.style.width="100%";
+                    container.style.backgroundColor="antiquewhite";
                 } else {
                     canvas.style.width = window.innerWidth*window.devicePixelRatio;
                     canvas.style.height = window.innerWidth*window.devicePixelRatio;
@@ -71,7 +76,7 @@
                 left_wall(arr,context);
                 frame_horizontal(context);
                 frame_vertical(context);
-                addBox(arr,context);
+                //addBox(arr,context);
             }
             floor(arr,context);
             right_wall(arr,context);
@@ -79,6 +84,7 @@
             frame_horizontal(context);
             frame_vertical(context);
             addBox(arr,context);
+            shapes(context);
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
         }
         function floor(arr, context){
@@ -188,6 +194,11 @@
             }
         }
 
+        function shapes(context) {
+            image = new Image();
+            image.src = 'NewBlock.png';
+            context.drawImage(image, 0,0);
+        }
 
         function addBox(arr, context){
             box_image = new Image();
@@ -307,9 +318,8 @@
 </head>
 
 <body onload="load()">
-<div class="container">
+<div id="container">
     <canvas id="mycanvas" width="800" height="1500">
-
         Your browser does not support canvas
     </canvas>
 </div>
