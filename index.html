@@ -72,7 +72,7 @@
             left_wall(arr,context);
             frame_horizontal(context);
             frame_vertical(context);
-            //addBox(arr,context);
+            addBox(arr,context);
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
         }
         function floor(arr, context){
@@ -133,7 +133,7 @@
             grd_left.addColorStop(1, "#faebd7");
             //bottom_left
             context.fillStyle=grd_left;
-            context.setTransform(1,0.5,0,2,15,610);
+            context.setTransform(1,0.5,0,4,15,610);
             for(var i=0; i<7; i++) {
                 context.strokeRect(i*55,0,55,55);
                 context.fillRect(i*55,0,55,55);
@@ -144,7 +144,7 @@
             grd_right.addColorStop(1, "#faebd7");
             //bottom_right
             context.fillStyle=grd_right;
-            context.setTransform(1,-0.5,0,2,400,803);
+            context.setTransform(1,-0.5,0,4,400,803);
             for(var i=0; i<7; i++) {
                 context.strokeRect(i*55,0,55,55);
                 context.fillRect(i*55,0,55,55);
@@ -191,66 +191,69 @@
 //                for(var i=0; i<arr.length; i++) {
 //                    context.drawImage(box_image, arr[i].x, arr[i].y);
 //                }
-                //first box
-                context.drawImage(box_image, 343, 415,115,115);
-                //1 right
-                context.drawImage(box_image, 343 + (1*55), 415 + (1*27),115,115);
-                //2 right
-                context.drawImage(box_image, 343 + (2*55), 415 + (2*27),115,115);
-                //3 right
-                context.drawImage(box_image, 343 + (3*55), 415 + (3*27),115,115);
-                //4 right
-                context.drawImage(box_image, 343 + (4*55), 415 + (4*27),115,115);
-                //5 right
-                context.drawImage(box_image, 343 + (5*55), 415 + (5*27),115,115);
+                for (var i=0; i<arr.length; i++){
+                    context.drawImage(box_image, 343-(arr[i].index%6)*arr[i].width, 415+(arr[i].index%6)*27,115,115);
+                }
+//                //first box
+//                context.drawImage(box_image, 343, 415,115,115);
+//                //1 right
+//                context.drawImage(box_image, 343 + (1*55), 415 + (1*27),115,115);
+//                //2 right
+//                context.drawImage(box_image, 343 + (2*55), 415 + (2*27),115,115);
+//                //3 right
+//                context.drawImage(box_image, 343 + (3*55), 415 + (3*27),115,115);
+//                //4 right
+//                context.drawImage(box_image, 343 + (4*55), 415 + (4*27),115,115);
+//                //5 right
+//                context.drawImage(box_image, 343 + (5*55), 415 + (5*27),115,115);
 
-                //1 left
-                context.drawImage(box_image, 343 - (1*55), 415 + (1*27),115,115);
-                //2 left
-                context.drawImage(box_image, 343 - (2*55), 415 + (2*27),115,115);
-                //3 left
-                context.drawImage(box_image, 343 - (3*55), 415 + (3*27),115,115);
-                //4 left
-                context.drawImage(box_image, 343 - (4*55), 415 + (4*27),115,115);
-                //5 left
-                context.drawImage(box_image, 343 - (5*55), 415 + (5*27),115,115);
-
-                //directly down
-                //1 down
-                context.drawImage(box_image, 343, 415 + (1*55),115,115);
-                //2 down
-                context.drawImage(box_image, 343, 415 + (2*55),115,115);
-                //3 down
-                context.drawImage(box_image, 343, 415 + (3*55),115,115);
-                //4 down
-                context.drawImage(box_image, 343, 415 + (4*55),115,115);
-
-                //left down
-                //1
-                context.drawImage(box_image, 343 - (4*55), 415 + (3*55),115,115);
-                //2
-                context.drawImage(box_image, 343 - (3*55), 415 + (3.5*55),115,115);
-                //3
-                context.drawImage(box_image, 343 - (2*55), 415 + (4*55),115,115);
-                //4
-                context.drawImage(box_image, 343 - (1*55), 415 + (4.5*55),115,115);
-
-
-
-
-                //right down
-                //1
-                context.drawImage(box_image, 343 + (4*55), 415 + (3*55),115,115);
-                //2
-                context.drawImage(box_image, 343 + (3*55), 415 + (3.5*55),115,115);
-                //3
-                context.drawImage(box_image, 343 + (2*55), 415 + (4*55),115,115);
-                //4
-                context.drawImage(box_image, 343 + (1*55), 415 + (4.5*55),115,115);
-
-                //must be drawn last (5) down because of overlapping
-                //5 down
-                context.drawImage(box_image, 343, 415 + (5*55),115,115);
+//                //1 left
+//                context.drawImage(box_image, 343 - (1*55), 415 + (1*27),115,115);
+//                //2 left
+//                context.drawImage(box_image, 343 - (2*55), 415 + (2*27),115,115);
+//                //3 left
+//                context.drawImage(box_image, 343 - (3*55), 415 + (3*27),115,115);
+//                //4 left
+//                context.drawImage(box_image, 343 - (4*55), 415 + (4*27),115,115);
+//                //5 left
+//                context.drawImage(box_image, 343 - (5*55), 415 + (5*27),115,115);
+//
+//                //directly down
+//                //1 down
+//                context.drawImage(box_image, 343, 415 + (1*55),115,115);
+//                //2 down
+//                context.drawImage(box_image, 343, 415 + (2*55),115,115);
+//                //3 down
+//                context.drawImage(box_image, 343, 415 + (3*55),115,115);
+//                //4 down
+//                context.drawImage(box_image, 343, 415 + (4*55),115,115);
+//
+//                //left down
+//                //1
+//                context.drawImage(box_image, 343 - (4*55), 415 + (3*55),115,115);
+//                //2
+//                context.drawImage(box_image, 343 - (3*55), 415 + (3.5*55),115,115);
+//                //3
+//                context.drawImage(box_image, 343 - (2*55), 415 + (4*55),115,115);
+//                //4
+//                context.drawImage(box_image, 343 - (1*55), 415 + (4.5*55),115,115);
+//
+//
+//
+//
+//                //right down
+//                //1
+//                context.drawImage(box_image, 343 + (4*55), 415 + (3*55),115,115);
+//                //2
+//                context.drawImage(box_image, 343 + (3*55), 415 + (3.5*55),115,115);
+//                //3
+//                context.drawImage(box_image, 343 + (2*55), 415 + (4*55),115,115);
+//                //4
+//                context.drawImage(box_image, 343 + (1*55), 415 + (4.5*55),115,115);
+//
+//                //must be drawn last (5) down because of overlapping
+//                //5 down
+//                context.drawImage(box_image, 343, 415 + (5*55),115,115);
 
 
             }
