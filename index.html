@@ -21,20 +21,12 @@
             overflow: hidden;
         }
         /* make any canvas fill its container */
-        .container,canvas{
+        canvas{
             margin: 0 auto;
             width: 100%;
             background-color: antiquewhite;
             overflow: hidden;
             display: block;
-        }
-        #controls
-        {
-            bottom: 0;
-            left: 0;
-            position: absolute;
-            width: 100%;
-            background-color: black;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -196,6 +188,7 @@
             }
         }
 
+
         function addBox(arr, context){
             box_image = new Image();
             box_image.src = 'NewBlock.png';
@@ -315,12 +308,9 @@
 <body onload="load()">
 <div class="container">
     <canvas id="mycanvas" width="800" height="1500">
+        <input id="clickMe" type="button" value="clickme" onclick="load();" />
         Your browser does not support canvas
-        <menu id="controls">
-            <button type="submit"></button>
-        </menu>
     </canvas>
 </div>
-
 </body>
 </html>
