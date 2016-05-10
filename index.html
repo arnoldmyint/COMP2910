@@ -23,6 +23,14 @@
             overflow: hidden;
             display: block;
         }
+        #controls
+        {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            background-color: black;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script type="text/javascript">
@@ -185,7 +193,7 @@
 
         function addBox(arr, context){
             box_image = new Image();
-            box_image.src = 'block_image.png';
+            box_image.src = 'NewBlock.png';
             box_image.onload = function(){
                 context.restore();
                 context.setTransform(1, 0, 0, 1, 0, 0);
@@ -193,10 +201,10 @@
 //                    context.drawImage(box_image, arr[i].x, arr[i].y);
 //                }
                 for (var i=0; i<arr.length; i++){
-                    context.drawImage(box_image, 343-(arr[i].index%6)*arr[i].width, 415+(arr[i].index%6)*27,115,115);
+                    context.drawImage(box_image, 342-(arr[i].index%6)*arr[i].width, 415+(arr[i].index%6)*27,115,115);
                 }
-//                //first box
-//                context.drawImage(box_image, 343, 415,115,115);
+                //first box
+//                context.drawImage(box_image, 343+(0*55), 415+(0*55),115,115);
 //                //1 right
 //                context.drawImage(box_image, 343 + (1*55), 415 + (1*27),115,115);
 //                //2 right
@@ -255,8 +263,6 @@
 //                //must be drawn last (5) down because of overlapping
 //                //5 down
 //                context.drawImage(box_image, 343, 415 + (5*55),115,115);
-
-
             }
         }
 
@@ -274,16 +280,6 @@
             context.fillRect(arr[i].x, arr[i].y, arr[i].width, arr[i].height);
             return c++;
         }
-
-//        function addBox(arr, context){
-//            box_image = new Image();
-//            box_image.src = 'block_image.png';
-//            context.translate(50, 35);
-//            context.rotate(0.2);
-//            box_image.onload = function(){
-//                context.drawImage(box_image, 210, 160, 50, 60);
-//            }
-//        }
         $(window).bind('orientationchange', function(e) {
             switch ( window.orientation ) {
                 case 0:
@@ -314,7 +310,10 @@
 <body onload="load()">
 <div class="container">
     <canvas id="mycanvas" width="800" height="1500">
-        <p>Your browser does not support canvas</p>
+        Your browser does not support canvas
+        <menu id="controls">
+            <button type="submit"></button>
+        </menu>
     </canvas>
 </div>
 
