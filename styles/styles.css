@@ -3,6 +3,7 @@ body {
 }
 
 .buttons {
+    
     display             : table;
     margin              : 0 auto; 
 	box-shadow          : inset 0px 1px 0px 0px #97c4fe;
@@ -19,6 +20,24 @@ body {
 	text-decoration     : none;
 	text-shadow         : 0px 1px 0px #1570cd;
     width               : 150px;
+    
+}
+
+.play:before {
+    content             : "\25B6";
+}
+
+.star:before {
+    content             : "\2605";
+}
+
+.peace:before {
+    content             : "\262E";
+}
+
+
+.smile:before {
+    content             : "\263A";
 }
 
 .buttons:hover {
