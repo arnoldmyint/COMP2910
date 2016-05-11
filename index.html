@@ -25,8 +25,12 @@
             margin: 0 auto;
             width: 100%;
             background-color: antiquewhite;
-            overflow: hidden;
             display: block;
+        }
+        #shapes{
+            margin: 0 auto;
+            display: block;
+            width: 20%;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -54,11 +58,13 @@
                 arr.push(rectObj);
                 cols++;
             }
+            context.save();
             if(canvas.width < window.innerWidth){
                 canvas.style.width="600px";
                 canvas.style.height="1200px";
                 container.style.width="100%";
                 container.style.backgroundColor="antiquewhite";
+
             }
             window.addEventListener("resize", resizeCanvas, false);
             function resizeCanvas() {
@@ -195,16 +201,17 @@
         }
 
         function shapes(context) {
-            image = new Image();
-            image.src = 'NewBlock.png';
-            context.drawImage(image, 0,0);
+            context.restore();
+            frame=document.getElementById("shapes");
+            context.drawImage(frame,7,1120,789,295);
+            eraser=document.getElementById("eraser");
+            context.drawImage(eraser,7,750,400,220);
         }
 
         function addBox(arr, context){
             box_image = new Image();
             box_image.src = 'images/NewBlock.png';
             box_image.onload = function(){
-                context.restore();
                 context.setTransform(1, 0, 0, 1, 0, 0);
 //                for(var i=0; i<arr.length; i++) {
 //                    context.drawImage(box_image, arr[i].x, arr[i].y);
@@ -322,6 +329,8 @@
     <canvas id="mycanvas" width="800" height="1500">
         Your browser does not support canvas
     </canvas>
+    <img id="shapes" src="Selector.png"/>
+    <img id="eraser" src="images/Erase_Button.png" />
 </div>
 </body>
 </html>
