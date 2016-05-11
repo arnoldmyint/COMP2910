@@ -89,8 +89,8 @@
             left_wall(arr,context);
             frame_horizontal(context);
             frame_vertical(context);
-            addBox(arr,context);
-            shapes(context);
+            //addBox(arr,context);
+            //shapes(context);
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
         }
         function floor(arr, context){
@@ -151,7 +151,7 @@
             grd_left.addColorStop(1, "#faebd7");
             //bottom_left
             context.fillStyle=grd_left;
-            context.setTransform(1,0.5,0,4,15,610);
+            context.setTransform(1,0.5,0,2,15,610);
             for(var i=0; i<7; i++) {
                 context.strokeRect(i*55,0,55,55);
                 context.fillRect(i*55,0,55,55);
@@ -162,7 +162,7 @@
             grd_right.addColorStop(1, "#faebd7");
             //bottom_right
             context.fillStyle=grd_right;
-            context.setTransform(1,-0.5,0,4,400,803);
+            context.setTransform(1,-0.5,0,2,400,803);
             for(var i=0; i<7; i++) {
                 context.strokeRect(i*55,0,55,55);
                 context.fillRect(i*55,0,55,55);
