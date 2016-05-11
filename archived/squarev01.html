@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Ball Game</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="stylesheet" href="">
+        <script>
+            window.onload=function(){
+                var canvas=document.getElementById("mycanvas");
+                var cobj=canvas.getContext("2d");
+                var arr=[];
+                for(var i=0; i<32; i++){
+                    var rectObj={
+                        width:50,height:50,color:"rgba("+parseInt(255*Math.random())+","+parseInt(255*Math.random())+","+parseInt(255*Math.random())+",255)"
+                    }
+                    arr.push(rectObj);
+                }
+                var newarr=[];
+                for(var i=0; i<2; i++){
+                    for(var j=0; j<arr.length; j++){
+                        newarr.push(arr[j]);
+                    }
+                }
+                var rows=0;
+                var cols=0;
+                for(var i=0; i<newarr.length; i++){
+                    if(i%8==0){
+                        rows++;
+                        cols=0;
+                    }
+                    cobj.beginPath();
+                    cobj.fillStyle=newarr[i].color;
+                    cobj.rect(cols*(newarr[i].width),rows*(newarr[i].height),newarr[i].width, newarr[i].height);
+                    cobj.fill();
+                    cols++;
+                }
+            }
+        </script>
+        <style>
+            body:{
+                margin: auto;
+                padding: 0;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <canvas id="mycanvas" width="500" height="500">
+                <p>Your browser does not support canvas</p>
+            </canvas>
+        </center>
+    
+    </body>
+</html>
