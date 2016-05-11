@@ -3,7 +3,7 @@
 <head>
     <title>The Ball Game</title>
     <meta charset="utf-8">
-
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="stylesheet" href="">
@@ -204,7 +204,7 @@
         function shapes(context) {
             context.restore();
             frame=document.getElementById("shapes");
-            context.drawImage(frame,7,1120,789,295);
+            context.drawImage(frame,7,1000,789,295);
             eraser=document.getElementById("eraser");
             context.drawImage(eraser,7,750,400,220);
         }
