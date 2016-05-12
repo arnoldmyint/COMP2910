@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Ball Game</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="stylesheet" href="">
+        <style>
+            canvas{
+                background: #bbb; display: block; margin: 0 auto;
+            }
+        </style>
+        <script>
+            function load(){
+                var canvas=document.getElementById("mycanvas");
+                var cobj=canvas.getContext("2d");
+                var arr=[];
+                for(var i=0; i<64; i++){
+                    var rectObj={
+                        width:30,height:30,color:"grey",x:0,y:0
+                    }
+                    arr.push(rectObj);
+                }
+				//floor(arr,cobj);
+				//right_wall(arr,cobj);
+				left_wall(arr,cobj);
+				var myVar = setInterval(function(){floor(arr,cobj),right_wall(arr,cobj)}, 300);
+			}
+			function floor(arr, cobj){
+				var farr = arr.slice();
+                var rows=0;
+                var cols=0;
+                for(var i=0; i<farr.length; i++){
+                    if(i%8==0){
+                        rows++;
+                        cols=0;
+                    }
+                cobj.beginPath();
+                cobj.fillStyle=farr[i].color;
+                cobj.setTransform(1,0.4,-1,0.5,410,400);
+				farr[i].x=cols*farr[i].width;
+				farr[i].y=rows*farr[i].height;
+                cobj.strokeRect(farr[i].x,farr[i].y,farr[i].width,farr[i].height);
+				cobj.fillRect(farr[i].x,farr[i].y,farr[i].width,farr[i].height);
+				/*
+                cobj.restore();
+                cobj.fillStyle="LightGrey";
+                
+                cobj.strokeRect(cols*arr[i].width,rows*arr[i].height,arr[i].width,arr[i].height);
+                cobj.fillRect(cols*arr[i].width,rows*arr[i].height,arr[i].width,arr[i].height);
+                cobj.restore();
+                cobj.fillStyle="DarkGrey";
+                cobj.setTransform(1,-0.495,0,1,140,264);
+                cobj.strokeRect(cols*arr[i].width,rows*arr[i].height,arr[i].width,arr[i].height);
+                cobj.fillRect(cols*arr[i].width,rows*arr[i].height,arr[i].width,arr[i].height);
+				*/
+                cols++;
+                }
+				randomize(farr,cobj);
+            }
+			function right_wall(arr,cobj){
+				var rarr = arr.slice();
+                var rows=0;
+                var cols=0;
+                for(var i=0; i<rarr.length; i++){
+                    if(i%8==0){
+                        rows++;
+                        cols=0;
+                    }
+                cobj.beginPath();
+                cobj.fillStyle="LightGrey";
+                cobj.setTransform(1,0.4,0,1,380,145);
+				rarr[i].x=cols*rarr[i].width;
+				rarr[i].y=rows*rarr[i].height;
+                cobj.strokeRect(rarr[i].x,rarr[i].y,rarr[i].width,rarr[i].height);
+				cobj.fillRect(rarr[i].x,rarr[i].y,rarr[i].width,rarr[i].height);
+				cols++;
+				}
+				randomize(rarr,cobj);
+			}
+			function left_wall(arr,cobj){
+				var larr = arr.slice();
+                var rows=0;
+                var cols=0;
+                for(var i=0; i<larr.length; i++){
+                    if(i%8==0){
+                        rows++;
+                        cols=0;
+                    }
+                cobj.beginPath();
+                cobj.fillStyle="DarkGrey";
+                cobj.setTransform(1,-0.495,0,1,140,264);
+				larr[i].x=cols*larr[i].width;
+				larr[i].y=rows*larr[i].height;
+                cobj.strokeRect(larr[i].x,larr[i].y,larr[i].width,larr[i].height);
+				cobj.fillRect(larr[i].x,larr[i].y,larr[i].width,larr[i].height);
+				cols++;
+				}
+			}
+			function randomize(random_arr,cobj){
+				var arr_ran = random_arr.slice();
+				do{
+					var i = parseInt(64*Math.random());
+				}while(arr_ran[i].color == "red");
+				arr_ran[i].color = "red";
+				//cobj.restore();
+				cobj.fillStyle=arr_ran[i].color;
+				cobj.fillRect(arr_ran[i].x,arr_ran[i].y,arr_ran[i].width,arr_ran[i].height);
+				arr_ran[i].color = "grey";
+				return i;
+			}
+        </script>
+    </head>
+    <body onload="load()">
+        <center>
+            <canvas id="mycanvas" width="800" height="800">
+                <p>Your browser does not support canvas</p>
+            </canvas>
+        </center>
+    
+    </body>
+</html>

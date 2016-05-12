@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Ball Game</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="stylesheet" href="">
+        <style>
+            canvas{
+                background: #bbb; display: block; margin: 0 auto;
+            }
+        </style>
+        <script>
+            function load(){
+                var canvas=document.getElementById("mycanvas");
+                var cobj=canvas.getContext("2d");
+                var arr=[];
+                for(var i=0; i<64; i++){
+                    var rectObj={
+                        width:30,height:30,color:"rgba("+parseInt(255*Math.random())+","+parseInt(255*Math.random())+","+parseInt(255*Math.random())+",255)"
+                    }
+                    arr.push(rectObj);
+                }
+                var rows=0;
+                var cols=0;
+                for(var i=0; i<arr.length; i++){
+                    if(i%8==0){
+                        rows++;
+                        cols=0;
+                    }
+                cobj.beginPath();
+                cobj.fillStyle=arr[i].color;
+                cobj.save();
+                cobj.setTransform(1,0.4,-1,0.5,400,400);
+                cobj.fillRect(cols*arr[i].width,rows*arr[i].height,arr[i].width,arr[i].height);
+                cobj.restore();
+                cobj.save();
+                cobj.setTransform(1,0.4,0,1,370,145);
+                cobj.fillRect(cols*arr[i].width,rows*arr[i].height,arr[i].width,arr[i].height);
+                cobj.restore();
+                cobj.save();
+                cobj.setTransform(1,-0.495,0,1,130,264);
+                cobj.fillRect(cols*arr[i].width,rows*arr[i].height,arr[i].width,arr[i].height);
+                cols++;
+                }  
+            }
+            var myVar = setInterval(function(){load()}, 550);
+        </script>
+    </head>
+    <body onload="load()">
+        <center>
+            <canvas id="mycanvas" width="800" height="800">
+                <p>Your browser does not support canvas</p>
+            </canvas>
+        </center>
+    
+    </body>
+</html>

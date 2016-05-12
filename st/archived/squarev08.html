@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Ball Game</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="">
+    <style>
+        body{margin: 0; padding: 0;}
+        canvas{margin: 0 auto;background: #bbb; display: block;}
+    </style>
+    <script>
+        var c=0;
+        function load(){
+            canvas=document.getElementById("mycanvas");
+            var cobj=canvas.getContext("2d");
+            //this is for adjust the canvas size
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            var arr=[];
+            var rows=0;
+            var cols=0;
+            for(var i=0; i<64; i++){
+                var rectObj={
+                    width:30,height:30,color:"grey",x:0,y:0,index:0
+                }
+                if(i%8==0){
+                    rows++;
+                    cols=0;
+                }
+                rectObj.x=cols*rectObj.width;
+                rectObj.y=rows*rectObj.height;
+                rectObj.index=i;
+                arr.push(rectObj);
+                cols++;
+            }
+            //cobj.save();
+            floor(arr,cobj);
+            right_wall(arr,cobj);
+            left_wall(arr,cobj);
+            //var myVar = setInterval(function(){floor(arr,cobj),right_wall(arr,cobj)}, 50);
+        }
+
+        function floor(arr, cobj){
+            for(var i=0; i<arr.length; i++){
+                cobj.beginPath();
+                cobj.fillStyle=arr[i].color;
+                cobj.setTransform(1,0.4,-1,0.5,410,400);
+                cobj.strokeRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
+                cobj.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
+            }
+            if(randomize(arr,cobj)%55 == 0){
+                for(var i=0; i<64; i++){
+                    arr[i].color = "grey";
+                }
+            }
+        }
+        function right_wall(arr,cobj){
+            for(var i=0; i<arr.length; i++){
+                cobj.beginPath();
+                cobj.fillStyle=arr[i].color;
+                cobj.setTransform(1,0.4,0,1,380,145);
+                cobj.strokeRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
+                cobj.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
+            }
+            if(randomize(arr,cobj)%55 == 0){
+                for(var i=0; i<64; i++){
+                    arr[i].color = "LightGrey";
+                }
+            }
+        }
+
+        function left_wall(arr,cobj){
+            for(var i=0; i<arr.length; i++){
+                cobj.beginPath();
+                cobj.fillStyle="DarkGrey";
+                cobj.setTransform(1,-0.495,0,1,140,264);
+                cobj.strokeRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
+                cobj.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
+            }
+        }
+        function randomize(arr,cobj){
+            do{
+                var i = parseInt(64*Math.random());
+                if(arr[i].index < 8){
+                    arr[i].color = "black";
+                }
+            }while(arr[i].color == "red" || arr[i].color == "black");
+
+            arr[i].color = "red";
+            cobj.fillStyle=arr[i].color;
+            cobj.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
+            return c++;
+        }
+    </script>
+</head>
+<body onload="load()">
+<canvas id="mycanvas" width="800" height="800">
+    <p>Your browser does not support canvas</p>
+</canvas>
+</body>
+</html>
