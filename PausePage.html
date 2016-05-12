@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+        <script src="https://cdn.jsdelivr.net/jquery/3.0.0-beta1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("a").click(function(){
+                    if($(this).hasClass("buttons muteno")){
+                    $("a").removeClass("buttons muteno").addClass("buttons muteyes");
+            } else {$("a").removeClass("buttons muteyes").addClass("buttons muteno");}
+                });
+            });
+            </script>
+    </head>
+    
+    <body>   
+    <div id="pauseImage"> <img src="images/pause.png" alt="PAUSE"/></div>
+    <div class="buttons resume"> Resume </div> <br/>
+    <div class="buttons menu"> Menu </div> <br/>
+    <a class="buttons muteno"> Mute </a> <br/>
+    </body>
+</html>

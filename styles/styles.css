@@ -40,6 +40,22 @@ body {
     content             : "\263A";
 }
 
+.resume:before {
+    content             : "\27F2";
+}
+
+.menu:before {
+    content             : "\2630";
+}
+
+.muteno:before {
+    content             : "\2611";
+}
+
+.muteyes:before {
+    content             : "\2612";
+}
+
 .buttons:hover {
 	background-color    : #1e62d0;
     border              : solid 1px #1e62d0;
@@ -50,4 +66,8 @@ body {
     box-shadow          : inset 0 1px 4px rgba(0, 0, 0, 0.6);
 	position            : relative;
 	top                 : 1px;
+}
+
+#pauseImage{
+	text-align: center;
 }
