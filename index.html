@@ -24,7 +24,6 @@
         canvas{
             margin: 0 auto;
             width: 100%;
-            height: 100%;
             background-color: antiquewhite;
             display: block;
         }
@@ -91,7 +90,7 @@
             for(var i=0; i<arr.length; i++){
                 context.beginPath();
                 context.fillStyle="#48DACD";
-                context.setTransform(1,0.5,-1,0.5,455,445);
+                context.setTransform(1,0.5,-1,0.5,455,395);
                 context.strokeStyle="black";
                 context.strokeRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
@@ -109,7 +108,7 @@
                 context.beginPath();
                 context.fillStyle="#00B2A3";
                 context.strokeStyle="#faebd7";
-                context.setTransform(1,0.5,0,1,400,88);
+                context.setTransform(1,0.5,0,1,400,38);
                 context.strokeRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 arr[i].type="right_wall";
@@ -127,7 +126,7 @@
                 context.beginPath();
                 context.fillStyle="#007A6F";
                 context.strokeStyle="#faebd7";
-                context.setTransform(1,-0.5,0,1,70,253);
+                context.setTransform(1,-0.5,0,1,70,203);
                 context.strokeRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
             }
@@ -145,7 +144,7 @@
             grd_left.addColorStop(1, "#faebd7");
             //bottom_left
             context.fillStyle=grd_left;
-            context.setTransform(1,0.5,0,2,15,610);
+            context.setTransform(1,0.5,0,2,15,560);
             for(var i=0; i<7; i++) {
                 context.strokeRect(i*55,0,55,55);
                 context.fillRect(i*55,0,55,55);
@@ -156,7 +155,7 @@
             grd_right.addColorStop(1, "#faebd7");
             //bottom_right
             context.fillStyle=grd_right;
-            context.setTransform(1,-0.5,0,2,400,803);
+            context.setTransform(1,-0.5,0,2,400,753);
             for(var i=0; i<7; i++) {
                 context.strokeRect(i*55,0,55,55);
                 context.fillRect(i*55,0,55,55);
@@ -164,13 +163,13 @@
 
             context.fillStyle="#48DACD";
             //top_right
-            context.setTransform(1,0.5,-1,0.5,400,88);
+            context.setTransform(1,0.5,-1,0.5,400,38);
             for(var i=0; i<7; i++) {
                 context.strokeRect(i*55,0,55,55);
                 context.fillRect(i*55,0,55,55);
             }
             //top_left
-            context.setTransform(1,-0.5,1,0.5,15,280);
+            context.setTransform(1,-0.5,1,0.5,15,230);
             for(var i=0; i<6; i++) {
                 context.strokeRect(i*55,0,55,55);
                 context.fillRect(i*55,0,55,55);
@@ -180,14 +179,14 @@
             context.beginPath();
             context.fillStyle="#007A6F";
             //right
-            context.setTransform(1,-0.5,0,1,730,308);
+            context.setTransform(1,-0.5,0,1,730,258);
             for(var i=0; i<6; i++) {
                 context.strokeRect(0,i*55,55,55);
                 context.fillRect(0,i*55,55,55);
             }
             context.fillStyle="#00B2A3";
             //left
-            context.setTransform(1,0.5,0,1,15,280);
+            context.setTransform(1,0.5,0,1,15,230);
             for(var i=0; i<6; i++) {
                 context.strokeRect(0,i*55,55,55);
                 context.fillRect(0,i*55,55,55);
@@ -197,9 +196,9 @@
         function control_panel(context) {
             context.restore();
             frame=document.getElementById("control_panel");
-            context.drawImage(frame,7,900,789,295);
+            context.drawImage(frame,8,850,789,295);
             eraser=document.getElementById("eraser");
-            context.drawImage(eraser,7,680,400,210);
+            context.drawImage(eraser,7,630,400,210);
         }
 
         function addBox(arr, context){
@@ -211,7 +210,7 @@
 //                    context.drawImage(box_image, arr[i].x, arr[i].y);
 //                }
                 for (var i=0; i<arr.length; i++){
-                    context.drawImage(box_image, 342-(arr[i].index%6)*arr[i].width, 415+(arr[i].index%6)*27,115,115);
+                    context.drawImage(box_image, 342-(arr[i].index%6)*arr[i].width, 365+(arr[i].index%6)*27,115,115);
                 }
                 //first box
 //                context.drawImage(box_image, 343+(0*55), 415+(0*55),115,115);
