@@ -41,7 +41,7 @@
             var cols=0;
             for(var i=0; i<36; i++){
                 rectObj={
-                    width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,point:[{x_c:0,y_c:0}]
+                    width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,point:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}]
                 };
                 if(i%6==0){
                     rows++;
@@ -85,6 +85,7 @@
             addBox(arr,context);
             control_panel(context);
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
+
         }
         function floor(arr, context){
             for(var i=0; i<arr.length; i++){
@@ -227,7 +228,7 @@
                     context.drawImage(box_image, 342-(arr[i].index%6)*arr[i].width, 365+(arr[i].index%6)*27,115,115);
                 }
                 //first box
-//                context.drawImage(box_image, 343+(0*55), 415+(0*55),115,115);
+                //context.drawImage(box_image, 343+(0*55), 415+(0*55),115,115);
 //                //1 right
 //                context.drawImage(box_image, 343 + (1*55), 415 + (1*27),115,115);
 //                //2 right
@@ -286,6 +287,29 @@
 //                //must be drawn last (5) down because of overlapping
 //                //5 down
 //                context.drawImage(box_image, 343, 415 + (5*55),115,115);
+            }
+        }
+
+        function getPoints(arr,a,b,c,d,e,f){
+            var i;
+            for(i = 0; i < 36; i++){
+                var x = arr[i].x;
+                var y = arr[i].y;
+
+                arr[i].point[0].x = (a*x) + (c*y) + e;
+                arr[i].point[0].y = b*x + d*y + f;
+
+                x += 55;
+                arr[i].point[1].x = a*x + c*y + e;
+                arr[i].point[1].y = b*x + d*y + f;
+
+                y+= 55;
+                arr[i].point[2].x = a*x + c*y + e;
+                arr[i].point[2].y = b*x + d*y + f;
+
+                x -= 55;
+                arr[i].point[3].x = a*x + c*y + e;
+                arr[i].point[3].y = b*x + d*y + f;
             }
         }
 
