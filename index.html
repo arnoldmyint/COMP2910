@@ -21,16 +21,12 @@
             overflow: hidden;
         }
         /* make any canvas fill its container */
-        canvas{
+        #container,canvas{
             margin: 0 auto;
             width: 100%;
+            height: 100%;
             background-color: antiquewhite;
             display: block;
-        }
-        #shapes{
-            margin: 0 auto;
-            display: block;
-            width: 20%;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -62,7 +58,6 @@
             if(canvas.width < window.innerWidth){
                 canvas.style.width="600px";
                 canvas.style.height="1200px";
-                container.style.width="100%";
                 container.style.backgroundColor="antiquewhite";
 
             }
@@ -71,7 +66,6 @@
                 if(canvas.width < window.innerWidth){
                     canvas.style.width="600px";
                     canvas.style.height="1200px";
-                    container.style.width="100%";
                     container.style.backgroundColor="antiquewhite";
                 } else {
                     canvas.style.width = window.innerWidth*window.devicePixelRatio;
@@ -90,7 +84,7 @@
             frame_horizontal(context);
             frame_vertical(context);
             addBox(arr,context);
-            shapes(context);
+            control_panel(context);
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
         }
         function floor(arr, context){
@@ -200,9 +194,9 @@
             }
         }
 
-        function shapes(context) {
+        function control_panel(context) {
             context.restore();
-            frame=document.getElementById("shapes");
+            frame=document.getElementById("control_panel");
             context.drawImage(frame,7,900,789,295);
             eraser=document.getElementById("eraser");
             context.drawImage(eraser,7,680,400,210);
@@ -329,7 +323,7 @@
     <canvas id="mycanvas" width="800" height="1500">
         Your browser does not support canvas
     </canvas>
-    <img id="shapes" src="Selector.png"/>
+    <img id="control_panel" src="Selector.png"/>
     <img id="eraser" src="images/Erase_Button.png" />
 </div>
 </body>
