@@ -41,7 +41,7 @@
             var cols=0;
             for(var i=0; i<36; i++){
                 rectObj={
-                    width:55,height:55,color:"grey",x:0,y:0,index:0,type:null
+                    width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,point:[{x_c:0,y_c:0}]
                 };
                 if(i%6==0){
                     rows++;
@@ -199,6 +199,20 @@
             context.drawImage(frame,8,850,789,295);
             eraser=document.getElementById("eraser");
             context.drawImage(eraser,7,630,400,210);
+            box=new Image();
+            box.src="images/NewBlock.png";
+            box.onload=function () {
+                context.drawImage(box,140,900);
+            };
+            var x,y;
+            function GetMouse(oEvent) {
+                x = oEvent.clientX;
+                y = oEvent.clientY;
+                box.style.left = (parseInt(x) - 100) + "px";
+                box.style.top = y + "px";
+            }
+            box.onmousedown=function () {GetMouse(oEvent);};
+            box.onmousemove=function () {GetMouse(oEvent);}
         }
 
         function addBox(arr, context){
