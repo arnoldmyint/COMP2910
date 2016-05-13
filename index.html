@@ -357,13 +357,12 @@
             rectObj.point[3].y = b*x + d*y + f;
         }
 
-        function tileClicked(arr, x, y) {
-            var i;
-
-            for (i = 0; i < 36; i++) {
-                if (x >= arr[i].point[3].x && x <= arr[i].point[1].x && y >= arr[i].point[0].y && y <= arr[i].point[2].y)
-                    return arr[i];
-            }
+        function tileClicked(rectObj, x, y) {
+                if (x >= rectObj.point[3].x && x <= rectObj.point[1].x && y >= rectObj.point[0].y && y <= rectObj.point[2].y){
+                    return true;
+				}	else {
+					return false;
+				}
         }
 
         function randomize(arr,context) {
