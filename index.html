@@ -240,8 +240,9 @@
                     },false);
                     canvas.addEventListener('touchend',function (e) {
                         canvas.removeEventListener('touchmove',this,false);
-                    },false)
-                    canvas.removeEventListener('touchend',this,false);
+                        canvas.removeEventListener('touchend',this,false);
+                        canvas.removeEventListener('touchstart',this,false);
+                    },false);
                 }
             },false);
 
