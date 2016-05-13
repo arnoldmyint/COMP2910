@@ -58,11 +58,6 @@
                 arr.push(rectObj);
                 cols++;
             }
-            function stopScrolling(touchEvent) {
-                touchEvent.preventDefault();
-            }
-            document.addEventListener('touchstart',stopScrolling,false);
-            document.addEventListener('touchmove',stopScrolling,false);
             context.save();
             if(canvas.width < window.innerWidth){
                 canvas.style.width="600px";
@@ -96,7 +91,11 @@
             //addBox(arr,context);
             control_panel(context);
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
-
+            document.addEventListener('touchstart',stopScrolling,false);
+            document.addEventListener('touchmove',stopScrolling,false);
+        }
+        function stopScrolling(touchEvent) {
+            touchEvent.preventDefault();
         }
         function floor(arr, context){
             for(var i=0; i<arr.length; i++){
@@ -227,15 +226,14 @@
                 //click box
                 if(x > 135 && y > 900 && x < 218 && y < 987){
                     canvas.onmousemove = function (e) {
-                        alert(1);
                         var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
                         //context.clearRect(0,0,500,500);
                         context.drawImage(box,point.x,point.y);
                     };
-//                    canvas.onmouseup=function () {
-//                        canvas.onmousemove=null;
-//                        canvas.onmouseup=null;
-//                    }
+                    canvas.onmouseup=function () {
+                        canvas.onmousemove=null;
+                        canvas.onmouseup=null;
+                    }
                 }
             }
         }
