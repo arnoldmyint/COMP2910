@@ -231,14 +231,10 @@
                 var x = point.x;
                 var y = point.y;
                 if(x > 135 && y > 900 && x < 218 && y < 987) {
-//                    canvas.addEventListener('touchmove',function (e) {
-//                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
-//                        context.drawImage(box,point.x,point.y);
-//                    },false);
-                    canvas.touchmove=function (e) {
+                    canvas.addEventListener('touchmove',function (e) {
                         var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
                         context.drawImage(box,point.x,point.y);
-                    }
+                    },false);
                 }
             },false);
 
