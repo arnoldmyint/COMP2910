@@ -239,8 +239,8 @@
                         context.drawImage(box,boxes.x,boxes.y);
                     },false);
                     canvas.addEventListener('touchend',function (e) {
-                        e.changedTouches = null;
-                        e.touches = null;
+                        this.canvas.removeEventListener('touchmove',this,false);
+                        this.canvas.removeEventListener('touchend',this,false);
                     },false)
                 }
             },false);
