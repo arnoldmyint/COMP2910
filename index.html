@@ -304,11 +304,17 @@
                 case 0:
                     $('.turnDeviceNotification').css('display', 'none');
                     // The device is in portrait mode now
+                    if(device.tablet() && !device.landscape()){
+                        alert("Please rotate your phone to landscape to continue!");
+                    }
                     break;
 
                 case 180:
                     $('.turnDeviceNotification').css('display', 'none');
                     // The device is in portrait mode now
+                    if(device.tablet() && !device.landscape()){
+                        alert("Please rotate your phone to landscape to continue!");
+                    }
                     break;
 
                 case 90:
