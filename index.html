@@ -211,7 +211,7 @@
             box=document.getElementById("box");
             context.drawImage(box,136,900);
             //add mouse event
-            canvas.onclick=function (e) {
+            canvas.onmousedown=function (e) {
                 var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
                 var x = point.x;
                 var y = point.y;
@@ -219,10 +219,15 @@
                 //alert(y);
                 //click box
                 if(x > 135 && y > 900 && x < 218 && y < 987){
-                        $(document).mousemove(function (e) {
-                            var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
-                            context.drawImage(box,point.x,point.y);
-                        });
+                    canvas.onmousemove = function (e) {
+                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+                        //context.clearRect(0,0,500,500);
+                        context.drawImage(box,point.x,point.y);
+                    };
+                    canvas.onmouseup=function () {
+                        canvas.onmousemove=null;
+                        canvas.onmouseup=null;
+                    }
                 }
             }
         }
