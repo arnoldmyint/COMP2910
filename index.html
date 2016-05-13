@@ -206,11 +206,11 @@
             context.drawImage(eraser,7,630,400,210);
             box=document.getElementById("box");
             context.drawImage(box,136,900);
-            canvas.onmousedown=function (e) {
+            canvas.onclick=function (e) {
                 var x = e.layerX;
                 var y = e.layerY;
-//                alert(x);
-//                alert(y);
+                alert(x);
+                alert(y);
                 if(x > 60 && y > 720 && x < 125 && y < 790){
                     alert(1);
                 }
