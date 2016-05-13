@@ -225,7 +225,6 @@
             context.drawImage(box,136,900);
             //add mouse event
             canvas.addEventListener('touchstart',function (e) {
-                var boxes=[{x:0,y:0}];
                 e.preventDefault();
                 var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
                 var x = point.x;
@@ -235,10 +234,12 @@
                         if(e.targetTouches.length > 1 ||  e.scale && e.scale !== 1){
                             return;
                         }
-                        boxes = getPointOnCanvas(canvas, e.pageX, e.pageY);
-                        context.drawImage(box,boxes.x,boxes.y);
+//                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+//                        context.drawImage(box,point.x,point.y);
                     },true);
                     canvas.addEventListener('touchend',function (e) {
+                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+                        context.drawImage(box,point.x,point.y);
                         canvas.removeEventListener('touchmove',this,false);
                         canvas.removeEventListener('touchend',this,false);
                         canvas.removeEventListener('touchstart',this,false);
