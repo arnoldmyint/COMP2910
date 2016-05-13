@@ -346,6 +346,15 @@
             }
         }
 
+        function tileClicked(arr, x, y) {
+            var i;
+
+            for (i = 0; i < 36; i++) {
+                if (x >= arr[i].point[3].x && x <= arr[i].point[1].x && y >= arr[i].point[0].y && y <= arr[i].point[2].y)
+                    return arr[i];
+            }
+        }
+
         function randomize(arr,context) {
             do {
                 var i = parseInt(36 * Math.random());
