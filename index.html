@@ -95,14 +95,15 @@
             getPoints(arr, 1,0.5,-1,0.5,455,395);
             //addBox(arr,context);
             if(device.mobile()){
-                control_panel(context);
+//                function stopScrolling(touchEvent) {
+//                    touchEvent.preventDefault();
+//                }
+//                document.addEventListener('touchstart',stopScrolling,false);
+//                document.addEventListener('touchmove',stopScrolling,false);
+                control_phone(context);
             }
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
-            //document.addEventListener('touchstart',stopScrolling,false);
-            //document.addEventListener('touchmove',stopScrolling,false);
-        }
-        function stopScrolling(touchEvent) {
-            touchEvent.preventDefault();
+
         }
         function floor(arr, context){
             for(var i=0; i<arr.length; i++){
@@ -213,7 +214,7 @@
 
 
 
-        function control_panel(context) {
+        function control_phone(context) {
             context.restore();
             frame=document.getElementById("control_panel");
             context.drawImage(frame,8,850,789,295);
@@ -224,25 +225,39 @@
             box=document.getElementById("box");
             context.drawImage(box,136,900);
             //add mouse event
-            canvas.onmousedown=function (e) {
+            canvas.addEventListener('touchstart',function (e) {
+                e.preventDefault();
                 var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
                 var x = point.x;
                 var y = point.y;
-                //alert(x);
-                //alert(y);
-                //click box
-                if(x > 135 && y > 900 && x < 218 && y < 987){
-                    canvas.onmousemove = function (e) {
-                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
-                        //context.clearRect(0,0,500,500);
-                        context.drawImage(box,point.x,point.y);
-                    };
-                    canvas.onmouseup=function () {
-                        canvas.onmousemove=null;
-                        canvas.onmouseup=null;
-                    }
+                alert(e.clientX);
+                alert(e.pageX);
+                if(x > 135 && y > 900 && x < 218 && y < 987) {
+                    alert(2);
                 }
-            }
+            },false);
+
+//            canvas.touchstart=function (e) {
+//                //e.preventDefault();
+//                alert(1);
+//                var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+//                var x = point.x;
+//                var y = point.y;
+//                //alert(x);
+//                //alert(y);
+//                //click box
+//                if(x > 135 && y > 900 && x < 218 && y < 987){
+//                    canvas.touchmove = function (e) {
+//                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+//                        //context.clearRect(0,0,500,500);
+//                        context.drawImage(box,point.x,point.y);
+//                    };
+//                    canvas.touchend=function () {
+////                        canvas.onmousemove=null;
+////                        canvas.onmouseup=null;
+//                    }
+//                }
+//            }
         }
 
 
