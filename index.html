@@ -3,7 +3,7 @@
 <head>
     <title>The Ball Game - Test</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="stylesheet" href="">
@@ -204,20 +204,17 @@
             context.drawImage(frame,8,850,789,295);
             eraser=document.getElementById("eraser");
             context.drawImage(eraser,7,630,400,210);
-            box=new Image();
-            box.src="images/NewBlock.png";
-            box.onload=function () {
-                context.drawImage(box,140,900);
-            };
-            var x,y;
-            function GetMouse(oEvent) {
-                x = oEvent.clientX;
-                y = oEvent.clientY;
-                box.style.left = (parseInt(x) - 100) + "px";
-                box.style.top = y + "px";
+            box=document.getElementById("box");
+            context.drawImage(box,136,900);
+            canvas.onmousedown=function (e) {
+                var x = e.layerX;
+                var y = e.layerY;
+//                alert(x);
+//                alert(y);
+                if(x > 60 && y > 720 && x < 125 && y < 790){
+                    alert(1);
+                }
             }
-            box.onmousedown=function () {GetMouse(oEvent);};
-            box.onmousemove=function () {GetMouse(oEvent);}
         }
 
         function addBox(arr, context){
@@ -297,12 +294,13 @@
 </head>
 
 <body onload="load()">
-<div id="container">
+<div id="container"  align="center">
     <canvas id="mycanvas" width="800" height="1500">
         Your browser does not support canvas
     </canvas>
-    <img id="control_panel" src="Selector.png"/>
+    <img id="control_panel" src="Selector.png" />
     <img id="eraser" src="images/Erase_Button.png" />
+    <img id="box" src="images/NewBlock.png" />
 </div>
 </body>
 </html>
