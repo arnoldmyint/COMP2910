@@ -232,11 +232,11 @@
                 var y = point.y;
                 if(x > 135 && y > 900 && x < 218 && y < 987) {
                     canvas.addEventListener('touchmove',function (e) {
-                        var box = getPointOnCanvas(canvas, e.pageX, e.pageY);
+                        boxes = getPointOnCanvas(canvas, e.pageX, e.pageY);
+                        context.drawImage(box,boxes.x,boxes.y);
                     },false);
                     canvas.addEventListener('touchend',function (e) {
-                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
-                        context.drawImage(box,point.x,point.y);
+                        touchmove = null;
                     },false)
                 }
             },false);
