@@ -83,7 +83,7 @@
             frame_horizontal(context);
             frame_vertical(context);
             getPoints(arr, 1,0.5,-1,0.5,455,395);
-            addBox(arr,context);
+            //addBox(arr,context);
             control_panel(context);
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
 
@@ -248,6 +248,15 @@
                 x -= 55;
                 arr[i].point[3].x = a*x + c*y + e;
                 arr[i].point[3].y = b*x + d*y + f;
+            }
+        }
+
+        function tileClicked(arr, x, y){
+            var i;
+
+            for(i = 0; i < 36; i++){
+                if(x >= arr[i].point[3].x && x <= arr[i].point[1].x && y >= arr[i].point[0] && y <= arr[i].point[2])
+                        return arr[i];
             }
         }
 
