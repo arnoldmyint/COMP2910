@@ -237,15 +237,15 @@
                         }
                         boxes = getPointOnCanvas(canvas, e.pageX, e.pageY);
                         context.drawImage(box,boxes.x,boxes.y);
-                    },false);
+                    },true);
                     canvas.addEventListener('touchend',function (e) {
                         canvas.removeEventListener('touchmove',this,false);
                         canvas.removeEventListener('touchend',this,false);
                         canvas.removeEventListener('touchstart',this,false);
                         e.stopPropagation();
-                    },false);
+                    },true);
                 }
-            },false);
+            },true);
         }
         function control_tablet(context) {
             context.restore();
