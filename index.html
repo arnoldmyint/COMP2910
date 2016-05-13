@@ -298,31 +298,34 @@
             context.fillRect(arr[i].x, arr[i].y, arr[i].width, arr[i].height);
             return c++;
         }
-        $(window).bind('orientationchange', function(e) {
-            switch ( window.orientation ) {
-                case 0:
-                    $('.turnDeviceNotification').css('display', 'none');
-                    // The device is in portrait mode now
-                    break;
+        if(window.innerWidth < window.innerHeight){
+            $(window).bind('orientationchange', function(e) {
+                switch ( window.orientation ) {
+                    case 0:
+                        $('.turnDeviceNotification').css('display', 'none');
+                        // The device is in portrait mode now
+                        break;
 
-                case 180:
-                    $('.turnDeviceNotification').css('display', 'none');
-                    // The device is in portrait mode now
-                    break;
+                    case 180:
+                        $('.turnDeviceNotification').css('display', 'none');
+                        // The device is in portrait mode now
+                        break;
 
-                case 90:
-                    // The device is in landscape now
-                    $('.turnDeviceNotification').css('display', 'block');
-                    alert("Please rotate your phone back to portrait mode to contunie!");
-                    break;
+                    case 90:
+                        // The device is in landscape now
+                        $('.turnDeviceNotification').css('display', 'block');
+                        alert("Please rotate your phone back to portrait mode to contunie!");
+                        break;
 
-                case -90:
-                    // The device is in landscape now
-                    $('.turnDeviceNotification').css('display', 'block');
-                    alert("Please rotate your phone back to portrait mode to contunie!");
-                    break;
-            }
-        });
+                    case -90:
+                        // The device is in landscape now
+                        $('.turnDeviceNotification').css('display', 'block');
+                        alert("Please rotate your phone back to portrait mode to contunie!");
+                        break;
+                }
+            });
+        }
+
     </script>
 </head>
 
