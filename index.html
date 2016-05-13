@@ -94,7 +94,9 @@
             frame_vertical(context);
             getPoints(arr, 1,0.5,-1,0.5,455,395);
             //addBox(arr,context);
-            control_panel(context);
+            if(device.mobile()){
+                control_panel(context);
+            }
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
             //document.addEventListener('touchstart',stopScrolling,false);
             //document.addEventListener('touchmove',stopScrolling,false);
@@ -308,7 +310,7 @@
                     $('.turnDeviceNotification').css('display', 'none');
                     // The device is in portrait mode now
                     if(device.tablet() && !device.landscape()){
-                        alert("Please rotate your phone to landscape to continue!");
+                        alert("Please rotate your tablet to landscape to continue!");
                     }
                     break;
 
