@@ -39,6 +39,7 @@
     <script type="text/javascript">
         var c=0;
         var rectObj;
+        var egg=false;
         function load(){
             canvas=document.getElementById("mycanvas");
             container=document.getElementById("container");
@@ -92,7 +93,6 @@
             left_wall(arr,context);
             frame_horizontal(context);
             frame_vertical(context);
-            getPoints(arr, 1,0.5,-1,0.5,455,395);
             //addBox(arr,context);
             if(device.mobile()){
                 control_phone(context);
@@ -113,6 +113,7 @@
                 context.strokeRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 arr[i].type="floor";
+                getPoints(arr[i], 1,0.5,-1,0.5,455,395);
             }
             if(randomize(arr,context)%29 == 0){
                 c=0;
@@ -147,6 +148,12 @@
                 context.setTransform(1,-0.5,0,1,70,203);
                 context.strokeRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
+                getPoints(arr[i], 1,-0.5,0,1,70,203);
+                }
+            if(device.desktop()){
+                canvas.onclick=function (e) {
+                    easter(arr,e);
+                }
             }
         }
         /*
@@ -212,6 +219,13 @@
         }
 
 
+        function easter(arr,e) {
+            //var i = parseInt(36 * Math.random());
+            var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+            alert(point.x);
+            alert(arr[0].point[0].x);
+            //if(arr[i].point[].x
+        }
 
         function control_phone(context) {
             context.restore();
@@ -323,27 +337,24 @@
             }
         }
 
-        function getPoints(arr,a,b,c,d,e,f){
-            var i;
-            for(i = 0; i < 36; i++){
-                var x = arr[i].x;
-                var y = arr[i].y;
+        function getPoints(rectObj,a,b,c,d,e,f){
+            var x = rectObj.x;
+            var y = rectObj.y;
 
-                arr[i].point[0].x = (a*x) + (c*y) + e;
-                arr[i].point[0].y = b*x + d*y + f;
+            rectObj.point[0].x = (a*x) + (c*y) + e;
+            rectObj.point[0].y = b*x + d*y + f;
 
-                x += 55;
-                arr[i].point[1].x = a*x + c*y + e;
-                arr[i].point[1].y = b*x + d*y + f;
+            x += 55;
+            rectObj.point[1].x = a*x + c*y + e;
+            rectObj.point[1].y = b*x + d*y + f;
 
-                y+= 55;
-                arr[i].point[2].x = a*x + c*y + e;
-                arr[i].point[2].y = b*x + d*y + f;
+            y+= 55;
+            rectObj.point[2].x = a*x + c*y + e;
+            rectObj.point[2].y = b*x + d*y + f;
 
-                x -= 55;
-                arr[i].point[3].x = a*x + c*y + e;
-                arr[i].point[3].y = b*x + d*y + f;
-            }
+            x -= 55;
+            rectObj.point[3].x = a*x + c*y + e;
+            rectObj.point[3].y = b*x + d*y + f;
         }
 
         function tileClicked(arr, x, y) {
@@ -369,7 +380,7 @@
             context.fillRect(arr[i].x, arr[i].y, arr[i].width, arr[i].height);
             return c++;
         }
-        $(window).bind('orientationchange', function(e) {
+        $(window).bind('orientationchange', function() {
             switch ( window.orientation ) {
                 case 0:
                     $('.turnDeviceNotification').css('display', 'none');
