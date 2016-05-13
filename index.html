@@ -238,13 +238,20 @@
                         boxes = getPointOnCanvas(canvas, e.pageX, e.pageY);
                         context.drawImage(box,boxes.x,boxes.y);
                     },false);
-                    canvas.addEventListener('touchend',function (e) {
+                    canvas.addEventListener('touchend',function () {
+                        alert(1);
                         canvas.removeEventListener('touchmove',this,false);
                         canvas.removeEventListener('touchend',this,false);
                         canvas.removeEventListener('touchstart',this,false);
                     },false);
+                    canvas.removeEventListener('touchmove',this,false);
+                    canvas.removeEventListener('touchend',this,false);
+                    canvas.removeEventListener('touchstart',this,false);
                 }
             },false);
+            canvas.removeEventListener('touchmove',this,false);
+            canvas.removeEventListener('touchend',this,false);
+            canvas.removeEventListener('touchstart',this,false);
 
         }
         function control_tablet(context) {
