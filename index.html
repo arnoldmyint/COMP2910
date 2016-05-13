@@ -216,7 +216,7 @@
             box=document.getElementById("box");
             context.drawImage(box,136,900);
             //add mouse event
-            canvas.onclick=function (e) {
+            canvas.onmousedown=function (e) {
                 var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
                 var x = point.x;
                 var y = point.y;
