@@ -225,19 +225,19 @@
             context.drawImage(box,136,900);
             //add mouse event
             canvas.addEventListener('touchstart',function (e) {
+                var boxes=[{x:0,y:0}];
                 e.preventDefault();
                 var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
                 var x = point.x;
                 var y = point.y;
                 if(x > 135 && y > 900 && x < 218 && y < 987) {
                     canvas.addEventListener('touchmove',function (e) {
-                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
-                        context.drawImage(box,point.x,point.y);
+                        var box = getPointOnCanvas(canvas, e.pageX, e.pageY);
                     },false);
                     canvas.addEventListener('touchend',function (e) {
-                        canvas.touchmove = null;
-                        canvas.touchend = null;
-                    },false);
+                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+                        context.drawImage(box,point.x,point.y);
+                    },false)
                 }
             },false);
 
@@ -286,7 +286,6 @@
                 if(x > 135 && y > 900 && x < 218 && y < 987){
                     canvas.onmousemove = function (e) {
                         var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
-                        //context.clearRect(0,0,500,500);
                         context.drawImage(box,point.x,point.y);
                     };
                     canvas.onmouseup=function () {
