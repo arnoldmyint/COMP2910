@@ -3,7 +3,7 @@
 <head>
     <title>The Ball Game - Test</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="stylesheet" href="">
@@ -26,6 +26,9 @@
             width: 100%;
             background-color: antiquewhite;
             display: block;
+        }
+        img{
+            display: none;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -83,7 +86,7 @@
             frame_horizontal(context);
             frame_vertical(context);
             getPoints(arr, 1,0.5,-1,0.5,455,395);
-            addBox(arr,context);
+            //addBox(arr,context);
             control_panel(context);
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
 
