@@ -95,12 +95,11 @@
             getPoints(arr, 1,0.5,-1,0.5,455,395);
             //addBox(arr,context);
             if(device.mobile()){
-//                function stopScrolling(touchEvent) {
-//                    touchEvent.preventDefault();
-//                }
-//                document.addEventListener('touchstart',stopScrolling,false);
-//                document.addEventListener('touchmove',stopScrolling,false);
                 control_phone(context);
+            } else if(device.tablet()){
+                control_tablet(context);
+            } else if(device.desktop()){
+                control_desktop(context);
             }
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
 
@@ -235,6 +234,10 @@
                         var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
                         context.drawImage(box,point.x,point.y);
                     },false);
+                    canvas.addEventListener('touchend',function (e) {
+                        touchmove = null;
+                        touchend = null;
+                    },true);
                 }
             },false);
 
@@ -260,7 +263,41 @@
 //                }
 //            }
         }
-
+        function control_tablet(context) {
+            context.restore();
+            frame=document.getElementById("control_panel");
+            context.drawImage(frame,8,850,789,295);
+            eraser=document.getElementById("eraser");
+            context.drawImage(eraser,7,630,400,210);
+            roll=document.getElementById("roll");
+            context.drawImage(roll,395,630,400,210);
+            box=document.getElementById("box");
+            context.drawImage(box,136,900);
+            //add mouse event
+            canvas.addEventListener('touchstart',function (e) {
+                e.preventDefault();
+                var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+                var x = point.x;
+                var y = point.y;
+                if(x > 135 && y > 900 && x < 218 && y < 987) {
+                    canvas.addEventListener('touchmove',function (e) {
+                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+                        context.drawImage(box,point.x,point.y);
+                    },false);
+                }
+            },false);
+        }
+        function control_desktop(context) {
+            context.restore();
+            frame=document.getElementById("control_panel");
+            context.drawImage(frame,8,850,789,295);
+            eraser=document.getElementById("eraser");
+            context.drawImage(eraser,7,630,400,210);
+            roll=document.getElementById("roll");
+            context.drawImage(roll,395,630,400,210);
+            box=document.getElementById("box");
+            context.drawImage(box,136,900);
+        }
 
         /*
         get actual and non-changed point of canvas
