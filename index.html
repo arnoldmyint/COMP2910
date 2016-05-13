@@ -3,6 +3,7 @@
 <head>
     <title>The Ball Game - Test</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="js/device.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -298,32 +299,33 @@
             context.fillRect(arr[i].x, arr[i].y, arr[i].width, arr[i].height);
             return c++;
         }
-        if(window.innerWidth < window.innerHeight){
-            $(window).bind('orientationchange', function(e) {
-                switch ( window.orientation ) {
-                    case 0:
-                        $('.turnDeviceNotification').css('display', 'none');
-                        // The device is in portrait mode now
-                        break;
-
-                    case 180:
-                        $('.turnDeviceNotification').css('display', 'none');
-                        // The device is in portrait mode now
-                        break;
-
-                    case 90:
-                        // The device is in landscape now
-                        $('.turnDeviceNotification').css('display', 'block');
-                        alert("Please rotate your phone back to portrait mode to contunie!");
-                        break;
-
-                    case -90:
-                        // The device is in landscape now
-                        $('.turnDeviceNotification').css('display', 'block');
-                        alert("Please rotate your phone back to portrait mode to contunie!");
-                        break;
-                }
-            });
+        if(device.landscape() && !device.tablet()){
+//            $(window).bind('orientationchange', function(e) {
+//                switch ( window.orientation ) {
+//                    case 0:
+//                        $('.turnDeviceNotification').css('display', 'none');
+//                        // The device is in portrait mode now
+//                        break;
+//
+//                    case 180:
+//                        $('.turnDeviceNotification').css('display', 'none');
+//                        // The device is in portrait mode now
+//                        break;
+//
+//                    case 90:
+//                        // The device is in landscape now
+//                        $('.turnDeviceNotification').css('display', 'block');
+//                        alert("Please rotate your phone back to portrait mode to contunie!");
+//                        break;
+//
+//                    case -90:
+//                        // The device is in landscape now
+//                        $('.turnDeviceNotification').css('display', 'block');
+//                        alert("Please rotate your phone back to portrait mode to contunie!");
+//                        break;
+//                }
+//            });
+            alert("Please rotate your phone back to portrait mode to contunie!");
         }
 
     </script>
