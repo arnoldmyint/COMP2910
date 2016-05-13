@@ -8,11 +8,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="stylesheet" href="">
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-iphone.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-iphone.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-ipad.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-iphone-retina-display.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-ipad-retina-display.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-144x144.png" />
 
     <style>
         /* make the body fill the window */
@@ -26,6 +25,7 @@
         canvas{
             margin: 0 auto;
             width: 100%;
+            height: 100%;
             background-color: antiquewhite;
             display: block;
         }
@@ -39,6 +39,23 @@
         var c=0;
         var rectObj;
         function load(){
+            var isMobile = {
+                Android: function() {
+                    return navigator.userAgent.match(/Android/i) ? true : false;
+                },
+                BlackBerry: function() {
+                    return navigator.userAgent.match(/BlackBerry/i) ? true : false;
+                },
+                iOS: function() {
+                    return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
+                },
+                Windows: function() {
+                    return navigator.userAgent.match(/IEMobile/i) ? true : false;
+                },
+                any: function() {
+                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+                }
+            };
             canvas=document.getElementById("mycanvas");
             container=document.getElementById("container");
             var context=canvas.getContext("2d");
@@ -60,29 +77,28 @@
                 cols++;
             }
             context.save();
-            if(canvas.width < window.innerWidth){
-                canvas.style.width="600px";
-                canvas.style.height="1200px";
-                container.style.backgroundColor="antiquewhite";
-
-            }
-            window.addEventListener("resize", resizeCanvas, false);
-            function resizeCanvas() {
-                if(canvas.width < window.innerWidth){
-                    canvas.style.width="600px";
-                    canvas.style.height="1200px";
-                    container.style.backgroundColor="antiquewhite";
-                } else {
-                    canvas.style.width = window.innerWidth*window.devicePixelRatio;
-                    canvas.style.height = window.innerWidth*window.devicePixelRatio;
-                }
-                floor(arr,context);
-                right_wall(arr,context);
-                left_wall(arr,context);
-                frame_horizontal(context);
-                frame_vertical(context);
-                //addBox(arr,context);
-            }
+//            if(canvas.width < window.innerWidth){
+//                canvas.style.width="600px";
+//                canvas.style.height="1200px";
+//                container.style.backgroundColor="antiquewhite";
+//            }
+//            window.addEventListener("resize", resizeCanvas, false);
+//            function resizeCanvas() {
+//                if(isMobile.any()){
+//                    canvas.style.width = window.innerWidth*window.devicePixelRatio;
+//                    canvas.style.height = window.innerWidth*window.devicePixelRatio;
+//                } else {
+//                    canvas.style.width="600px";
+//                    canvas.style.height="1200px";
+//                    container.style.backgroundColor="antiquewhite";
+//                }
+//                floor(arr,context);
+//                right_wall(arr,context);
+//                left_wall(arr,context);
+//                frame_horizontal(context);
+//                frame_vertical(context);
+//                //addBox(arr,context);
+//            }
             floor(arr,context);
             right_wall(arr,context);
             left_wall(arr,context);
@@ -92,11 +108,7 @@
             //addBox(arr,context);
             control_panel(context);
             //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
-            //document.addEventListener('touchstart',stopScrolling,false);
-            //document.addEventListener('touchmove',stopScrolling,false);
-        }
-        function stopScrolling(touchEvent) {
-            touchEvent.preventDefault();
+
         }
         function floor(arr, context){
             for(var i=0; i<arr.length; i++){
@@ -218,6 +230,7 @@
             box=document.getElementById("box");
             context.drawImage(box,136,900);
             //add mouse event
+
             canvas.onmousedown=function (e) {
                 var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
                 var x = point.x;
@@ -230,7 +243,7 @@
                         var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
                         //context.clearRect(0,0,500,500);
                         context.drawImage(box,point.x,point.y);
-                    };
+                    }
                     canvas.onmouseup=function () {
                         canvas.onmousemove=null;
                         canvas.onmouseup=null;
@@ -323,6 +336,11 @@
                     break;
             }
         });
+        function stopScrolling(touchEvent) {
+            touchEvent.preventDefault();
+        }
+        document.addEventListener('touchstart',stopScrolling,false);
+        document.addEventListener('touchmove',stopScrolling,false);
     </script>
 </head>
 
