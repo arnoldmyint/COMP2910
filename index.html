@@ -207,14 +207,23 @@
             box=document.getElementById("box");
             context.drawImage(box,136,900);
             canvas.onclick=function (e) {
-                var x = e.layerX;
-                var y = e.layerY;
+                var canvas = e.target;
+                var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+                var x = point.x;
+                var y = point.y;
                 alert(x);
                 alert(y);
-                if(x > 60 && y > 720 && x < 125 && y < 790){
+                if(x > 135 && y > 900 && x < 218 && y < 987){
                     alert(1);
                 }
             }
+        }
+
+        function getPointOnCanvas(canvas, x, y) {
+            var bbox = canvas.getBoundingClientRect();
+            return { x: (x - bbox.left) * (canvas.width  / bbox.width),
+                y: (y - bbox.top)  * (canvas.height / bbox.height)
+            };
         }
 
         function addBox(arr, context){
