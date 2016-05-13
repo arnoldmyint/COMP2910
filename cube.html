@@ -234,12 +234,12 @@
                         if(e.targetTouches.length > 1 ||  e.scale && e.scale !== 1){
                             return;
                         }
-                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
-                        context.drawImage(box,point.x,point.y);
-                    },true);
-                    canvas.addEventListener('touchend',function (e) {
 //                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
 //                        context.drawImage(box,point.x,point.y);
+                    },true);
+                    canvas.addEventListener('touchend',function (e) {
+                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+                        context.drawImage(box,point.x,point.y);
                         canvas.removeEventListener('touchmove',this,false);
                         canvas.removeEventListener('touchend',this,false);
                         canvas.removeEventListener('touchstart',this,false);
