@@ -1,9 +1,9 @@
 body {
     background-image: url("../images/block.jpg");
+    
 }
 
-.buttons {
-    
+.buttons { 
     display             : table;
     margin              : 0 auto; 
 	box-shadow          : inset 0px 1px 0px 0px #97c4fe;
@@ -19,10 +19,15 @@ body {
 	padding             : 6px 24px;
 	text-decoration     : none;
 	text-shadow         : 0px 1px 0px #1570cd;
-    width               : 150px;
+    height              : 100px;
+    width               : 350px;
+    font-size           : 250%;    
     
 }
 
+#brain{
+	text-align: center;
+}
 .play:before {
     content             : "\25B6";
 }
@@ -70,4 +75,28 @@ body {
 
 #pauseImage{
 	text-align: center;
+}
+
+@media only screen and (max-width: 1080px) {
+    .buttons { 
+    height              : 90px;
+    width               : 300px;
+    font-size           : 230%;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .buttons { 
+    height              : 80px;
+    width               : 250px; 
+    font-size           : 200%;
+    }  
+}
+
+@media only screen and (max-width: 480px) {
+    .buttons { 
+    height              : 50px;
+    width               : 120px; 
+    font-size           : 100%;
+    }    
 }
