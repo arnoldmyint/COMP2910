@@ -240,6 +240,7 @@
 
         function control_phone(context) {
             context.restore();
+            var dragging = false;
             frame=document.getElementById("control_panel");
             context.drawImage(frame,8,850,789,295);
             eraser=document.getElementById("eraser");
@@ -251,27 +252,31 @@
             //add mouse event
             canvas.addEventListener('touchstart',function (e) {
                 e.preventDefault();
+                dagging = false;
                 var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
                 var x = point.x;
                 var y = point.y;
                 if(x > 135 && y > 900 && x < 218 && y < 987) {
                     canvas.addEventListener('touchmove',function (e) {
+                        dragging = true;
                         if(e.targetTouches.length > 1 ||  e.scale && e.scale !== 1){
                             return;
                         }
                         var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
                         context.drawImage(box,point.x,point.y);
-                    },true);
-                    canvas.addEventListener('touchend',function (e) {
+                    },false);
+                    canvas.addEventListener('touchend',function () {
 //                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
 //                        context.drawImage(box,point.x,point.y);
                         canvas.removeEventListener('touchmove',this,false);
                         canvas.removeEventListener('touchend',this,false);
                         canvas.removeEventListener('touchstart',this,false);
-                        e.stopPropagation();
-                    },true);
+                        if(dragging){
+                            return;
+                        }
+                    },false);
                 }
-            },true);
+            },false);
         }
         function control_tablet(context) {
             context.restore();
