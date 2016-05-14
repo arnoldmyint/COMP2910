@@ -39,10 +39,10 @@
     <script type="text/javascript">
         var c=0;
         var rectObj;
-        //var egg;
-        var points_floor = [[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}]];
-        var points_left = [[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}]];
-        var points_right = [[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}]];
+        var egg;
+        var points_floor = [];
+        var points_left = [];
+        var points_right = [];
         function load(){
             canvas=document.getElementById("mycanvas");
             container=document.getElementById("container");
@@ -93,8 +93,8 @@
 //            }
 
             floor(arr,context);
-            left_wall(arr,context);
             right_wall(arr,context);
+            left_wall(arr,context);
             frame_horizontal(context);
             frame_vertical(context);
             //addBox(arr,context);
@@ -117,8 +117,10 @@
                 context.strokeRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 arr[i].type="floor";
+                points_floor[i] = getPoints(arr[i],1,0.5,-1,0.5,455,395);
             }
-            //getPoints(arr,1,0.5,-1,0.5,455,395);
+
+
             if(randomize(arr,context)%29 == 0){
                 c=0;
                 for(var i=0; i<36; i++){
@@ -135,8 +137,8 @@
                 context.strokeRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 arr[i].type="right_wall";
+                points_right[i]=getPoints(arr[i],1,0.5,0,1,400,38);
             }
-            //getPoints(arr,1,0.5,0,1,400,38);
             if(randomize(arr,context)%29 == 0){
                 c=0;
                 for(var i=0; i<36; i++){
@@ -153,14 +155,12 @@
                 context.setTransform(1,-0.5,0,1,70,203);
                 context.strokeRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
                 context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
-                getPoints(arr[i],1,-0.5,0,1,70,203);
-                points_left[i] = arr[i].points;
+                points_left[i] = getPoints(arr[i],1,-0.5,0,1,70,203);
                 }
-
             //points_left[0][0].x = arr[0].points[0].x;
             if(device.desktop()){
                 canvas.onclick=function (e) {
-                    easter(arr,e);
+                    easter(e);
                 }
             }
         }
@@ -227,17 +227,15 @@
         }
 
 
-        function easter(arr,e) {
+        function easter(e) {
             //var i = parseInt(36 * Math.random());
+            var i = 0;
             var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
-            alert(arr[0].points[0].x);
-            alert(point.x);
-            alert(points_left[30][0].x);
-//            if (point.x >= points_left[0][3].x && point.x <= points_left[0][1].x && point.y >= points_left[0][0].y && point.y <= points_left[0][2].y){
-//                alert(1);
-//                context.fillStyle="black";
-//                context.fillRect(egg.x,egg.y,egg.width,egg.height);
-//            }
+            if (point.x >= points_left[i].points[3].x && point.x <= points_left[i].points[1].x && point.y >= points_left[i].points[0].y && point.y <= points_left[i].points[2].y){
+                alert(1);
+                context.fillStyle="black";
+                context.fillRect(egg.x,egg.y,egg.width,egg.height);
+            }
         }
 
         function control_phone(context) {
@@ -368,28 +366,8 @@
             x -= 55;
             rectObj.points[3].x = a * x + c * y + e;
             rectObj.points[3].y = b * x + d * y + f;
+            return rectObj;
         }
-//        function getPoints(arr,a,b,c,d,e,f){
-//            for(var i=0; i<36; i++) {
-//                var x = arr[i].x;
-//                var y = arr[i].y;
-//
-//                arr[i].points[0].x = (a * x) + (c * y) + e;
-//                arr[i].points[0].y = b * x + d * y + f;
-//
-//                x += 55;
-//                arr[i].points[1].x = a * x + c * y + e;
-//                arr[i].points[1].y = b * x + d * y + f;
-//
-//                y += 55;
-//                arr[i].points[2].x = a * x + c * y + e;
-//                arr[i].points[2].y = b * x + d * y + f;
-//
-//                x -= 55;
-//                arr[i].points[3].x = a * x + c * y + e;
-//                arr[i].points[3].y = b * x + d * y + f;
-//            }
-//        }
 
         function randomize(arr,context) {
             do {
@@ -402,6 +380,7 @@
             arr[i].color = "red";
             context.fillStyle = arr[i].color;
             context.fillRect(arr[i].x, arr[i].y, arr[i].width, arr[i].height);
+            egg = arr[i];
             return c++;
         }
         $(window).bind('orientationchange', function() {
