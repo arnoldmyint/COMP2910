@@ -229,12 +229,10 @@
 
         function easter(e,context) {
             context.setTransform(1,0.5,0,1,400,38);
-            //var i = parseInt(36 * Math.random());
-            var i = 0;
+            var i = parseInt(36 * Math.random());
+            //var i = 35;
             var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
             if (point.x >= points_left[i].points[3].x && point.x <= points_left[i].points[1].x && point.y >= points_left[i].points[0].y && point.y <= points_left[i].points[2].y){
-                alert(1);
-
                 context.fillStyle="black";
                 context.fillRect(egg.x,egg.y,egg.width,egg.height);
             }
