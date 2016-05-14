@@ -227,6 +227,10 @@
         }
 
 
+		/*
+		If top left box of wall is clicked, brain(rolling) will change to a easter egg.
+		Example here demonstrates change of the starting point color upon clicking that hidden tile.
+		*/
         function easter(e,context) {
             context.setTransform(1,0.5,0,1,400,38);
             var i = parseInt(36 * Math.random());
