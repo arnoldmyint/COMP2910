@@ -358,9 +358,9 @@
                         canvas.touchend = null;
                         //canvas.touchstart = null;
                         //canvas.removeEventListener("touchstart", start);
+                        canvas.removeEventListener("touchmove", move);
+                        canvas.removeEventListener("touchend", ending);
                     },false);
-                    canvas.removeEventListener("touchmove", move);
-                    canvas.removeEventListener("touchend", ending);
                 }
             },false);
         }
