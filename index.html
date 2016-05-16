@@ -358,10 +358,10 @@
                         canvas.touchend = null;
                         //canvas.touchstart = null;
                         //canvas.removeEventListener("touchstart", start);
-                        canvas.removeEventListener("touchmove", move);
-                        canvas.removeEventListener("touchend", end);
                     },false);
                 }
+                canvas.removeEventListener("touchmove", move);
+                canvas.removeEventListener("touchend", end);
             },false);
         }
         function control_tablet(context) {
