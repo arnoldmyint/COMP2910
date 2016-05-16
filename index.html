@@ -356,6 +356,8 @@
                         addBox(context,positions);
                         canvas.touchmove = null;
                         canvas.touchend = null;
+                        canvas.removeEventListener("touchmove", this);
+                        canvas.removeEventListener("touchend", this);
                     },false);
                 }
             },false);
