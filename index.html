@@ -315,7 +315,7 @@
                 context.drawImage(box,136,900);
             }
             //add mouse event
-            box.addEventListener('touchstart',function (e) {
+            box.addEventListener('touchstart',function start (e) {
                 moving = false;
                 e.preventDefault();
                 var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
