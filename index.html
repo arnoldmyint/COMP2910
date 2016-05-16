@@ -314,7 +314,6 @@
                 context.drawImage(roll, 395, 630, 400, 210);
                 context.drawImage(box, 136, 900);
             }
-
             //add mouse event
             canvas.ontouchstart = function (e) {
                 moving = false;
@@ -345,19 +344,19 @@
                             }
                         }
                         context.drawImage(box, point.x, point.y);
-                    }
-                }
-                canvas.ontouchend = function (e) {
-                    moving = false;
-                    mouseUp = true;
-                    context.clearRect(0, 0, canvas.width, canvas.height);
-                    var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
-                    redraw(context);
-                    draw(context);
-                    positions.push(position);
-                    addBox(context, positions);
-                    canvas.touchmove = null;
-                    canvas.touchend = null;
+                    };
+                    canvas.ontouchend = function (e) {
+                        moving = false;
+                        mouseUp = true;
+                        context.clearRect(0, 0, canvas.width, canvas.height);
+                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+                        redraw(context);
+                        draw(context);
+                        positions.push(position);
+                        addBox(context, positions);
+                        canvas.touchmove = null;
+                        canvas.touchend = null;
+                    };
                 }
             };
         }
