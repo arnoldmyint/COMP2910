@@ -354,8 +354,8 @@
                         draw(context);
                         positions.push(position);
                         addBox(context,positions);
-                        //canvas.touchmove = null;
-                        //canvas.touchend = null;
+                        canvas.touchmove = null;
+                        canvas.touchend = null;
                         //canvas.touchstart = null;
                         //canvas.removeEventListener("touchstart", start);
                         canvas.removeEventListener("touchmove", move);
