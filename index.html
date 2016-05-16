@@ -315,7 +315,7 @@
                 context.drawImage(box,136,900);
             }
             //add mouse event
-            canvas.addEventListener('touchstart',function (e) {
+            canvas.addEventListener('touchstart',function start (e) {
                 moving = false;
                 e.preventDefault();
                 var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
@@ -358,6 +358,7 @@
                         canvas.touchend = null;
                         canvas.removeEventListener("touchmove", move);
                         canvas.removeEventListener("touchend", end);
+                        canvas.removeEventListener("touchstart", start);
                     },false);
                 }
             },false);
