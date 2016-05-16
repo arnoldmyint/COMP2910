@@ -315,6 +315,7 @@
                 context.drawImage(box,136,900);
             }
             canvas.ontouchstart=function (e) {
+                e.preventDefault();
                 moving = false;
                 mouseUp = false;
                 var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
