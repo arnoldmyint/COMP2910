@@ -315,14 +315,14 @@
                 context.drawImage(box,136,900);
             }
             //add mouse event
-            box.addEventListener('touchstart',function start (e) {
+            box.addEventListener('touchstart',function (e) {
                 moving = false;
                 e.preventDefault();
                 var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
                 var x = point.x;
                 var y = point.y;
                 if(x > 135 && y > 900 && x < 218 && y < 987) {
-                    canvas.addEventListener('touchmove',function move (e) {
+                    canvas.addEventListener('touchmove',function (e) {
                         moving = true;
                         if(e.targetTouches.length > 1 ||  e.scale && e.scale !== 1){
                             return;
@@ -345,7 +345,7 @@
                         }
                         context.drawImage(box,point.x,point.y);
                     },false);
-                    canvas.addEventListener('touchend',function end (e) {
+                    canvas.addEventListener('touchend',function (e) {
                         moving = false;
                         mouseUp = true;
                         context.clearRect(0,0,canvas.width,canvas.height);
@@ -358,8 +358,8 @@
                         canvas.touchend = null;
                         //canvas.touchstart = null;
                         //canvas.removeEventListener("touchstart", start);
-                        canvas.removeEventListener("touchmove", move);
-                        canvas.removeEventListener("touchend", end);
+                        canvas.removeEventListener("touchmove", this);
+                        canvas.removeEventListener("touchend", this);
                     },false);
                 }
             },false);
