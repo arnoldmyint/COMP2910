@@ -354,8 +354,8 @@
                         draw(context);
                         positions.push(position);
                         addBox(context,positions);
-                        canvas.removeEventListener(this.canvas, 'touchmove',this);
-                        canvas.removeEventListener(this.canvas, 'touchend',this);
+                        canvas.touchmove = null;
+                        canvas.touchend = null;
                     },false);
                 }
             },false);
