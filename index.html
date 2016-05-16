@@ -312,7 +312,7 @@
                 context.drawImage(frame,8,850,789,295);
                 context.drawImage(eraser,7,630,400,210);
                 context.drawImage(roll,395,630,400,210);
-                context.drawImage(box,0,0);
+                context.drawImage(box,136,900);
             }
             canvas.ontouchstart=function (e) {
                 moving = false;
@@ -321,7 +321,7 @@
                 var x = point.x;
                 var y = point.y;
                 //click box
-                if(x > 0 && y > 0 && x < 87 && y < 87){
+                if(x > 135 && y > 900 && x < 218 && y < 987){
                     canvas.ontouchmove = function (e) {
                         moving = true;
                         context.clearRect(0,0,canvas.width,canvas.height);
