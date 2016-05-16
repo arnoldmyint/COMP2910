@@ -345,7 +345,7 @@
                         }
                         context.drawImage(box,point.x,point.y);
                     },false);
-                    canvas.addEventListener("touchend",function end (e) {
+                    canvas.addEventListener("touchend",function ending(e) {
                         moving = false;
                         mouseUp = true;
                         context.clearRect(0,0,canvas.width,canvas.height);
@@ -359,9 +359,9 @@
                         //canvas.touchstart = null;
                         //canvas.removeEventListener("touchstart", start);
                     },false);
+                    canvas.removeEventListener("touchmove", move);
+                    canvas.removeEventListener("touchend", ending);
                 }
-                canvas.removeEventListener("touchmove", move);
-                canvas.removeEventListener("touchend", end);
             },false);
         }
         function control_tablet(context) {
