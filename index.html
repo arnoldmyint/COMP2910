@@ -381,6 +381,7 @@
             function move (e) {
                 if(device.mobile() || device.tablet()){
                     e.preventDefault();
+                    alert(1);
                 }
                 moving = true;
                 context.clearRect(0,0,canvas.width,canvas.height);
@@ -415,10 +416,7 @@
                 context.drawImage(box,point.x,point.y);
             }
 
-            function up (e) {
-                if(device.mobile() || device.tablet()){
-                    e.preventDefault();
-                }
+            function up () {
                 moving = false;
                 mouseUp = true;
                 context.clearRect(0,0,canvas.width,canvas.height);
@@ -466,7 +464,6 @@
                     //click box
                     if(x > 135 && y > 900 && x < 218 && y < 987) {
                         canvas.addEventListener("touchmove", move, false);
-                        e.preventDefault();
                         canvas.addEventListener("touchend", up, false);
                     }
                 }, false);
@@ -481,8 +478,7 @@
                     var y = point.y;
                     //click box
                     if(x > 0 && y > 0 && x < 87 && y < 87) {
-                        canvas.addEventListener("touchmove", move, false);
-                        e.preventDefault();
+                        canvas.addEventListener("touchmove", move, false);;
                         canvas.addEventListener("touchend", up, false);
                     }
                 }, false);
