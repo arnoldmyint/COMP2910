@@ -5,7 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="js/device.js"></script>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="viewport" content="width=device-width" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="stylesheet" href="">
@@ -383,9 +383,9 @@
                 context.clearRect(0,0,canvas.width,canvas.height);
                 var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
                 redraw(context);
-                if(device.mobile() || device.androidPhone()){
+                if(device.mobile()){
                     draw_phone(context);
-                } else if(device.desktop() || device.tablet() || device.androidTablet()){
+                } else if(device.desktop() || device.tablet()){
                     draw_desktop(context);
                 }
                 addBox(context,positions);
@@ -421,7 +421,7 @@
 					positions.push(position);
 				}
                 addBox(context,positions);
-                if(device.mobile() || device.androidPhone()){
+                if(device.mobile()){
                     draw_phone(context);
                     canvas.removeEventListener("touchmove",move,false);
                     canvas.removeEventListener("touchend", up, false);
@@ -448,7 +448,7 @@
                         canvas.addEventListener("mouseup", up, false);
                     }
                 }, false);
-            } else if(device.mobile() || device.androidPhone()){
+            } else if(device.mobile()){
                 canvas.addEventListener("touchstart", function (e) {
                     e.preventDefault();
                     moving = false;
@@ -462,7 +462,7 @@
                         canvas.addEventListener("touchend", up, false);
                     }
                 }, false);
-            }else if(device.tablet() || device.androidTablet()){
+            }else if(device.tablet()){
                 canvas.addEventListener("touchstart", function (e) {
                     e.preventDefault();
                     moving = false;
