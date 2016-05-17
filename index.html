@@ -416,9 +416,6 @@
             }
 
             function up (e) {
-                if(device.mobile() || device.tablet()){
-                    e.preventDefault();
-                }
                 moving = false;
                 mouseUp = true;
                 context.clearRect(0,0,canvas.width,canvas.height);
@@ -466,6 +463,7 @@
                     //click box
                     if(x > 135 && y > 900 && x < 218 && y < 987) {
                         canvas.addEventListener("touchmove", move, false);
+                        e.preventDefault();
                         canvas.addEventListener("touchend", up, false);
                     }
                 }, false);
@@ -481,6 +479,7 @@
                     //click box
                     if(x > 0 && y > 0 && x < 87 && y < 87) {
                         canvas.addEventListener("touchmove", move, false);
+                        e.preventDefault();
                         canvas.addEventListener("touchend", up, false);
                     }
                 }, false);
