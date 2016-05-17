@@ -90,17 +90,11 @@ function control(context) {
         canvas.addEventListener("mousedown", function (e) {
             moving = false;
             mouseUp = false;
-            var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
-            var x = point.x;
-            var y = point.y;
-            //click box
-
-                canvas.onmouseup = function (e) {
-                  box.src="images/NewSlpNE.png";
-                };
-                canvas.addEventListener("mousemove", move, false);
-                canvas.addEventListener("mouseup", up, false);
-
+            canvas.onmouseup = function (e) {
+                box.src="images/NewSlpNE.png";
+            };
+            canvas.addEventListener("mousemove", move, false);
+            canvas.addEventListener("mouseup", up, false);
         }, false);
     }
     if(device.mobile()){
@@ -108,14 +102,8 @@ function control(context) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
-            var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
-            var x = point.x;
-            var y = point.y;
-            //click box
-
-                canvas.addEventListener("touchmove", move, false);
-                canvas.addEventListener("touchend", up, false);
-            
+            canvas.addEventListener("touchmove", move, false);
+            canvas.addEventListener("touchend", up, false);
         }, false);
     }
     if(device.tablet()){
@@ -123,14 +111,8 @@ function control(context) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
-            var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
-            var x = point.x;
-            var y = point.y;
-            //click box
-            if(x > 0 && y > 0 && x < 87 && y < 87) {
-                canvas.addEventListener("touchmove", move, false);;
-                canvas.addEventListener("touchend", up, false);
-            }
+            canvas.addEventListener("touchmove", move, false);;
+            canvas.addEventListener("touchend", up, false);
         }, false);
     }
 }
