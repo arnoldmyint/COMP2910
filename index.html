@@ -416,6 +416,9 @@
             }
 
             function up () {
+                if(device.mobile() || device.tablet()){
+                    e.preventDefault();
+                }
                 moving = false;
                 mouseUp = true;
                 context.clearRect(0,0,canvas.width,canvas.height);
