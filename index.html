@@ -380,6 +380,7 @@
             }
             function move (e) {
                 e.preventDefault();
+                e.defaultPrevented;
                 moving = true;
                 context.clearRect(0,0,canvas.width,canvas.height);
                 var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
@@ -413,7 +414,9 @@
                 context.drawImage(box,point.x,point.y);
             }
 
-            function up () {
+            function up (e) {
+                e.preventDefault();
+                e.defaultPrevented;
                 moving = false;
                 mouseUp = true;
                 context.clearRect(0,0,canvas.width,canvas.height);
@@ -453,6 +456,7 @@
             if(device.mobile()){
                 canvas.addEventListener("touchstart", function (e) {
                     e.preventDefault();
+                    e.defaultPrevented;
                     moving = false;
                     mouseUp = false;
                     var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
