@@ -26,7 +26,7 @@ function control(context) {
         context.drawImage(roll,395,630,400,210);
         context.drawImage(box,0,0);
     }
-    //$( "#box" ).draggable();
+    $( "#box" ).draggable();
     function move (e) {
         e.preventDefault();
         moving = true;
