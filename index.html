@@ -423,7 +423,6 @@
                 addBox(context,positions);
                 if(device.mobile() || device.androidPhone()){
                     draw_phone(context);
-                    alert(1);
                     canvas.removeEventListener("touchmove",move,false);
                     canvas.removeEventListener("touchend", up, false);
                 } else if(device.desktop()){
@@ -449,8 +448,7 @@
                         canvas.addEventListener("mouseup", up, false);
                     }
                 }, false);
-            }
-            if(device.mobile() || device.androidPhone()){
+            } else if(device.mobile() || device.androidPhone()){
                 canvas.addEventListener("touchstart", function (e) {
                     e.preventDefault();
                     moving = false;
@@ -464,8 +462,7 @@
                         canvas.addEventListener("touchend", up, false);
                     }
                 }, false);
-            }
-            if(device.tablet() || device.androidTablet()){
+            }else if(device.tablet() || device.androidTablet()){
                 canvas.addEventListener("touchstart", function (e) {
                     e.preventDefault();
                     moving = false;
