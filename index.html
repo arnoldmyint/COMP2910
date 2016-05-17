@@ -425,8 +425,8 @@
                 addBox(context,positions);
                 if(device.mobile()){
                     draw_phone(context);
-                    //canvas.removeEventListener("touchmove",move,false);
-                    //canvas.removeEventListener("touchend", up, false);
+                    canvas.removeEventListener("touchmove",move,false);
+                    canvas.removeEventListener("touchend", up, false);
                 } else if(device.desktop()){
                     draw_desktop(context);
                     canvas.removeEventListener("mousemove",move,false);
@@ -486,7 +486,7 @@
 
 		function addBox(context,position){
             box_image = new Image();
-            box_image.src = 'images/NewBlock.png';
+            box_image.src = 'images/HalfBlock.png';
             context.setTransform(1, 0, 0, 1, 0, 0);
 			
 			position.sort(function(a, b){return a-b});
