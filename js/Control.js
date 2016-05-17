@@ -94,6 +94,9 @@ function control(context) {
             var y = point.y;
             //click box
             if(x > 0 && y > 0 && x < 87 && y < 87) {
+                canvas.onmouseup = function (e) {
+                  box.src="images/NewSlpNE.png";
+                };
                 canvas.addEventListener("mousemove", move, false);
                 canvas.addEventListener("mouseup", up, false);
             }
@@ -147,39 +150,3 @@ function randomize(arr,context) {
     }
     return c++;
 }
-
-$(window).bind('orientationchange', function() {
-    switch ( window.orientation ) {
-        case 0:
-            $('.turnDeviceNotification').css('display', 'none');
-            // The device is in portrait mode now
-            if(device.tablet() && !device.landscape()){
-                alert("Please rotate your tablet to landscape to continue!");
-            }
-            break;
-
-        case 180:
-            $('.turnDeviceNotification').css('display', 'none');
-            // The device is in portrait mode now
-            if(device.tablet() && !device.landscape()){
-                alert("Please rotate your phone to landscape to continue!");
-            }
-            break;
-
-        case 90:
-            // The device is in landscape now
-            $('.turnDeviceNotification').css('display', 'block');
-            if(device.landscape() && !device.tablet()){
-                alert("Please rotate your phone back to portrait mode to continue!");
-            }
-            break;
-
-        case -90:
-            // The device is in landscape now
-            $('.turnDeviceNotification').css('display', 'block');
-            if(device.landscape() && !device.tablet()){
-                alert("Please rotate your phone back to portrait mode to continue!");
-            }
-            break;
-    }
-});

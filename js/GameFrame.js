@@ -204,7 +204,7 @@ function easter(e,context) {
 
 function addBox(context,position){
     box_image = new Image();
-    box_image.src = 'images/HalfBlock.png';
+    box_image.src = 'images/Block.png';
     context.setTransform(1, 0, 0, 1, 0, 0);
 
     position.sort(function(a, b){return a-b});
@@ -267,3 +267,39 @@ function getPoints(rectObj,a,b,c,d,e,f){
     rectObj.points[3].x = a * x + c * y + e;
     rectObj.points[3].y = b * x + d * y + f;
 }
+
+$(window).bind('orientationchange', function() {
+    switch ( window.orientation ) {
+        case 0:
+            $('.turnDeviceNotification').css('display', 'none');
+            // The device is in portrait mode now
+            if(device.tablet() && !device.landscape()){
+                alert("Please rotate your tablet to landscape to continue!");
+            }
+            break;
+
+        case 180:
+            $('.turnDeviceNotification').css('display', 'none');
+            // The device is in portrait mode now
+            if(device.tablet() && !device.landscape()){
+                alert("Please rotate your phone to landscape to continue!");
+            }
+            break;
+
+        case 90:
+            // The device is in landscape now
+            $('.turnDeviceNotification').css('display', 'block');
+            if(device.landscape() && !device.tablet()){
+                alert("Please rotate your phone back to portrait mode to continue!");
+            }
+            break;
+
+        case -90:
+            // The device is in landscape now
+            $('.turnDeviceNotification').css('display', 'block');
+            if(device.landscape() && !device.tablet()){
+                alert("Please rotate your phone back to portrait mode to continue!");
+            }
+            break;
+    }
+});
