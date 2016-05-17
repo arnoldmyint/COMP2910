@@ -353,33 +353,6 @@
 //            }
 //        }
 
-        function control_tablet(context) {
-            context.restore();
-            frame=document.getElementById("control_panel");
-            context.drawImage(frame,8,850,789,295);
-            eraser=document.getElementById("eraser");
-            context.drawImage(eraser,7,630,400,210);
-            roll=document.getElementById("roll");
-            context.drawImage(roll,395,630,400,210);
-            box=document.getElementById("box");
-            context.drawImage(box,136,900);
-            //add mouse event
-            canvas.addEventListener('touchstart',function (e) {
-                e.preventDefault();
-                var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
-                var x = point.x;
-                var y = point.y;
-                if(x > 135 && y > 900 && x < 218 && y < 987) {
-                    canvas.addEventListener('touchmove',function (e) {
-                        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
-                        context.drawImage(box,point.x,point.y);
-                    },false);
-                }
-            },false);
-        }
-
-
-
         function control(context) {
             context.save();
             var positions = [];
@@ -429,7 +402,6 @@
 						position = -1;
 					}
                 }
-				
 				// Check if position is already in the array
 				for(i = 0; i < positions.length;i++){
 					if(positions[i] == position){
@@ -437,9 +409,9 @@
 						break;
 					}
 				}
-				
                 context.drawImage(box,point.x,point.y);
             }
+
             function up () {
                 moving = false;
                 mouseUp = true;
@@ -451,6 +423,7 @@
                 addBox(context,positions);
                 if(device.mobile() || device.androidPhone()){
                     draw_phone(context);
+                    alert(1);
                     canvas.removeEventListener("touchmove",move,false);
                     canvas.removeEventListener("touchend", up, false);
                 } else if(device.desktop()){
