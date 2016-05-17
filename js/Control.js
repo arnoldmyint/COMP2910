@@ -26,7 +26,7 @@ function control(context) {
         context.drawImage(roll,395,630,400,210);
         context.drawImage(box,0,0);
     }
-    $( "#box" ).draggable();
+    //$( "#box" ).draggable();
     function move (e) {
         e.preventDefault();
         moving = true;
@@ -90,11 +90,16 @@ function control(context) {
         canvas.addEventListener("mousedown", function (e) {
             moving = false;
             mouseUp = false;
-            canvas.onmouseup = function (e) {
-                box.src="images/NewSlpNE.png";
-            };
-            canvas.addEventListener("mousemove", move, false);
-            canvas.addEventListener("mouseup", up, false);
+            var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+            var x= point.x;
+            var y=point.y;
+            if(x > 0 && y > 0 && x < 87 && y < 87) {
+                canvas.onmouseup = function (e) {
+                    box.src="images/NewSlpNE.png";
+                };
+                canvas.addEventListener("mousemove", move, false);
+                canvas.addEventListener("mouseup", up, false);
+            }
         }, false);
     }
     if(device.mobile()){
@@ -102,8 +107,13 @@ function control(context) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
-            canvas.addEventListener("touchmove", move, false);
-            canvas.addEventListener("touchend", up, false);
+            var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+            var x= point.x;
+            var y=point.y;
+            if(x > 136 && y > 900 && x < 223 && y < 987) {
+                canvas.addEventListener("touchmove", move, false);
+                canvas.addEventListener("touchend", up, false);
+            }
         }, false);
     }
     if(device.tablet()){
@@ -111,8 +121,14 @@ function control(context) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
-            canvas.addEventListener("touchmove", move, false);;
-            canvas.addEventListener("touchend", up, false);
+            var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+            var x = point.x;
+            var y = point.y;
+            //click box
+            if(x > 0 && y > 0 && x < 87 && y < 87) {
+                canvas.addEventListener("touchmove", move, false);;
+                canvas.addEventListener("touchend", up, false);
+            }
         }, false);
     }
 }

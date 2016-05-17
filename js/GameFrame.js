@@ -106,11 +106,11 @@ function left_wall(context){
     }
     context.restore();
     context.save();
-    // if(device.desktop() && !moving){
-    //     canvas.onclick=function (e) {
-    //         easter(e,context);
-    //     }
-    // }
+    if(device.desktop() && !moving){
+        canvas.onclick=function (e) {
+            easter(e,context);
+        }
+    }
 }
 /*
  generate the random cells for holes and balls
