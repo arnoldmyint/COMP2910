@@ -5,7 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="js/device.js"></script>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="stylesheet" href="">
@@ -448,9 +448,10 @@
                         canvas.addEventListener("mouseup", up, false);
                     }
                 }, false);
-            } else if(device.mobile()){
+            }
+            if(device.mobile() ){
                 canvas.addEventListener("touchstart", function (e) {
-                    e.preventDefault();
+                    //e.preventDefault();
                     moving = false;
                     mouseUp = false;
                     var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
@@ -462,7 +463,8 @@
                         canvas.addEventListener("touchend", up, false);
                     }
                 }, false);
-            }else if(device.tablet()){
+            }
+            if(device.tablet()){
                 canvas.addEventListener("touchstart", function (e) {
                     e.preventDefault();
                     moving = false;
