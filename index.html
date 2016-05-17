@@ -410,9 +410,9 @@
                 context.clearRect(0,0,canvas.width,canvas.height);
                 var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
                 redraw(context);
-                if(device.mobile()){
+                if(device.mobile() || device.androidPhone()){
                     draw_phone(context);
-                } else if(device.desktop() || device.tablet()){
+                } else if(device.desktop() || device.tablet() || device.androidTablet()){
                     draw_desktop(context);
                 }
                 addBox(context,positions);
@@ -429,15 +429,14 @@
                 }
                 context.drawImage(box,point.x,point.y);
             }
-            function up (e) {
+            function up () {
                 moving = false;
                 mouseUp = true;
                 context.clearRect(0,0,canvas.width,canvas.height);
-                var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
                 redraw(context);
                 positions.push(position);
                 addBox(context,positions);
-                if(device.mobile()){
+                if(device.mobile() || device.androidPhone()){
                     draw_phone(context);
                     canvas.removeEventListener("touchmove",move,false);
                     canvas.removeEventListener("touchend", up, false);
@@ -465,7 +464,7 @@
                     }
                 }, false);
             }
-            if(device.mobile()){
+            if(device.mobile() || device.androidPhone()){
                 canvas.addEventListener("touchstart", function (e) {
                     e.preventDefault();
                     moving = false;
@@ -480,7 +479,7 @@
                     }
                 }, false);
             }
-            if(device.tablet()){
+            if(device.tablet() || device.androidTablet()){
                 canvas.addEventListener("touchstart", function (e) {
                     e.preventDefault();
                     moving = false;
@@ -541,11 +540,12 @@
 		
 /*
         function addBox(context,position){
+            position.sort();
             box_image = new Image();
             box_image.src = 'images/NewBlock.png';
             context.setTransform(1, 0, 0, 1, 0, 0);
             for(var i=0; i<position.length; i++){
-                context.drawImage(box_image, 345-(array_floor[position[i]].index%6)*array_floor[position[i]].width, 367+(array_floor[position[i]].index%6)*27.5,109,109);
+                context.drawImage(box_image, 345+(array_floor[position[i]].index%6)*array_floor[position[i]].width, 367+(array_floor[position[i]].index%6)*27.5,109,109);
             }
         }
 */
