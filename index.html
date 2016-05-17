@@ -383,7 +383,7 @@
         function control(context) {
             context.save();
             var positions = [];
-            var position = 0;
+            var position = -1;
             frame=document.getElementById("control_panel");
             eraser=document.getElementById("eraser");
             roll=document.getElementById("roll");
@@ -429,6 +429,15 @@
 						position = -1;
 					}
                 }
+				
+				// Check if position is already in the array
+				for(i = 0; i < positions.length;i++){
+					if(positions[i] == position){
+						position = -1;
+						break;
+					}
+				}
+				
                 context.drawImage(box,point.x,point.y);
             }
             function up () {
