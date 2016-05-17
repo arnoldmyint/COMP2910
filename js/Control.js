@@ -26,6 +26,7 @@ function control(context) {
         context.drawImage(roll,395,630,400,210);
         context.drawImage(box,0,0);
     }
+    $( "#box" ).draggable();
     function move (e) {
         e.preventDefault();
         moving = true;
@@ -93,13 +94,13 @@ function control(context) {
             var x = point.x;
             var y = point.y;
             //click box
-            if(x > 0 && y > 0 && x < 87 && y < 87) {
+
                 canvas.onmouseup = function (e) {
                   box.src="images/NewSlpNE.png";
                 };
                 canvas.addEventListener("mousemove", move, false);
                 canvas.addEventListener("mouseup", up, false);
-            }
+
         }, false);
     }
     if(device.mobile()){
@@ -111,10 +112,10 @@ function control(context) {
             var x = point.x;
             var y = point.y;
             //click box
-            if(x > 135 && y > 900 && x < 218 && y < 987) {
+
                 canvas.addEventListener("touchmove", move, false);
                 canvas.addEventListener("touchend", up, false);
-            }
+            
         }, false);
     }
     if(device.tablet()){
