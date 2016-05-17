@@ -425,7 +425,9 @@
                         context.restore();
                         position = i;
                         break;
-                    }
+                    } else if {
+						position = -1;
+					}
                 }
                 context.drawImage(box,point.x,point.y);
             }
@@ -434,7 +436,9 @@
                 mouseUp = true;
                 context.clearRect(0,0,canvas.width,canvas.height);
                 redraw(context);
-                positions.push(position);
+				if(position != -1){
+					positions.push(position);
+				}
                 addBox(context,positions);
                 if(device.mobile() || device.androidPhone()){
                     draw_phone(context);
