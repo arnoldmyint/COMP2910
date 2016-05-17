@@ -413,8 +413,7 @@
                 context.drawImage(box,point.x,point.y);
             }
 
-            function up (e) {
-                e.preventDefault();
+            function up () {
                 moving = false;
                 mouseUp = true;
                 context.clearRect(0,0,canvas.width,canvas.height);
