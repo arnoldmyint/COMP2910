@@ -52,5 +52,6 @@ function load(){
     context.save();
     control(context);
     context.save();
+
     //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
 }
