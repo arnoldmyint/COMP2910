@@ -27,6 +27,7 @@ function control(context) {
         context.drawImage(box,0,0);
     }
     function move (e) {
+        e.preventDefault();
         moving = true;
         context.clearRect(0,0,canvas.width,canvas.height);
         if(device.mobile() || device.tablet()){
