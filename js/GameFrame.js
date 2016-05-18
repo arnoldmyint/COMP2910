@@ -107,9 +107,9 @@ function left_wall(context){
     context.restore();
     context.save();
     if(device.desktop() && !moving){
-        canvas.onclick=function (e) {
+        $(canvas).on("click touchstart", function (e) {
             easter(e,context);
-        }
+        });
     }
 }
 /*
@@ -161,6 +161,7 @@ function frame_horizontal(context) {
 function frame_vertical(context) {
     context.beginPath();
     context.fillStyle="#007A6F";
+    context.strokeStyle="antiquewhite";
     //right
     context.setTransform(1,-0.5,0,1,730,258);
     for(var i=0; i<6; i++) {
@@ -194,7 +195,11 @@ function easter(e,context) {
     context.setTransform(1,0.5,0,1,400,38);
     //var i = parseInt(36 * Math.random());
     var i = 35;
-    var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+    if(device.mobile() || device.tablet()){
+        var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
+    }else{
+        var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+    }
     if (point.x >= array_left[i].points[3].x && point.x <= array_left[i].points[1].x && point.y >= array_left[i].points[0].y && point.y <= array_left[i].points[2].y && !mouseUp){
         context.fillStyle="black";
         context.fillRect(egg.x,egg.y,egg.width,egg.height);
