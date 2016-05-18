@@ -66,7 +66,6 @@ function control(context) {
     }
 
     function up (e) {
-        e.preventDefault();
         moving = false;
         mouseUp = true;
         context.clearRect(0,0,canvas.width,canvas.height);
@@ -106,7 +105,7 @@ function control(context) {
         }, false);
     }
     if(device.mobile()){
-        $(canvas).bind("touchstart", function (e) {
+        $(canvas).on("touchstart", function (e) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
@@ -116,17 +115,17 @@ function control(context) {
             //alert(x);
             //alert(y);
             if(x > 136 && y > 900 && x < 223 && y < 987) {
-                $(canvas).bind('touchmove', move);
-                $(canvas).bind('touchend', up);
+                $(canvas).on('touchmove', move);
+                $(canvas).on('touchend', up);
             }
         });
     }
     if(device.tablet()){
-        canvas.addEventListener("touchstart", function (e) {
+        $(canvas).bind("touchstart", function (e) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
-            var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+            var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
             var x = point.x;
             var y = point.y;
             //click box
