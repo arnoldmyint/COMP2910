@@ -87,8 +87,8 @@ function control(context) {
             canvas.removeEventListener("mouseup", up, false);
         } else if (device.tablet()) {
             draw_desktop(context);
-            canvas.removeEventListener("touchmove", move, false);
-            canvas.removeEventListener("touchend", up, false);
+            $(canvas).unbind('touchmove', move);
+            $(canvas).unbind('touchend', up);
         }
     }
 
