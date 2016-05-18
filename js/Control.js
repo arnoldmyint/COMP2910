@@ -83,7 +83,6 @@ function control(context) {
         mouseUp = true;
         context.clearRect(0, 0, canvas.width, canvas.height);
         redraw(context);
-		alert(posLayer);
         positions[posLayer].push(position);
 		
         addBox(context, positions);
