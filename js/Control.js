@@ -30,9 +30,10 @@ function control(context) {
         e.preventDefault();
         moving = true;
         context.clearRect(0,0,canvas.width,canvas.height);
-        var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+        var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
         redraw(context);
         if(device.mobile()){
+            //alert(1);
             draw_phone(context);
         } else if(device.desktop() || device.tablet()){
             draw_desktop(context);
@@ -73,8 +74,8 @@ function control(context) {
         addBox(context,positions);
         if(device.mobile()){
             draw_phone(context);
-            canvas.removeEventListener("touchmove",move,false);
-            canvas.removeEventListener("touchend", up,false);
+            $(canvas).unbind('touchmove',move);
+            $(canvas).unbind('touchend', up);
         } else if(device.desktop()){
             draw_desktop(context);
             canvas.removeEventListener("mousemove",move,false);
@@ -92,6 +93,8 @@ function control(context) {
             var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
             var x= point.x;
             var y=point.y;
+            // alert(x);
+            // alert(y);
             if(x > 0 && y > 0 && x < 87 && y < 87) {
                 canvas.onmouseup = function (e) {
                     box.src="images/NewSlpNE.png";
@@ -102,18 +105,20 @@ function control(context) {
         }, false);
     }
     if(device.mobile()){
-        canvas.addEventListener("touchstart", function (e) {
+        $(canvas).bind("touchstart", function (e) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
-            var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+            var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
             var x= point.x;
             var y=point.y;
+            //alert(x);
+            //alert(y);
             if(x > 136 && y > 900 && x < 223 && y < 987) {
-                canvas.addEventListener("touchmove", move, false);
-                canvas.addEventListener("touchend", up, false);
+                $(canvas).bind('touchmove', move);
+                $(canvas).bind('touchend', up);
             }
-        },false);
+        });
     }
     if(device.tablet()){
         canvas.addEventListener("touchstart", function (e) {
