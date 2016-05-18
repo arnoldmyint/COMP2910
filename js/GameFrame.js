@@ -106,7 +106,7 @@ function left_wall(context){
     }
     context.restore();
     context.save();
-    if(device.desktop() && !moving){
+    if(!moving){
         $(canvas).on("click touchstart", function (e) {
             easter(e,context);
         });
@@ -203,6 +203,7 @@ function easter(e,context) {
     if (point.x >= array_left[i].points[3].x && point.x <= array_left[i].points[1].x && point.y >= array_left[i].points[0].y && point.y <= array_left[i].points[2].y && !mouseUp){
         context.fillStyle="black";
         context.fillRect(egg.x,egg.y,egg.width,egg.height);
+        $(canvas).unbind("touchstart click", easter);
     }
     context.restore();
 }
