@@ -93,7 +93,7 @@ function control(context) {
     }
 
     if (device.desktop()) {
-        canvas.addEventListener("mousedown", function (e) {
+        canvas.addEventListener("mousedown", function down (e) {
             moving = false;
             mouseUp = false;
             var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
@@ -107,9 +107,10 @@ function control(context) {
                 canvas.addEventListener("mouseup", up, false);
             }
         }, false);
+        canvas.removeEventListener("mousedown", down, false);
     }
     if (device.mobile()) {
-        $(canvas).on("touchstart", function (e) {
+        $(canvas).on("touchstart", function down (e) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
@@ -123,22 +124,22 @@ function control(context) {
                 $(canvas).on('touchend', up);
             }
         });
+        $(canvas).unbind("touchstart", down);
     }
     if (device.tablet()) {
-        $(canvas).on("touchstart", function (e) {
+        $(canvas).on("touchstart", function down (e) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
             var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
             var x = point.x;
             var y = point.y;
-            //alert(x);
-            //alert(y);
             if (x > 0 && y > 0 && x < 87 && y < 87) {
                 $(canvas).on('touchmove', move);
                 $(canvas).on('touchend', up);
             }
         });
+        $(canvas).unbind("touchstart", down);
     }
 }
 

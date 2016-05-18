@@ -192,6 +192,7 @@ function redraw(context) {
 }
 
 function easter(e,context) {
+    e.preventDefault();
     context.setTransform(1,0.5,0,1,400,38);
     //var i = parseInt(36 * Math.random());
     var i = 35;
