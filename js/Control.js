@@ -5,6 +5,13 @@ function control(context) {
     context.save();
     var positions = [];
     var position = -1;
+	var posLayer = 0;
+	
+	for(var i = 0; i < 6; i++){
+		positions[i] = [];
+	}
+	
+	
     frame = document.getElementById("control_panel");
     eraser = document.getElementById("eraser");
     roll = document.getElementById("roll");
@@ -29,6 +36,7 @@ function control(context) {
     }
 
     function move(e) {
+		posLayer = 0;
         e.preventDefault();
         moving = true;
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -57,12 +65,14 @@ function control(context) {
                 position = -1;
             }
         }
-        // Check if position is already in the array
+	    // Check if position is already in the array
         for (i = 0; i < positions.length; i++) {
-            if (positions[i] == position) {
-                position = -1;
-                break;
-            }
+			for(var j = 0; j < positions[i].length; j++){
+				if (positions[i][j] == position) {
+					posLayer = i+1;
+					break;
+				}
+			}
         }
         context.drawImage(box, point.x, point.y);
     }
@@ -73,9 +83,9 @@ function control(context) {
         mouseUp = true;
         context.clearRect(0, 0, canvas.width, canvas.height);
         redraw(context);
-        if (position != -1) {
-            positions.push(position);
-        }
+		alert(posLayer);
+        positions[posLayer].push(position);
+		
         addBox(context, positions);
         if (device.mobile()) {
             draw_phone(context);
