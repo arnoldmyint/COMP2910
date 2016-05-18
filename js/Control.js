@@ -28,6 +28,7 @@ function control(context) {
     }
     function move (e) {
         e.preventDefault();
+        alert(1);
         moving = true;
         context.clearRect(0,0,canvas.width,canvas.height);
         var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
