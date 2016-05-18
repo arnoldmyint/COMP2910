@@ -65,12 +65,12 @@ function floor(context){
         array_floor[i].type="floor";
         getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
     }
-    if(randomize(array_floor,context)%29 == 0){
-        c=0;
-        for(var j=0; j<36; j++){
-            array_floor[j].color = "#48DACD";
-        }
-    }
+    // if(randomize(array_floor,context)%29 == 0){
+    //     c=0;
+    //     for(var j=0; j<36; j++){
+    //         array_floor[j].color = "#48DACD";
+    //     }
+    // }
     context.restore();
 }
 function right_wall(context){
@@ -84,12 +84,12 @@ function right_wall(context){
         array_right[i].type="right_wall";
         getPoints(array_right[i],1,0.5,0,1,400,38);
     }
-    if(randomize(array_right,context)%29 == 0){
-        c=0;
-        for(var j=0; j<36; j++){
-            array_right[j].color = "#00B2A3";
-        }
-    }
+    // if(randomize(array_right,context)%29 == 0){
+    //     c=0;
+    //     for(var j=0; j<36; j++){
+    //         array_right[j].color = "#00B2A3";
+    //     }
+    // }
     context.restore();
 }
 
