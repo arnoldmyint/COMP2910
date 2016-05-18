@@ -7,6 +7,10 @@ function control(context) {
     var position = -1;
 	var posLayer = 0;
 	
+	var shape_obj={
+            index:0, type:""
+        };
+	
 	for(var i = 0; i < 6; i++){
 		positions[i] = [];
 	}
@@ -83,7 +87,10 @@ function control(context) {
         mouseUp = true;
         context.clearRect(0, 0, canvas.width, canvas.height);
         redraw(context);
-        positions[posLayer].push(position);
+		
+		if(position != -1){
+			positions[posLayer].push(position);
+		}
 		
         addBox(context, positions);
         if (device.mobile()) {
