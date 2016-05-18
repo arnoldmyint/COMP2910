@@ -66,6 +66,7 @@ function control(context) {
     }
 
     function up (e) {
+        e.preventDefault();
         moving = false;
         mouseUp = true;
         context.clearRect(0,0,canvas.width,canvas.height);
