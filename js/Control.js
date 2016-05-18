@@ -28,7 +28,6 @@ function control(context) {
     }
     function move (e) {
         e.preventDefault();
-        alert(1);
         moving = true;
         context.clearRect(0,0,canvas.width,canvas.height);
         var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
@@ -105,6 +104,7 @@ function control(context) {
     if(device.mobile()){
         $(canvas).bind("touchstart", function (e) {
             e.preventDefault();
+            alert(1);
             moving = false;
             mouseUp = false;
             var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
