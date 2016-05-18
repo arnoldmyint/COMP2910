@@ -27,13 +27,15 @@ function control(context) {
         context.drawImage(box,0,0);
     }
     function move (e) {
-        e.preventDefault();
         moving = true;
         context.clearRect(0,0,canvas.width,canvas.height);
-        var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
+        if(device.mobile() || device.tablet()){
+            var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
+        } else {
+            var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+        }
         redraw(context);
         if(device.mobile()){
-            //alert(1);
             draw_phone(context);
         } else if(device.desktop() || device.tablet()){
             draw_desktop(context);
@@ -93,10 +95,8 @@ function control(context) {
             var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
             var x= point.x;
             var y=point.y;
-            // alert(x);
-            // alert(y);
             if(x > 0 && y > 0 && x < 87 && y < 87) {
-                canvas.onmouseup = function (e) {
+                canvas.ondblclick = function () {
                     box.src="images/NewSlpNE.png";
                 };
                 canvas.addEventListener("mousemove", move, false);
