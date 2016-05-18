@@ -73,8 +73,8 @@ function control(context) {
         addBox(context,positions);
         if(device.mobile()){
             draw_phone(context);
-            $(canvas).unbind("touchmove",move);
-            $(canvas).unbind("touchend", up);
+            $(document).unbind("touchmove",move);
+            $(document).unbind("touchend", up);
         } else if(device.desktop()){
             draw_desktop(context);
             canvas.removeEventListener("mousemove",move,false);
@@ -102,17 +102,16 @@ function control(context) {
         }, false);
     }
     if(device.mobile()){
-        $(canvas).bind("touchstart", function (e) {
+        $(document).bind("touchstart", function (e) {
             e.preventDefault();
-            alert(1);
             moving = false;
             mouseUp = false;
             var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
             var x= point.x;
             var y=point.y;
             if(x > 136 && y > 900 && x < 223 && y < 987) {
-                $(canvas).bind("touchmove", move);
-                $(canvas).bind("touchend", up);
+                $(document).bind("touchmove", move);
+                $(document).bind("touchend", up);
             }
         });
     }
@@ -126,7 +125,7 @@ function control(context) {
             var y = point.y;
             //click box
             if(x > 0 && y > 0 && x < 87 && y < 87) {
-                canvas.addEventListener("touchmove", move, false);;
+                canvas.addEventListener("touchmove", move, false);
                 canvas.addEventListener("touchend", up, false);
             }
         }, false);
