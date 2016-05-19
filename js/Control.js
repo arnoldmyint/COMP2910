@@ -80,7 +80,7 @@ function control(context) {
                 //context.fillRect(array_floor[i].x, array_floor[i].y, array_floor[i].width, array_floor[i].height);
                 //context.restore();
 				var thePoint = shapePoints(position,posLayer);
-				addTransparentShape(context,thePoint.x,thePoint.y,shapeType)
+				addTransparentShape(context,thePoint.x,thePoint.y,shapeType);
                 break;
             } else {
                 position = -1;

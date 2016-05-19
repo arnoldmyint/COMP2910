@@ -14,8 +14,8 @@ function load(){
     var context=canvas.getContext("2d");
     createObj();
     if(device.desktop() || device.tablet()){
-        canvas.style.width="600px";
-        canvas.style.height="1200px";
+        canvas.style.width=window.innerWidth*window.devicePixelRatio+"px";
+        canvas.style.height=window.innerHeight*window.devicePixelRatio+"px";
         //container.style.backgroundColor="antiquewhite";
 
     }else if (device.mobile()){
