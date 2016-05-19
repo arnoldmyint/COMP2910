@@ -20,6 +20,7 @@ function control(context) {
     slope_NW = document.getElementById("slope_NW");
     slope_SW = document.getElementById("slope_SW");
     slope_SE = document.getElementById("slope_SE");
+    var slopes = [slope_NE,slope_NW,slope_SE,slope_SW];
     if (device.mobile()) {
         draw_phone(context);
     } else if (device.desktop() || device.tablet()) {
@@ -134,19 +135,19 @@ function control(context) {
                 shapeType = "box";
                 $(canvas).on("mousemove", move);
                 $(canvas).on("mouseup", up);
-                // if(e.type == "click"){
-                //     clicking = true;
-                //     console.log(1);
-                // }
-                // setTimeout(function () {
-                //     if(!clicking && e.type == "mousedown"){
-                //         clicking = false;
-                //         shapeType = "box";
-                //         $(canvas).on("mousemove", move);
-                //         $(canvas).on("mouseup", up);
-                //     }
-                // }, 1000);
             } else if(x>283 && y>904 && x<371 && y<981){
+                if(e.type == "click"){
+                    clicking = true;
+                    console.log(1);
+                }
+                setTimeout(function () {
+                    if(!clicking && e.type == "mousedown"){
+                        clicking = false;
+                        shapeType = "box";
+                        $(canvas).on("mousemove", move);
+                        $(canvas).on("mouseup", up);
+                    }
+                }, 1000);
                 shapeType = "slope_SW";
                 $(canvas).on("mousemove", move);
                 $(canvas).on("mouseup", up);
@@ -156,7 +157,6 @@ function control(context) {
             //     console.log(x,y);
             // }
         });
-        //canvas.removeEventListener("mousedown", down, false);
     }
 
     if (device.mobile()) {
