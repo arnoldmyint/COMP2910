@@ -59,7 +59,7 @@ function floor(context){
         context.beginPath();
         context.fillStyle="#65A658";
         context.setTransform(1,0.5,-1,0.5,455,395);
-        context.strokeStyle="FFFFFF";
+        context.strokeStyle="D6FFCD";
         context.strokeRect(array_floor[i].x,array_floor[i].y,array_floor[i].width,array_floor[i].height);
         context.fillRect(array_floor[i].x,array_floor[i].y,array_floor[i].width,array_floor[i].height);
         array_floor[i].type="floor";
@@ -68,7 +68,7 @@ function floor(context){
     if(randomize(array_floor,context)%29 == 0){
         c=0;
         for(var j=0; j<36; j++){
-            array_floor[j].color = "#FFFFFF";
+            array_floor[j].color = "#D6FFCD";
         }
     }
     context.restore();
@@ -77,7 +77,7 @@ function right_wall(context){
     for(var i=0; i<array_right.length; i++){
         context.beginPath();
         context.fillStyle="#6DBB6C";
-        context.strokeStyle="#FFFFFF";
+        context.strokeStyle="#D6FFCD";
         context.setTransform(1,0.5,0,1,400,38);
         context.strokeRect(array_right[i].x,array_right[i].y,array_right[i].width,array_right[i].height);
         context.fillRect(array_right[i].x,array_right[i].y,array_right[i].width,array_right[i].height);
@@ -87,7 +87,7 @@ function right_wall(context){
     if(randomize(array_right,context)%29 == 0){
         c=0;
         for(var j=0; j<36; j++){
-            array_right[j].color = "#FFFFFF";
+            array_right[j].color = "#D6FFCD";
         }
     }
     context.restore();
@@ -97,7 +97,7 @@ function left_wall(context){
     for(var i=0; i<array_left.length; i++){
         context.beginPath();
         context.fillStyle="#4E7F44";
-        context.strokeStyle="#FFFFFF";
+        context.strokeStyle="#D6FFCD";
         context.setTransform(1,-0.5,0,1,70,203);
         context.strokeRect(array_left[i].x,array_left[i].y,array_left[i].width,array_left[i].height);
         context.fillRect(array_left[i].x,array_left[i].y,array_left[i].width,array_left[i].height);
@@ -118,11 +118,11 @@ function left_wall(context){
 
 function frame_horizontal(context) {
     context.beginPath();
-    context.strokeStyle="#FFFFFF";
+    context.strokeStyle="#D6FFCD";
     var grd_left = context.createLinearGradient(20, 20, 20, 55);
     grd_left.addColorStop(0, "#65A564");
     grd_left.addColorStop(0.5, "#DDF9C0");
-    grd_left.addColorStop(1, "#faebd7");
+    grd_left.addColorStop(1, "#D6FFCD");
     //bottom_left
     context.fillStyle=grd_left;
     context.setTransform(1,0.5,0,2,15,560);
@@ -133,7 +133,7 @@ function frame_horizontal(context) {
     var grd_right = context.createLinearGradient(20, 20, 20, 55);
     grd_right.addColorStop(0, "#50824F");
     grd_right.addColorStop(0.5, "#DDF9C0");
-    grd_right.addColorStop(1, "#faebd7");
+    grd_right.addColorStop(1, "#D6FFCD");
     //bottom_right
     context.fillStyle=grd_right;
     context.setTransform(1,-0.5,0,2,400,753);
@@ -161,7 +161,7 @@ function frame_horizontal(context) {
 function frame_vertical(context) {
     context.beginPath();
     context.fillStyle="#50824F";
-    context.strokeStyle="antiquewhite";
+    context.strokeStyle="#D6FFCD";
     //right
     context.setTransform(1,-0.5,0,1,730,258);
     for(var i=0; i<6; i++) {
