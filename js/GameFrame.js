@@ -246,7 +246,7 @@ function shapePoints(index,shapeLayer){
     var theY;
     var thePos;
 	thePos = index%6;
-	
+
 	if(index < 6){
 		theX = 345 + (thePos*array_floor[index].width);
 		theY = 367 + (thePos*(array_floor[index].height*0.5)) - (shapeLayer * 50);
@@ -266,7 +266,7 @@ function shapePoints(index,shapeLayer){
 		theX = (345 - (array_floor[index].width*5)) + (thePos*array_floor[index].width);
 		theY = (367 + (array_floor[index].height*2.5)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 50);
 	}
-			
+
 	return { 	x: theX,
 				y: theY
     };

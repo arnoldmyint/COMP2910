@@ -149,6 +149,7 @@ function control(context) {
             //alert(x);
             //alert(y);
             if (x > 136 && y > 900 && x < 223 && y < 987) {
+                shapeType = "box";
                 $(canvas).on('touchmove', move);
                 $(canvas).on('touchend', up);
             }
@@ -163,6 +164,7 @@ function control(context) {
             var x = point.x;
             var y = point.y;
             if (x > 0 && y > 0 && x < 87 && y < 87) {
+                shapeType = "box";
                 $(canvas).on('touchmove', move);
                 $(canvas).on('touchend', up);
             }
