@@ -232,11 +232,13 @@ function addAllShapes(context,position){
 }
 
 function addTransparentShape(context,x,y,type){
-			if(type == "box"){
-				context.drawImage(box_image, x, y,109,109);
-			} else if (type == "slope_right"){
-				context.drawImage(slope_image_right, x, y,109,109);
-			}
+	transparent_box_image = new Image();
+	transparent_box_image.src = 'images/TransBlock.png';
+	if(type == "box"){
+		context.drawImage(transparent_box_image, x, y,109,109);
+	} else if (type == "slope_right"){
+		context.drawImage(slope_image_right, x, y,109,109);
+	}
 }
 
 function shapePoints(index,shapeLayer){
