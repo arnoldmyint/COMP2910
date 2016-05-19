@@ -8,13 +8,13 @@ var fullname=$('#fullname').val();
 var mobilenumber=$('#mobilenumber').val();
 var yourquery=$('#yourquery').val();
 $.ajax({
-url:"https://docs.google.com/forms/d/1SA2Cko5dbB5VJenHVFUtWLsqInyDbJuujYQn294qXlc/formResponse",data:{"entry_173230686":fullname,"entry_1073549278":mobilenumber,"entry_":yourquery},type:"POST",dataType:"xml",statusCode: {0:function() { window.location.replace("http://comp2910.azurewebsites.net/previewphp2.php");},200:function(){window.location.replace("http://comp2910.azurewebsites.net/previewphp2.php");}}
+url:"https://docs.google.com/forms/d/1SA2Cko5dbB5VJenHVFUtWLsqInyDbJuujYQn294qXlc/formResponse",data:{"entry_173230686":fullname,"entry_1073549278":mobilenumber,"entry_":yourquery},type:"POST",dataType:"xml",statusCode: {0:function() { window.location.replace("http://comp2910.azurewebsites.net/scoreboard.php");},200:function(){window.location.replace("http://comp2910.azurewebsites.net/scoreboard.php");}}
 });
 }
 </script>
 
 </head>
-<body bgcolor="silver">
+<body>
 
 <table  class="FormRequest" align="center">
 <tr><td>
@@ -25,7 +25,7 @@ USER NAME:<br/>
 
 SCORE:<br/>
 <input type="text" name="mobilenumber" id="mobilenumber"/><br/>
-
+<p>If youre score is high enough, you'll see it in next screen.</p>
 
 <center>
 <input type="button" name="Submit" id="Submit" onclick="postContactToGoogle()" value="Submit"/>
