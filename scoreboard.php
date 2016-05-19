@@ -1,7 +1,7 @@
 <body>
 
 <header>
-<h1 align="Leaderboard" align="center">Score</h1>
+<h1 align="center">Score</h1>
 </header>
 
 <center>
