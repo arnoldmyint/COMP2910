@@ -57,9 +57,9 @@ function createObj() {
 function floor(context){
     for(var i=0; i<array_floor.length; i++){
         context.beginPath();
-        context.fillStyle="#48DACD";
+        context.fillStyle="#65A658";
         context.setTransform(1,0.5,-1,0.5,455,395);
-        context.strokeStyle="black";
+        context.strokeStyle="FFFFFF";
         context.strokeRect(array_floor[i].x,array_floor[i].y,array_floor[i].width,array_floor[i].height);
         context.fillRect(array_floor[i].x,array_floor[i].y,array_floor[i].width,array_floor[i].height);
         array_floor[i].type="floor";
@@ -68,7 +68,7 @@ function floor(context){
     if(randomize(array_floor,context)%29 == 0){
         c=0;
         for(var j=0; j<36; j++){
-            array_floor[j].color = "#48DACD";
+            array_floor[j].color = "#FFFFFF";
         }
     }
     context.restore();
@@ -76,8 +76,8 @@ function floor(context){
 function right_wall(context){
     for(var i=0; i<array_right.length; i++){
         context.beginPath();
-        context.fillStyle="#00B2A3";
-        context.strokeStyle="#faebd7";
+        context.fillStyle="#6DBB6C";
+        context.strokeStyle="#FFFFFF";
         context.setTransform(1,0.5,0,1,400,38);
         context.strokeRect(array_right[i].x,array_right[i].y,array_right[i].width,array_right[i].height);
         context.fillRect(array_right[i].x,array_right[i].y,array_right[i].width,array_right[i].height);
@@ -87,7 +87,7 @@ function right_wall(context){
     if(randomize(array_right,context)%29 == 0){
         c=0;
         for(var j=0; j<36; j++){
-            array_right[j].color = "#00B2A3";
+            array_right[j].color = "#FFFFFF";
         }
     }
     context.restore();
@@ -96,8 +96,8 @@ function right_wall(context){
 function left_wall(context){
     for(var i=0; i<array_left.length; i++){
         context.beginPath();
-        context.fillStyle="#007A6F";
-        context.strokeStyle="#faebd7";
+        context.fillStyle="#4E7F44";
+        context.strokeStyle="#FFFFFF";
         context.setTransform(1,-0.5,0,1,70,203);
         context.strokeRect(array_left[i].x,array_left[i].y,array_left[i].width,array_left[i].height);
         context.fillRect(array_left[i].x,array_left[i].y,array_left[i].width,array_left[i].height);
@@ -118,9 +118,9 @@ function left_wall(context){
 
 function frame_horizontal(context) {
     context.beginPath();
-    context.strokeStyle="#faebd7";
+    context.strokeStyle="#FFFFFF";
     var grd_left = context.createLinearGradient(20, 20, 20, 55);
-    grd_left.addColorStop(0, "#00B2A3");
+    grd_left.addColorStop(0, "#65A564");
     grd_left.addColorStop(0.5, "#DDF9C0");
     grd_left.addColorStop(1, "#faebd7");
     //bottom_left
@@ -131,7 +131,7 @@ function frame_horizontal(context) {
         context.fillRect(i*55,0,55,55);
     }
     var grd_right = context.createLinearGradient(20, 20, 20, 55);
-    grd_right.addColorStop(0, "#007A6F");
+    grd_right.addColorStop(0, "#50824F");
     grd_right.addColorStop(0.5, "#DDF9C0");
     grd_right.addColorStop(1, "#faebd7");
     //bottom_right
@@ -142,7 +142,7 @@ function frame_horizontal(context) {
         context.fillRect(j*55,0,55,55);
     }
 
-    context.fillStyle="#48DACD";
+    context.fillStyle="#84E383";
     //top_right
     context.setTransform(1,0.5,-1,0.5,400,38);
     for(var k=0; k<7; k++) {
@@ -160,7 +160,7 @@ function frame_horizontal(context) {
 
 function frame_vertical(context) {
     context.beginPath();
-    context.fillStyle="#007A6F";
+    context.fillStyle="#50824F";
     context.strokeStyle="antiquewhite";
     //right
     context.setTransform(1,-0.5,0,1,730,258);
@@ -168,7 +168,7 @@ function frame_vertical(context) {
         context.strokeRect(0,i*55,55,55);
         context.fillRect(0,i*55,55,55);
     }
-    context.fillStyle="#00B2A3";
+    context.fillStyle="#65A564";
     //left
     context.setTransform(1,0.5,0,1,15,230);
     for(var j=0; j<6; j++) {

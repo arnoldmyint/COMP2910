@@ -8,7 +8,13 @@ var array_floor = [];
 var array_left = [];
 var array_right = [];
 var mouseUp = false;
+
 function load(){
+    hideMenu();
+    hideChooseGame();
+    showGameReturn();
+    showCanvas();
+
     canvas=document.getElementById("mycanvas");
     container=document.getElementById("container");
     var context=canvas.getContext("2d");
