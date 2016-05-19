@@ -6,10 +6,7 @@ function control(context) {
     var positions = [];
     var position = -1;
 	var posLayer = 0;
-	
-	var shape_obj={
-            index:0, type:""
-        };
+	var shapeType = "";
 	
 	for(var i = 0; i < 6; i++){
 		positions[i] = [];
@@ -40,6 +37,8 @@ function control(context) {
     }
 
     function move(e) {
+		
+		
 		posLayer = 0;
         e.preventDefault();
         moving = true;
@@ -72,7 +71,7 @@ function control(context) {
 	    // Check if position is already in the array
         for (i = 0; i < positions.length; i++) {
 			for(var j = 0; j < positions[i].length; j++){
-				if (positions[i][j] == position) {
+				if (positions[i][j].index == position) {
 					posLayer = i+1;
 					break;
 				}
@@ -89,7 +88,12 @@ function control(context) {
         redraw(context);
 		
 		if(position != -1){
-			positions[posLayer].push(position);
+			var shapeObject = {
+				index:0,type:""
+			};
+			shapeObject.index = position;
+			shapeObject.type = shapeType;
+			positions[posLayer].push(shapeObject);
 		}
 		
         addBox(context, positions);
@@ -116,9 +120,7 @@ function control(context) {
             var x = point.x;
             var y = point.y;
             if (x > 0 && y > 0 && x < 87 && y < 87) {
-                canvas.ondblclick = function () {
-                    box.src = "images/NewSlpNE.png";
-                };
+				shapeType = "box";
                 canvas.addEventListener("mousemove", move, false);
                 canvas.addEventListener("mouseup", up, false);
             }

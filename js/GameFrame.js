@@ -212,10 +212,12 @@ function easter(e,context) {
 function addBox(context,position){
     box_image = new Image();
     box_image.src = 'images/Block.png';
+	slope_image_right = new Image();
+    slope_image_right = 'images/newSlpSE.png';
     context.setTransform(1, 0, 0, 1, 0, 0);
 	
 	for(var i = 0; i<position.length;i++){
-		position[i].sort(function(a, b){return a-b});
+		position[i].sort(function(a, b){return a.index-b.index});
 	}
 
     var theX;
@@ -225,30 +227,34 @@ function addBox(context,position){
 
     for(i=0; i<position.length; i++){
 		for(var j=0; j < position[i].length; j++){
-			thePosition = array_floor[position[i][j]].index;
+			thePosition = array_floor[position[i][j].index].index;
 			thePos = thePosition;
 			thePos = thePos%6;
 
 			if(thePosition < 6){
-				theX = 345 + (thePos*array_floor[position[i][j]].width);
-				theY = 367 + (thePos*(array_floor[position[i][j]].height*0.5)) - (i * 50);
+				theX = 345 + (thePos*array_floor[position[i][j].index].width);
+				theY = 367 + (thePos*(array_floor[position[i][j].index].height*0.5)) - (i * 50);
 			} else if(thePosition < 12 && thePosition > 5){
-				theX = (345 - (array_floor[position[i][j]].width)) + (thePos*array_floor[position[i][j]].width);
-				theY = (367 + (array_floor[position[i][j]].height*0.5)) + (thePos*(array_floor[position[i][j]].height * 0.5)) - (i * 50);
+				theX = (345 - (array_floor[position[i][j].index].width)) + (thePos*array_floor[position[i][j].index].width);
+				theY = (367 + (array_floor[position[i][j].index].height*0.5)) + (thePos*(array_floor[position[i][j].index].height * 0.5)) - (i * 50);
 			} else if(thePosition < 18 && thePosition > 11){
-				theX = (345 - (array_floor[position[i][j]].width*2)) + (thePos*array_floor[position[i][j]].width);
-				theY = (367 + (array_floor[position[i][j]].height*1)) + (thePos*(array_floor[position[i][j]].height * 0.5)) - (i * 50);
+				theX = (345 - (array_floor[position[i][j].index].width*2)) + (thePos*array_floor[position[i][j].index].width);
+				theY = (367 + (array_floor[position[i][j].index].height*1)) + (thePos*(array_floor[position[i][j].index].height * 0.5)) - (i * 50);
 			} else if(thePosition < 24 && thePosition > 17){
-				theX = (345 - (array_floor[position[i][j]].width*3)) + (thePos*array_floor[position[i][j]].width);
-				theY = (367 + (array_floor[position[i][j]].height*1.5)) + (thePos*(array_floor[position[i][j]].height * 0.5)) - (i * 50);
+				theX = (345 - (array_floor[position[i][j].index].width*3)) + (thePos*array_floor[position[i][j].index].width);
+				theY = (367 + (array_floor[position[i][j].index].height*1.5)) + (thePos*(array_floor[position[i][j].index].height * 0.5)) - (i * 50);
 			} else if(thePosition < 30 && thePosition > 23){
-				theX = (345 - (array_floor[position[i][j]].width*4)) + (thePos*array_floor[position[i][j]].width);
-				theY = (367 + (array_floor[position[i][j]].height*2)) + (thePos*(array_floor[position[i][j]].height * 0.5)) - (i * 50);
+				theX = (345 - (array_floor[position[i][j].index].width*4)) + (thePos*array_floor[position[i][j].index].width);
+				theY = (367 + (array_floor[position[i][j].index].height*2)) + (thePos*(array_floor[position[i][j].index].height * 0.5)) - (i * 50);
 			} else if (thePosition < 36 && thePosition > 29){
-				theX = (345 - (array_floor[position[i][j]].width*5)) + (thePos*array_floor[position[i][j]].width);
-				theY = (367 + (array_floor[position[i][j]].height*2.5)) + (thePos*(array_floor[position[i][j]].height * 0.5)) - (i * 50);
+				theX = (345 - (array_floor[position[i][j].index].width*5)) + (thePos*array_floor[position[i][j].index].width);
+				theY = (367 + (array_floor[position[i][j].index].height*2.5)) + (thePos*(array_floor[position[i][j].index].height * 0.5)) - (i * 50);
 			}
-			context.drawImage(box_image, theX, theY,109,109);
+			if(position[i][j].type == "box"){
+				context.drawImage(box_image, theX, theY,109,109);
+			} else if (position[i][j].type == "slope_right"){
+				context.drawImage(slope_image_right, theX, theY,109,109);
+			}
 		}
     }
 }
