@@ -35,6 +35,37 @@
 			}
 		});
 	</script>
+    <style>
+    progress {
+-webkit-appearance: progress-bar;
+box-sizing: border-box;
+display: inline-block;
+height: 1em;
+width: 10em;
+vertical-align: -0.2em;
+}
+
+progress::-webkit-progress-inner-element {
+-webkit-appearance: inherit;
+box-sizing: inherit;
+height: 100%;
+width: 100%;
+}
+
+progress::-webkit-progress-bar {
+background-color: gray;
+height: 100%;
+width: 100%;
+box-sizing: border-box;
+}
+
+progress::-webkit-progress-value {
+    background-color: green;
+    height: 100%;
+    width: 50%; /* should be removed later */
+    box-sizing: border-box;
+}
+    </style>
 </head>
 <body>
 			<center style = "width: 100%;">
