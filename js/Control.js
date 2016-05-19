@@ -135,7 +135,7 @@ function control(context) {
                 canvas.addEventListener("mouseup", up, false);
             }
         }, false);
-        canvas.removeEventListener("mousedown", down, false);
+        //canvas.removeEventListener("mousedown", down, false);
     }
 
     if (device.mobile()) {
