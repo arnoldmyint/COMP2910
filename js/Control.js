@@ -128,6 +128,7 @@ function control(context) {
         }, false);
         canvas.removeEventListener("mousedown", down, false);
     }
+    
     if (device.mobile()) {
         $(canvas).on("touchstart", function down (e) {
             e.preventDefault();
