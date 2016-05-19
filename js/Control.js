@@ -128,7 +128,7 @@ function control(context) {
             var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
             var x = point.x;
             var y = point.y;
-            if (x > 0 && y > 0 && x < 87 && y < 87) {
+            if (x > 136 && y > 900 && x < 223 && y < 987) {
 				shapeType = "box";
                 canvas.addEventListener("mousemove", move, false);
                 canvas.addEventListener("mouseup", up, false);
