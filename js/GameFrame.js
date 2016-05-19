@@ -65,12 +65,14 @@ function floor(context){
         array_floor[i].type="floor";
         getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
     }
+	/*
     if(randomize(array_floor,context)%29 == 0){
         c=0;
         for(var j=0; j<36; j++){
             array_floor[j].color = "#D6FFCD";
         }
     }
+	*/
     context.restore();
 }
 function right_wall(context){
@@ -84,12 +86,14 @@ function right_wall(context){
         array_right[i].type="right_wall";
         getPoints(array_right[i],1,0.5,0,1,400,38);
     }
+	/*
     if(randomize(array_right,context)%29 == 0){
         c=0;
         for(var j=0; j<36; j++){
             array_right[j].color = "#D6FFCD";
         }
     }
+	*/
     context.restore();
 }
 
@@ -112,6 +116,33 @@ function left_wall(context){
         });
     }
 }
+
+function startEnd(context){
+	var theStart = 19;
+	var theEnd = 19;
+	
+	start = array_right[theStart];
+	end = array_floor[theEnd];
+	
+	//draw start point
+	context.beginPath();
+    context.fillStyle="red";
+    context.strokeStyle="#D6FFCD";
+    context.setTransform(1,0.5,0,1,400,38);
+    context.strokeRect(start.x,start.y,start.width,start.height);
+    context.fillRect(start.x,start.y,start.width,start.height);
+	
+	context.beginPath();
+    context.fillStyle="black";
+    context.strokeStyle="#D6FFCD";
+	context.setTransform(1,0.5,-1,0.5,455,395);
+    context.strokeRect(end.x,end.y,end.width,end.height);
+    context.fillRect(end.x,end.y,end.width,end.height);
+	
+	context.restore();
+	context.save();
+}
+
 /*
  generate the random cells for holes and balls
  */
@@ -189,6 +220,9 @@ function redraw(context) {
     context.save();
     frame_vertical(context);
     context.save();
+	
+	startEnd(context)
+	context.save();
 }
 
 function easter(e,context) {
@@ -298,6 +332,27 @@ function getPoints(rectObj,a,b,c,d,e,f){
     x -= 55;
     rectObj.points[3].x = a * x + c * y + e;
     rectObj.points[3].y = b * x + d * y + f;
+}
+
+/*
+	Checks if a polygon is clicked, if so returns true.
+	
+	@numVertices Number of vertices in the polygon
+	@xVertices Array of X vertices of the polygon
+	@yVertices Array of Y vertices of the polygon
+	@xClicked x coordinate that has been clicked
+	@yClicked y coordinate that has been clicked
+	@return boolean
+*/
+function polygonClicked(numVertices, xVertices, yVertices, xClicked, yClicked){
+    var i, j, c = false;
+    for( i = 0, j = numVertices-1; i < numVertices; j = i++ ) {
+        if( ( ( yVertices[i] > yClicked ) != ( yVertices[j] > yClicked ) ) &&
+            ( xClicked < ( xVertices[j] - xVertices[i] ) * ( yClicked - yVertices[i] ) / ( yVertices[j] - yVertices[i] ) + xVertices[i] ) ) {
+                c = !c;
+        }
+    }
+    return c;
 }
 
 $(window).bind('orientationchange', function() {

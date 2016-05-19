@@ -3,6 +3,8 @@
  */
 var c=0;
 var egg;
+var start;
+var end;
 var moving = false;
 var array_floor = [];
 var array_left = [];
@@ -60,6 +62,9 @@ function load(){
     context.save();
     control(context);
     context.save();
+	
+	startEnd(context)
+	context.save();
 
     //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
 }
