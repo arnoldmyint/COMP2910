@@ -194,8 +194,8 @@ function redraw(context) {
 function easter(e,context) {
     e.preventDefault();
     context.setTransform(1,0.5,0,1,400,38);
-    var i = parseInt(36 * Math.random());
-    //var i = 35;
+    //var i = parseInt(36 * Math.random());
+    var i = 35;
     if(device.mobile() || device.tablet()){
         var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
     }else{
@@ -212,8 +212,8 @@ function easter(e,context) {
 function addAllShapes(context,position){
     box_image = new Image();
     box_image.src = 'images/Block.png';
-	slope_image_right = new Image();
-    slope_image_right = 'images/newSlpSE.png';
+    // slope_SW = new Image();
+    // slope_SW = 'images/newSlpSW.png';
     context.setTransform(1, 0, 0, 1, 0, 0);
 	
 	for(var i = 0; i<position.length;i++){
@@ -224,8 +224,8 @@ function addAllShapes(context,position){
 		for(var j = 0; j < position[i].length;j++){
 			if(position[i][j].type == "box"){
 				context.drawImage(box_image, position[i][j].point.x, position[i][j].point.y,109,109);
-			} else if (position[i][j].type == "slope_right"){
-				context.drawImage(slope_image_right, position[i][j].point.x, position[i][j].point.y,109,109);
+			} else if (position[i][j].type == "slope_SW"){
+				context.drawImage(slope_SW, position[i][j].point.x, position[i][j].point.y,109,109);
 			}
 		}
 	}
@@ -234,10 +234,12 @@ function addAllShapes(context,position){
 function addTransparentShape(context,x,y,type){
 	transparent_box_image = new Image();
 	transparent_box_image.src = 'images/TransBlock.png';
+    transparent_slope_SW = new Image();
+    transparent_slope_SW.src = 'images/TransSlpSW.png';
 	if(type == "box"){
 		context.drawImage(transparent_box_image, x, y,109,109);
-	} else if (type == "slope_right"){
-		context.drawImage(slope_image_right, x, y,109,109);
+	} else if (type == "slope_SW"){
+		context.drawImage(transparent_slope_SW, x, y,109,109);
 	}
 }
 

@@ -30,10 +30,10 @@ function control(context) {
         context.drawImage(eraser, 7, 630, 400, 210);
         context.drawImage(roll, 395, 630, 400, 210);
         context.drawImage(box, 135, 900);
-        context.drawImage(slope_NE, 290, 890);
+        context.drawImage(slope_SW, 290, 890);
         context.drawImage(slope_NW, 435, 890);
         context.drawImage(slope_SE, 585, 900);
-        context.drawImage(slope_SW, 135, 1030);
+        context.drawImage(slope_NE, 135, 1030);
     }
 
     function draw_desktop(context) {
@@ -41,10 +41,10 @@ function control(context) {
         context.drawImage(eraser, 7, 630, 400, 210);
         context.drawImage(roll, 395, 630, 400, 210);
         context.drawImage(box, 135, 900);
-        context.drawImage(slope_NE, 290, 890);
+        context.drawImage(slope_SW, 290, 890);
         context.drawImage(slope_NW, 435, 890);
         context.drawImage(slope_SE, 585, 900);
-        context.drawImage(slope_SW, 135, 1030);
+        context.drawImage(slope_NE, 135, 1030);
     }
 
     function move(e) {
@@ -105,7 +105,6 @@ function control(context) {
 			shapeObject.point = thePoint;
 			positions[posLayer].push(shapeObject);
 		}
-		
         addAllShapes(context, positions);
         if (device.mobile()) {
             draw_phone(context);
@@ -113,8 +112,9 @@ function control(context) {
             $(canvas).unbind('touchend', up);
         } else if (device.desktop()) {
             draw_desktop(context);
-            canvas.removeEventListener("mousemove", move, false);
-            canvas.removeEventListener("mouseup", up, false);
+            $(canvas).unbind("mousemove", move);
+            $(canvas).unbind("mouseup", up);
+            //$(canvas).unbind("mousedown", down);
         } else if (device.tablet()) {
             draw_desktop(context);
             $(canvas).unbind('touchmove', move);
@@ -123,18 +123,39 @@ function control(context) {
     }
 
     if (device.desktop()) {
-        canvas.addEventListener("mousedown", function down (e) {
+        var clicking = false;
+        $(canvas).on("click mousedown", function down (e) {
             moving = false;
             mouseUp = false;
             var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
             var x = point.x;
             var y = point.y;
             if (x > 136 && y > 900 && x < 223 && y < 987) {
-				shapeType = "box";
-                canvas.addEventListener("mousemove", move, false);
-                canvas.addEventListener("mouseup", up, false);
+                shapeType = "box";
+                $(canvas).on("mousemove", move);
+                $(canvas).on("mouseup", up);
+                // if(e.type == "click"){
+                //     clicking = true;
+                //     console.log(1);
+                // }
+                // setTimeout(function () {
+                //     if(!clicking && e.type == "mousedown"){
+                //         clicking = false;
+                //         shapeType = "box";
+                //         $(canvas).on("mousemove", move);
+                //         $(canvas).on("mouseup", up);
+                //     }
+                // }, 1000);
+            } else if(x>283 && y>904 && x<371 && y<981){
+                shapeType = "slope_SW";
+                $(canvas).on("mousemove", move);
+                $(canvas).on("mouseup", up);
             }
-        }, false);
+            // if(e.type == "click"){
+            //     //clicking = true;
+            //     console.log(x,y);
+            // }
+        });
         //canvas.removeEventListener("mousedown", down, false);
     }
 
