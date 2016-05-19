@@ -1,102 +1,156 @@
-body {
-    background-image: url("../images/block.jpg");
-    
+
+/* make the body fill the window */
+
+html, body {
+    background-color: #D6FFCD;
+    margin: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+/* make any canvas fill its container */
+canvas{
+    margin: 0 auto;
+    width: 100%;
+    display: block;
 }
 
-.buttons { 
-    display             : table;
-    margin              : 0 auto; 
-	box-shadow          : inset 0px 1px 0px 0px #97c4fe;
-	background-color    : #3d94f6;
-	border-radius       : 6px;
-	border              : 1px solid #337fed;
-	cursor              : pointer;
-	color               : #ffffff;
-    text-align          : center;
-	font-family         : Arial;
-	font-size           : 15px;
-	font-weight         : bold;
-	padding             : 6px 24px;
-	text-decoration     : none;
-	text-shadow         : 0px 1px 0px #1570cd;
-    height              : 100px;
-    width               : 350px;
-    font-size           : 250%;    
-    
-}
-
-#brain{
-	text-align: center;
-}
-.play:before {
-    content             : "\25B6";
-}
-
-.star:before {
-    content             : "\2605";
-}
-
-.peace:before {
-    content             : "\262E";
+img{
+    position: absolute;
+    display: none;
 }
 
 
-.smile:before {
-    content             : "\263A";
+/* .hideImage {
+    display : none;
+} */
+
+#highscores {
+    display :none;
 }
 
-.resume:before {
-    content             : "\27F2";
+#tutorial {
+    display :none;
 }
 
-.menu:before {
-    content             : "\2630";
+#credits {
+    text-align: center;
+    display :none;
 }
 
-.muteno:before {
-    content             : "\2611";
+#gameMenu {
+    display :none;
 }
 
-.muteyes:before {
-    content             : "\2612";
+#mycanvas {
+    display :none;
 }
 
-.buttons:hover {
-	background-color    : #1e62d0;
-    border              : solid 1px #1e62d0;
+#chooseGame {
+    display :none;
 }
 
-.buttons:active {
-    border              : solid 1px #000000;
-    box-shadow          : inset 0 1px 4px rgba(0, 0, 0, 0.6);
-	position            : relative;
-	top                 : 1px;
+
+div.playbutton, div.highscoresbutton, div.tutorialbutton,div.creditsbutton, div.returnbutton,div.loadlevelbutton, 
+div.challengebutton, div.menubutton, div.rollbutton, div.resetbutton, div.erasebutton {
+    margin:0 auto;
+    width : 222px;
+    height: 53px;
+    display:block;
 }
 
-#pauseImage{
-	text-align: center;
+div.playbutton:active, div.playbutton:active, div.highscoresbutton:active, div.tutorialbutton:active, 
+div.creditsbutton:active, div.returnbutton:active, div.loadlevelbutton:active, div.challengebutton:active, 
+div.menubutton:active, div.rollbutton:active, div.resetbutton:active, div.erasebutton:active {
+    width : 222px;
+    height: 53px;
+    transition: 0s;
+    transform : rotate(5deg);
 }
 
-@media only screen and (max-width: 1080px) {
-    .buttons { 
-    height              : 90px;
-    width               : 300px;
-    font-size           : 230%;
-    }
+div.playbutton{
+    background-image : url("../images/buttons/normal/Play.png");
 }
 
-@media only screen and (max-width: 720px) {
-    .buttons { 
-    height              : 80px;
-    width               : 250px; 
-    font-size           : 200%;
-    }  
+div.playbutton:active{
+    background-image : url("../images/buttons/clicked/Play.png");
 }
 
-@media only screen and (max-width: 480px) {
-    .buttons { 
-    height              : 50px;
-    width               : 120px; 
-    font-size           : 100%;
-    }    
+div.highscoresbutton{
+    background-image : url("../images/buttons/normal/Highscores.png");
+}
+
+div.highscoresbutton:active{
+    background-image : url("../images/buttons/clicked/Highscores.png");
+}
+
+div.tutorialbutton{
+    background-image : url("../images/buttons/normal/Tutorial.png");
+}
+
+div.tutorialbutton:active{
+    background-image : url("../images/buttons/clicked/Tutorial.png");
+}
+
+div.creditsbutton{
+    background-image : url("../images/buttons/normal/Credits.png");
+}
+
+div.creditsbutton:active{
+    background-image : url("../images/buttons/clicked/Credits.png");
+}
+
+div.returnbutton{
+    background-image : url("../images/buttons/normal/Return.png");
+}
+
+div.returnbutton:active{
+    background-image : url("../images/buttons/clicked/Return.png");
+}
+
+div.loadlevelbutton{
+    background-image : url("../images/buttons/normal/LoadLevel.png");
+}
+
+div.loadlevelbutton:active{
+    background-image : url("../images/buttons/clicked/LoadLevel.png");
+}
+
+div.challengebutton{
+    background-image : url("../images/buttons/normal/Challenge.png");
+}
+
+div.challengebutton:active{
+    background-image : url("../images/buttons/clicked/Challenge.png");
+}
+
+div.menubutton{
+    background-image : url("../images/buttons/normal/Menu.png");
+}
+
+div.menubutton:active{
+    background-image : url("../images/buttons/clicked/Menu.png");
+}
+
+div.rollbutton{
+    background-image : url("../images/buttons/normal/Roll.png");
+}
+
+div.rollbutton:active{
+    background-image : url("../images/buttons/clicked/Roll.png");
+}
+
+div.resetbutton{
+    background-image : url("../images/buttons/normal/Reset.png");
+}
+
+div.resetbutton:active{
+    background-image : url("../images/buttons/clicked/Reset.png");
+}
+
+div.erasebutton{
+    background-image : url("../images/buttons/normal/Erase.png");
+}
+
+div.erasebutton:active{
+    background-image : url("../images/buttons/clicked/Erase.png");
 }
