@@ -13,32 +13,32 @@ function load(){
     container=document.getElementById("container");
     var context=canvas.getContext("2d");
     createObj();
-    if(canvas.width < window.innerWidth){
-        canvas.style.width="600px";
-        canvas.style.height="1200px";
-        container.style.backgroundColor="antiquewhite";
+    if(device.desktop() || device.tablet()){
+        canvas.style.width=window.innerWidth*window.devicePixelRatio;
+        canvas.style.height=window.innerHeight*window.devicePixelRatio;
+        //container.style.backgroundColor="antiquewhite";
 
-    }else {
+    }else if (device.mobile()){
         canvas.style.width = window.innerWidth*window.devicePixelRatio;
-        canvas.style.height = window.innerWidth*window.devicePixelRatio;
+        canvas.style.height = window.innerHeight*window.devicePixelRatio;
     }
-//            window.addEventListener("resize", resizeCanvas, false);
-//            function resizeCanvas() {
-//                if(canvas.width < window.innerWidth){
-//                    canvas.style.width="600px";
-//                    canvas.style.height="1200px";
-//                    container.style.backgroundColor="antiquewhite";
-//                } else {
-//                    canvas.style.width = window.innerWidth*window.devicePixelRatio;
-//                    canvas.style.height = window.innerWidth*window.devicePixelRatio;
-//                }
-//                floor(arr,context);
-//                right_wall(arr,context);
-//                left_wall(arr,context);
-//                frame_horizontal(context);
-//                frame_vertical(context);
-//                //addBox(arr,context);
-//            }
+           // window.addEventListener("resize", resizeCanvas, false);
+           // function resizeCanvas() {
+           //     if(canvas.width < window.innerWidth){
+           //         canvas.style.width="600px";
+           //         canvas.style.height="1200px";
+           //         container.style.backgroundColor="antiquewhite";
+           //     } else {
+           //         canvas.style.width = window.innerWidth*window.devicePixelRatio;
+           //         canvas.style.height = window.innerWidth*window.devicePixelRatio;
+           //     }
+           //     floor(arr,context);
+           //     right_wall(arr,context);
+           //     left_wall(arr,context);
+           //     frame_horizontal(context);
+           //     frame_vertical(context);
+           //     //addBox(arr,context);
+           // }
     context.save();
     floor(context);
     context.save();
