@@ -14,7 +14,11 @@ progress {
     border-radius: 9px;
     }
 
-
+var progressbar = $('#progressbar'),
+    max = progressbar.attr('max'),
+    value = progressbar.val(),
+    time = (1000/max)*5;
+    
 </style>
 <h1>This is a Heading</h1>
 <p>This is a line.</p>
