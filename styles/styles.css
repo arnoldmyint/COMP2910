@@ -4,7 +4,6 @@
 html, body {
     background-color: #D6FFCD;
     margin: 0px;
-    height: 100%;
     width: 100%;
     overflow: hidden;
 }
@@ -12,7 +11,6 @@ html, body {
 canvas{
     margin: 0 auto;
     width: 100%;
-    height: 100%;
     display: block;
 }
 
