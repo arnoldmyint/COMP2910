@@ -6,7 +6,7 @@ function createObj() {
     var cols=0;
     for(var i=0; i<36; i++){
         var rect_floor={
-            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}]
+            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}], start:false, end:false
         };
         if(i%6==0){
             rows++;
@@ -55,15 +55,25 @@ function createObj() {
 }
 
 function floor(context){
+	end_image = new Image();
+	end_image.src = 'images/GoalHole.png';
+	
     for(var i=0; i<array_floor.length; i++){
-        context.beginPath();
-        context.fillStyle="#65A658";
-        context.setTransform(1,0.5,-1,0.5,455,395);
-        context.strokeStyle="D6FFCD";
-        context.strokeRect(array_floor[i].x,array_floor[i].y,array_floor[i].width,array_floor[i].height);
-        context.fillRect(array_floor[i].x,array_floor[i].y,array_floor[i].width,array_floor[i].height);
-        array_floor[i].type="floor";
-        getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
+		if(i == 19){
+			getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
+			context.setTransform(1,0,0,1,0,0);
+			var pos = shapePoints(i,0);
+			context.drawImage(end_image, pos.x, pos.y,109,109);
+		} else {
+			context.beginPath();
+			context.fillStyle="#65A658";
+			context.setTransform(1,0.5,-1,0.5,455,395);
+			context.strokeStyle="D6FFCD";
+			context.strokeRect(array_floor[i].x,array_floor[i].y,array_floor[i].width,array_floor[i].height);
+			context.fillRect(array_floor[i].x,array_floor[i].y,array_floor[i].width,array_floor[i].height);
+			array_floor[i].type="floor";
+			getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
+		}
     }
 	/*
     if(randomize(array_floor,context)%29 == 0){
@@ -77,6 +87,7 @@ function floor(context){
 }
 function right_wall(context){
     for(var i=0; i<array_right.length; i++){
+		egg = array_right[i];
         context.beginPath();
         context.fillStyle="#6DBB6C";
         context.strokeStyle="#D6FFCD";
@@ -115,28 +126,6 @@ function left_wall(context){
             easter(e,context);
         });
     }
-}
-
-function startEnd(context){
-    context.setTransform(1, 0, 0, 1, 0, 0);
-	start_image = new Image();
-    start_image.src = 'images/Entrance.png';
-	end_image = new Image();
-    end_image = 'images/GoalHole.png';
-	var theStart = 19;
-	var theEnd = 19;
-	
-	start = array_right[theStart];
-	end = array_floor[theEnd];
-	
-	//draw start
-	context.drawImage(start_image, start.points[0].x, start.points[0].x);
-	
-	//draw end
-	context.drawImage(end_image, end.points[0].x, end.points[0].x);
-	
-	context.restore();
-	context.save();
 }
 
 /*
