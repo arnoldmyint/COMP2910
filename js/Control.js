@@ -63,30 +63,32 @@ function control(context) {
         } else if (device.desktop() || device.tablet()) {
             draw_desktop(context);
         }
-        addShapes(context, positions);
+        addAllShapes(context, positions);
         for (var i = 0; i < array_floor.length; i++) {
             if (point.x >= array_floor[i].points[3].x - 80 && point.x <= array_floor[i].points[1].x - 80 && point.y >= array_floor[i].points[0].y - 90 && point.y <= array_floor[i].points[2].y - 90) {
                 position = 0;
-                context.setTransform(1, 0.5, -1, 0.5, 455, 395);
-                context.fillStyle = "black";
-                context.fillRect(array_floor[i].x, array_floor[i].y, array_floor[i].width, array_floor[i].height);
-                context.restore();
+				for (var j = 0; j < positions.length; j++) {
+					for(var k = 0; k < positions[j].length; k++){
+						if (positions[j][k].index == position) {
+							posLayer = j+1;
+							break;
+						}
+					}
+				}
+                //context.setTransform(1, 0.5, -1, 0.5, 455, 395);
+                //context.fillStyle = "black";				
+                //context.fillRect(array_floor[i].x, array_floor[i].y, array_floor[i].width, array_floor[i].height);
+                //context.restore();
                 position = i;
+				var thePoint = shapePoints(position,posLayer);
+				addTransparentShape(context,thePoint.x,thePoint.y,shapeType)
                 break;
             } else {
                 position = -1;
             }
         }
 	    // Check if position is already in the array
-        for (i = 0; i < positions.length; i++) {
-			for(var j = 0; j < positions[i].length; j++){
-				if (positions[i][j].index == position) {
-					posLayer = i+1;
-					break;
-				}
-			}
-        }
-        context.drawImage(box, point.x, point.y);
+        //context.drawImage(box, point.x, point.y);
     }
 
     function up(e) {
@@ -98,14 +100,16 @@ function control(context) {
 		
 		if(position != -1){
 			var shapeObject = {
-				index:0,type:null
+				index:0,type:null,point:{x:0,y:0}
 			};
 			shapeObject.index = position;
 			shapeObject.type = shapeType;
+			var thePoint = shapePoints(position,posLayer);
+			shapeObject.point = thePoint;
 			positions[posLayer].push(shapeObject);
 		}
 		
-        addShapes(context, positions);
+        addAllShapes(context, positions);
         if (device.mobile()) {
             draw_phone(context);
             $(canvas).unbind('touchmove', move);

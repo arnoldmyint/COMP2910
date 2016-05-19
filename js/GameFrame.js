@@ -209,7 +209,7 @@ function easter(e,context) {
     context.restore();
 }
 
-function addShapes(context,position){
+function addAllShapes(context,position){
     box_image = new Image();
     box_image.src = 'images/Block.png';
 	slope_image_right = new Image();
@@ -220,43 +220,54 @@ function addShapes(context,position){
 		position[i].sort(function(a, b){return a.index-b.index});
 	}
 
-    var theX;
-    var theY;
-    var thePosition;
-    var thePos;
-
-    for(i=0; i<position.length; i++){
-		for(var j=0; j < position[i].length; j++){
-			thePosition = array_floor[position[i][j].index].index;
-			thePos = thePosition;
-			thePos = thePos%6;
-
-			if(thePosition < 6){
-				theX = 345 + (thePos*array_floor[position[i][j].index].width);
-				theY = 367 + (thePos*(array_floor[position[i][j].index].height*0.5)) - (i * 50);
-			} else if(thePosition < 12 && thePosition > 5){
-				theX = (345 - (array_floor[position[i][j].index].width)) + (thePos*array_floor[position[i][j].index].width);
-				theY = (367 + (array_floor[position[i][j].index].height*0.5)) + (thePos*(array_floor[position[i][j].index].height * 0.5)) - (i * 50);
-			} else if(thePosition < 18 && thePosition > 11){
-				theX = (345 - (array_floor[position[i][j].index].width*2)) + (thePos*array_floor[position[i][j].index].width);
-				theY = (367 + (array_floor[position[i][j].index].height*1)) + (thePos*(array_floor[position[i][j].index].height * 0.5)) - (i * 50);
-			} else if(thePosition < 24 && thePosition > 17){
-				theX = (345 - (array_floor[position[i][j].index].width*3)) + (thePos*array_floor[position[i][j].index].width);
-				theY = (367 + (array_floor[position[i][j].index].height*1.5)) + (thePos*(array_floor[position[i][j].index].height * 0.5)) - (i * 50);
-			} else if(thePosition < 30 && thePosition > 23){
-				theX = (345 - (array_floor[position[i][j].index].width*4)) + (thePos*array_floor[position[i][j].index].width);
-				theY = (367 + (array_floor[position[i][j].index].height*2)) + (thePos*(array_floor[position[i][j].index].height * 0.5)) - (i * 50);
-			} else if (thePosition < 36 && thePosition > 29){
-				theX = (345 - (array_floor[position[i][j].index].width*5)) + (thePos*array_floor[position[i][j].index].width);
-				theY = (367 + (array_floor[position[i][j].index].height*2.5)) + (thePos*(array_floor[position[i][j].index].height * 0.5)) - (i * 50);
-			}
+	for(i = 0; i < position.length;i++){
+		for(var j = 0; j < position[i].length;j++){
 			if(position[i][j].type == "box"){
-				context.drawImage(box_image, theX, theY,109,109);
+				context.drawImage(box_image, position[i][j].point.x, position[i][j].point.y,109,109);
 			} else if (position[i][j].type == "slope_right"){
-				context.drawImage(slope_image_right, theX, theY,109,109);
+				context.drawImage(slope_image_right, position[i][j].point.x, position[i][j].point.y,109,109);
 			}
 		}
-    }
+	}
+}
+
+function addTransparentShape(context,x,y,type){
+			if(type == "box"){
+				context.drawImage(box_image, x, y,109,109);
+			} else if (type == "slope_right"){
+				context.drawImage(slope_image_right, x, y,109,109);
+			}
+}
+
+function shapePoints(index,shapeLayer){
+	var theX;
+    var theY;
+    var thePos;
+	thePos = index%6;
+	
+	if(index < 6){
+		theX = 345 + (thePos*array_floor[index].width);
+		theY = 367 + (thePos*(array_floor[index].height*0.5)) - (shapeLayer * 50);
+	} else if(index < 12 && index > 5){
+		theX = (345 - (array_floor[index].width)) + (thePos*array_floor[index].width);
+		theY = (367 + (array_floor[index].height*0.5)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 50);
+	} else if(index < 18 && index > 11){
+		theX = (345 - (array_floor[index].width*2)) + (thePos*array_floor[index].width);
+		theY = (367 + (array_floor[index].height*1)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 50);
+	} else if(index < 24 && index > 17){
+		theX = (345 - (array_floor[index].width*3)) + (thePos*array_floor[index].width);
+		theY = (367 + (array_floor[index].height*1.5)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 50);
+	} else if(index < 30 && index > 23){
+		theX = (345 - (array_floor[index].width*4)) + (thePos*array_floor[index].width);
+		theY = (367 + (array_floor[index].height*2)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 50);
+	} else if (index < 36 && index > 29){
+		theX = (345 - (array_floor[index].width*5)) + (thePos*array_floor[index].width);
+		theY = (367 + (array_floor[index].height*2.5)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 50);
+	}
+			
+	return { 	x: theX,
+				y: theY
+    };
 }
 
 function getPointOnCanvas(canvas, x, y) {
