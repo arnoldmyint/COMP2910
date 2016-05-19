@@ -66,7 +66,7 @@ function control(context) {
         addAllShapes(context, positions);
         for (var i = 0; i < array_floor.length; i++) {
             if (point.x >= array_floor[i].points[3].x - 80 && point.x <= array_floor[i].points[1].x - 80 && point.y >= array_floor[i].points[0].y - 90 && point.y <= array_floor[i].points[2].y - 90) {
-                position = 0;
+                position = i;
 				for (var j = 0; j < positions.length; j++) {
 					for(var k = 0; k < positions[j].length; k++){
 						if (positions[j][k].index == position) {
@@ -79,16 +79,13 @@ function control(context) {
                 //context.fillStyle = "black";				
                 //context.fillRect(array_floor[i].x, array_floor[i].y, array_floor[i].width, array_floor[i].height);
                 //context.restore();
-                position = i;
-				var thePoint = shapePoints(i,posLayer);
+				var thePoint = shapePoints(position,posLayer);
 				addTransparentShape(context,thePoint.x,thePoint.y,shapeType)
                 break;
             } else {
                 position = -1;
             }
         }
-	    // Check if position is already in the array
-        //context.drawImage(box, point.x, point.y);
     }
 
     function up(e) {
