@@ -194,8 +194,8 @@ function redraw(context) {
 function easter(e,context) {
     e.preventDefault();
     context.setTransform(1,0.5,0,1,400,38);
-    //var i = parseInt(36 * Math.random());
-    var i = 35;
+    var i = parseInt(36 * Math.random());
+    //var i = 35;
     if(device.mobile() || device.tablet()){
         var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
     }else{
