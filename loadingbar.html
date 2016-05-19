@@ -5,31 +5,36 @@
 </head>
 <body>
 <script src="js/jquery.js" type="text/javascript"></script>
+<script>
+$(document).ready(function() {
+    var progressbar = $('#progressbar'),
+        max = progressbar.attr('max'),
+        time = (1000/max)*5,    
+        value = progressbar.val();
+ 
+    var loading = function() {
+        value += 1;
+        addValue = progressbar.val(value);
+         
+        $('.progress-value').html(value + '%');
+ 
+        if (value == max) {
+            clearInterval(animate);                    
+        }
+    };
+ 
+    var animate = setInterval(function() {
+        loading();
+    }, time);
+};
+</script>
 <style>
-
 progress {
     background-color: #f3f3f3;
     border: 0;
     height: 5px;
     border-radius: 9px;
     }
-
-var progressbar = $('#progressbar'),
-    max = progressbar.attr('max'),
-    value = progressbar.val(),
-    time = (1000/max)*5;
-    
-    
-var loading = function() {
- value += 1;
-addValue = progressbar.val(value);
-    $('.progress-value').html(value + '%');
-}
-    
-setInterval(function() {
-    loading();
-}, time);
-    
 </style>
 <h1>This is a Heading</h1>
 <p>This is a line.</p>
