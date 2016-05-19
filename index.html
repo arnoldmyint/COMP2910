@@ -1,59 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>The Ball Game - Test</title>
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <script src="js/device.js"></script>
-    <script src="js/Control.js"></script>
-    <script src="js/GameFrame.js"></script>
-    <script src="js/Main.js"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="stylesheet" href="">
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-iphone.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-iphone.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-ipad.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-iphone-retina-display.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-ipad-retina-display.png" />
+    <head>
+        <title>The Ball Game - Test</title>
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/device.js"></script>
+        <script src="js/Control.js"></script>
+        <script src="js/GameFrame.js"></script>
+        <script src="js/Main.js"></script>
+        <script src="js/Navigation.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+        <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-iphone.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-iphone.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-ipad.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-iphone-retina-display.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-ipad-retina-display.png" />
+    </head>
 
-    <style>
-        /* make the body fill the window */
-
-        html, body {
-            margin: 0px;
-            height: 100%;
-            overflow: hidden;
-        }
-        /* make any canvas fill its container */
-        canvas{
-            margin: 0 auto;
-            width: 100%;
-            background-color: antiquewhite;
-            display: block;
-        }
-        img{
-            position: absolute;
-            display: none;
-        }
-    </style>
-</head>
-
-<body onload="load()">
-<div id="container"  align="center">
-    <canvas id="mycanvas" width="800" height="1600">
-        Your browser does not support canvas
-    </canvas>
-    <img id="control_panel" src="Selector.png" />
-    <img id="eraser" src="images/Erase_Button.png" />
-    <img id="box" src="images/NewBlock.png" />
-    <img id="roll" src="images/Roll Button.png " />
-    <img id="slope_NE" src="images/NewSlpNE.png" />
-    <img id="slope_NW" src="images/NewSlpNW.png" />
-    <img id="slope_SE" src="images/NewSlpSE.png" />
-    <img id="slope_SW" src="images/NewSlpSW.png" />
-</div>
-</body>
+    <body>
+        <div id="landingPage">
+            </br>
+            <div class = "playbutton" onclick="showChooseGame()"></div> <br/>
+            <div class = "highscoresbutton" onclick="showHighscores()"></div> <br/>
+            <div class = "tutorialbutton" onclick="showTutorial()"></div> <br/>
+            <div class = "creditsbutton" onclick="showCredits()"></div> <br/>
+        </div>
+        
+        <div id="highscores">
+            <div class = "returnbutton" onclick="returnToMenu()"></div> <br/>
+        </div>
+        
+        <div id="tutorial">
+            <div class = "returnbutton" onclick="returnToMenu()"></div> <br/>
+        </div>
+        
+        <div id="credits">
+            <h1>Group 1</h1>
+            <h3>Arnold Myint</h3>
+            <h3>Arvin Rinaldo Rolos</h3>
+            <h3>Matt Rosenlund</h3>
+            <h3>Tom Nam</h3>
+            <h3>Wayne Wang</h3>
+            <br/>
+            <div class = "returnbutton" onclick="returnToMenu()"></div> <br/>
+        </div>
+        
+        <div id="gameMenu">
+            <div class = "menubutton" onclick="returnToMenu()"></div>
+            <div class = "rollbutton" onclick=""></div>
+            <div class = "resetbutton" onclick=""></div>
+            <div class = "erasebutton" onclick=""></div>
+        </div>
+        
+        <div id="chooseGame">
+            <div class = "loadlevelbutton" onclick="loadLevel()"></div> <br/>
+            <div class = "challengebutton" onclick="load()"></div> <br/>
+            <div class = "returnbutton" onclick="returnToMenu()"></div> <br/>
+        </div>
+        
+        <div id="container"  align="center">
+            <canvas id="mycanvas" width="800" height="1600">
+                Your browser does not support canvas
+            </canvas>
+            <img id="control_panel" src="images/Selector.png" />
+            <img id="eraser" src="images/Erase_Button.png" />
+            <img id="box" src="images/NewBlock.png" />
+            <img id="roll" src="images/Roll Button.png " />
+            <img id="slope_NE" src="images/NewSlpNE.png" />
+            <img id="slope_NW" src="images/NewSlpNW.png" />
+            <img id="slope_SE" src="images/NewSlpSE.png" />
+            <img id="slope_SW" src="images/NewSlpSW.png" />
+        </div>
+    </body>
 </html>
