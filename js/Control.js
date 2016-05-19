@@ -29,14 +29,22 @@ function control(context) {
         context.drawImage(frame, 8, 850, 789, 295);
         context.drawImage(eraser, 7, 630, 400, 210);
         context.drawImage(roll, 395, 630, 400, 210);
-        context.drawImage(box, 136, 900);
+        context.drawImage(box, 135, 900);
+        context.drawImage(slope_NE, 290, 890);
+        context.drawImage(slope_NW, 435, 890);
+        context.drawImage(slope_SE, 585, 900);
+        context.drawImage(slope_SW, 135, 1030);
     }
 
     function draw_desktop(context) {
         context.drawImage(frame, 8, 850, 789, 295);
         context.drawImage(eraser, 7, 630, 400, 210);
         context.drawImage(roll, 395, 630, 400, 210);
-        context.drawImage(box, 0, 0);
+        context.drawImage(box, 135, 900);
+        context.drawImage(slope_NE, 290, 890);
+        context.drawImage(slope_NW, 435, 890);
+        context.drawImage(slope_SE, 585, 900);
+        context.drawImage(slope_SW, 135, 1030);
     }
 
     function move(e) {
@@ -55,7 +63,7 @@ function control(context) {
         } else if (device.desktop() || device.tablet()) {
             draw_desktop(context);
         }
-        addBox(context, positions);
+        addShapes(context, positions);
         for (var i = 0; i < array_floor.length; i++) {
             if (point.x >= array_floor[i].points[3].x - 80 && point.x <= array_floor[i].points[1].x - 80 && point.y >= array_floor[i].points[0].y - 90 && point.y <= array_floor[i].points[2].y - 90) {
                 position = 0;
@@ -97,7 +105,7 @@ function control(context) {
 			positions[posLayer].push(shapeObject);
 		}
 		
-        addBox(context, positions);
+        addShapes(context, positions);
         if (device.mobile()) {
             draw_phone(context);
             $(canvas).unbind('touchmove', move);
@@ -128,9 +136,9 @@ function control(context) {
         }, false);
         canvas.removeEventListener("mousedown", down, false);
     }
-    
+
     if (device.mobile()) {
-        $(canvas).on("touchstart", function down (e) {
+        $(canvas).on("touchstart", function (e) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
@@ -144,10 +152,9 @@ function control(context) {
                 $(canvas).on('touchend', up);
             }
         });
-        $(canvas).unbind("touchstart", down);
     }
     if (device.tablet()) {
-        $(canvas).on("touchstart", function down (e) {
+        $(canvas).on("touchstart", function (e) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
@@ -159,7 +166,6 @@ function control(context) {
                 $(canvas).on('touchend', up);
             }
         });
-        $(canvas).unbind("touchstart", down);
     }
 }
 

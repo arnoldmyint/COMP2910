@@ -209,7 +209,7 @@ function easter(e,context) {
     context.restore();
 }
 
-function addBox(context,position){
+function addShapes(context,position){
     box_image = new Image();
     box_image.src = 'images/Block.png';
 	slope_image_right = new Image();
