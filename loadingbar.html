@@ -23,6 +23,10 @@
 			        if (value == max) {
 			            clearInterval(animate);			           
 			        }
+                    
+                    if (value == 0) {
+			            clearInterval(animate);			           
+			        }
 			    };
 
 			    var animate = setInterval(function() {
@@ -33,8 +37,9 @@
 	</script>
 </head>
 <body>
-			<progress id="progressbar" value="100" max="100"></progress>
+			<center style = "width: 100%;">
+            <progress id="progressbar" value="100" max="100" style = "width: 100%"></progress>
 			<span class="progress-value">100%</span>
-            
+            </center>
 </body>
 </html>
