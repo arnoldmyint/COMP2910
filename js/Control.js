@@ -6,17 +6,20 @@ function control(context) {
     var positions = [];
     var position = -1;
 	var posLayer = 0;
-	var shapeType = "";
+	var shapeType = null;
 	
 	for(var i = 0; i < 6; i++){
 		positions[i] = [];
 	}
-	
-	
+    
     frame = document.getElementById("control_panel");
     eraser = document.getElementById("eraser");
     roll = document.getElementById("roll");
     box = document.getElementById("box");
+    slope_NE = document.getElementById("slope_NE");
+    slope_NW = document.getElementById("slope_NW");
+    slope_SW = document.getElementById("slope_SW");
+    slope_SE = document.getElementById("slope_SE");
     if (device.mobile()) {
         draw_phone(context);
     } else if (device.desktop() || device.tablet()) {
@@ -37,8 +40,6 @@ function control(context) {
     }
 
     function move(e) {
-		
-		
 		posLayer = 0;
         e.preventDefault();
         moving = true;
@@ -89,7 +90,7 @@ function control(context) {
 		
 		if(position != -1){
 			var shapeObject = {
-				index:0,type:""
+				index:0,type:null
 			};
 			shapeObject.index = position;
 			shapeObject.type = shapeType;
