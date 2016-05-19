@@ -20,10 +20,10 @@ function load(){
     var context=canvas.getContext("2d");
     createObj();
     if(device.desktop() || device.tablet()){
-        canvas.style.width="450px";
-        canvas.style.height="900px";
-        //canvas.style.width=window.innerHeight*window.devicePixelRatio/2+"px";
-        //canvas.style.height=window.innerHeight*window.devicePixelRatio+"px";
+        //canvas.style.width="450px";
+        //canvas.style.height="900px";
+        canvas.style.width=window.innerHeight*window.devicePixelRatio/2+"px";
+        canvas.style.height=window.innerHeight*window.devicePixelRatio+"px";
         //container.style.backgroundColor="antiquewhite";
 
     }else if (device.mobile()){
