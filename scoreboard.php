@@ -1,12 +1,9 @@
-<body>
+<body style="background-color:green;">
 
 <header>
 <h1 align="center">Score</h1>
 </header>
-<style>
-background-color:blue;    
-    
-</style>
+
 <center>
 	<?php
 
