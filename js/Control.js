@@ -120,7 +120,6 @@ function control(context) {
     }
 	
 	function rollBrain(){
-		alert("Attempting to roll brain");
 		brain(context, positions);
 		
 		$(canvas).unbind("click", rollBrain);
