@@ -104,7 +104,7 @@ function right_wall(context){
 		}
     }
 	context.setTransform(1,0,0,1,0,0);
-	context.drawImage(startPoint, pos.x, pos.y-9,109,109);
+	context.drawImage(startPoint, pos.x, pos.y,110,110);
 	/*
     if(randomize(array_right,context)%29 == 0){
         c=0;
