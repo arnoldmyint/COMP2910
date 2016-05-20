@@ -225,16 +225,16 @@ table {
 
 #level1, #level2, #level3, #level4, #level5, #level6, #level7, #level8, #level9, 
 #level10, #level11, #level12, #level13, #level14, #level15 {
-    width : 102px;
-    height: 102px;
+    width : 70px;
+    height: 70px;
     display :inline-block;
 }
 
 #level1:active, #level2:active, #level3:active, #level4:active, #level5:active, 
 #level6:active, #level7:active, #level8:active, #level9:active, #level10:active, 
 #level11:active, #level12:active, #level13:active, #level14:active, #level15:active {
-    width : 102px;
-    height: 102px;
+    width : 70px;
+    height: 70px;
     transition: 0s;
     transform : rotate(5deg);
 }
