@@ -91,7 +91,6 @@ function control(context) {
             position= -1;
             posLayer = 0;
         }
-
         context.clearRect(0, 0, canvas.width, canvas.height);
         redraw(context);
         context.save();
@@ -111,7 +110,7 @@ function control(context) {
     }
 
     if (device.desktop()) {
-        //var clicking = false;
+        
         $(canvas).on("mousedown", function (e) {
             moving = false;
             mouseUp = false;
