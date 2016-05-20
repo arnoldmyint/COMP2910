@@ -25,11 +25,11 @@ function brain(context, positions){
 			for(var i = 0; i < positions[theLayer].length; i++){
 				if(positions[theLayer][i].index == theTile){
 					if(positions[theLayer][i].type == "slope_SW"){
-						move = setInterval(rollSlope, 100);
+						move = setInterval(rollSlope, 10);
 						canMove = 1;
 						break;
 					} else if(positions[theLayer][i].type == "box"){
-						move = setInterval(rollBox, 100);
+						move = setInterval(rollBox, 10);
 						canMove = 1;
 						break;					
 					} else {
@@ -49,11 +49,11 @@ function brain(context, positions){
 				alert("You Win!");
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				document.location.href="http://comp2910.azurewebsites.net/form.html";
-                document.getElementById('mobilenumber').value=theScore;
+                //document.getElementById('mobilenumber').value=theScore;
 			}
 			canMove = 1;
 			if(winner != 1){
-				move = setInterval(rollGround, 100);
+				move = setInterval(rollGround, 10);
 			}
 		}			
 		
