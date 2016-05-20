@@ -17,7 +17,7 @@
     
     <button>Basic Bitch</button><br>
     <a href = "/index.html"><button>Arvin</button><br></a>
-    <div class = "returnbutton" onclick="returnToMenu()"></div> <br/>
+    <a href = "/index.html"><div class = "returnbutton" onclick="returnToMenu()"></div></a> <br/>
 
 </center>
 
