@@ -27,6 +27,14 @@ img{
     height: 122px;
 }
 
+.logomini{
+    background-image : url("../images/logomini.png");
+    margin:0 auto;
+    display: block;
+    width : 111px;
+    height: 98px;
+}
+
 #highscores {
     display :none;
 }
