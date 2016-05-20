@@ -46,7 +46,7 @@ function brain(context, positions){
 				rolly = [array_floor[end].points[0].y,array_floor[end].points[1].y,array_floor[end].points[2].y, array_floor[end].points[3].y], theX, theY+5) == true){
 				clearInterval(move);
 				winner = 1;
-				alert("You ARENT A LOSER!!!");
+				alert("You Win!");
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				document.location.href="http://comp2910.azurewebsites.net/form.html";
                 document.getElementById('mobilenumber').value=theScore;
@@ -58,7 +58,7 @@ function brain(context, positions){
 		}			
 		
 		if(canMove == 0){
-			alert("You are a loser!")
+			alert("You Lose")
 			context.clearRect(0, 0, canvas.width, canvas.height);
 			document.location.href="http://comp2910.azurewebsites.net/";
 		}
