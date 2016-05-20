@@ -4,6 +4,7 @@
 <script src="js/Navigation.js"></script>
 </head>
 <body>
+    <title>Leaderboard</title>
 
 <header>
 <h1 align="center">Score</h1>
