@@ -48,7 +48,7 @@ function brain(context, positions){
 				winner = 1;
 				alert("You Win!");
 				context.clearRect(0, 0, canvas.width, canvas.height);
-				document.location.href="http://comp2910.azurewebsites.net/form.html";
+				document.location.href="http://comp2910.azurewebsites.net/form.html?score=" + theScore;
                 //document.getElementById('mobilenumber').value=theScore;
 			}
 			canMove = 1;
