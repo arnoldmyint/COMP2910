@@ -49,108 +49,390 @@ img{
     display :none;
 }
 
+#loadLevel{
+    display :none;
+}
 
-div.playbutton, div.highscoresbutton, div.tutorialbutton,div.creditsbutton, div.returnbutton,div.loadlevelbutton, 
-div.challengebutton, div.menubutton, div.rollbutton, div.resetbutton, div.erasebutton {
+#pause {
+    display :none;
+}
+
+#gameOver{
+    text-align: center;
+    display :none;
+}
+
+.playbutton, .highscoresbutton, .tutorialbutton, .creditsbutton, .returnbutton, 
+.loadlevelbutton, .challengebutton, .menubutton, .rollbutton, .resetbutton, 
+.erasebutton, .resumebutton, .mutebutton, .replaybutton {
     margin:0 auto;
     width : 222px;
     height: 53px;
     display:block;
 }
 
-div.playbutton:active, div.playbutton:active, div.highscoresbutton:active, div.tutorialbutton:active, 
-div.creditsbutton:active, div.returnbutton:active, div.loadlevelbutton:active, div.challengebutton:active, 
-div.menubutton:active, div.rollbutton:active, div.resetbutton:active, div.erasebutton:active {
+.playbutton:active, .playbutton:active, .highscoresbutton:active, 
+.tutorialbutton:active, .creditsbutton:active, .returnbutton:active, 
+.loadlevelbutton:active, .challengebutton:active, .menubutton:active, 
+.rollbutton:active, .resetbutton:active, .erasebutton:active, 
+.resumebutton:active, .mutebutton:active, .replaybutton:active{
     width : 222px;
     height: 53px;
     transition: 0s;
     transform : rotate(5deg);
 }
 
-div.playbutton{
+.playbutton{
     background-image : url("../images/buttons/normal/Play.png");
 }
 
-div.playbutton:active{
+.playbutton:active{
     background-image : url("../images/buttons/clicked/Play.png");
 }
 
-div.highscoresbutton{
+.highscoresbutton{
     background-image : url("../images/buttons/normal/Highscores.png");
 }
 
-div.highscoresbutton:active{
+.highscoresbutton:active{
     background-image : url("../images/buttons/clicked/Highscores.png");
 }
 
-div.tutorialbutton{
+.tutorialbutton{
     background-image : url("../images/buttons/normal/Tutorial.png");
 }
 
-div.tutorialbutton:active{
+.tutorialbutton:active{
     background-image : url("../images/buttons/clicked/Tutorial.png");
 }
 
-div.creditsbutton{
+.creditsbutton{
     background-image : url("../images/buttons/normal/Credits.png");
 }
 
-div.creditsbutton:active{
+.creditsbutton:active{
     background-image : url("../images/buttons/clicked/Credits.png");
 }
 
-div.returnbutton{
+.returnbutton{
     background-image : url("../images/buttons/normal/Return.png");
 }
 
-div.returnbutton:active{
+.returnbutton:active{
     background-image : url("../images/buttons/clicked/Return.png");
 }
 
-div.loadlevelbutton{
+.loadlevelbutton{
     background-image : url("../images/buttons/normal/LoadLevel.png");
 }
 
-div.loadlevelbutton:active{
+.loadlevelbutton:active{
     background-image : url("../images/buttons/clicked/LoadLevel.png");
 }
 
-div.challengebutton{
+.challengebutton{
     background-image : url("../images/buttons/normal/Challenge.png");
 }
 
-div.challengebutton:active{
+.challengebutton:active{
     background-image : url("../images/buttons/clicked/Challenge.png");
 }
 
-div.menubutton{
+.menubutton{
     background-image : url("../images/buttons/normal/Menu.png");
 }
 
-div.menubutton:active{
+.menubutton:active{
     background-image : url("../images/buttons/clicked/Menu.png");
 }
 
-div.rollbutton{
+.rollbutton{
     background-image : url("../images/buttons/normal/Roll.png");
 }
 
-div.rollbutton:active{
+.rollbutton:active{
     background-image : url("../images/buttons/clicked/Roll.png");
 }
 
-div.resetbutton{
+.resetbutton{
     background-image : url("../images/buttons/normal/Reset.png");
 }
 
-div.resetbutton:active{
+.resetbutton:active{
     background-image : url("../images/buttons/clicked/Reset.png");
 }
 
-div.erasebutton{
+.erasebutton{
     background-image : url("../images/buttons/normal/Erase.png");
 }
 
-div.erasebutton:active{
+.erasebutton:active{
     background-image : url("../images/buttons/clicked/Erase.png");
+}
+
+.resumebutton{
+    background-image : url("../images/buttons/normal/Resume.png");
+}
+
+.resumebutton:active{
+    background-image : url("../images/buttons/clicked/Resume.png");
+}
+
+.mutebutton{
+    background-image : url("../images/buttons/normal/Mute.png");
+}
+
+.mutebutton:active{
+    background-image : url("../images/buttons/clicked/Mute.png");
+}
+
+.replaybutton{
+    background-image : url("../images/buttons/normal/Replay.png");
+}
+
+.replaybutton:active{
+    background-image : url("../images/buttons/clicked/Replay.png");
+}
+
+#level1, #level2, #level3, #level4, #level5, #level6, #level7, #level8, #level9, 
+#level10, #level11, #level12, #level13, #level14, #level15, #level16, #level17, 
+#level18, #level19, #level20, #level21, #level22, #level23, #level24, #level25 {
+    width : 102px;
+    height: 102px;
+}
+
+#level1:active, #level2:active, #level3:active, #level4:active, #level5:active, 
+#level6:active, #level7:active, #level8:active, #level9:active, #level10:active, 
+#level11:active, #level12:active, #level13:active, #level14:active, #level15:active, 
+#level16:active, #level17:active, #level18:active, #level19:active, #level20:active, 
+#level21:active, #level22:active, #level23:active, #level24:active, #level25:active {
+    width : 102px;
+    height: 102px;
+    transition: 0s;
+    transform : rotate(5deg);
+}
+
+#level1{
+    background-image : url("../images/buttons/normal/Level1.png");
+    display :block;
+}
+
+#level1:active{
+    background-image : url("../images/buttons/clicked/Level1.png");
+}
+
+#level2{
+    background-image : url("../images/buttons/normal/Level2.png");
+    display :block;
+}
+
+#level2:active{
+    background-image : url("../images/buttons/clicked/Level2.png");
+}
+
+#level3{
+    background-image : url("../images/buttons/normal/Level3.png");
+    display :block;
+}
+
+#level3:active{
+    background-image : url("../images/buttons/clicked/Level3.png");
+}
+
+#level4{
+    background-image : url("../images/buttons/normal/Level4.png");
+    display :block;
+}
+
+#level4:active{
+    background-image : url("../images/buttons/clicked/Level4.png");
+}
+
+#level5{
+    background-image : url("../images/buttons/normal/Level5.png");
+    display :block;
+}
+
+#level5:active{
+    background-image : url("../images/buttons/clicked/Level5.png");
+}
+
+#level6{
+    background-image : url("../images/buttons/normal/Level6.png");
+    display :block;
+}
+
+#level6:active{
+    background-image : url("../images/buttons/clicked/Level6.png");
+}
+
+#level7{
+    background-image : url("../images/buttons/normal/Level7.png");
+    display :block;
+}
+
+#level7:active{
+    background-image : url("../images/buttons/clicked/Level7.png");
+}
+
+#level8{
+    background-image : url("../images/buttons/normal/Level8.png");
+    display :block;
+}
+
+#level8:active{
+    background-image : url("../images/buttons/clicked/Level8.png");
+}
+
+#level9{
+    background-image : url("../images/buttons/normal/Level9.png");
+    display :block;
+}
+
+#level9:active{
+    background-image : url("../images/buttons/clicked/Level9.png");
+}
+
+#level10{
+    background-image : url("../images/buttons/normal/Level10.png");
+    display :block;
+}
+
+#level10:active{
+    background-image : url("../images/buttons/clicked/Level10.png");
+}
+
+#level11{
+    background-image : url("../images/buttons/normal/Level11.png");
+    display :block;
+}
+
+#level11:active{
+    background-image : url("../images/buttons/clicked/Level11.png");
+}
+
+#level12{
+    background-image : url("../images/buttons/normal/Level12.png");
+    display :block;
+}
+
+#level12:active{
+    background-image : url("../images/buttons/clicked/Level12.png");
+}
+
+#level13{
+    background-image : url("../images/buttons/normal/Level13.png");
+    display :block;
+}
+
+#level13:active{
+    background-image : url("../images/buttons/clicked/Level13.png");
+}
+
+#level14{
+    background-image : url("../images/buttons/normal/Level14.png");
+    display :block;
+}
+
+#level14:active{
+    background-image : url("../images/buttons/clicked/Level14.png");
+}
+
+#level15{
+    background-image : url("../images/buttons/normal/Level15.png");
+    display :block;
+}
+
+#level15:active{
+    background-image : url("../images/buttons/clicked/Level15.png");
+}
+
+#level16{
+    background-image : url("../images/buttons/normal/Level16.png");
+    display :block;
+}
+
+#level16:active{
+    background-image : url("../images/buttons/clicked/Level16.png");
+}
+
+#level17{
+    background-image : url("../images/buttons/normal/Level17.png");
+    display :block;
+}
+
+#level17:active{
+    background-image : url("../images/buttons/clicked/Level17.png");
+}
+
+#level18{
+    background-image : url("../images/buttons/normal/Level18.png");
+    display :block;
+}
+
+#level18:active{
+    background-image : url("../images/buttons/clicked/Level18.png");
+}
+
+#level19{
+    background-image : url("../images/buttons/normal/Level19.png");
+    display :block;
+}
+
+#level19:active{
+    background-image : url("../images/buttons/clicked/Level19.png");
+}
+
+#level20{
+    background-image : url("../images/buttons/normal/Level20.png");
+    display :block;
+}
+
+#level20:active{
+    background-image : url("../images/buttons/clicked/Level20.png");
+}
+
+#level21{
+    background-image : url("../images/buttons/normal/Level21.png");
+    display :block;
+}
+
+#level21:active{
+    background-image : url("../images/buttons/clicked/Level21.png");
+}
+
+#level22{
+    background-image : url("../images/buttons/normal/Level22.png");
+    display :block;
+}
+
+#level22:active{
+    background-image : url("../images/buttons/clicked/Level22.png");
+}
+
+#level23{
+    background-image : url("../images/buttons/normal/Level23.png");
+    display :block;
+}
+
+#level23:active{
+    background-image : url("../images/buttons/clicked/Level23.png");
+}
+
+#level24{
+    background-image : url("../images/buttons/normal/Level24.png");
+    display :block;
+}
+
+#level24:active{
+    background-image : url("../images/buttons/clicked/Level24.png");
+}
+
+#level25{
+    background-image : url("../images/buttons/normal/Level25.png");
+    display :block;
+}
+
+#level25:active{
+    background-image : url("../images/buttons/clicked/Level25.png");
 }
