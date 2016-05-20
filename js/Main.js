@@ -11,7 +11,7 @@ var array_left = [];
 var array_right = [];
 var mouseUp = false;
 var theScore = 180;
-
+var time = 0;
 function load(){
     hideMenu();
     hideChooseGame();
@@ -61,8 +61,9 @@ function load(){
     context.save();
     frame_vertical(context);
     context.save();
-    control(context);
+    timer(context);
     context.save();
+
 	
 	
 

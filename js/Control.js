@@ -29,7 +29,7 @@ function control_frame(context) {
 	}
 	*/
 }
-function control(context) {
+function control(context,mytimer) {
     var positions = [];
     var position = -1;
 	var posLayer = 0;
@@ -42,7 +42,7 @@ function control(context) {
     function move(e) {
 		posLayer = 0;
         moving = true;
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.clearRect(0, 10, canvas.width, canvas.height);
         if (device.mobile() || device.tablet()) {
             var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
         } else {
@@ -86,7 +86,7 @@ function control(context) {
             position= -1;
             posLayer = 0;
         }
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.clearRect(0, 10, canvas.width, canvas.height);
         redraw(context);
         context.save();
         addAllShapes(context, positions);
@@ -105,6 +105,7 @@ function control(context) {
     }
 	
 	function rollBrain(){
+        clearInterval(mytimer);
 		brain(context, positions);
 		
 		$(canvas).unbind("click", rollBrain);
