@@ -96,7 +96,7 @@ function right_wall(context){
 			context.setTransform(1,0,0,1,0,0);
 			var pos = shapePoints(2,3);
 			context.drawImage(start_image, pos.x, pos.y,109,109);
-			array_right[i].start = true;
+			array_right[i].end = true;
 		} else {
 			egg = array_right[i];
 			context.beginPath();
