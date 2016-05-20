@@ -19,11 +19,6 @@ img{
     display: none;
 }
 
-
-/* .hideImage {
-    display : none;
-} */
-
 #highscores {
     display :none;
 }
@@ -64,7 +59,7 @@ img{
 
 .playbutton, .highscoresbutton, .tutorialbutton, .creditsbutton, .returnbutton, 
 .loadlevelbutton, .challengebutton, .menubutton, .rollbutton, .resetbutton, 
-.erasebutton, .resumebutton, .mutebutton, .replaybutton {
+.erasebutton, .resumebutton, .mutebutton, .replaybutton, .pausebutton {
     margin:0 auto;
     width : 222px;
     height: 53px;
@@ -75,7 +70,8 @@ img{
 .tutorialbutton:active, .creditsbutton:active, .returnbutton:active, 
 .loadlevelbutton:active, .challengebutton:active, .menubutton:active, 
 .rollbutton:active, .resetbutton:active, .erasebutton:active, 
-.resumebutton:active, .mutebutton:active, .replaybutton:active{
+.resumebutton:active, .mutebutton:active, .replaybutton:active, 
+.pausebutton:active{
     width : 222px;
     height: 53px;
     transition: 0s;
@@ -192,6 +188,14 @@ img{
 
 .replaybutton:active{
     background-image : url("../images/buttons/clicked/Replay.png");
+}
+
+.pausebutton{
+    background-image : url("../images/buttons/normal/Pause.png");
+}
+
+.pausebutton:active{
+    background-image : url("../images/buttons/clicked/Pause.png");
 }
 
 #level1, #level2, #level3, #level4, #level5, #level6, #level7, #level8, #level9, 
