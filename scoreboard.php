@@ -8,7 +8,7 @@
 
 <header>
 <br/>
-<h1 align="center">Leaderboard</h1>
+<h1 align="center" color="white">Leaderboard</h1>
 <br/>
 </header>
 
