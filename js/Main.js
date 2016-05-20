@@ -10,6 +10,7 @@ var array_floor = [];
 var array_left = [];
 var array_right = [];
 var mouseUp = false;
+var theScore = 180;
 
 function load(){
     hideMenu();

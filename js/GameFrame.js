@@ -61,6 +61,7 @@ function floor(context){
 			getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
 			var pos = shapePoints(i,0);
 			array_floor[i].end = true;
+			end = i;
 		} else {
 			context.beginPath();
 			context.fillStyle="#65A658";
