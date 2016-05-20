@@ -220,6 +220,8 @@ img{
     border-spacing: 10px;
 }
 
+tr:nth-child(even){background-color: #9CFF87}
+
 .col1, .col2, .col3, .col4{	
 	width: 10px;
 }
