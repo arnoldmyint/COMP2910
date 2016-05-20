@@ -74,9 +74,9 @@ function showPause(){
     document.getElementById("pause").style.display = "block";
 }
 
-function hidePause(){
-    document.getElementById("pause").style.display = "none";
-}
+//function hidePause(){
+//    document.getElementById("pause").style.display = "none";
+//}
 
 function showGameOver(){
     document.getElementById("gameOver").style.display = "block";
@@ -104,6 +104,6 @@ function returnToMenu(){
     hideTutorial();
     hideCredits();
     hideCanvas();
-    hidePause();
+    //hidePause();
     showMenu();
 }
