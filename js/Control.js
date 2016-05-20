@@ -108,6 +108,13 @@ function control(context) {
             $(canvas).unbind('touchend', up);
         }
     }
+	
+	function rollBrain(){
+		alert("Attempting to roll brain");
+		brain(context, positions);
+		
+		$(canvas).unbind("click", rollBrain);
+	}
 
     if (device.desktop()) {
         
@@ -158,7 +165,9 @@ function control(context) {
                 // shapeType = "slope_SW";
                 // $(canvas).on("mousemove", move);
                 // $(canvas).on("mouseup", up);
-            }
+            } else if(x>0 && y>0 && x < 100 && y < 100){
+				$(canvas).on("click", rollBrain);
+			}
             // if(e.type == "click"){
             //     //clicking = true;
             //     console.log(x,y);

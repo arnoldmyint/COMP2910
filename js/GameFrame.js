@@ -88,9 +88,10 @@ function right_wall(context){
 	startPoint=document.getElementById("start");
     for(var i=0; i<array_right.length; i++){
 		if(i == 19){
-			getPoints(array_right[i],1,0.5,-1,0.5,455,395);
+			getPoints(array_right[i],1,0.5,0,1,400,38);
 			var pos = shapePoints(1,2);
 			array_right[i].start = true;
+			start = 19;
 		} else {
 			egg = array_right[i];
 			context.beginPath();
