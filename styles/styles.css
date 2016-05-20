@@ -214,7 +214,7 @@ img{
     background-image : url("../images/buttons/clicked/Pause.png");
 }
 
-table {
+.selectionTable {
 	margin-left: auto;
 	margin-right: auto;
     border-spacing: 10px;
