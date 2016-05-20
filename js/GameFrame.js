@@ -131,7 +131,7 @@ function left_wall(context){
     }
     context.restore();
     context.save();
-    if(!moving){
+    if(!moving && !mouseUp){
         $(canvas).on("click touchstart", function (e) {
             easter(e,context);
         });

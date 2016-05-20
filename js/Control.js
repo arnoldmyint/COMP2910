@@ -12,26 +12,14 @@ function control_frame(context) {
     slope_NW = document.getElementById("slope_NW");
     slope_SW = document.getElementById("slope_SW");
     slope_SE = document.getElementById("slope_SE");
-    if (device.mobile()) {
-        context.drawImage(frame, 8, 850, 789, 295);
-        context.drawImage(eraser, 7, 630, 400, 210);
-        context.drawImage(roll, 395, 630, 400, 210);
-        context.drawImage(box, 135, 900);
-        context.drawImage(slope_SW, 290, 890);
-        context.drawImage(slope_NW, 435, 890);
-        context.drawImage(slope_SE, 585, 900);
-        context.drawImage(slope_NE, 135, 1030);
-    } else if (device.desktop() || device.tablet()) {
-        context.restore();
-        context.drawImage(frame, 8, 850, 789, 295);
-        context.drawImage(eraser, 7, 630, 400, 210);
-        context.drawImage(roll, 395, 630, 400, 210);
-        context.drawImage(box, 135, 900);
-        context.drawImage(slope_SW, 290, 890);
-        context.drawImage(slope_NW, 435, 890);
-        context.drawImage(slope_SE, 585, 900);
-        context.drawImage(slope_NE, 135, 1030);
-    }
+    context.drawImage(frame, 8, 850, 789, 295);
+    context.drawImage(eraser, 7, 630, 400, 210);
+    context.drawImage(roll, 395, 630, 400, 210);
+    context.drawImage(box, 135, 900);
+    context.drawImage(slope_SW, 290, 890);
+    context.drawImage(slope_NW, 435, 890);
+    context.drawImage(slope_SE, 585, 900);
+    context.drawImage(slope_NE, 135, 1030);
 	/*
 	//FOR TESTING OF X AND Y LOCATION
 	canvas.onclick=function (e){
@@ -42,7 +30,6 @@ function control_frame(context) {
 	*/
 }
 function control(context) {
-    context.save();
     var positions = [];
     var position = -1;
 	var posLayer = 0;
@@ -50,8 +37,6 @@ function control(context) {
 	for(var i = 0; i < 6; i++){
 		positions[i] = [];
 	}
-
-    var slopes = [slope_NE,slope_NW,slope_SE,slope_SW];
     control_frame(context);
 
     function move(e) {
