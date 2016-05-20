@@ -19,6 +19,7 @@ function brain(context, positions){
 	
 	
 	function rollBrain(){
+		theScore = 200;
 		var canMove = 0;
 		//When brain is above the ground
 		if(theLayer != -1){
