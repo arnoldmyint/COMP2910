@@ -48,7 +48,7 @@ function brain(context, positions){
 				winner = 1;
 				alert("You ARENT A LOSER!!!");
 				context.clearRect(0, 0, canvas.width, canvas.height);
-				document.location.href="http://comp2910.azurewebsites.net/form.html?login=" + theScore;
+				document.location.href="http://comp2910.azurewebsites.net/form.html?score=" + theScore;
 			}
 			canMove = 1;
 			if(winner != 1){
