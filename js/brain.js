@@ -1,7 +1,17 @@
-/*
+/**
+ *	brain.js
+ *
+ *	Controls the brain drawing and movement
+ *
+ */
 
-*/
-
+/**
+ *	brain
+ *	@context
+ *	@positions array of shape objects
+ *	
+ *	Initializing of brain, all functions for movement contained.
+ */
 function brain(context, positions){
 	var startPoint = getStart();
 	var brain=document.getElementById("brain");
@@ -17,7 +27,11 @@ function brain(context, positions){
 	
 	rollBrain();
 	
-	
+	/**
+	 *	rollBrain
+	 *
+	 *	determines location, decides how to roll based on next block as well as win or lose.
+	 */
 	function rollBrain(){
 		var canMove = 0;
 		//When brain is above the ground
@@ -64,12 +78,22 @@ function brain(context, positions){
 		}
 	}
 	
+	/**
+	 *	getStart
+	 *	
+	 *	@return starting x and y of brain.
+	 */
 	function getStart(){		
 		return { 	theLayer: parseInt(start%6),
 					theTile: parseInt((35-start)/6)
 		};
 	}
 	
+	/**
+	 *	rollSlope
+	 *
+	 *	Rolls the brain down the slope.
+	 */
 	function rollSlope(){
 		if(incX >= 54){
 			clearInterval(move);
@@ -91,6 +115,11 @@ function brain(context, positions){
 		context.drawImage(brain, theX-incX, theY+incY);
 	}
 	
+	/**
+	 *	rollBox
+	 *
+	 *	Rolls the brain across the box.
+	 */
 	function rollBox(){
 		if(incX >= 50){
 			clearInterval(move);
@@ -111,6 +140,11 @@ function brain(context, positions){
 		context.drawImage(brain, theX-incX, theY+incY);
 	}
 	
+	/**
+	 *	rollGround
+	 *
+	 *	Rolls across the ground.
+	 */
 	function rollGround(){
 		if(incX >= 44){
 			clearInterval(move);

@@ -1,6 +1,15 @@
 /**
- * Created by siyuanwang on 2016-05-17.
+ * GameFrame.js
+ * 
+ * Object creation, isometric grid and redraw handled.
+ * 
  */
+ 
+ /**
+  * createObj
+  *	No params
+  *	Populates array for floor and walls with each tile. 6x6
+  */
 function createObj() {
     var rows=0;
     var cols=0;
@@ -54,6 +63,14 @@ function createObj() {
     }
 }
 
+/**
+ *	floor
+ *	@context 
+ *
+ *	Draws each of the 36 tiles and transforms them for the 3D grid.
+ *	Stores each point of the newly transformed tile back in the object.
+ *	
+ */
 function floor(context){
 	endPoint=document.getElementById("end");
     for(var i=0; i<array_floor.length; i++){
@@ -85,6 +102,15 @@ function floor(context){
 	*/
     context.restore();
 }
+
+/**
+ *	right_wall
+ *	@context 
+ *
+ *	Draws each of the 36 tiles and transforms them for the 3D grid.
+ *	Stores each point of the newly transformed tile back in the object.
+ *	
+ */
 function right_wall(context){
 	startPoint=document.getElementById("start");
     for(var i=0; i<array_right.length; i++){
@@ -118,6 +144,14 @@ function right_wall(context){
     context.restore();
 }
 
+/**
+ *	left_wall
+ *	@context 
+ *
+ *	Draws each of the 36 tiles and transforms them for the 3D grid.
+ *	Stores each point of the newly transformed tile back in the object.
+ *	
+ */
 function left_wall(context){
     for(var i=0; i<array_left.length; i++){
         context.beginPath();
@@ -138,10 +172,14 @@ function left_wall(context){
     }
 }
 
-/*
- generate the random cells for holes and balls
+/**
+ *	frame_horizontal
+ *	@context 
+ *
+ *	
+ *	
+ *	
  */
-
 function frame_horizontal(context) {
     context.beginPath();
     context.strokeStyle="#D6FFCD";
@@ -184,6 +222,14 @@ function frame_horizontal(context) {
     context.restore();
 }
 
+/**
+ *	frame_vertical
+ *	@context 
+ *
+ *	
+ *	
+ *	
+ */
 function frame_vertical(context) {
     context.beginPath();
     context.fillStyle="#50824F";
@@ -204,6 +250,13 @@ function frame_vertical(context) {
     context.restore();
 }
 
+/**
+ *	timer
+ *	@context 
+ *
+ *	Timer for game play, loss cases and calculating score.
+ *	
+ */
 function timer(context){
     context.fillStyle="blue";
     var mytimer = setInterval(function (){
@@ -217,6 +270,14 @@ function timer(context){
     }, 1000);
     control(context,mytimer);
 }
+
+/**
+ *	redraw
+ *	@context 
+ *
+ *	redraws the entire canvas
+ *	
+ */
 function redraw(context) {
     context.save();
     floor(context);
@@ -231,6 +292,15 @@ function redraw(context) {
     context.save();
 }
 
+/**
+ *	easter
+ *	@e click point x, y
+ *	@context 
+ *
+ *	Checks to see if the left_wall bottom right point has been clicked,
+ *	if so, changes the brain to an easter egg.
+ *	
+ */
 function easter(e,context) {
     e.preventDefault();
     context.setTransform(1,0.5,0,1,400,38);
@@ -249,6 +319,14 @@ function easter(e,context) {
     context.restore();
 }
 
+/**
+ *	addAllShapes
+ *	@context 
+ *	@position Contains all shapes that have been placed on the grid.
+ *
+ *	Draws all shapes that have been placed on the grid.
+ *	
+ */
 function addAllShapes(context,position){
     box_image = new Image();
     box_image.src = 'images/Block.png';
@@ -271,6 +349,16 @@ function addAllShapes(context,position){
 	}
 }
 
+/**
+ *	addTransparentShape
+ *	@context 
+ *	@x position to draw shape
+ *	@y position to draw shape
+ *	@type shape type
+ *
+ *	Draws the transparent shape at correct location for being dragged.	
+ *	
+ */
 function addTransparentShape(context,x,y,type){
 	transparent_box_image = new Image();
 	transparent_box_image.src = 'images/TransBlock.png';
@@ -282,6 +370,13 @@ function addTransparentShape(context,x,y,type){
 		context.drawImage(transparent_slope_SW, x, y,109,109);
 	}
 }
+
+/**
+ *	orientationchange
+ *		
+ *	Checks if device has been rotates, only supports landscape mode.
+ *	
+ */
 $(window).bind('orientationchange', function() {
     switch ( window.orientation ) {
         case 0:

@@ -1,3 +1,16 @@
+/**
+ *	Points.js
+ *	
+ *	Calculations of clicking, points and polygon shapes.
+ */
+
+ /**
+ *	shapePoints
+ *	@index index of tile on layerX
+ *	@shapeLayer layer on the grid
+ *	@return point for drawing shape based on where it is on grid.
+ *	
+ */
 function shapePoints(index,shapeLayer){
 	var theX;
     var theY;
@@ -29,6 +42,15 @@ function shapePoints(index,shapeLayer){
     };
 }
 
+/**
+ *	getPointOnCanvas
+ *	@canvas
+ *	@x value on canvas
+ *	@y value on canvas
+ *	@return x and y value based on canvas.
+ *
+ *
+ */
 function getPointOnCanvas(canvas, x, y) {
     var bbox = canvas.getBoundingClientRect();
     return { x: (x - bbox.left) * (canvas.width  / bbox.width),
@@ -36,6 +58,19 @@ function getPointOnCanvas(canvas, x, y) {
     };
 }
 
+/**
+ *	getPoints
+ *	@rectObj the rect to find transformation
+ *	@a matrix transform information from setTransform(x,x,x,x,x,x)
+ *	@b matrix transform information from setTransform(x,x,x,x,x,x)
+ *	@c matrix transform information from setTransform(x,x,x,x,x,x)
+ *	@d matrix transform information from setTransform(x,x,x,x,x,x)
+ *	@e matrix transform information from setTransform(x,x,x,x,x,x)
+ *	@f matrix transform information from setTransform(x,x,x,x,x,x)
+ *
+ *	Updates points of transformed tile.
+ *
+ */
 function getPoints(rectObj,a,b,c,d,e,f){
     var x = rectObj.x;
     var y = rectObj.y;
@@ -55,16 +90,18 @@ function getPoints(rectObj,a,b,c,d,e,f){
     rectObj.points[3].y = b * x + d * y + f;
 }
 
-/*
-	Checks if a polygon is clicked, if so returns true.
-	
-	@numVertices Number of vertices in the polygon
-	@xVertices Array of X vertices of the polygon
-	@yVertices Array of Y vertices of the polygon
-	@xClicked x coordinate that has been clicked
-	@yClicked y coordinate that has been clicked
-	@return boolean
-*/
+/**
+ *	polygonClicked
+ *	
+ *	@numVertices Number of vertices in the polygon
+ *	@xVertices Array of X vertices of the polygon
+ *	@yVertices Array of Y vertices of the polygon
+ *	@xClicked x coordinate that has been clicked
+ *	@yClicked y coordinate that has been clicked
+ *	@return boolean
+ *
+ *	Checks if a polygon is clicked, if so returns true. Works for all polygons, we use on triangles and rhombus's.
+ */
 function polygonClicked(numVertices, xVertices, yVertices, xClicked, yClicked){
     var i;
 	var j

@@ -1,17 +1,69 @@
 /**
- * Created by siyuanwang on 2016-05-17.
+ * Main.js
+ * 
+ * Holds all global variables, and contains the function to start
+ * the game.
  */
+ 
+
 var c=0;
+
+/*	egg
+ *	location
+ */
 var egg;
+
+/*	start
+ *	starting point
+ */
 var start;
+
+/*	end
+ *	ending point information
+ */
 var end;
+
+/*	moving
+ *	boolean cursor moving
+ */
 var moving = false;
+
+/*	array_floor
+ *	array of floor tiles.
+ */
 var array_floor = [];
+
+/*	array_left
+ *	array of left wall tiles.
+ */
 var array_left = [];
+
+/*	array_right
+ *	array of right wall tiles
+ */
 var array_right = [];
+
+/*	mouseUp
+ *	boolean mouse released
+ */
 var mouseUp = false;
+
+/*	theScore
+ *	Player score variable
+ */
 var theScore = 180;
+
+/*	time
+ *	time increment
+ */
 var time = 0;
+
+/**
+ *	load
+ *	
+ *	Initiliazing of game.
+ *	
+ */
 function load(){
     hideMenu();
     hideChooseGame();

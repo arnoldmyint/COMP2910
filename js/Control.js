@@ -1,5 +1,16 @@
 /**
- * Created by siyuanwang on 2016-05-17.
+ * Control.js
+ *
+ *	Control all events.
+ *
+ */
+ 
+ /**
+ *	control_frame
+ *	@context 
+ *
+ *	Drawing of buttons around game.	
+ *	
  */
 function control_frame(context) {
 	//var rollx = [405,787,785];
@@ -29,6 +40,15 @@ function control_frame(context) {
 	}
 	*/
 }
+
+/**
+ *	control
+ *	@context
+ *	@myTimer tracks time during game.
+ *
+ *	All events
+ *	
+ */
 function control(context,mytimer) {
     var positions = [];
     var position = -1;
@@ -39,6 +59,13 @@ function control(context,mytimer) {
 	}
     control_frame(context);
 
+	/**
+	 *	move
+	 *	@e point of cursor
+	 *
+	 *	Dragging of shape across the grid, draws transparently.
+	 *	
+	 */
     function move(e) {
 		posLayer = 0;
         moving = true;
@@ -71,6 +98,12 @@ function control(context,mytimer) {
         }
     }
 
+	/**
+	 *	up
+	 *	
+	 *	mouse released, adding to array of shapes.
+	 *	
+	 */
     function up() {
         moving = false;
         mouseUp = true;
@@ -104,6 +137,12 @@ function control(context,mytimer) {
         }
     }
 	
+	/**
+	 *	rollBrain
+	 *
+	 *	Initiates brain rolling
+	 *	
+	 */
 	function rollBrain(){
         clearInterval(mytimer);
 		brain(context, positions);
@@ -111,6 +150,10 @@ function control(context,mytimer) {
 		$(canvas).unbind("click", rollBrain);
 	}
 
+	
+	/*
+	 *	controls for desktop
+	 */
     if (device.desktop()) {
         
         $(canvas).on("mousedown", function (e) {
@@ -170,6 +213,9 @@ function control(context,mytimer) {
         });
     }
 
+	/*
+	 * Controls for mobile
+	 */
     if (device.mobile()) {
         $(canvas).on("touchstart", function (e) {
             e.preventDefault();
@@ -204,6 +250,14 @@ function control(context,mytimer) {
     }
 }
 
+/**
+ *	randomize
+ *	@arr array of tiles for floor or walls
+ *	@context
+ *
+ *	Randomizing a start and end point.
+ *
+ */
 function randomize(arr,context) {
     do {
         var i = parseInt(36 * Math.random());
