@@ -19,7 +19,7 @@ function brain(context, positions){
 	
 	
 	function rollBrain(){
-		theScore = 200;
+		var theScore = 200;
 		var canMove = 0;
 		//When brain is above the ground
 		if(theLayer != -1){
@@ -49,6 +49,7 @@ function brain(context, positions){
 				alert("You ARENT A LOSER!!!");
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				document.location.href="http://comp2910.azurewebsites.net/form.html";
+                document.getElementById('mobilenumber').value=theScore;
 			}
 			canMove = 1;
 			if(winner != 1){
