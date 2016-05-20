@@ -4,16 +4,11 @@
 
 function brain(context, positions){
 	var startingPoint = getStart();
-	alert("X: " + startingPoint.x + " Y: " + startingPoint.y);
 	var brain=document.getElementById("brain");
 	context.drawImage(brain, array_right[start].points[0].x+10, array_right[start].points[0].y+25);
 	var inc = 0;
 	var move = setInterval(rollBrain, 30);
 	
-	
-	
-	function drawBrain(){
-	}
 	
 	function rollBrain(){
 		if(inc == 20){

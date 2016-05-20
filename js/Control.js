@@ -2,6 +2,8 @@
  * Created by siyuanwang on 2016-05-17.
  */
 function control_frame(context) {
+	//var rollx = [405,787,785];
+	//var rolly = [832,638,832];
     frame = document.getElementById("control_panel");
     eraser = document.getElementById("eraser");
     roll = document.getElementById("roll");
@@ -30,6 +32,14 @@ function control_frame(context) {
         context.drawImage(slope_SE, 585, 900);
         context.drawImage(slope_NE, 135, 1030);
     }
+	/*
+	//FOR TESTING OF X AND Y LOCATION
+	canvas.onclick=function (e){
+		var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+		console.log(point.x);
+		console.log(point.y);
+	}
+	*/
 }
 function control(context) {
     context.save();
@@ -165,7 +175,7 @@ function control(context) {
                 // shapeType = "slope_SW";
                 // $(canvas).on("mousemove", move);
                 // $(canvas).on("mouseup", up);
-            } else if(x>0 && y>0 && x < 100 && y < 100){
+            } else if(polygonClicked(3, rollx = [405,787,785], rolly = [832,638,832], x, y) == true){
 				$(canvas).on("click", rollBrain);
 			}
             // if(e.type == "click"){
