@@ -5,12 +5,7 @@
 </header>
 <style>
 .board {
-   float: center;
-   margin: 10px;
-   padding: 10px;
-   width: 300px;
-   height: 300px;
-   border: 1px solid black;
+width: 100%;
 }   
 </style>
 <center class="board">
