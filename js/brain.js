@@ -19,7 +19,6 @@ function brain(context, positions){
 	
 	
 	function rollBrain(){
-		theScore = 200;
 		var canMove = 0;
 		//When brain is above the ground
 		if(theLayer != -1){
@@ -44,6 +43,7 @@ function brain(context, positions){
 		} else {
 			if(polygonClicked(4, rollx = [array_floor[end].points[0].x,array_floor[end].points[1].x,array_floor[end].points[2].x, array_floor[end].points[3].x],
 				rolly = [array_floor[end].points[0].y,array_floor[end].points[1].y,array_floor[end].points[2].y, array_floor[end].points[3].y], theX, theY+5) == true){
+				theScore -= time;
 				clearInterval(move);
 				winner = 1;
 				alert("You Win!");
