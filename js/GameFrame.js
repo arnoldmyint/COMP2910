@@ -6,7 +6,7 @@ function createObj() {
     var cols=0;
     for(var i=0; i<36; i++){
         var rect_floor={
-            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}], start:false, end:false
+            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}], start:false
         };
         if(i%6==0){
             rows++;
@@ -23,7 +23,7 @@ function createObj() {
     cols=0;
     for(var j=0; j<36; j++){
         var rect_right={
-            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}]
+            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}], end:false
         };
         if(j%6==0){
             rows++;
@@ -64,6 +64,7 @@ function floor(context){
 			context.setTransform(1,0,0,1,0,0);
 			var pos = shapePoints(i,0);
 			context.drawImage(end_image, pos.x, pos.y,109,109);
+			array_floor[i].end = true;
 		} else {
 			context.beginPath();
 			context.fillStyle="#65A658";
@@ -86,16 +87,27 @@ function floor(context){
     context.restore();
 }
 function right_wall(context){
+	start_image = new Image();
+	start_image.src = 'images/GoalHole.png';
+	
     for(var i=0; i<array_right.length; i++){
-		egg = array_right[i];
-        context.beginPath();
-        context.fillStyle="#6DBB6C";
-        context.strokeStyle="#D6FFCD";
-        context.setTransform(1,0.5,0,1,400,38);
-        context.strokeRect(array_right[i].x,array_right[i].y,array_right[i].width,array_right[i].height);
-        context.fillRect(array_right[i].x,array_right[i].y,array_right[i].width,array_right[i].height);
-        array_right[i].type="right_wall";
-        getPoints(array_right[i],1,0.5,0,1,400,38);
+		if(i == 19){
+			getPoints(array_right[i],1,0.5,-1,0.5,455,395);
+			context.setTransform(1,0,0,1,0,0);
+			var pos = shapePoints(2,3);
+			context.drawImage(start_image, pos.x, pos.y,109,109);
+			array_right[i].start = true;
+		} else {
+			egg = array_right[i];
+			context.beginPath();
+			context.fillStyle="#6DBB6C";
+			context.strokeStyle="#D6FFCD";
+			context.setTransform(1,0.5,0,1,400,38);
+			context.strokeRect(array_right[i].x,array_right[i].y,array_right[i].width,array_right[i].height);
+			context.fillRect(array_right[i].x,array_right[i].y,array_right[i].width,array_right[i].height);
+			array_right[i].type="right_wall";
+			getPoints(array_right[i],1,0.5,0,1,400,38);
+		}
     }
 	/*
     if(randomize(array_right,context)%29 == 0){
