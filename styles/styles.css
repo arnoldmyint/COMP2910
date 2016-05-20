@@ -214,18 +214,25 @@ img{
     background-image : url("../images/buttons/clicked/Pause.png");
 }
 
+table {
+	margin-left: auto;
+	margin-right: auto;
+    border-spacing: 10px;
+
+}
+
+
+
 #level1, #level2, #level3, #level4, #level5, #level6, #level7, #level8, #level9, 
-#level10, #level11, #level12, #level13, #level14, #level15, #level16, #level17, 
-#level18, #level19, #level20, #level21, #level22, #level23, #level24, #level25 {
+#level10, #level11, #level12, #level13, #level14, #level15 {
     width : 102px;
     height: 102px;
+    display :inline-block;
 }
 
 #level1:active, #level2:active, #level3:active, #level4:active, #level5:active, 
 #level6:active, #level7:active, #level8:active, #level9:active, #level10:active, 
-#level11:active, #level12:active, #level13:active, #level14:active, #level15:active, 
-#level16:active, #level17:active, #level18:active, #level19:active, #level20:active, 
-#level21:active, #level22:active, #level23:active, #level24:active, #level25:active {
+#level11:active, #level12:active, #level13:active, #level14:active, #level15:active {
     width : 102px;
     height: 102px;
     transition: 0s;
@@ -234,7 +241,6 @@ img{
 
 #level1{
     background-image : url("../images/buttons/normal/Level1.png");
-    display :block;
 }
 
 #level1:active{
@@ -243,7 +249,6 @@ img{
 
 #level2{
     background-image : url("../images/buttons/normal/Level2.png");
-    display :block;
 }
 
 #level2:active{
@@ -252,7 +257,6 @@ img{
 
 #level3{
     background-image : url("../images/buttons/normal/Level3.png");
-    display :block;
 }
 
 #level3:active{
@@ -261,7 +265,6 @@ img{
 
 #level4{
     background-image : url("../images/buttons/normal/Level4.png");
-    display :block;
 }
 
 #level4:active{
@@ -270,7 +273,6 @@ img{
 
 #level5{
     background-image : url("../images/buttons/normal/Level5.png");
-    display :block;
 }
 
 #level5:active{
@@ -279,7 +281,6 @@ img{
 
 #level6{
     background-image : url("../images/buttons/normal/Level6.png");
-    display :block;
 }
 
 #level6:active{
@@ -288,7 +289,6 @@ img{
 
 #level7{
     background-image : url("../images/buttons/normal/Level7.png");
-    display :block;
 }
 
 #level7:active{
@@ -297,7 +297,6 @@ img{
 
 #level8{
     background-image : url("../images/buttons/normal/Level8.png");
-    display :block;
 }
 
 #level8:active{
@@ -306,7 +305,6 @@ img{
 
 #level9{
     background-image : url("../images/buttons/normal/Level9.png");
-    display :block;
 }
 
 #level9:active{
@@ -315,7 +313,6 @@ img{
 
 #level10{
     background-image : url("../images/buttons/normal/Level10.png");
-    display :block;
 }
 
 #level10:active{
@@ -324,7 +321,6 @@ img{
 
 #level11{
     background-image : url("../images/buttons/normal/Level11.png");
-    display :block;
 }
 
 #level11:active{
@@ -333,7 +329,6 @@ img{
 
 #level12{
     background-image : url("../images/buttons/normal/Level12.png");
-    display :block;
 }
 
 #level12:active{
@@ -342,7 +337,6 @@ img{
 
 #level13{
     background-image : url("../images/buttons/normal/Level13.png");
-    display :block;
 }
 
 #level13:active{
@@ -351,7 +345,6 @@ img{
 
 #level14{
     background-image : url("../images/buttons/normal/Level14.png");
-    display :block;
 }
 
 #level14:active{
@@ -360,99 +353,8 @@ img{
 
 #level15{
     background-image : url("../images/buttons/normal/Level15.png");
-    display :block;
 }
 
 #level15:active{
     background-image : url("../images/buttons/clicked/Level15.png");
-}
-
-#level16{
-    background-image : url("../images/buttons/normal/Level16.png");
-    display :block;
-}
-
-#level16:active{
-    background-image : url("../images/buttons/clicked/Level16.png");
-}
-
-#level17{
-    background-image : url("../images/buttons/normal/Level17.png");
-    display :block;
-}
-
-#level17:active{
-    background-image : url("../images/buttons/clicked/Level17.png");
-}
-
-#level18{
-    background-image : url("../images/buttons/normal/Level18.png");
-    display :block;
-}
-
-#level18:active{
-    background-image : url("../images/buttons/clicked/Level18.png");
-}
-
-#level19{
-    background-image : url("../images/buttons/normal/Level19.png");
-    display :block;
-}
-
-#level19:active{
-    background-image : url("../images/buttons/clicked/Level19.png");
-}
-
-#level20{
-    background-image : url("../images/buttons/normal/Level20.png");
-    display :block;
-}
-
-#level20:active{
-    background-image : url("../images/buttons/clicked/Level20.png");
-}
-
-#level21{
-    background-image : url("../images/buttons/normal/Level21.png");
-    display :block;
-}
-
-#level21:active{
-    background-image : url("../images/buttons/clicked/Level21.png");
-}
-
-#level22{
-    background-image : url("../images/buttons/normal/Level22.png");
-    display :block;
-}
-
-#level22:active{
-    background-image : url("../images/buttons/clicked/Level22.png");
-}
-
-#level23{
-    background-image : url("../images/buttons/normal/Level23.png");
-    display :block;
-}
-
-#level23:active{
-    background-image : url("../images/buttons/clicked/Level23.png");
-}
-
-#level24{
-    background-image : url("../images/buttons/normal/Level24.png");
-    display :block;
-}
-
-#level24:active{
-    background-image : url("../images/buttons/clicked/Level24.png");
-}
-
-#level25{
-    background-image : url("../images/buttons/normal/Level25.png");
-    display :block;
-}
-
-#level25:active{
-    background-image : url("../images/buttons/clicked/Level25.png");
 }
