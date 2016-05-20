@@ -247,7 +247,7 @@ function addAllShapes(context,position){
 	for(i = 0; i < position.length;i++){
 		for(var j = 0; j < position[i].length;j++){
 			if(position[i][j].type == "box"){
-				context.drawImage(box_image, position[i][j].point.x, position[i][j].point.y,109,109);
+				context.drawImage(box_image, position[i][j].point.x, position[i][j].point.y-2,109,112);
 			} else if (position[i][j].type == "slope_SW"){
 				context.drawImage(slope_SW, position[i][j].point.x, position[i][j].point.y,109,109);
 			}
@@ -275,19 +275,19 @@ function shapePoints(index,shapeLayer){
 
 	if(index < 6){
 		theX = 345 + (thePos*array_floor[index].width);
-		theY = 367 + (thePos*(array_floor[index].height*0.5)) - (shapeLayer * 50);
+		theY = 367 + (thePos*(array_floor[index].height*0.5)) - (shapeLayer * 55);
 	} else if(index < 12 && index > 5){
 		theX = (345 - (array_floor[index].width)) + (thePos*array_floor[index].width);
-		theY = (367 + (array_floor[index].height*0.5)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 50);
+		theY = (367 + (array_floor[index].height*0.5)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 55);
 	} else if(index < 18 && index > 11){
 		theX = (345 - (array_floor[index].width*2)) + (thePos*array_floor[index].width);
-		theY = (367 + (array_floor[index].height*1)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 50);
+		theY = (367 + (array_floor[index].height*1)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 55);
 	} else if(index < 24 && index > 17){
 		theX = (345 - (array_floor[index].width*3)) + (thePos*array_floor[index].width);
-		theY = (367 + (array_floor[index].height*1.5)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 50);
+		theY = (367 + (array_floor[index].height*1.5)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 55);
 	} else if(index < 30 && index > 23){
 		theX = (345 - (array_floor[index].width*4)) + (thePos*array_floor[index].width);
-		theY = (367 + (array_floor[index].height*2)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 50);
+		theY = (367 + (array_floor[index].height*2)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 55);
 	} else if (index < 36 && index > 29){
 		theX = (345 - (array_floor[index].width*5)) + (thePos*array_floor[index].width);
 		theY = (367 + (array_floor[index].height*2.5)) + (thePos*(array_floor[index].height * 0.5)) - (shapeLayer * 50);
