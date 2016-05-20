@@ -55,15 +55,11 @@ function createObj() {
 }
 
 function floor(context){
-	end_image = new Image();
-	end_image.src = 'images/GoalHole.png';
-	
+	endPoint=document.getElementById("end");
     for(var i=0; i<array_floor.length; i++){
 		if(i == 19){
 			getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
-			context.setTransform(1,0,0,1,0,0);
 			var pos = shapePoints(i,0);
-			context.drawImage(end_image, pos.x, pos.y,109,109);
 			array_floor[i].end = true;
 		} else {
 			context.beginPath();
@@ -76,6 +72,8 @@ function floor(context){
 			getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
 		}
     }
+	context.setTransform(1,0,0,1,0,0);
+	context.drawImage(endPoint, pos.x, pos.y,109,109);
 	/*
     if(randomize(array_floor,context)%29 == 0){
         c=0;
@@ -87,16 +85,12 @@ function floor(context){
     context.restore();
 }
 function right_wall(context){
-	start_image = new Image();
-	start_image.src = 'images/GoalHole.png';
-	
+	startPoint=document.getElementById("start");
     for(var i=0; i<array_right.length; i++){
 		if(i == 19){
 			getPoints(array_right[i],1,0.5,-1,0.5,455,395);
-			context.setTransform(1,0,0,1,0,0);
-			var pos = shapePoints(2,3);
-			context.drawImage(start_image, pos.x, pos.y,109,109);
-			array_right[i].end = true;
+			var pos = shapePoints(1,2);
+			array_right[i].start = true;
 		} else {
 			egg = array_right[i];
 			context.beginPath();
@@ -109,6 +103,8 @@ function right_wall(context){
 			getPoints(array_right[i],1,0.5,0,1,400,38);
 		}
     }
+	context.setTransform(1,0,0,1,0,0);
+	context.drawImage(startPoint, pos.x, pos.y-9,109,109);
 	/*
     if(randomize(array_right,context)%29 == 0){
         c=0;
