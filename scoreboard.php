@@ -1,4 +1,4 @@
-<body style="background-color:green;">
+<body style="background-color:#D6FFCD;">
 
 <header>
 <h1 align="center">Score</h1>
