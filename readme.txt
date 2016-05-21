@@ -1,9 +1,7 @@
-README
-COMP 2910 - BRAIN ROLL
+a)TEAM INFO 
 
-Version: 2
 GROUP: 01
-MEMBERS:
+Team members:
 Matt Rosenlund
 Arnold Aung
 Tom Nam
@@ -11,11 +9,15 @@ Arvin Rolos
 Wayne Wang
 
 
-Operation of the game through index.html
-Note: Upon testing the game, loss or win, you will be redirected to our website
-so you will no longer be on the local version.
+b)PROJECT OVERVIEW
 
-All javascript work in our files in js folder.
+This application was developed as part of BCIT's COMP 2910 Project Term in the span of 4 weeks with a team of 5 individuals. It was written in JavaScript, HTML, and CSS.
+
+Game Title: Brain Roll
+
+Short Description: The game consist of a grid that randomly generates a starting point and ending point. The goal is to create a path for the brain from the starting point to the ending point without destroying the brain. (i.e, you cannot make the brain drop for more than a level, if you want to move one level down, you should use a slope).
+
+c)Description of code structure
 
 js\brain.js
 Brain control
@@ -40,3 +42,30 @@ Holds all globals and start of game
 
 js\Points.js
 Calculations for points, shapes, polygons specifically.
+
+
+d)Technologies used
+
+Most of game was coded in JS without 3rd party library.
+Device.js is used to detect different devices.
+Google Spreadsheet (with php) to submit and retrieve highscore.
+
+
+e)Issues/problems encountered
+	1) We made most of the game on our own which took a lot of time. We should have used some 3rd party libraries.
+	2) Really hard to make the game playable on both desktop and laptop across all OS using different browsers.
+
+
+
+
+USER GUIDE
+
+To test our game,
+open index.html
+select Play
+select Challenge.
+
+Currently, the first game level will be available to play with limited blocks. The first one, cube and second one, SW Slope works. 
+
+Note: Upon testing the game, loss or win, you will be redirected to our live website
+so you will no longer be on the local version. To play again, open the local index.html again.
