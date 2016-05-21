@@ -19,30 +19,20 @@ Short Description: The game consist of a grid that randomly generates a starting
 
 c)Description of code structure
 
-js\brain.js
-Brain control
+index.html
+form.html		to submit the name for hightscore (user won’t be able to go here directly)
+scoreboard.php		to view the highscore (online)
 
-js\Control.js
-event handling
+styles\style.css	Styling the whole game
 
-js\device.js
-library for device detection
-
-js\GameFrame.js
-Actual game frame initialization
-
-js\jquery.js
-JQuery
-
-js\Navigation.js
-Navigation through pages
-
-js\Main.js
-Holds all globals and start of game
-
-js\Points.js
-Calculations for points, shapes, polygons specifically.
-
+js\brain.js 		Brain control
+js\Control.js		event handling
+js\device.js		library for device detection
+js\GameFrame.js		Actual game frame initialization
+js\jquery.js		JQuery for testing loading bar
+js\Navigation.js	Navigation through pages
+js\Main.js		Holds all globals and start of game
+js\Points.js		Calculations for points, shapes, polygons specifically.
 
 d)Technologies used
 
@@ -53,7 +43,7 @@ Google Spreadsheet (with php) to submit and retrieve highscore.
 
 e)Issues/problems encountered
 	1) We made most of the game on our own which took a lot of time. We should have used some 3rd party libraries.
-	2) Really hard to make the game playable on both desktop and laptop across all OS using different browsers.
+	2) Really hard to make the game playable on both desktop and laptop across all OS using different browsers. 
 
 
 
