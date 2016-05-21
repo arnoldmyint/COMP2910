@@ -79,7 +79,9 @@ function control(context,mytimer) {
         control_frame(context);
         addAllShapes(context, positions);
         for (var i = 0; i < array_floor.length; i++) {
-            if (point.x >= array_floor[i].points[3].x - 80 && point.x <= array_floor[i].points[1].x - 80 && point.y >= array_floor[i].points[0].y - 90 && point.y <= array_floor[i].points[2].y - 90) {
+            var Xvertices = [array_floor[i].points[0].x, array_floor[i].points[1].x, array_floor[i].points[2].x, array_floor[i].points[3].x];
+            var Yvertices = [array_floor[i].points[0].y, array_floor[i].points[1].y, array_floor[i].points[2].y, array_floor[i].points[3].y];
+            if (polygonClicked(Xvertices.length, Xvertices, Yvertices, point.x, point.y)){
                 position = i;
 				for (var j = 0; j < positions.length; j++) {
 					for(var k = 0; k < positions[j].length; k++){
