@@ -19,9 +19,9 @@ Short Description: The game consist of a grid that randomly generates a starting
 
 c)Description of code structure
 
-index.html
-form.html		to submit the name for hightscore (user won’t be able to go here directly)
-scoreboard.php		to view the highscore (online)
+index.html		game menu also the game itself is here
+form.html		to submit the name for highscores (user won’t be able to go 				here directly)
+scoreboard.php		to view the highscores (online)
 
 styles\style.css	Styling the whole game
 
@@ -29,11 +29,12 @@ js\brain.js 		Brain control
 js\Control.js		event handling
 js\device.js		library for device detection
 js\GameFrame.js		Actual game frame initialization
-js\jquery.js		JQuery for testing loading bar
+js\jquery.js		jQuery for testing loading bar
 js\Navigation.js	Navigation through pages
 js\Main.js		Holds all globals and start of game
 js\Points.js		Calculations for points, shapes, polygons specifically.
 
+images			all images for the whole game
 d)Technologies used
 
 Most of game was coded in JS without 3rd party library.
