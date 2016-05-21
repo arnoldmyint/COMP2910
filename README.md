@@ -60,4 +60,6 @@ select Challenge.
 Currently, the first game level will be available to play with limited blocks. The first one, cube and second one, SW Slope works. 
 
 Note: Upon testing the game, loss or win, you will be redirected to our live website
-so you will no longer be on the local version. To play again, open the local index.html again.
+so you will no longer be on the local version. You may continue playing from here but it will be on the version we are actively updating
+so there may be issues.
+To play again with the version we submitted, open the local index.html again. 
