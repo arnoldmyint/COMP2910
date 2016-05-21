@@ -50,8 +50,6 @@ e)Issues/problems encountered
 	2) Really hard to make the game playable on both desktop and laptop across all OS using different browsers. 
 
 
-
-
 USER GUIDE
 
 To test our game,
