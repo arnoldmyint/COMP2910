@@ -3,6 +3,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/Navigation.js"></script>
 </head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
 <body>
     <title>Leaderboard</title>
 
