@@ -10,7 +10,7 @@ table {
 
 th, td {
     text-align: center;
-    padding: 6px;
+    padding: 5x;
 }
 
 tr:nth-child(even){
@@ -29,7 +29,6 @@ tr:nth-child(odd){
     <header>
         <br/>
         <h1 align="center">Leaderboard</h1>
-        <br/>
     </header>
 
     <center>
