@@ -14,7 +14,7 @@ th, td {
     padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even){background-color: #D6FFCD}
 </style>
 
 <body>
