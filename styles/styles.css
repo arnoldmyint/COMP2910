@@ -73,8 +73,8 @@ img{
     display :none;
 }
 
-.playbutton, .highscoresbutton, .tutorialbutton, .creditsbutton, .returnbutton, 
-.loadlevelbutton, .challengebutton, .menubutton, .rollbutton, .resetbutton, 
+.playbutton, .highscoresbutton, .tutorialbutton, .creditsbutton, .tutorialreturnbutton, 
+.creditsreturnbutton, .choosegamereturnbutton, .loadlevelreturnbutton, .loadlevelbutton, .challengebutton, .menubutton, .rollbutton, .resetbutton, 
 .erasebutton, .resumebutton, .mutebutton, .replaybutton, .pausebutton {
     margin:0 auto;
     width : 222px;
@@ -83,8 +83,8 @@ img{
 }
 
 .playbutton:active, .playbutton:active, .highscoresbutton:active, 
-.tutorialbutton:active, .creditsbutton:active, .returnbutton:active, 
-.loadlevelbutton:active, .challengebutton:active, .menubutton:active, 
+.tutorialbutton:active, .creditsbutton:active, .tutorialreturnbutton:active, 
+.creditsreturnbutton:active, .choosegamereturnbutton:active, .loadlevelreturnbutton:active, .loadlevelbutton:active, .challengebutton:active, .menubutton:active, 
 .rollbutton:active, .resetbutton:active, .erasebutton:active, 
 .resumebutton:active, .mutebutton:active, .replaybutton:active, 
 .pausebutton:active{
@@ -126,11 +126,11 @@ img{
     background-image : url("../images/buttons/clicked/Credits.png");
 }
 
-.returnbutton{
+.tutorialreturnbutton, .creditsreturnbutton, .choosegamereturnbutton, .loadlevelreturnbutton{
     background-image : url("../images/buttons/normal/Return.png");
 }
 
-.returnbutton:active{
+.tutorialreturnbutton:active, .creditsreturnbutton:active, .choosegamereturnbutton:active, .loadlevelreturnbutton:active{
     background-image : url("../images/buttons/clicked/Return.png");
 }
 

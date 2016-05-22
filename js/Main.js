@@ -56,7 +56,7 @@ var theScore = 180;
 /*	time
  *	time increment
  */
-var time = 0;
+var time = 200;
 
 /**
  *	load
@@ -65,10 +65,7 @@ var time = 0;
  *	
  */
 function load(){
-    hideMenu();
-    hideChooseGame();
-    showGameReturn();
-    showCanvas();
+
 
     canvas=document.getElementById("mycanvas");
     container=document.getElementById("container");

@@ -258,12 +258,15 @@ function frame_vertical(context) {
  *	
  */
 function timer(context){
+    
     context.fillStyle="blue";
     var mytimer = setInterval(function (){
-        document.getElementById('time').innerHTML=time+++" seconds";
-        var bar=time*10;
-        context.fillRect(bar+10,0,10,10);
-        if(bar == canvas.width){
+        context.clearRect(0, 0, 800, 10);
+        document.getElementById('time').innerHTML=time-- +" seconds";
+        var bar=time * 4;
+        context.fillRect(0,0,bar - 10,10);
+            
+       if(bar == 0){
             clearInterval(timer);
             //alert(1);
         }

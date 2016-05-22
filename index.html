@@ -27,15 +27,10 @@
         <div id="landingPage">
             <br/><br/>
             <div class = "logo"></div><br/><br/><br/>
-            <div class = "playbutton" onclick="showChooseGame()"></div> <br/>
+            <div class = "playbutton"></div> <br/>
             <div class = "highscoresbutton"></div><br/>
-            <script>
-                $('.highscoresbutton').click(function() {
-                    window.location.href="http://comp2910.azurewebsites.net/scoreboard.php";
-                });
-            </script>
-            <div class = "tutorialbutton" onclick="showTutorial()"></div> <br/>
-            <div class = "creditsbutton" onclick="showCredits()"></div> <br/>
+            <div class = "tutorialbutton"></div> <br/>
+            <div class = "creditsbutton"></div> <br/>
         </div>
 
         <div id="highscores">
@@ -43,7 +38,7 @@
         </div>
 
         <div id="tutorial">
-            <div class = "returnbutton" onclick="returnToMenu()"></div> <br/>
+            <div class = "tutorialreturnbutton"></div> <br/>
         </div>
 
         <div id="credits">
@@ -54,7 +49,7 @@
             <h3>Tom Nam</h3>
             <h3>Wayne Wang</h3>
             <br/>
-            <div class = "returnbutton" onclick="returnToMenu()"></div> <br/>
+            <div class = "creditsreturnbutton"></div> <br/>
         </div>
 
          <div id="gameMenu">
@@ -73,47 +68,47 @@
         <div id="chooseGame">
             <br/><br/><br/>
             <div class = "logomini"></div><br/><br/><br/>
-            <div class ="loadlevelbutton" onclick="showLoadLevel()"></div> <br/>
-            <div class ="challengebutton" onclick="load()"></div> <br/>
-            <div class ="returnbutton" onclick="returnToMenu()"></div> <br/>
+            <div class ="loadlevelbutton"></div> <br/>
+            <div class ="challengebutton"></div> <br/>
+            <div class ="choosegamereturnbutton"></div> <br/>
         </div>
         
         <div id="loadLevel">
             <br/>          
             <table class="selectionTable">
-            <br/>
-            <caption> <h1> Level Selection </h1> </caption>
-			<col class="col1"/> 
-			<col class="col2"/>
-			<col class="col3"/>
-            <col class="col4"/>
-                <tr>
-                    <td><div id ="level1" onclick="level1()" /></td>
-                    <td><div id ="level2" onclick="level2()" /></td>
-                    <td><div id ="level3" onclick="level3()" /></td>
-                    <td><div id ="level4" onclick="level4()" /></td>
-                </tr>
-                <tr>
-                    <td><div id ="level5" onclick="level5()" /></td>
-                    <td><div id ="level6" onclick="level6()" /></td>
-                    <td><div id ="level7" onclick="level7()" /></td>
-                    <td><div id ="level8" onclick="level8()" /></td>
-                </tr>
-                <tr>
-                    <td><div id ="level9" onclick="level9()" /></td>
-                    <td><div id ="level10" onclick="level10()" /></td>
-                    <td><div id ="level11" onclick="level11()" /></td>
-                    <td><div id ="level12" onclick="level12()" /></td>
-                </tr>
-                <tr>
-                    <td><div id ="level13" onclick="level13()" /></td>
-                    <td><div id ="level14" onclick="level14()" /></td>
-                    <td><div id ="level15" onclick="level15()" /></td>
-                    <td></td>
-                </tr>
+                <br/>
+                <caption> <h1> Level Selection </h1> </caption>
+                <col class="col1"/> 
+                <col class="col2"/>
+                <col class="col3"/>
+                <col class="col4"/>
+                    <tr>
+                        <td><div id ="level1" onclick="level1()" /></td>
+                        <td><div id ="level2" onclick="level2()" /></td>
+                        <td><div id ="level3" onclick="level3()" /></td>
+                        <td><div id ="level4" onclick="level4()" /></td>
+                    </tr>
+                    <tr>
+                        <td><div id ="level5" onclick="level5()" /></td>
+                        <td><div id ="level6" onclick="level6()" /></td>
+                        <td><div id ="level7" onclick="level7()" /></td>
+                        <td><div id ="level8" onclick="level8()" /></td>
+                    </tr>
+                    <tr>
+                        <td><div id ="level9" onclick="level9()" /></td>
+                        <td><div id ="level10" onclick="level10()" /></td>
+                        <td><div id ="level11" onclick="level11()" /></td>
+                        <td><div id ="level12" onclick="level12()" /></td>
+                    </tr>
+                    <tr>
+                        <td><div id ="level13" onclick="level13()" /></td>
+                        <td><div id ="level14" onclick="level14()" /></td>
+                        <td><div id ="level15" onclick="level15()" /></td>
+                        <td></td>
+                    </tr>
             </table>
             <br/><br/> 
-            <div class ="returnbutton" onclick="returnToChooseGame()"></div>
+            <div class ="loadlevelreturnbutton"></div>
         </div>
         
         <div id="gameOver">

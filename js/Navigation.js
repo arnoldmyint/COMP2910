@@ -1,109 +1,53 @@
-function showMenu(){
-    document.getElementById("landingPage").style.display = "block";
-}
+$(document).ready(function(){
+    
+    $(".playbutton").click(function(){
+        $("#landingPage").toggle();
+        $("#chooseGame").toggle();
+    });
 
-function hideMenu(){
-    document.getElementById("landingPage").style.display = "none";
-}
+    $(".loadlevelbutton").click(function(){
+        $("#chooseGame").toggle();
+        $("#loadLevel").toggle();
+    });
+    
+    $(".loadlevelreturnbutton").click(function(){
+        $("#loadLevel").toggle();        
+        $("#chooseGame").toggle();
+    });
+    
+    $(".challengebutton").click(function(){
+        $("#chooseGame").toggle();
+        $("#mycanvas").toggle();
+        load();
+        
+    });    
+    
+    $(".choosegamereturnbutton").click(function(){
+        $("#chooseGame").toggle();        
+        $("#landingPage").toggle();
+    });
+    
+    $('.highscoresbutton').click(function() {
+        window.location.href="http://comp2910.azurewebsites.net/scoreboard.php";
+    });
+    
+    $(".tutorialbutton").click(function(){
+        $("#landingPage").toggle();
+        $("#tutorial").toggle();
+    });
 
-function showHighscores(){
-    hideMenu();
-    document.getElementById("highscores").style.display = "block";
-}
-
-function hideHighscores(){
-    document.getElementById("highscores").style.display = "none";
-}
-
-function showTutorial(){
-    hideMenu();
-    document.getElementById("tutorial").style.display = "block";
-}
-
-function hideTutorial(){
-    document.getElementById("tutorial").style.display = "none";
-}
-
-function showCredits(){
-    hideMenu();
-    document.getElementById("credits").style.display = "block";
-}
-
-function hideCredits(){
-    document.getElementById("credits").style.display = "none";
-}
-
-function showCanvas(){
-    hideMenu();
-    document.getElementById("mycanvas").style.display = "block";
-}
-
-function hideCanvas(){
-    document.getElementById("mycanvas").style.display = "none";
-}
-
-function showGameReturn(){
-    document.getElementById("gameMenu").style.display = "block";
-}
-
-function hideGameReturn(){
-    document.getElementById("gameMenu").style.display = "none";
-}
-
-function showChooseGame(){
-    hideMenu();
-    document.getElementById("chooseGame").style.display = "block";
-}
-
-function hideChooseGame(){
-    document.getElementById("chooseGame").style.display = "none";
-}
-
-function showLoadLevel(){
-    hideChooseGame();
-    document.getElementById("loadLevel").style.display = "block";
-}
-
-function hideLoadLevel(){
-    document.getElementById("loadLevel").style.display = "none";
-}
-
-function showPause(){
-    hideGameReturn();
-    hideCanvas();
-    document.getElementById("pause").style.display = "block";
-}
-
-function hidePause(){
-    document.getElementById("pause").style.display = "none";
-}
-
-function showGameOver(){
-    document.getElementById("gameOver").style.display = "block";
-}
-
-function hideGameOver(){
-    document.getElementById("gameOver").style.display = "none";
-}
-
-function resumeGame(){
-    hidePause();
-    showGameReturn();
-    showCanvas();
-}
-
-function returnToChooseGame(){
-    hideLoadLevel();
-    showChooseGame();
-}
-
-function returnToMenu(){
-    hideChooseGame();
-    hideGameReturn();
-    hideHighscores();
-    hideTutorial();
-    hideCredits();
-    hideCanvas();
-    hidePause();
-    showMenu();
-}
+    $(".tutorialreturnbutton").click(function(){
+        $("#tutorial").toggle();        
+        $("#landingPage").toggle();
+    });
+  
+    $(".creditsbutton").click(function(){
+        $("#landingPage").toggle();
+        $("#credits").toggle();
+    });
+    
+    $(".creditsreturnbutton").click(function(){
+        $("#credits").toggle();        
+        $("#landingPage").toggle();
+    });
+});
