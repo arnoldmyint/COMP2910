@@ -10,10 +10,17 @@ table {
 
 th, td {
     text-align: center;
-    padding: 8px;
+    padding: 6px;
 }
 
-tr:nth-child(even){background-color: #D6FFCD}
+tr:nth-child(even){
+	background-color: #D6FFCD
+}
+
+tr:nth-child(odd){
+	background-color: #2EFF00
+}
+
 </style>
 
 <body>
