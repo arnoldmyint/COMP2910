@@ -220,6 +220,11 @@ img{
     border-spacing: 10px;
 }
 
+table {
+    tr:nth-child(even){background-color: #D6FFCD}
+    
+}
+
 .col1, .col2, .col3, .col4{	
 	width: 10px;
 }
