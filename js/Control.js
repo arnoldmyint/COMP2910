@@ -108,7 +108,7 @@ function control(context,mytimer) {
 					}
 				}
 				//checks to ensure shape is only drawn on floor or ontop of boxes and not higher than the grid.
-				if(posLayer != 0 && positions[posLayer-1][position].type != "box" || posLayer > 6){
+				if(posLayer != 0 && positions[posLayer-1][position].type != "box" || posLayer > 6  || position == end){
 					break;
 				}
 				addTransparentShape(context,positions[posLayer][position].point.x,positions[posLayer][position].point.y,shapeType);
@@ -130,7 +130,7 @@ function control(context,mytimer) {
         mouseUp = true;
 		
 		//checks to ensure shape is only drawn on floor or ontop of boxes and not higher than the grid.
-		if(posLayer != 0 && positions[posLayer-1][position].type != "box" || posLayer > 6){
+		if(posLayer != 0 && positions[posLayer-1][position].type != "box" || posLayer > 6 || position == end){
 			posLayer = 0;
 			return;
 		}
