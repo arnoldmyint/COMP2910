@@ -74,7 +74,7 @@ function createObj() {
 function floor(context){
 	endPoint=document.getElementById("end");
     for(var i=0; i<array_floor.length; i++){
-		if(i == 19){
+		if(i == 25){
 			getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
 			var pos = shapePoints(i,0);
 			array_floor[i].end = true;
@@ -114,11 +114,11 @@ function floor(context){
 function right_wall(context){
 	startPoint=document.getElementById("start");
     for(var i=0; i<array_right.length; i++){
-		if(i == 19){
+		if(i == 13){
 			getPoints(array_right[i],1,0.5,0,1,400,38);
 			var pos = shapePoints(1,2);
 			array_right[i].start = true;
-			start = 19;
+			start = i;
 		} else {
 			egg = array_right[i];
 			context.beginPath();
