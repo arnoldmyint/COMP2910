@@ -264,11 +264,11 @@ function timer(context){
         document.getElementById('time').innerHTML=time-- +" seconds";
         var bar=time * 4;
         
-        if(time > 150){
+        if(time >= 150){
             context.fillStyle="green";
-        } else if(time > 100){
+        } else if(time >= 100){
             context.fillStyle="blue";
-        } else if(time > 50){
+        } else if(time >= 50){
             context.fillStyle="yellow";
         } else{
             context.fillStyle="red";
