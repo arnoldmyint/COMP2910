@@ -43,7 +43,7 @@ function brain(context, positions){
 			direction = positions[theBrain.brainLayer][theBrain.brainIndex].direction;
 		}
 		
-		if(theBrain.brainLayer == 0 && theBrain.brainIndex == start){
+		if(theBrain.brainLayer == 0 && theBrain.brainIndex == end){
 			win();
 		} else if(theBrain.brainLayer == 0){
 			if(isBlocked() == true){
