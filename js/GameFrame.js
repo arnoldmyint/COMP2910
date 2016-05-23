@@ -259,11 +259,21 @@ function frame_vertical(context) {
  */
 function timer(context){
     
-    context.fillStyle="blue";
     var mytimer = setInterval(function (){
         context.clearRect(0, 0, 800, 10);
         document.getElementById('time').innerHTML=time-- +" seconds";
         var bar=time * 4;
+        
+        if(time > 150){
+            context.fillStyle="green";
+        } else if(time > 100){
+            context.fillStyle="blue";
+        } else if(time > 50){
+            context.fillStyle="yellow";
+        } else{
+            context.fillStyle="red";
+        }
+        
         context.fillRect(0,0,bar - 10,10);
             
        if(bar == 0){
