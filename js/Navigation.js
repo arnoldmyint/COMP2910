@@ -50,5 +50,11 @@ $(document).ready(function(){
         $("#credits").slideToggle();        
         $("#landingPage").slideToggle();
     });
+    
+     $("#pause").click(function(){
+         //pause timer
+        $("#mycanvas").slideToggle();        
+        $("#pauseGame").slideToggle();
+    });
 });
 

@@ -18,6 +18,8 @@ function control_frame(context) {
     frame = document.getElementById("control_panel");
     eraser = document.getElementById("eraser");
     roll = document.getElementById("roll");
+    clear = document.getElementById("clear");
+    pause = document.getElementById("pause");
     box = document.getElementById("box");
     slope_NE = document.getElementById("slope_NE");
     slope_NW = document.getElementById("slope_NW");
@@ -26,6 +28,8 @@ function control_frame(context) {
     context.drawImage(frame, 8, 850, 789, 295);
     context.drawImage(eraser, 7, 630, 400, 210);
     context.drawImage(roll, 395, 630, 400, 210);
+    context.drawImage(clear, 395, 20, 400, 210);
+    context.drawImage(pause, 7, 20, 400, 210);
     context.drawImage(box, 135, 900);
     context.drawImage(slope_SW, 290, 890);
     context.drawImage(slope_NW, 435, 890);

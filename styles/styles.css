@@ -96,10 +96,6 @@ img{
     display :none;
 }
 
-#pause {
-    display :none;
-}
-
 #gameOver{
     text-align: center;
     display :none;
