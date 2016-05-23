@@ -22,11 +22,11 @@ html, body {
     left: 0;
     right: 0;
 
-    background-image : url("../images/background3.jpg");
+    background-image : url("../images/background.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-    
-    
+    opacity: 0.3;
+    filter:alpha(opacity=50);
     height:100%;
     width:100%;
  }
