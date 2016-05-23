@@ -28,7 +28,7 @@ $(document).ready(function(){
     });
     
     $('.highscoresbutton').click(function() {
-        window.location.href="http://comp2910.azurewebsites.net/scoreboard.php";
+        window.location.href="http://brainroll.xyz/scoreboard.php";
     });
     
     $(".tutorialbutton").click(function(){
