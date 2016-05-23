@@ -46,15 +46,35 @@ function brain(context, positions){
 		if(theBrain.brainLayer == 0 && theBrain.brainIndex == start){
 			win();
 		} else if(theBrain.brainLayer == 0){
-			rollGround();
+			if(isBlocked() == true){
+				lose();
+			} else {
+				rollGround();
+			}
 		} else if (direction == "sw"){
-			rollSW();
+			if(isBlocked() == true){
+				lose();
+			} else {
+				rollSW();
+			}
 		} else if (direction == "nw"){
-			rollNW();
+			if(isBlocked() == true){
+				lose();
+			} else {
+				rollNW();
+			}
 		} else if (direction == "se"){
-			rollSE();
+			if(isBlocked() == true){
+				lose();
+			} else {
+				rollSE();
+			}
 		} else if (direction == "ne"){
-			rollNE();
+			if(isBlocked() == true){
+				lose();
+			} else {
+				rollNE();
+			}
 		}
 	}
 	
@@ -186,8 +206,16 @@ function brain(context, positions){
 				whereTo();
 			}
 			//console.log(1);
-		}, 100);
+		}, 50);
     }
+	
+	function isBlocked(){
+		if(positions[theBrain.brainLayer][theBrain.brainIndex].used == true){
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	function lose(){
 		alert("LOSAH");
