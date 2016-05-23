@@ -195,53 +195,44 @@ function control(context,mytimer) {
 	 */
     if (device.desktop()) {
         
-        $(canvas).on("mousedown", function (e) {
+        $(canvas).on("click mousedown", function (e) {
             moving = false;
             mouseUp = false;
+            var clicking = false;
             var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
             var x = point.x;
             var y = point.y;
             if (x > 136 && y > 900 && x < 223 && y < 987) {
-                // if(e.type == "click"){
-                //     clicking = true;
-                // } else if(e.type == "mousedown" && !clicking){
-                //     clicking = false;
-                //     shapeType = "box";
-                //     $(canvas).on("mousemove", move);
-                //     $(canvas).on("mouseup", up);
-                // }
                 shapeType = "box";
                 $(canvas).on("mousemove", move);
                 $(canvas).on("mouseup", up);
             } else if(x>283 && y>904 && x<371 && y<981){
-                shapeType = "slope_SW";
-                $(canvas).on("mousemove", move);
-                $(canvas).on("mouseup", up);
-                $(canvas).unbind("mousedown", this);
-                // if(e.type == "click"){
-                //     clicking = true;
-                //     console.log(1);
-                // } else if(e.type == "mousedown" && !clicking){
-                //     setTimeout(function () {
-                //         console.log(3);
-                //         clicking = false;
-                //         shapeType = "slope_SW";
-                //         $(canvas).on("mousemove", move);
-                //         $(canvas).on("mouseup", up);
-                //         $(canvas).unbind("mousedown", this);
-                //     }, 500);
-                // }
-                // setTimeout(function () {
-                //     if(!clicking && e.type == "mousedown"){
-                //         clicking = false;
-                //         shapeType = "slope_SW";
-                //         $(canvas).on("mousemove", move);
-                //         $(canvas).on("mouseup", up);
-                //     }
-                // }, 500);
-                // shapeType = "slope_SW";
-                // $(canvas).on("mousemove", move);
-                // $(canvas).on("mouseup", up);
+//                $(canvas).on("mousemove", move);
+//                $(canvas).on("mouseup", up);
+                 if(e.type == "click"){
+                     clicking = true;
+                     shapeType = "slope_NW";
+                     context.clearRect(272,890,114,108);
+                     context.drawImage(slope_NW, 290, 890);
+                     return;
+                 } else if(e.type == "mousedown" && !clicking){
+                     //console.log(3);
+                     clicking = false;
+                     shapeType = "slope_SW";
+                     $(canvas).on("mousemove", move);
+                     $(canvas).on("mouseup", up);
+                 }
+//                 setTimeout(function () {
+//                     if(!clicking && e.type == "mousedown"){
+//                         clicking = false;
+//                         shapeType = "slope_SW";
+//                         $(canvas).on("mousemove", move);
+//                         $(canvas).on("mouseup", up);
+//                     }
+//                 }, 500);
+//                 shapeType = "slope_SW";
+//                 $(canvas).on("mousemove", move);
+//                 $(canvas).on("mouseup", up);
             } else if(x > 418 && x < 536 && y < 1000 && y > 890){
 				shapeType = "slope_NW";
                 $(canvas).on("mousemove", move);
