@@ -115,10 +115,11 @@ function right_wall(context){
 	startPoint=document.getElementById("start");
     for(var i=0; i<array_right.length; i++){
 		if(i == 13){
-			getPoints(array_right[i],1,0.5,0,1,400,38);
-			var pos = shapePoints(1,2);
-			array_right[i].start = true;
 			start = i;
+			getPoints(array_right[i],1,0.5,0,1,400,38);
+			var pos = getStart();
+			var getPos = shapePoints(pos.theLayer,pos.theIndex);
+			array_right[i].start = true;
 		} else {
 			egg = array_right[i];
 			context.beginPath();

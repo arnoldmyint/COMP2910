@@ -228,15 +228,15 @@ function brain(context, positions){
 	function restart(){
 		alert("DONT KNOW WHAT TO DO");		
 	}
-	   	
-	/**
-	 *	getStart
-	 *	
-	 *	@return starting x and y of brain.
-	 */
-	function getStart(){		
-		return { 	theLayer: parseInt((35-start) / 6),
-					theIndex: parseInt(start%6)
-		};
-	}
+}
+
+/**
+ *	getStart
+ *	
+ *	@return starting x and y of brain.
+ */
+function getStart(){		
+	return { 	theLayer: parseInt((35-start) / 6),
+				theIndex: parseInt(start%6)
+	};
 }
