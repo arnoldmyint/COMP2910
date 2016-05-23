@@ -57,7 +57,7 @@ function brain(context, positions){
 		} else {
 			if(polygonClicked(4, rollx = [array_floor[end].points[0].x,array_floor[end].points[1].x,array_floor[end].points[2].x, array_floor[end].points[3].x],
 				rolly = [array_floor[end].points[0].y,array_floor[end].points[1].y,array_floor[end].points[2].y, array_floor[end].points[3].y], theX, theY+5) == true){
-				theScore -= time;
+				theScore = (time/4) * 10;
 				clearInterval(move);
 				winner = 1;
 				alert("You Win!");
