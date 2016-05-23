@@ -15,17 +15,73 @@
 function brain(context, positions){
 	var startPoint = getStart();
 	var brain=document.getElementById("brain");
-	var theX = array_right[start].points[0].x+10;
-	var theY = array_right[start].points[0].y+33;
-	context.drawImage(brain, theX, theY);
-	var theLayer = 1;
-	var theTile = 1;
-	var incX = 0;
-	var incY = 0;
-	var move;
-	var winner = 0;
+	var theBrain ={
+            x:0,y:0,brainLayer:0,brainIndex:0
+        };
+	theBrain.brainLayer = startPoint.theLayer;
+	theBrain.brainIndex = startPoint.theIndex;
+	theBrain.x = array_right[19].points[3].x;
+	theBrain.y = array_right[19].points[3].y;
 	
-	rollBrain();
+	startBrain();
+	
+	function startBrain(){
+		context.setTransform(1, 0, 0, 1, 0, 0);
+		context.clearRect(0,0,canvas.width,canvas.height);
+		redraw(context);
+		addAllShapes(context, positions);
+		control_frame(context);
+		context.drawImage(brain,theBrain.x,theBrain.y, 30, 30);
+		
+		moveBrain(0);
+	}
+	
+	function moveBrain(direction){
+		var moveInc = 0;
+		var theX;
+		var theY;
+		if(direction == 0){
+			//SW
+			theX = -2.25;
+			theY = 1.666666;
+		}else if (direction == 1){
+			//NW
+			theX = 2.25;
+			theY = -1.666666;
+		} else if (direction == 2){
+			//SE
+			theX = 2.25;
+			theY = 1.666666
+		} else if (direction == 3){
+			//NE
+			theX = 2.25
+			theY = -1.666666;
+		}
+        setInterval(function (){
+			moveInc++;
+			context.setTransform(1, 0, 0, 1, 0, 0);
+			context.clearRect(0,0,canvas.width,canvas.height);
+			redraw(context);
+			addAllShapes(context, positions);
+			control_frame(context);
+			context.drawImage(brain,theBrain.x += theX,theBrain.y += theY, 30, 30);
+			//console.log(1);
+		}, 100);
+		if(moveInc > 12){
+			clearinterval(move);
+		}
+    }
+	   	
+	/**
+	 *	getStart
+	 *	
+	 *	@return starting x and y of brain.
+	 */
+	function getStart(){		
+		return { 	theLayer: parseInt((35-start) / 6),
+					theIndex: parseInt(start%6)
+		};
+	}
 	
 	/**
 	 *	rollBrain
@@ -76,17 +132,6 @@ function brain(context, positions){
 			context.clearRect(0, 0, canvas.width, canvas.height);
 			document.location.href="http://comp2910.azurewebsites.net/";
 		}
-	}
-	
-	/**
-	 *	getStart
-	 *	
-	 *	@return starting x and y of brain.
-	 */
-	function getStart(){		
-		return { 	theLayer: parseInt(start%6),
-					theTile: parseInt((35-start)/6)
-		};
 	}
 	
 	/**
