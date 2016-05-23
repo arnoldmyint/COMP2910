@@ -218,11 +218,18 @@ function brain(context, positions){
 	}
 	
 	function lose(){
-		alert("LOSAH");
+        $("#mycanvas").hide();
+        $("#time").hide();
+        $("#gameOver").show();
+        printLoseScore();
 	}
 	
 	function win(){
-		alert("WINNAH");
+        theScore = (time/4) * 10;
+        $("#mycanvas").hide();
+        $("#time").hide();
+        $("#gameWin").show();
+        printWinScore();
 	}
 	
 	function restart(){
@@ -239,4 +246,32 @@ function getStart(){
 	return { 	theLayer: parseInt((35-start) / 6),
 				theIndex: parseInt(start%6)
 	};
+}
+
+	/**
+	 *	sendScore
+	 *
+	 *	Send the score.
+	 */
+function getScore(){
+    document.location.href="http://comp2910.azurewebsites.net/form.html?score=" + theScore;
+}
+
+
+	/**
+	 *	printLoseScore
+	 *
+	 *	Show score after losing the game.
+	 */
+function printLoseScore(){
+        document.getElementById('loseScore').innerHTML = theScore;
+}
+
+	/**
+	 *	printWinScore
+	 *
+	 *	Show score after winning the game.
+	 */
+function printWinScore(){
+        document.getElementById('winScore').innerHTML = theScore;
 }

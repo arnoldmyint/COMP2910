@@ -24,6 +24,8 @@
     </head>
 
     <body>
+    <div id= "background">
+    <div id= "page">
         <div id="landingPage">
             <br/><br/>
             <div class = "logo"></div><br/><br/><br/>
@@ -38,13 +40,15 @@
         </div>
 
         <div id="tutorial">
+            <br/><br/>
             <div class = "tutorialreturnbutton"></div> <br/>
         </div>
 
         <div id="credits">
-            <h1>** Created by Group 1 **</h1>
+            <br/>
+            <h1>Group 1</h1>
             <h3>Arnold Myint</h3>
-            <h3>Arvin Rinaldo Rolos</h3>
+            <h3>Arvin Rolos</h3>
             <h3>Matt Rosenlund</h3>
             <h3>Tom Nam</h3>
             <h3>Wayne Wang</h3>
@@ -112,15 +116,23 @@
         </div>
         
         <div id="gameOver">
-            <h1>GAME OVER</h1> <br/>
-            <h2> SCORE : </h2> <br/>
-            <h2> 12345 </h2> <br/>
-            <div class ="replaybutton" onclick="replay()"></div> <br/>
-            <div class ="menubutton" onclick="returnToMenu()"></div> <br/>
+            <h1>Game Over</h1> 
+            <h2> Score : </h2> 
+            <h2 id="loseScore"> - </h2> <br/>
+            <div class ="retrybutton" onclick="retry()"></div> <br/>
+            <div class ="menubutton" onclick="getScore()"></div> <br/>
+        </div>
+        
+        <div id="gameWin">
+            <h1>Nice Job!</h1> 
+            <h2> Score : </h2> 
+            <h2 id="winScore"> - </h2> <br/>
+            <div class ="nextlevelbutton" onclick="nextLevel()"></div> <br/>
+            <div class ="menubutton" onclick="getScore()"></div> <br/>
         </div>
 
         <div id="container"  align="center">
-            <div id="time"></div>
+            <div id="time">200 seconds</div>
             <canvas id="mycanvas" width="800" height="1600">
                 Your browser does not support canvas
             </canvas>
@@ -141,5 +153,7 @@
 			<img id="start" src="images/Entrance.png" />
 			<img id="brain" src="images/brain/0.png" />
         </div>
+    </div>
+    </div>
     </body>
 </html>
