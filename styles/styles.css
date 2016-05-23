@@ -22,7 +22,7 @@ html, body {
     left: 0;
     right: 0;
 
-    background-image : url("../images/background.jpg");
+    background-image : url("../images/background.png");
     background-repeat: no-repeat;
     background-size: 100%;
     opacity: 0.3;
