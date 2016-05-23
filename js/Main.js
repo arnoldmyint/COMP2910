@@ -22,7 +22,7 @@ var start;
  *	ending point information
  */
 var end;
-
+ 
 /*	moving
  *	boolean cursor moving
  */

@@ -63,7 +63,7 @@ function control(context,mytimer) {
 	for(i = 0; i < 6; i++){
 		for(var j = 0; j < 36; j++){
 			var shapeObject = {
-				index:0,type:null,point:{x:0,y:0}, used:false
+				index:0,type:null,point:{x:0,y:0}, used:false, direction:null
 			};
 			shapeObject.index = j;
 			shapeObject.point = shapePoints(j,i)
