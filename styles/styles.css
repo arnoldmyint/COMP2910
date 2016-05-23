@@ -2,11 +2,42 @@
 /* make the body fill the window */
 
 html, body {
-    background-color: #D6FFCD;
+    color: #006622;
     margin: 0px;
     width: 100%;
     overflow: hidden;
 }
+
+#background{
+    z-index: 1;
+}
+
+#background:before {
+    content: "";
+    position: absolute;
+    background-color: #D6FFCD;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-image : url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.3;
+    filter:alpha(opacity=50);
+    height:100%;
+    width:100%;
+ }
+
+#page{
+   margin:auto;
+   z-index:-1;
+   opacity: 1;
+   filter:alpha(opacity=100);
+}
+
 /* make any canvas fill its container */
 canvas{
     margin: 0 auto;
@@ -41,6 +72,7 @@ img{
 
 #tutorial {
     display :none;
+    
 }
 
 #credits {
@@ -73,9 +105,19 @@ img{
     display :none;
 }
 
+#gameWin{
+    text-align: center;
+    display :none;
+}
+
+#time{
+    text-align: center;
+    display :none;
+}
+
 .playbutton, .highscoresbutton, .tutorialbutton, .creditsbutton, .tutorialreturnbutton, 
 .creditsreturnbutton, .returnbutton, .choosegamereturnbutton, .loadlevelreturnbutton, .loadlevelbutton, .challengebutton, .menubutton, .rollbutton, .resetbutton, 
-.erasebutton, .resumebutton, .mutebutton, .replaybutton, .pausebutton {
+.erasebutton, .resumebutton, .mutebutton, .retrybutton, .pausebutton, .nextlevelbutton {
     margin:0 auto;
     width : 222px;
     height: 53px;
@@ -86,8 +128,8 @@ img{
 .tutorialbutton:active, .creditsbutton:active, .returnbutton:active, .tutorialreturnbutton:active, 
 .creditsreturnbutton:active, .choosegamereturnbutton:active, .loadlevelreturnbutton:active, .loadlevelbutton:active, .challengebutton:active, .menubutton:active, 
 .rollbutton:active, .resetbutton:active, .erasebutton:active, 
-.resumebutton:active, .mutebutton:active, .replaybutton:active, 
-.pausebutton:active{
+.resumebutton:active, .mutebutton:active, .retrybutton:active, 
+.pausebutton:active, .nextlevelbutton:active{
     width : 222px;
     height: 53px;
     transition: 0s;
@@ -198,11 +240,11 @@ img{
     background-image : url("../images/buttons/clicked/Mute.png");
 }
 
-.replaybutton{
+.retrybutton{
     background-image : url("../images/buttons/normal/Replay.png");
 }
 
-.replaybutton:active{
+.retrybutton:active{
     background-image : url("../images/buttons/clicked/Replay.png");
 }
 
@@ -212,6 +254,14 @@ img{
 
 .pausebutton:active{
     background-image : url("../images/buttons/clicked/Pause.png");
+}
+
+.nextlevelbutton{
+    background-image : url("../images/buttons/normal/NextLevel.png");
+}
+
+.nextlevelbutton:active{
+    background-image : url("../images/buttons/clicked/NextLevel.png");
 }
 
 .selectionTable {
@@ -359,3 +409,13 @@ img{
 #level15:active{
     background-image : url("../images/buttons/clicked/Level15.png");
 }
+
+#brain {
+
+    -webkit-animation:spin 2 linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
