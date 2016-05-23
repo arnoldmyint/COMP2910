@@ -1,54 +1,53 @@
 $(document).ready(function(){
     
     $(".playbutton").click(function(){
-        $("#landingPage").slideToggle();
-        $("#chooseGame").slideToggle();
+        $("#landingPage").toggle();
+        $("#chooseGame").toggle();
     });
 
     $(".loadlevelbutton").click(function(){
-        $("#chooseGame").slideToggle();
-        $("#loadLevel").slideToggle();
+        $("#chooseGame").toggle();
+        $("#loadLevel").toggle();
     });
     
     $(".loadlevelreturnbutton").click(function(){
-        $("#loadLevel").slideToggle();        
-        $("#chooseGame").slideToggle();
+        $("#loadLevel").toggle();        
+        $("#chooseGame").toggle();
     });
     
     $(".challengebutton").click(function(){
-        $("#chooseGame").slideToggle();
-        $("#mycanvas").slideToggle();
-        $("#time").show();
+        $("#chooseGame").toggle();
+        $("#mycanvas").toggle();
         load();
+        
     });    
     
     $(".choosegamereturnbutton").click(function(){
-        $("#chooseGame").slideToggle();        
-        $("#landingPage").slideToggle();
+        $("#chooseGame").toggle();        
+        $("#landingPage").toggle();
     });
     
     $('.highscoresbutton').click(function() {
-        window.location.href="http://comp2910.azurewebsites.net/scoreboard.php";
+        window.location.href="http://brainroll.xyz/scoreboard.php";
     });
     
     $(".tutorialbutton").click(function(){
-        $("#landingPage").slideToggle();
-        $("#tutorial").slideToggle();
+        $("#landingPage").toggle();
+        $("#tutorial").toggle();
     });
 
     $(".tutorialreturnbutton").click(function(){
-        $("#tutorial").slideToggle();        
-        $("#landingPage").slideToggle();
+        $("#tutorial").toggle();        
+        $("#landingPage").toggle();
     });
   
     $(".creditsbutton").click(function(){
-        $("#landingPage").slideToggle();
-        $("#credits").slideToggle();
+        $("#landingPage").toggle();
+        $("#credits").toggle();
     });
     
     $(".creditsreturnbutton").click(function(){
-        $("#credits").slideToggle();        
-        $("#landingPage").slideToggle();
+        $("#credits").toggle();        
+        $("#landingPage").toggle();
     });
 });
-

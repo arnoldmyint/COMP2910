@@ -51,7 +51,7 @@ var mouseUp = false;
 /*	theScore
  *	Player score variable
  */
-var theScore = 0;
+var theScore = 180;
 
 /*	time
  *	time increment
@@ -112,8 +112,6 @@ function load(){
     context.save();
     timer(context);
     context.save();
-    context.fillStyle="green";
-    context.fillRect(0,0,800,10);
 
 	
 	
