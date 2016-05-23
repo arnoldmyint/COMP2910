@@ -32,8 +32,26 @@ function brain(context, positions){
 		addAllShapes(context, positions);
 		control_frame(context);
 		context.drawImage(brain,theBrain.x,theBrain.y, 30, 30);
-		
-		moveBrain(0);
+		whereTo();
+	}
+	
+	function whereTo(){
+		if(theBrain.brainLayer == 0){
+			alert("You are on the ground")
+			moveBrain(0);				
+		} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
+			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
+				theBrain.brainIndex += 6;
+				moveBrain(0);
+			} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_SW"){
+				theBrain.brainIndex += 6;
+				theBrain.brainLayer -= 1;
+				moveBrain(4);
+			}
+		} else {
+			alert("on ground");
+			moveBrain(0);
+		}
 	}
 	
 	function moveBrain(direction){
@@ -41,36 +59,54 @@ function brain(context, positions){
 		var theX;
 		var theY;
 		if(direction == 0){
-			//SW
+			//BOX SW
 			theX = -2.25;
-			theY = 1.666666;
+			theY = 1.166666666;
 		}else if (direction == 1){
-			//NW
+			//BOX NW
 			theX = 2.25;
-			theY = -1.666666;
+			theY = -1.166666666;
 		} else if (direction == 2){
-			//SE
+			//BOX SE
 			theX = 2.25;
-			theY = 1.666666
+			theY = 1.166666666;
 		} else if (direction == 3){
-			//NE
-			theX = 2.25
-			theY = -1.666666;
+			//BOX NE
+			theX = 2.25;
+			theY = -1.166666666;
+		} else if (direction == 4){
+			//SLOPE SW
+			theX = -2.2916666666;
+			theY = 3.2083333333;
 		}
-        setInterval(function (){
+        var movement = setInterval(function (){
 			moveInc++;
+			brain.src = "images/brain/" + moveInc + ".png";
 			context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0,0,canvas.width,canvas.height);
 			redraw(context);
 			addAllShapes(context, positions);
 			control_frame(context);
 			context.drawImage(brain,theBrain.x += theX,theBrain.y += theY, 30, 30);
+			if(moveInc == 23){
+				clearInterval(movement);
+				whereTo();
+			}
 			//console.log(1);
 		}, 100);
-		if(moveInc > 12){
-			clearinterval(move);
-		}
     }
+	
+	function lose(){
+		
+	}
+	
+	function win(){
+		
+	}
+	
+	function restart(){
+		
+	}
 	   	
 	/**
 	 *	getStart
