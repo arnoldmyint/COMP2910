@@ -118,7 +118,7 @@ function right_wall(context){
 			start = i;
 			getPoints(array_right[i],1,0.5,0,1,400,38);
 			var pos = getStart();
-			var getPos = shapePoints(pos.theLayer,pos.theIndex);
+			var getPos = shapePoints(pos.theIndex,pos.theLayer);
 			array_right[i].start = true;
 		} else {
 			egg = array_right[i];
@@ -133,7 +133,7 @@ function right_wall(context){
 		}
     }
 	context.setTransform(1,0,0,1,0,0);
-	context.drawImage(startPoint, pos.x, pos.y,110,110);
+	context.drawImage(startPoint, getPos.x, getPos.y,110,110);
 	/*
     if(randomize(array_right,context)%29 == 0){
         c=0;
