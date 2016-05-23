@@ -24,136 +24,136 @@
     </head>
 
     <body>
-        <div id= "background">
-            <div id= "page">
-                <div id="landingPage">
-                    <br/><br/>
-                    <div class = "logo"></div><br/><br/><br/>
-                    <div class = "playbutton"></div> <br/>
-                    <div class = "highscoresbutton"></div><br/>
-                    <div class = "tutorialbutton"></div> <br/>
-                    <div class = "creditsbutton"></div> <br/>
-                </div>
-
-                <div id="highscores">
-                    <!-- <div class = "returnbutton" onclick="returnToMenu()"></div> <br/> -->
-                </div>
-
-                <div id="tutorial">
-                    <br/><br/>
-                    <div class = "tutorialreturnbutton"></div> <br/>
-                </div>
-
-                <div id="credits">
-                    <br/>
-                    <h1>** Created by Group 1 **</h1>
-                    <h3>Arnold Myint</h3>
-                    <h3>Arvin Rolos</h3>
-                    <h3>Matt Rosenlund</h3>
-                    <h3>Tom Nam</h3>
-                    <h3>Wayne Wang</h3>
-                    <br/>
-                    <div class = "creditsreturnbutton"></div> <br/>
-                </div>
-
-                 <div id="gameMenu">
-                    <!-- <div class ="pausebutton" onclick="showPause()"></div> -->
-                    <!-- <div class = "rollbutton" onclick=""></div>
-                    <div class = "resetbutton" onclick=""></div>
-                    <div class = "erasebutton" onclick=""></div> -->
-                </div>
-
-                <div id="pause">
-                    <div class ="resumebutton" onclick="resumeGame()"></div>
-                    <div class ="menubutton" onclick="returnToMenu()"></div>
-                    <div class ="mutebutton" onclick=""></div>
-                </div>
-                
-                <div id="chooseGame">
-                    <br/><br/><br/>
-                    <div class = "logomini"></div><br/><br/><br/>
-                    <div class ="loadlevelbutton"></div> <br/>
-                    <div class ="challengebutton"></div> <br/>
-                    <div class ="choosegamereturnbutton"></div> <br/>
-                </div>
-                
-                <div id="loadLevel">
-                    <br/>          
-                    <table class="selectionTable">
-                        <br/>
-                        <caption> <h1> Level Selection </h1> </caption>
-                        <col class="col1"/> 
-                        <col class="col2"/>
-                        <col class="col3"/>
-                        <col class="col4"/>
-                            <tr>
-                                <td><div id ="level1" onclick="level1()" /></td>
-                                <td><div id ="level2" onclick="level2()" /></td>
-                                <td><div id ="level3" onclick="level3()" /></td>
-                                <td><div id ="level4" onclick="level4()" /></td>
-                            </tr>
-                            <tr>
-                                <td><div id ="level5" onclick="level5()" /></td>
-                                <td><div id ="level6" onclick="level6()" /></td>
-                                <td><div id ="level7" onclick="level7()" /></td>
-                                <td><div id ="level8" onclick="level8()" /></td>
-                            </tr>
-                            <tr>
-                                <td><div id ="level9" onclick="level9()" /></td>
-                                <td><div id ="level10" onclick="level10()" /></td>
-                                <td><div id ="level11" onclick="level11()" /></td>
-                                <td><div id ="level12" onclick="level12()" /></td>
-                            </tr>
-                            <tr>
-                                <td><div id ="level13" onclick="level13()" /></td>
-                                <td><div id ="level14" onclick="level14()" /></td>
-                                <td><div id ="level15" onclick="level15()" /></td>
-                                <td></td>
-                            </tr>
-                    </table>
-                    <br/><br/> 
-                    <div class ="loadlevelreturnbutton"></div>
-                </div>
-                
-                <div id="gameOver">
-                    <h1>Game Over</h1> 
-                    <h2> Score : </h2> 
-                    <h2 id="loseScore"> - </h2> <br/>
-                    <div class ="retrybutton" onclick="retry()"></div> <br/>
-                    <div class ="menubutton" onclick="getScore()"></div> <br/>
-                </div>
-                
-                <div id="gameWin">
-                    <h1>Nice Job!</h1> 
-                    <h2> Score : </h2> 
-                    <h2 id="winScore"> - </h2> <br/>
-                    <div class ="nextlevelbutton" onclick="nextLevel()"></div> <br/>
-                    <div class ="menubutton" onclick="getScore()"></div> <br/>
-                </div>
-
-                <div id="container"  align="center">
-                    <div id="time">200 seconds</div>
-                    <canvas id="mycanvas" width="800" height="1600">
-                        Your browser does not support canvas
-                    </canvas>
-                    <img id="control_panel" src="images/Selector.png" />
-                    <img id="eraser" src="images/Erase_Button.png" />
-                    <img id="box" src="images/NewBlock.png" />
-                    <img id="roll" src="images/Roll Button.png " />
-                    <img id="slope_NE" src="images/NewSlpNE.png" />
-                    <img id="slope_NW" src="images/NewSlpNW.png" />
-                    <img id="slope_SE" src="images/NewSlpSE.png" />
-                    <img id="slope_SW" src="images/NewSlpSW.png" />
-                    <img id="trn_slope_NE" src="images/TransSlpNE.png" />
-                    <img id="trn_slope_NW" src="images/TransSlpNW.png" />
-                    <img id="trn_slope_SE" src="images/TransSlpSE.png" />
-                    <img id="trn_slope_SW" src="images/TransSlpSW.png" />
-                    <img id="trn_box" src="images/TransBlock.png" />
-                    <img id="end" src="images/GoalHole.png" />
-                    <img id="start" src="images/Entrance.png" />
-                    <img id="brain" src="images/brain/0.png" />
-                </div>
-            </div>
+    <div id= "background">
+    <div id= "page">
+        <div id="landingPage">
+            <br/><br/>
+            <div class = "logo"></div><br/><br/><br/>
+            <div class = "playbutton"></div> <br/>
+            <div class = "highscoresbutton"></div><br/>
+            <div class = "tutorialbutton"></div> <br/>
+            <div class = "creditsbutton"></div> <br/>
         </div>
+
+        <div id="highscores">
+            <!-- <div class = "returnbutton" onclick="returnToMenu()"></div> <br/> -->
+        </div>
+
+        <div id="tutorial">
+            <br/><br/>
+            <div class = "tutorialreturnbutton"></div> <br/>
+        </div>
+
+        <div id="credits">
+            <br/>
+            <h1>** Created by Group 1 **</h1>
+            <h3>Arnold Myint</h3>
+            <h3>Arvin Rolos</h3>
+            <h3>Matt Rosenlund</h3>
+            <h3>Tom Nam</h3>
+            <h3>Wayne Wang</h3>
+            <br/>
+            <div class = "creditsreturnbutton"></div> <br/>
+        </div>
+
+         <div id="gameMenu">
+            <!-- <div class ="pausebutton" onclick="showPause()"></div> -->
+            <!-- <div class = "rollbutton" onclick=""></div>
+            <div class = "resetbutton" onclick=""></div>
+            <div class = "erasebutton" onclick=""></div> -->
+        </div>
+
+        <div id="pause">
+            <div class ="resumebutton" onclick="resumeGame()"></div>
+            <div class ="menubutton" onclick="returnToMenu()"></div>
+            <div class ="mutebutton" onclick=""></div>
+        </div>
+        
+        <div id="chooseGame">
+            <br/><br/><br/>
+            <div class = "logomini"></div><br/><br/><br/>
+            <div class ="loadlevelbutton"></div> <br/>
+            <div class ="challengebutton"></div> <br/>
+            <div class ="choosegamereturnbutton"></div> <br/>
+        </div>
+        
+        <div id="loadLevel">
+            <br/>          
+            <table class="selectionTable">
+                <br/>
+                <caption> <h1> Level Selection </h1> </caption>
+                <col class="col1"/> 
+                <col class="col2"/>
+                <col class="col3"/>
+                <col class="col4"/>
+                    <tr>
+                        <td><div id ="level1" onclick="level1()" /></td>
+                        <td><div id ="level2" onclick="level2()" /></td>
+                        <td><div id ="level3" onclick="level3()" /></td>
+                        <td><div id ="level4" onclick="level4()" /></td>
+                    </tr>
+                    <tr>
+                        <td><div id ="level5" onclick="level5()" /></td>
+                        <td><div id ="level6" onclick="level6()" /></td>
+                        <td><div id ="level7" onclick="level7()" /></td>
+                        <td><div id ="level8" onclick="level8()" /></td>
+                    </tr>
+                    <tr>
+                        <td><div id ="level9" onclick="level9()" /></td>
+                        <td><div id ="level10" onclick="level10()" /></td>
+                        <td><div id ="level11" onclick="level11()" /></td>
+                        <td><div id ="level12" onclick="level12()" /></td>
+                    </tr>
+                    <tr>
+                        <td><div id ="level13" onclick="level13()" /></td>
+                        <td><div id ="level14" onclick="level14()" /></td>
+                        <td><div id ="level15" onclick="level15()" /></td>
+                        <td></td>
+                    </tr>
+            </table>
+            <br/><br/> 
+            <div class ="loadlevelreturnbutton"></div>
+        </div>
+        
+        <div id="gameOver">
+            <h1>Game Over</h1> 
+            <h2> Score : </h2> 
+            <h2 id="loseScore"> - </h2> <br/>
+            <div class ="retrybutton" onclick="retry()"></div> <br/>
+            <div class ="menubutton" onclick="getScore()"></div> <br/>
+        </div>
+        
+        <div id="gameWin">
+            <h1>Nice Job!</h1> 
+            <h2> Score : </h2> 
+            <h2 id="winScore"> - </h2> <br/>
+            <div class ="nextlevelbutton" onclick="nextLevel()"></div> <br/>
+            <div class ="menubutton" onclick="getScore()"></div> <br/>
+        </div>
+
+        <div id="container"  align="center">
+            <div id="time">200 seconds</div>
+            <canvas id="mycanvas" width="800" height="1600">
+                Your browser does not support canvas
+            </canvas>
+            <img id="control_panel" src="images/Selector.png" />
+            <img id="eraser" src="images/Erase_Button.png" />
+            <img id="box" src="images/NewBlock.png" />
+            <img id="roll" src="images/Roll Button.png " />
+            <img id="slope_NE" src="images/NewSlpNE.png" />
+            <img id="slope_NW" src="images/NewSlpNW.png" />
+            <img id="slope_SE" src="images/NewSlpSE.png" />
+            <img id="slope_SW" src="images/NewSlpSW.png" />
+			<img id="trn_slope_NE" src="images/TransSlpNE.png" />
+            <img id="trn_slope_NW" src="images/TransSlpNW.png" />
+            <img id="trn_slope_SE" src="images/TransSlpSE.png" />
+            <img id="trn_slope_SW" src="images/TransSlpSW.png" />
+			<img id="trn_box" src="images/TransBlock.png" />
+			<img id="end" src="images/GoalHole.png" />
+			<img id="start" src="images/Entrance.png" />
+			<img id="brain" src="images/brain/0.png" />
+        </div>
+    </div>
+    </div>
     </body>
 </html>
