@@ -31,14 +31,14 @@ function control_frame(context) {
     context.drawImage(slope_NW, 435, 890);
     context.drawImage(slope_SE, 585, 900);
     context.drawImage(slope_NE, 135, 1030);
-	
+	/*
 	//FOR TESTING OF X AND Y LOCATION
 	canvas.onclick=function (e){
 		var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
 		console.log(point.x);
 		console.log(point.y);
 	}
-	
+	*/
 }
 
 /**
@@ -54,25 +54,9 @@ function control(context,mytimer) {
     var position = -1;
 	var posLayer = 0;
 	var shapeType = null;
-	
-	//initialize layers
 	for(var i = 0; i < 6; i++){
 		positions[i] = [];
 	}
-	
-	for(i = 0; i < 6; i++){
-		for(var j = 0; j < 36; j++){
-			var shapeObject = {
-				index:0,type:null,point:{x:0,y:0}, used:false
-			};
-			shapeObject.index = j;
-			shapeObject.point = shapePoints(j,i)
-			
-			
-			positions[i].push(shapeObject);
-		}
-	}
-	            
     control_frame(context);
 
 	/**
@@ -101,17 +85,14 @@ function control(context,mytimer) {
                 position = i;
 				for (var j = 0; j < positions.length; j++) {
 					for(var k = 0; k < positions[j].length; k++){
-						if (positions[j][k].used == true && positions[j][k].index == position) {
-							posLayer = j + 1;
+						if (positions[j][k].index == position) {
+							posLayer = j+1;
 							break;
 						}
 					}
 				}
-				//checks to ensure shape is only drawn on floor or ontop of boxes and not higher than the grid.
-				if(posLayer != 0 && positions[posLayer-1][position].type != "box" && posLayer != 7){
-					break;
-				}
-				addTransparentShape(context,positions[posLayer][position].point.x,positions[posLayer][position].point.y,shapeType);
+				var thePoint = shapePoints(position,posLayer);
+				addTransparentShape(context,thePoint.x,thePoint.y,shapeType);
                 break;
             } else {
                 position = -1;
@@ -128,16 +109,16 @@ function control(context,mytimer) {
     function up() {
         moving = false;
         mouseUp = true;
-		
-		//checks to ensure shape is only drawn on floor or ontop of boxes and not higher than the grid.
-		if(posLayer != 0 && positions[posLayer-1][position].type != "box" && posLayer != 7){
-			posLayer = 0;
-			return;
-		}
         if(position != -1){
-            positions[posLayer][position].type = shapeType;
-			positions[posLayer][position].used = true;
-            position = -1;
+            var shapeObject = {
+                index:0,type:null,point:{x:0,y:0}
+            };
+            shapeObject.index = position;
+            shapeObject.type = shapeType;
+            var thePoint = shapePoints(position,posLayer);
+            shapeObject.point = thePoint;
+            positions[posLayer].push(shapeObject);
+            position= -1;
             posLayer = 0;
         }
         context.clearRect(0, 10, canvas.width, canvas.height);
@@ -169,24 +150,6 @@ function control(context,mytimer) {
 		brain(context, positions);
 		
 		$(canvas).unbind("click", rollBrain);
-	}
-	
-	/**
-	 *	eraseAll
-	 *
-	 *	erases all of the blocks on the canvas and redraws.
-	 *
-	 */
-	function eraseAll(){
-		for(i = 0; i < positions.length; i++){
-			for(j = 0; j < positions[i].length; j++){
-				positions[i][j].used = false;
-			}
-		}
-		
-		redraw(context);
-		control_frame(context);
-		$(canvas).unbind("click", eraseAll);
 	}
 
 	
@@ -242,25 +205,8 @@ function control(context,mytimer) {
                 // shapeType = "slope_SW";
                 // $(canvas).on("mousemove", move);
                 // $(canvas).on("mouseup", up);
-            } else if(x > 418 && x < 536 && y < 1000 && y > 890){
-				shapeType = "slope_NW";
-                $(canvas).on("mousemove", move);
-                $(canvas).on("mouseup", up);
-                $(canvas).unbind("mousedown", this);				
-			} else if(x > 566 && x < 686 && y < 1000 && y > 890){
-				shapeType = "slope_SE";
-                $(canvas).on("mousemove", move);
-                $(canvas).on("mouseup", up);
-                $(canvas).unbind("mousedown", this);				
-			} else if(x > 118 && x < 236 && y < 1128 && y > 1016){
-				shapeType = "slope_NE";
-                $(canvas).on("mousemove", move);
-                $(canvas).on("mouseup", up);
-                $(canvas).unbind("mousedown", this);				
-			} else if(polygonClicked(3, rollx = [405,787,785], rolly = [832,638,832], x, y) == true){
+            } else if(polygonClicked(3, rollx = [405,787,785], rolly = [832,638,832], x, y) == true){
 				$(canvas).on("click", rollBrain);
-			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
-				$(canvas).on("click", eraseAll);
 			}
             // if(e.type == "click"){
             //     //clicking = true;

@@ -259,21 +259,11 @@ function frame_vertical(context) {
  */
 function timer(context){
     
+    context.fillStyle="blue";
     var mytimer = setInterval(function (){
         context.clearRect(0, 0, 800, 10);
         document.getElementById('time').innerHTML=time-- +" seconds";
         var bar=time * 4;
-        
-        if(time >= 150){
-            context.fillStyle="green";
-        } else if(time >= 100){
-            context.fillStyle="blue";
-        } else if(time >= 50){
-            context.fillStyle="yellow";
-        } else{
-            context.fillStyle="red";
-        }
-        
         context.fillRect(0,0,bar - 10,10);
             
        if(bar == 0){
@@ -341,22 +331,22 @@ function easter(e,context) {
  *	
  */
 function addAllShapes(context,position){
+    box_image = new Image();
+    box_image.src = 'images/Block.png';
+    // slope_SW = new Image();
+    // slope_SW = 'images/newSlpSW.png';
     context.setTransform(1, 0, 0, 1, 0, 0);
 	
+	for(var i = 0; i<position.length;i++){
+		position[i].sort(function(a, b){return a.index-b.index});
+	}
+
 	for(i = 0; i < position.length;i++){
 		for(var j = 0; j < position[i].length;j++){
-			if(position[i][j].used == true){
-				if(position[i][j].type == "box"){
-					context.drawImage(box, position[i][j].point.x, position[i][j].point.y-2,109,112);
-				} else if (position[i][j].type == "slope_SW"){
-					context.drawImage(slope_SW, position[i][j].point.x, position[i][j].point.y,109,109);
-				} else if (position[i][j].type == "slope_NW"){
-					context.drawImage(slope_NW, position[i][j].point.x, position[i][j].point.y,109,109);
-				} else if (position[i][j].type == "slope_NE"){
-					context.drawImage(slope_NE, position[i][j].point.x, position[i][j].point.y,109,109);
-				} else if (position[i][j].type == "slope_SE"){
-					context.drawImage(slope_SE, position[i][j].point.x, position[i][j].point.y,109,109);
-				}
+			if(position[i][j].type == "box"){
+				context.drawImage(box_image, position[i][j].point.x, position[i][j].point.y-2,109,112);
+			} else if (position[i][j].type == "slope_SW"){
+				context.drawImage(slope_SW, position[i][j].point.x, position[i][j].point.y,109,109);
 			}
 		}
 	}
@@ -373,16 +363,14 @@ function addAllShapes(context,position){
  *	
  */
 function addTransparentShape(context,x,y,type){
+	transparent_box_image = new Image();
+	transparent_box_image.src = 'images/TransBlock.png';
+    transparent_slope_SW = new Image();
+    transparent_slope_SW.src = 'images/TransSlpSW.png';
 	if(type == "box"){
-		context.drawImage(trn_box, x, y,109,109);
+		context.drawImage(transparent_box_image, x, y,109,109);
 	} else if (type == "slope_SW"){
-		context.drawImage(trn_slope_SW, x, y,109,109);
-	} else if (type == "slope_NW"){
-		context.drawImage(trn_slope_NW, x, y,109,109);
-	} else if (type == "slope_SE"){
-		context.drawImage(trn_slope_SE, x, y,109,109);
-	} else if (type == "slope_NE"){
-		context.drawImage(trn_slope_NE, x, y,109,109);
+		context.drawImage(transparent_slope_SW, x, y,109,109);
 	}
 }
 
