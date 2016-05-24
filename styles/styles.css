@@ -24,7 +24,8 @@ html, body {
 
     background-image : url("../images/background4.jpg");
     background-size: 100%;
-    background-repeat: no-repeat;    
+      background-attachment: scroll;  
+  background-position: 0% 0%; 
     height:100%;
     width:100%;
  }
