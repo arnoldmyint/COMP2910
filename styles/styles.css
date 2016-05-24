@@ -23,7 +23,8 @@ html, body {
     right: 0;
 
     background-image : url("../images/background4.jpg");
-
+    background-repeat:   no-repeat;
+    background-position: center center;
     height:100%;
     width:100%;
  }
