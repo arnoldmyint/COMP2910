@@ -64,8 +64,7 @@ var time = 200;
  *	Initiliazing of game.
  *	
  */
-function load(whichLevel){	
-	chooseLevel(whichLevel);
+function load(){
 
 
     canvas=document.getElementById("mycanvas");

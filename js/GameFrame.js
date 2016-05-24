@@ -5,16 +5,6 @@
  * 
  */
  
- function chooseLevel(whichLevel){
-	 if(whichLevel == 1){
-		end = 25;
-		start = 13;
-	 } else if(whichLevel == 2){
-		 end = 20;
-		 start = 20;
-	 }
- }
- 
  /**
   * createObj
   *	No params
@@ -84,10 +74,11 @@ function createObj() {
 function floor(context){
 	endPoint=document.getElementById("end");
     for(var i=0; i<array_floor.length; i++){
-		if(i == end){
+		if(i == 25){
 			getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
 			var pos = shapePoints(i,0);
 			array_floor[i].end = true;
+			end = i;
 		} else {
 			context.beginPath();
 			context.fillStyle="#65A658";
@@ -123,7 +114,8 @@ function floor(context){
 function right_wall(context){
 	startPoint=document.getElementById("start");
     for(var i=0; i<array_right.length; i++){
-		if(i == start){
+		if(i == 13){
+			start = i;
 			getPoints(array_right[i],1,0.5,0,1,400,38);
 			var pos = getStart();
 			var getPos = shapePoints(pos.theIndex,pos.theLayer);
