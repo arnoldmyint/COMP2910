@@ -22,11 +22,11 @@ html, body {
     left: 0;
     right: 0;
 
-    background-image : url("../images/background.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    opacity: 0.3;
-    filter:alpha(opacity=50);
+    background-image : url("../images/IMAGEHERE.jpg");
+     <!-- opacity: 0.3;
+   	background-size: 100%;
+    background-repeat: no-repeat;    
+    filter:alpha(opacity=50); -->
     height:100%;
     width:100%;
  }
@@ -241,11 +241,11 @@ img{
 }
 
 .retrybutton{
-    background-image : url("../images/buttons/normal/Replay.png");
+    background-image : url("../images/buttons/normal/Retry.png");
 }
 
 .retrybutton:active{
-    background-image : url("../images/buttons/clicked/Replay.png");
+    background-image : url("../images/buttons/clicked/Retry.png");
 }
 
 .pausebutton{

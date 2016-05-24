@@ -204,14 +204,31 @@ function control(context,mytimer) {
 		$(canvas).unbind("click", eraseAll);
 	}
 
+    /**
+	 *	paused
+	 *
+	 *	Pause the game.
+	 *
+	 */
+	function paused(){
+        clearInterval(mytimer);
+        $("#time").hide();
+        $("#mycanvas").hide();        
+        $("#pauseGame").toggle();
+	}
 	
+    
 	/*
 	 *	controls for desktop
 	 */
+<<<<<<< HEAD
     if (device.desktop()) {
         //var slope = 0;
         var types = "slope_SW";
         var clicking = false;
+=======
+    if (device.desktop()) {   
+>>>>>>> origin/master
         $(canvas).on("click mousedown", function (e) {
             moving = false;
             mouseUp = false;
@@ -227,6 +244,7 @@ function control(context,mytimer) {
                      clicking = true;
                      slope++;
                      context.clearRect(272,890,114,108);
+<<<<<<< HEAD
                      if(slope == 4){
                          types = "slope_SW";
                          slope = 0;
@@ -244,6 +262,29 @@ function control(context,mytimer) {
 //                     console.log(slope);
 //                     console.log(types);
                      //return false;
+=======
+                    if(slope == 4){
+                        types = "slope_SW";
+                        slope = 0;
+                        context.drawImage(slope0, 290, 890);
+                    }else if(slope == 1){
+                        types = "slope_NW";
+                        context.drawImage(slope1, 290, 890);
+                    }else if(slope == 2){
+                        types = "slope_SE";
+                        context.drawImage(slope2, 290, 890);
+                    }else if(slope == 3){
+                        types = "slope_NE";
+                        context.drawImage(slope3, 290, 890);
+                    }
+                     return;
+                } else if(e.type == "mousedown"){
+                    shapeType = types;
+                    clicking = false;
+                    $(canvas).on("mousemove", move);
+                    $(canvas).on("mouseup", up);
+                    //$(canvas).unbind("mousedown", this);
+>>>>>>> origin/master
                  }
                 var timeOut = setTimeout(function (){
 //                         console.log("down "+slope);
@@ -286,6 +327,10 @@ function control(context,mytimer) {
 				$(canvas).on("click", rollBrain);
 			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
 				$(canvas).on("click", eraseAll);
+			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
+				$(canvas).on("click", eraseAll);
+			}  else if(polygonClicked(3, rollx = [13,395,13], rolly = [24,24,220], x, y) == true){
+				paused();
 			}
         });
     }
