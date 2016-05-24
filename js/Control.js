@@ -221,14 +221,9 @@ function control(context,mytimer) {
 	/*
 	 *	controls for desktop
 	 */
-<<<<<<< HEAD
-    if (device.desktop()) {
-        //var slope = 0;
+    if (device.desktop()) {   
         var types = "slope_SW";
         var clicking = false;
-=======
-    if (device.desktop()) {   
->>>>>>> origin/master
         $(canvas).on("click mousedown", function (e) {
             moving = false;
             mouseUp = false;
@@ -244,7 +239,6 @@ function control(context,mytimer) {
                      clicking = true;
                      slope++;
                      context.clearRect(272,890,114,108);
-<<<<<<< HEAD
                      if(slope == 4){
                          types = "slope_SW";
                          slope = 0;
@@ -261,34 +255,12 @@ function control(context,mytimer) {
                      }
 //                     console.log(slope);
 //                     console.log(types);
-                     //return false;
-=======
-                    if(slope == 4){
-                        types = "slope_SW";
-                        slope = 0;
-                        context.drawImage(slope0, 290, 890);
-                    }else if(slope == 1){
-                        types = "slope_NW";
-                        context.drawImage(slope1, 290, 890);
-                    }else if(slope == 2){
-                        types = "slope_SE";
-                        context.drawImage(slope2, 290, 890);
-                    }else if(slope == 3){
-                        types = "slope_NE";
-                        context.drawImage(slope3, 290, 890);
-                    }
-                     return;
-                } else if(e.type == "mousedown"){
-                    shapeType = types;
-                    clicking = false;
-                    $(canvas).on("mousemove", move);
-                    $(canvas).on("mouseup", up);
-                    //$(canvas).unbind("mousedown", this);
->>>>>>> origin/master
-                 }
+                     return false;
+                }
                 var timeOut = setTimeout(function (){
 //                         console.log("down "+slope);
 //                         console.log("down "+types);
+                    console.log(clicking);
                     if(e.type == "mousedown" && !clicking){
                         shapeType = types;
                         clicking = false;
@@ -297,17 +269,6 @@ function control(context,mytimer) {
                     }
                 }, 500);
                 clicking = false;
-//                else if(e.type == "mousedown" && !clicking){
-//                     setTimeout(function down (){
-////                         console.log("down "+slope);
-////                         console.log("down "+types);
-//                         shapeType = types;
-//                         clicking = false;
-//                         $(canvas).on("mousemove", move);
-//                         $(canvas).on("mouseup", up);
-//                     }, 500);
-//                     //$(canvas).unbind("mousedown", this);
-//                 }
             } else if(x > 418 && x < 536 && y < 1000 && y > 890){
 				shapeType = "slope_NW";
                 $(canvas).on("mousemove", move);

@@ -23,10 +23,12 @@ html, body {
     right: 0;
 
     background-image : url("../images/IMAGEHERE.jpg");
-     <!-- opacity: 0.3;
+/*
+    opacity: 0.3;
    	background-size: 100%;
     background-repeat: no-repeat;    
-    filter:alpha(opacity=50); -->
+    filter:alpha(opacity=50);
+*/
     height:100%;
     width:100%;
  }
