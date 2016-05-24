@@ -1,0 +1,53 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <head>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/Main.js"></script>
+    <script>
+        function postContactToGoogle() {
+            var myScore = location.search.split('score=')[1]
+            var fullname=$('#fullname').val();
+            var mobilenumber=myScore;
+            var yourquery=$('#yourquery').val();
+            $.ajax({
+                url:"https://docs.google.com/forms/d/1SA2Cko5dbB5VJenHVFUtWLsqInyDbJuujYQn294qXlc/formResponse",
+                data:{"entry_173230686":fullname,"entry_1073549278":mobilenumber,"entry_":yourquery},
+                type:"POST",dataType:"xml",statusCode: {0:function() { 
+                    window.location.replace("http://comp2910.azurewebsites.net/scoreboard.php");
+                },200:function(){window.location.replace("http://comp2910.azurewebsites.net/scoreboard.php");}}
+            });
+        }
+    </script>
+    </head>
+    
+    <body>
+        <div id= "background">
+            <div id= "page">
+                <table  class="FormRequest" align="center">
+                    <tr>
+                        <td>
+                            <form id="formRequest">
+                                <p>Please type your username.</p>
+                                <br/>    
+                                Username:<br/>
+                                <input type="text" name="fullname" placeholder="username" id="fullname" /><br/>
+                                <br/>
+                                <!-- Score:<br/>
+                                <input type="text" name="mobilenumber" id="mobilenumber" readonly="readonly" value=""/><br/>
+                                <br> -->
+                                <p>Only top 10 players will</p>
+                                <p>be shown in leaderboard.</p>
+                                <center>
+                                    <input type="button" name="Submit" id="Submit" onclick="postContactToGoogle()" value="Submit" />
+                                    <input type="reset" value="Reset"/>
+                                </center>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>   
+    </body>
+</html>
