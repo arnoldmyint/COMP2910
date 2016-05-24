@@ -60,6 +60,8 @@ var time = 200;
 
 var slope = 0;
 
+var direction = 0;
+
 var context;
 
 var mytimer;

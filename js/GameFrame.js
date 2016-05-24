@@ -358,19 +358,27 @@ function addAllShapes(context,position){
 				if(position[i][j].type == "box"){
 					context.drawImage(box, position[i][j].point.x, position[i][j].point.y-2,109,112);
 				} else if (position[i][j].type == "slope_SW"){
-					context.drawImage(slope_SW, position[i][j].point.x, position[i][j].point.y-2,109,112);
+					context.drawImage(slope0, position[i][j].point.x, position[i][j].point.y-2,109,112);
 				} else if (position[i][j].type == "slope_NW"){
-					context.drawImage(slope_NW, position[i][j].point.x, position[i][j].point.y-2,109,112);
+					context.drawImage(slope1, position[i][j].point.x, position[i][j].point.y-2,109,112);
 				} else if (position[i][j].type == "slope_NE"){
-					context.drawImage(slope_NE, position[i][j].point.x, position[i][j].point.y-2,109,112);
+					context.drawImage(slope2, position[i][j].point.x, position[i][j].point.y-2,109,112);
 				} else if (position[i][j].type == "slope_SE"){
-					context.drawImage(slope_SE, position[i][j].point.x, position[i][j].point.y-2,109,112);
-				}
+					context.drawImage(slope3, position[i][j].point.x, position[i][j].point.y-2,109,112);
+				}else if (position[i][j].type == "direction_SW"){
+                    context.drawImage(direction0, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                }else if (position[i][j].type == "direction_NW"){
+                    context.drawImage(direction1, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                }else if (position[i][j].type == "direction_NE"){
+                    context.drawImage(direction2, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                }else if (position[i][j].type == "direction_SE"){
+                    context.drawImage(direction3, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                }
 			}
 		}
 	}
-    console.log(position[0][0].point.x);
-    console.log(position[0][0].point.y);
+//    console.log(position[0][0].point.x);
+//    console.log(position[0][0].point.y);
 }
 
 /**

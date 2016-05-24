@@ -25,6 +25,10 @@ function control_frame(context) {
     slope1 = document.getElementById("slope_NW");
     slope0 = document.getElementById("slope_SW");
     slope2 = document.getElementById("slope_NE");
+    direction0 = document.getElementById("direction_SW");
+    direction1 = document.getElementById("direction_NW");
+    direction2 = document.getElementById("direction_NE");
+    direction3 = document.getElementById("direction_SE");
     context.drawImage(frame, 8, 850, 789, 295);
     context.drawImage(eraser, 7, 630, 400, 210);
     context.drawImage(roll, 395, 630, 400, 210);
@@ -43,16 +47,27 @@ function control_frame(context) {
     }else if(slope == 0){
         context.drawImage(slope0, 290, 890);
     }
-//    context.drawImage(slope1, 435, 890);
+    context.clearRect(421,890,114,108);
+    if(direction == 4){
+        context.drawImage(direction0, 435, 890);
+    }else if(direction == 1){
+        context.drawImage(direction1, 435, 890);
+    }else if(direction == 2){
+        context.drawImage(direction2, 435, 890);
+    }else if(direction == 3){
+        context.drawImage(direction3, 435, 890);
+    }else if(direction == 0){
+        context.drawImage(direction0, 435, 890);
+    }
 //    context.drawImage(slope3, 585, 900);
 //    context.drawImage(slope2, 135, 1030);
 	//console.log(slopeTypes);
 	//FOR TESTING OF X AND Y LOCATION
-	canvas.onclick=function (e){
-		var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
-		console.log(point.x);
-		console.log(point.y);
-	}
+//	canvas.onclick=function (e){
+//		var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+//		console.log(point.x);
+//		console.log(point.y);
+//	}
 	
 }
 
@@ -147,15 +162,16 @@ function control(context) {
 			posLayer = 0;
 			return;
 		}
-        if(position != -1){
+        if(position != -1 && positions[posLayer][position].used != true){
             positions[posLayer][position].type = shapeType;
+            console.log(shapeType);
 			positions[posLayer][position].used = true;
             position = -1;
             posLayer = 0;
         }
         context.clearRect(0, 10, canvas.width, canvas.height);
         redraw(context);
-        context.save();
+        //context.save();
         addAllShapes(context, positions);
         control_frame(context);
         if (device.mobile()) {
@@ -223,8 +239,10 @@ function control(context) {
 	/*
 	 *	controls for desktop
 	 */
+    var timeOut;
     if (device.desktop()) {   
-        var types = "slope_SW";
+        var slopeTypes = "slope_SW";
+        var directionTypes = "direction_SW";
         var clicking = false;
         $(canvas).on("click mousedown", function (e) {
             moving = false;
@@ -233,38 +251,45 @@ function control(context) {
             var x = point.x;
             var y = point.y;
             if (x > 136 && y > 900 && x < 223 && y < 987) {
-                shapeType = "box";
-                $(canvas).on("mousemove", move);
-                $(canvas).on("mouseup", up);
+                if(e.type == "click"){
+                    clicking = true;
+                    return false;
+                }else if(e.type == "mousedown" && !clicking){
+                    shapeType = "box";
+                    clicking = false;
+                    $(canvas).on("mousemove", move);
+                    $(canvas).on("mouseup", up);   
+                }
+                clicking = false;
             } else if(x>283 && y>904 && x<371 && y<981){
                  if(e.type == "click"){
                      clicking = true;
                      slope++;
                      context.clearRect(272,890,114,108);
                      if(slope == 4){
-                         types = "slope_SW";
+                         slopeTypes = "slope_SW";
                          slope = 0;
                          context.drawImage(slope0, 290, 890);
                      }else if(slope == 1){
-                         types = "slope_NW";
+                         slopeTypes = "slope_NW";
                          context.drawImage(slope1, 290, 890);
                      }else if(slope == 2){
-                         types = "slope_NE";
+                         slopeTypes = "slope_NE";
                          context.drawImage(slope2, 290, 890);
                      }else if(slope == 3){
-                         types = "slope_SE";
+                         slopeTypes = "slope_SE";
                          context.drawImage(slope3, 290, 890);
                      }
 //                     console.log(slope);
 //                     console.log(types);
                      return false;
                 }
-                var timeOut = setTimeout(function (){
+                timeOut = setTimeout(function (){
 //                         console.log("down "+slope);
 //                         console.log("down "+types);
                     //console.log(clicking);
                     if(e.type == "mousedown" && !clicking){
-                        shapeType = types;
+                        shapeType = slopeTypes;
                         clicking = false;
                         $(canvas).on("mousemove", move);
                         $(canvas).on("mouseup", up);
@@ -272,10 +297,36 @@ function control(context) {
                 }, 500);
                 clicking = false;
             } else if(x > 418 && x < 536 && y < 1000 && y > 890){
-				shapeType = "slope_NW";
-                $(canvas).on("mousemove", move);
-                $(canvas).on("mouseup", up);
-                $(canvas).unbind("mousedown", this);				
+                if(e.type == "click"){
+                     clicking = true;
+                     direction++;
+                     context.clearRect(421,890,114,108);
+                     if(direction == 4){
+                         directionTypes = "direction_SW";
+                         direction = 0;
+                         context.drawImage(direction0, 435, 890);
+                     }else if(direction == 1){
+                         directionTypes = "direction_NW";
+                         context.drawImage(direction1, 435, 890);
+                     }else if(direction == 2){
+                         directionTypes = "direction_NE";
+                         context.drawImage(direction2, 435, 890);
+                     }else if(direction == 3){
+                         directionTypes = "direction_SE";
+                         context.drawImage(direction3, 435, 890);
+                     }
+                     return false;
+                }
+                var timeOut = setTimeout(function (){
+                    if(e.type == "mousedown" && !clicking){
+                        shapeType = directionTypes;
+                        console.log(shapeType);
+                        clicking = false;
+                        $(canvas).on("mousemove", move);
+                        $(canvas).on("mouseup", up);
+                    }
+                }, 500);
+                clicking = false;
 			} else if(x > 566 && x < 686 && y < 1000 && y > 890){
 				shapeType = "slope_SE";
                 $(canvas).on("mousemove", move);
