@@ -9,7 +9,7 @@ html, body {
 }
 
 table {
-color: black;
+	color: black;
 }
 
 #background{
@@ -275,6 +275,7 @@ img{
 	margin-left: auto;
 	margin-right: auto;
     border-spacing: 10px;
+    color: white;
 }
 
 .col1, .col2, .col3, .col4{	
