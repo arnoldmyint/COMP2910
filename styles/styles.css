@@ -2,7 +2,8 @@
 /* make the body fill the window */
 
 html, body {
-    color: #006622;
+    <!-- color: #006622; -->
+    color: #F5E5C5;
     margin: 0px;
     width: 100%;
     overflow: hidden;
