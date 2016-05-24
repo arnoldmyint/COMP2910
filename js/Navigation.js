@@ -9,9 +9,23 @@ $(document).ready(function(){
         $("#chooseGame").slideToggle();
         $("#loadLevel").slideToggle();
     });
+	
+    $("#level1").click(function(){
+        $("#loadLevel").slideToggle();
+		$("#mycanvas").slideToggle();
+        $("#time").show();
+        load(1);
+    });
+	
+    $("#level2").click(function(){
+        $("#loadLevel").slideToggle();
+		$("#mycanvas").slideToggle();
+        $("#time").show();
+        load(2);
+    });    
     
     $(".loadlevelreturnbutton").click(function(){
-        $("#loadLevel").slideToggle();        
+        $("#loadLevel").slideToggle();
         $("#chooseGame").slideToggle();
     });
     
@@ -19,7 +33,7 @@ $(document).ready(function(){
         $("#chooseGame").slideToggle();
         $("#mycanvas").slideToggle();
         $("#time").show();
-        load();
+        load(1);
     });    
     
     $(".choosegamereturnbutton").click(function(){
