@@ -173,12 +173,12 @@ function left_wall(context){
         getPoints(array_left[i],1,-0.5,0,1,70,203);
     }
     context.restore();
-    context.save();
-    if(!moving && !mouseUp){
-        $(canvas).on("click touchstart", function (e) {
-            easter(e,context);
-        });
-    }
+//    context.save();
+//    if(!moving && !mouseUp){
+//        $(canvas).on("click touchstart", function (e) {
+//            easter(e,context);
+//        });
+//    }
 }
 
 /**
@@ -333,12 +333,11 @@ function easter(e,context) {
     }else{
         var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
     }
-    if (point.x >= array_left[i].points[3].x && point.x <= array_left[i].points[1].x && point.y >= array_left[i].points[0].y && point.y <= array_left[i].points[2].y && !mouseUp){
+    if (point.x >= array_left[i].points[3].x && point.x <= array_left[i].points[1].x && point.y >= array_left[i].points[0].y && point.y <= array_left[i].points[2].y && !mouseUp && !moving){
         context.fillStyle="black";
         context.fillRect(egg.x,egg.y,egg.width,egg.height);
-        $(canvas).unbind("touchstart click", easter);
+        $(canvas).unbind("click touchstart", easter);
     }
-    context.restore();
 }
 
 /**

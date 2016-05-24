@@ -290,6 +290,7 @@ function control(context,mytimer) {
 				$(canvas).on("click", eraseAll);
 			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
 				$(canvas).on("click", eraseAll);
+                //console.log(1);
 			}  else if(polygonClicked(3, rollx = [13,395,13], rolly = [24,24,220], x, y) == true){
 				paused();
 			}
