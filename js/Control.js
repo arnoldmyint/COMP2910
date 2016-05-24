@@ -21,20 +21,20 @@ function control_frame(context) {
     clear = document.getElementById("clear");
     pause = document.getElementById("pause");
     box = document.getElementById("box");
-    slope_NE = document.getElementById("slope_NE");
-    slope_NW = document.getElementById("slope_NW");
-    slope_SW = document.getElementById("slope_SW");
-    slope_SE = document.getElementById("slope_SE");
+    slope3 = document.getElementById("slope_SE");
+    slope1 = document.getElementById("slope_NW");
+    slope0 = document.getElementById("slope_SW");
+    slope2 = document.getElementById("slope_NE");
     context.drawImage(frame, 8, 850, 789, 295);
     context.drawImage(eraser, 7, 630, 400, 210);
     context.drawImage(roll, 395, 630, 400, 210);
     context.drawImage(clear, 395, 20, 400, 210);
     context.drawImage(pause, 7, 20, 400, 210);
     context.drawImage(box, 135, 900);
-    context.drawImage(slope_SW, 290, 890);
-    context.drawImage(slope_NW, 435, 890);
-    context.drawImage(slope_SE, 585, 900);
-    context.drawImage(slope_NE, 135, 1030);
+    context.drawImage(slope0, 290, 890);
+    context.drawImage(slope1, 435, 890);
+    context.drawImage(slope3, 585, 900);
+    context.drawImage(slope2, 135, 1030);
 	
 	//FOR TESTING OF X AND Y LOCATION
 	canvas.onclick=function (e){
@@ -198,8 +198,9 @@ function control(context,mytimer) {
 	 *	controls for desktop
 	 */
     if (device.desktop()) {
-        
         $(canvas).on("click mousedown", function (e) {
+            var types = "slope_SW";
+            var slope = 0;
             moving = false;
             mouseUp = false;
             var clicking = false;
@@ -211,32 +212,32 @@ function control(context,mytimer) {
                 $(canvas).on("mousemove", move);
                 $(canvas).on("mouseup", up);
             } else if(x>283 && y>904 && x<371 && y<981){
-//                $(canvas).on("mousemove", move);
-//                $(canvas).on("mouseup", up);
                  if(e.type == "click"){
                      clicking = true;
-                     shapeType = "slope_NW";
+                     slope++;
                      context.clearRect(272,890,114,108);
-                     context.drawImage(slope_NW, 290, 890);
+                     if(slope == 4){
+                         types = "slope_SW";
+                         slope = 0;
+                         context.drawImage(slope0, 290, 890);
+                     }else if(slope == 1){
+                         types = "slope_NW";
+                         context.drawImage(slope1, 290, 890);
+                     }else if(slope == 2){
+                         types = "slope_SE";
+                         context.drawImage(slope2, 290, 890);
+                     }else if(slope == 3){
+                         types = "slope_NE";
+                         context.drawImage(slope3, 290, 890);
+                     }
                      return;
-                 } else if(e.type == "mousedown" && !clicking){
-                     //console.log(3);
+                 } else if(e.type == "mousedown"){
+                     shapeType = types;
                      clicking = false;
-                     shapeType = "slope_SW";
                      $(canvas).on("mousemove", move);
                      $(canvas).on("mouseup", up);
+                     //$(canvas).unbind("mousedown", this);
                  }
-//                 setTimeout(function () {
-//                     if(!clicking && e.type == "mousedown"){
-//                         clicking = false;
-//                         shapeType = "slope_SW";
-//                         $(canvas).on("mousemove", move);
-//                         $(canvas).on("mouseup", up);
-//                     }
-//                 }, 500);
-//                 shapeType = "slope_SW";
-//                 $(canvas).on("mousemove", move);
-//                 $(canvas).on("mouseup", up);
             } else if(x > 418 && x < 536 && y < 1000 && y > 890){
 				shapeType = "slope_NW";
                 $(canvas).on("mousemove", move);
@@ -257,10 +258,6 @@ function control(context,mytimer) {
 			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
 				$(canvas).on("click", eraseAll);
 			}
-            // if(e.type == "click"){
-            //     //clicking = true;
-            //     console.log(x,y);
-            // }
         });
     }
 
