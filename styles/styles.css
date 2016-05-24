@@ -24,8 +24,9 @@ html, body {
 
     background-image : url("../images/background_02.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
     <!-- opacity: 0.3;
+   background-size: 100%;
+     
     filter:alpha(opacity=50); -->
     height:100%;
     width:100%;
