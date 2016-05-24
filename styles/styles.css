@@ -8,6 +8,10 @@ html, body {
     overflow: hidden;
 }
 
+table {
+color: black;
+}
+
 #background{
     z-index: 1;
 }
