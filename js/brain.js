@@ -23,7 +23,7 @@ function brain(context, positions){
 	theBrain.x = array_right[start].points[3].x;
 	theBrain.y = array_right[start].points[3].y;
 	
-	var direction = "sw";
+	var direction = "direction_SW";
 	
 	startBrainRoll();
 	
@@ -39,8 +39,11 @@ function brain(context, positions){
 	
 	function whereTo(){
 		//Find out direction
-		if(positions[theBrain.brainLayer][theBrain.brainIndex].direction != null){
-			direction = positions[theBrain.brainLayer][theBrain.brainIndex].direction;
+		if(positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_SW"
+				|| positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_NW"
+					|| positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_SE"
+						|| positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_NE"){
+			direction = positions[theBrain.brainLayer][theBrain.brainIndex].type;
 		}
 		
 		if(theBrain.brainLayer == 0 && theBrain.brainIndex == end){
@@ -51,25 +54,25 @@ function brain(context, positions){
 			} else {
 				rollGround();
 			}
-		} else if (direction == "sw"){
+		} else if (direction == "direction_SW"){
 			if(isBlocked() == true){
 				lose();
 			} else {
 				rollSW();
 			}
-		} else if (direction == "nw"){
+		} else if (direction == "direction_NW"){
 			if(isBlocked() == true){
 				lose();
 			} else {
 				rollNW();
 			}
-		} else if (direction == "se"){
+		} else if (direction == "direction_SE"){
 			if(isBlocked() == true){
 				lose();
 			} else {
 				rollSE();
 			}
-		} else if (direction == "ne"){
+		} else if (direction == "direction_NE"){
 			if(isBlocked() == true){
 				lose();
 			} else {
@@ -79,16 +82,16 @@ function brain(context, positions){
 	}
 	
 	function rollGround(){
-		if(direction == "sw"){
+		if(direction == "direction_SW"){
 			theBrain.brainIndex += 6;
 			moveBrain(0);
-		} else if (direction == "nw"){
+		} else if (direction == "direction_NW"){
 			theBrain.brainIndex -= 1;
 			moveBrain(1);
-		} else if (direction == "se"){
+		} else if (direction == "direction_SE"){
 			theBrain.brainIndex += 1;
 			moveBrain(2)
-		} else if (direction == "ne"){
+		} else if (direction == "direction_NE"){
 			theBrain.brainIndex -= 6;
 			moveBrain(3);
 		}
@@ -210,7 +213,11 @@ function brain(context, positions){
     }
 	
 	function isBlocked(){
-		if(positions[theBrain.brainLayer][theBrain.brainIndex].used == true){
+		if(positions[theBrain.brainLayer][theBrain.brainIndex].used == true
+			&& positions[theBrain.brainLayer][theBrain.brainIndex].type != "direction_SW"
+				&& positions[theBrain.brainLayer][theBrain.brainIndex].type != "direction_NW"
+					&& positions[theBrain.brainLayer][theBrain.brainIndex].type != "direction_SE"
+						&& positions[theBrain.brainLayer][theBrain.brainIndex].type != "direction_NE"){
 			return true;
 		} else {
 			return false;
