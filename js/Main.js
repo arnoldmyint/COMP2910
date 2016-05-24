@@ -58,6 +58,7 @@ var theScore = 0;
  */
 var time = 200;
 
+var slope = 0;
 /**
  *	load
  *	
