@@ -35,9 +35,9 @@ function control_frame(context) {
     context.drawImage(clear, 395, 20, 400, 210);
     context.drawImage(pause, 7, 20, 400, 210);
     context.drawImage(box, 135, 900);
-    context.clearRect(272,890,114,108);
+    context.clearRect(272,890,114,98);
     context.fillStyle = "#D6FFCD";
-    context.fillRect(272,890,114,108);
+    context.fillRect(272,890,114,98);
     if(slope == 4){
         context.drawImage(slope0, 290, 890);
     }else if(slope == 1){
@@ -49,9 +49,9 @@ function control_frame(context) {
     }else if(slope == 0){
         context.drawImage(slope0, 290, 890);
     }
-    context.clearRect(421,890,114,108);
+    context.clearRect(421,890,114,98);
     context.fillStyle = "#D6FFCD";
-    context.fillRect(421,890,114,108);
+    context.fillRect(421,890,114,98);
     if(direction == 4){
         context.drawImage(direction0, 435, 890);
     }else if(direction == 1){
