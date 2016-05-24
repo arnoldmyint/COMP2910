@@ -59,6 +59,10 @@ var theScore = 0;
 var time = 200;
 
 var slope = 0;
+
+var context;
+
+var mytimer;
 /**
  *	load
  *	
@@ -71,7 +75,7 @@ function load(whichLevel){
 
     canvas=document.getElementById("mycanvas");
     container=document.getElementById("container");
-    var context=canvas.getContext("2d");
+    context=canvas.getContext("2d");
     createObj();
     if(device.desktop() || device.tablet()){
         canvas.style.width="400px";

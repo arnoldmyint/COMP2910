@@ -68,7 +68,7 @@ $(document).ready(function(){
     $(".resumebutton").click(function(){
         $("#pauseGame").slideToggle();
         $("#mycanvas").slideToggle();   
-        $("#time").show();        
+        $("#time").show();
         timer(context);
     });
     

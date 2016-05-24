@@ -267,12 +267,12 @@ function frame_vertical(context) {
  *	
  */
 function timer(context){
-    
-    var mytimer = setInterval(function (){
+    clearInterval(mytimer);
+    mytimer = setInterval(function (){
         context.clearRect(0, 0, 800, 10);
         document.getElementById('time').innerHTML=time-- +" seconds";
         var bar=time * 4;
-        
+        //console.log(time);
         if(time >= 150){
             context.fillStyle="green";
         } else if(time >= 100){
@@ -290,7 +290,8 @@ function timer(context){
             //alert(1);
         }
     }, 1000);
-    control(context,mytimer);
+    control(context);
+    //return false;
 }
 
 /**

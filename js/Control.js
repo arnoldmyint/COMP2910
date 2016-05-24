@@ -43,9 +43,9 @@ function control_frame(context) {
     }else if(slope == 0){
         context.drawImage(slope0, 290, 890);
     }
-    context.drawImage(slope1, 435, 890);
-    context.drawImage(slope3, 585, 900);
-    context.drawImage(slope2, 135, 1030);
+//    context.drawImage(slope1, 435, 890);
+//    context.drawImage(slope3, 585, 900);
+//    context.drawImage(slope2, 135, 1030);
 	//console.log(slopeTypes);
 	//FOR TESTING OF X AND Y LOCATION
 //	canvas.onclick=function (e){
@@ -64,7 +64,7 @@ function control_frame(context) {
  *	All events
  *	
  */
-function control(context,mytimer) {
+function control(context) {
     var positions = [];
     var position = -1;
 	var posLayer = 0;
@@ -203,6 +203,10 @@ function control(context,mytimer) {
 		control_frame(context);
 		$(canvas).unbind("click", eraseAll);
 	}
+    
+    function erase(){
+        
+    }
 
     /**
 	 *	paused
@@ -288,9 +292,9 @@ function control(context,mytimer) {
 				$(canvas).on("click", rollBrain);
 			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
 				$(canvas).on("click", eraseAll);
+                //console.log(1);
 			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
 				$(canvas).on("click", eraseAll);
-                //console.log(1);
 			}  else if(polygonClicked(3, rollx = [13,395,13], rolly = [24,24,220], x, y) == true){
 				paused();
 			}
