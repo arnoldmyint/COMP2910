@@ -51,10 +51,13 @@ $(document).ready(function(){
         $("#landingPage").slideToggle();
     });
     
-     $("#pause").click(function(){
-         //pause timer
-        $("#mycanvas").slideToggle();        
+    $(".resumebutton").click(function(){
         $("#pauseGame").slideToggle();
+        $("#mycanvas").slideToggle();   
+        $("#time").show();        
+        timer(context);
     });
+    
+    
 });
 

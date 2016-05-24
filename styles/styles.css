@@ -241,11 +241,11 @@ img{
 }
 
 .retrybutton{
-    background-image : url("../images/buttons/normal/Replay.png");
+    background-image : url("../images/buttons/normal/Retry.png");
 }
 
 .retrybutton:active{
-    background-image : url("../images/buttons/clicked/Replay.png");
+    background-image : url("../images/buttons/clicked/Retry.png");
 }
 
 .pausebutton{

@@ -193,7 +193,20 @@ function control(context,mytimer) {
 		$(canvas).unbind("click", eraseAll);
 	}
 
+    /**
+	 *	paused
+	 *
+	 *	Pause the game.
+	 *
+	 */
+	function paused(){
+        clearInterval(mytimer);
+        $("#time").hide();
+        $("#mycanvas").hide();        
+        $("#pauseGame").toggle();
+	}
 	
+    
 	/*
 	 *	controls for desktop
 	 */
@@ -256,7 +269,14 @@ function control(context,mytimer) {
 				$(canvas).on("click", rollBrain);
 			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
 				$(canvas).on("click", eraseAll);
+			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
+				$(canvas).on("click", eraseAll);
+			}  else if(polygonClicked(3, rollx = [13,395,13], rolly = [24,24,220], x, y) == true){
+				paused();
 			}
+            //if(e.type == "click"){
+            //alert(x + ", " + y );
+            //}
             // if(e.type == "click"){
             //     //clicking = true;
             //     console.log(x,y);
