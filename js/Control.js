@@ -48,11 +48,11 @@ function control_frame(context) {
 //    context.drawImage(slope2, 135, 1030);
 	//console.log(slopeTypes);
 	//FOR TESTING OF X AND Y LOCATION
-//	canvas.onclick=function (e){
-//		var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
-//		console.log(point.x);
-//		console.log(point.y);
-//	}
+	canvas.onclick=function (e){
+		var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+		console.log(point.x);
+		console.log(point.y);
+	}
 	
 }
 
@@ -81,9 +81,7 @@ function control(context) {
 				index:0,type:null,point:{x:0,y:0}, used:false, direction:null
 			};
 			shapeObject.index = j;
-			shapeObject.point = shapePoints(j,i)
-			
-			
+			shapeObject.point = shapePoints(j,i);
 			positions[i].push(shapeObject);
 		}
 	}
@@ -264,7 +262,7 @@ function control(context) {
                 var timeOut = setTimeout(function (){
 //                         console.log("down "+slope);
 //                         console.log("down "+types);
-                    console.log(clicking);
+                    //console.log(clicking);
                     if(e.type == "mousedown" && !clicking){
                         shapeType = types;
                         clicking = false;

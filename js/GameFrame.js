@@ -369,6 +369,8 @@ function addAllShapes(context,position){
 			}
 		}
 	}
+    console.log(position[0][0].point.x);
+    console.log(position[0][0].point.y);
 }
 
 /**
