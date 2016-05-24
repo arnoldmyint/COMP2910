@@ -72,6 +72,10 @@ $(document).ready(function(){
         timer(context);
     });
     
+        $(".menubutton").click(function(){
+        $("#pauseGame").slideToggle();
+        $("#landingPage").slideToggle();  
+    });
     
 });
 
