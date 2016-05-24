@@ -36,6 +36,8 @@ function control_frame(context) {
     context.drawImage(pause, 7, 20, 400, 210);
     context.drawImage(box, 135, 900);
     context.clearRect(272,890,114,108);
+    context.fillStyle = "#D6FFCD";
+    context.fillRect(272,890,114,108);
     if(slope == 4){
         context.drawImage(slope0, 290, 890);
     }else if(slope == 1){
@@ -48,6 +50,8 @@ function control_frame(context) {
         context.drawImage(slope0, 290, 890);
     }
     context.clearRect(421,890,114,108);
+    context.fillStyle = "#D6FFCD";
+    context.fillRect(421,890,114,108);
     if(direction == 4){
         context.drawImage(direction0, 435, 890);
     }else if(direction == 1){
@@ -63,11 +67,11 @@ function control_frame(context) {
 //    context.drawImage(slope2, 135, 1030);
 	//console.log(slopeTypes);
 	//FOR TESTING OF X AND Y LOCATION
-//	canvas.onclick=function (e){
-//		var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
-//		console.log(point.x);
-//		console.log(point.y);
-//	}
+	canvas.onclick=function (e){
+		var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+		console.log(point.x);
+		console.log(point.y);
+	}
 	
 }
 
@@ -239,7 +243,6 @@ function control(context) {
 	/*
 	 *	controls for desktop
 	 */
-    var timeOut;
     if (device.desktop()) {   
         var slopeTypes = "slope_SW";
         var directionTypes = "direction_SW";
@@ -284,7 +287,7 @@ function control(context) {
 //                     console.log(types);
                      return false;
                 }
-                timeOut = setTimeout(function (){
+                var timeOut = setTimeout(function (){
 //                         console.log("down "+slope);
 //                         console.log("down "+types);
                     //console.log(clicking);

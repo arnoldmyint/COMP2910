@@ -285,9 +285,11 @@ function timer(context){
         
         context.fillRect(0,0,bar - 10,10);
             
-       if(bar == 0){
+       if(time == 0){
             clearInterval(timer);
-            //alert(1);
+            $("#mycanvas").hide();
+            $("#time").hide();
+            $("#gameOver").show();
         }
     }, 1000);
     control(context);
