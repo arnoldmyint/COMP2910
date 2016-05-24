@@ -29,7 +29,7 @@ function control_frame(context) {
     direction1 = document.getElementById("direction_NW");
     direction2 = document.getElementById("direction_NE");
     direction3 = document.getElementById("direction_SE");
-    context.drawImage(frame, 8, 850, 789, 295);
+    context.drawImage(frame, 8, 850, 789, 160);
     context.drawImage(eraser, 7, 630, 400, 210);
     context.drawImage(roll, 395, 630, 400, 210);
     context.drawImage(clear, 395, 20, 400, 210);
