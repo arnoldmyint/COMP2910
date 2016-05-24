@@ -2,7 +2,7 @@
 /* make the body fill the window */
 
 html, body {
-    color: #F5E5C4;
+    color: #006622;
     margin: 0px;
     width: 100%;
     overflow: hidden;
@@ -22,7 +22,7 @@ html, body {
     left: 0;
     right: 0;
 
-    background-image : url("../images/background4.jpg");
+    background-image : url("../images/IMAGEHERE.jpg");
     background-size: 100%;
       background-attachment: scroll;  
   background-position: 0% 0%; 
