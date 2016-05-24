@@ -268,7 +268,7 @@ function control(context) {
                  if(e.type == "click"){
                      clicking = true;
                      slope++;
-                     context.clearRect(272,890,114,108);
+                     context.clearRect(272,890,114,98);
                      if(slope == 4){
                          slopeTypes = "slope_SW";
                          slope = 0;
@@ -303,7 +303,7 @@ function control(context) {
                 if(e.type == "click"){
                      clicking = true;
                      direction++;
-                     context.clearRect(421,890,114,108);
+                     context.clearRect(421,890,114,98);
                      if(direction == 4){
                          directionTypes = "direction_SW";
                          direction = 0;
