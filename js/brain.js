@@ -38,6 +38,8 @@ function brain(context, positions){
 	}
 	
 	function whereTo(){
+		
+		console.log("Direction to move: " + direction + " Layer: " +theBrain.brainLayer + " index: " + theBrain.brainIndex);
 		//Find out direction
 		if(positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_SW"
 				|| positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_NW"
@@ -90,7 +92,7 @@ function brain(context, positions){
 			moveBrain(1);
 		} else if (direction == "direction_SE"){
 			theBrain.brainIndex += 1;
-			moveBrain(2)
+			moveBrain(2);
 		} else if (direction == "direction_NE"){
 			theBrain.brainIndex -= 6;
 			moveBrain(3);
@@ -159,6 +161,7 @@ function brain(context, positions){
 	
 	function moveBrain(direction){
 		var moveInc = 0;
+		var imgInc = 0;
 		var theX;
 		var theY;
 		if(direction == 0){
@@ -166,15 +169,15 @@ function brain(context, positions){
 			theX = -2.25;
 			theY = 1.166666666;
 		}else if (direction == 1){
-			//BOX NW
-			theX = 2.25;
+			//FLAT NW
+			theX = -2.25;
 			theY = -1.166666666;
 		} else if (direction == 2){
-			//BOX SE
+			//FLAT SE
 			theX = 2.25;
 			theY = 1.166666666;
 		} else if (direction == 3){
-			//BOX NE
+			//FLAT NE
 			theX = 2.25;
 			theY = -1.166666666;
 		} else if (direction == 4){
@@ -196,17 +199,21 @@ function brain(context, positions){
 		}
 		
         var movement = setInterval(function (){
-			moveInc++;
-			brain.src = "images/brain/" + moveInc + ".png";
+			brain.src = "images/brain/" + imgInc + ".png";
 			context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0,0,canvas.width,canvas.height);
 			redraw(context);
 			addAllShapes(context, positions);
 			control_frame(context);
 			context.drawImage(brain,theBrain.x += theX,theBrain.y += theY, 30, 30);
-			if(moveInc == 23){
+			if(moveInc == 24){
 				clearInterval(movement);
 				whereTo();
+			}
+			moveInc++;
+			imgInc++;
+			if(imgInc  == 23){
+				imgInc == 0;
 			}
 			//console.log(1);
 		}, 50);
