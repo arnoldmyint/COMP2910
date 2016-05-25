@@ -206,12 +206,12 @@ function brain(context, positions){
 			addAllShapes(context, positions);
 			control_frame(context);
 			context.drawImage(brain,theBrain.x += theX,theBrain.y += theY, 30, 30);
-			if(moveInc == 23){
+			if(moveInc == 24){
 				clearInterval(movement);
 				whereTo();
 			}
 			moveInc++;
-			imgInc++;
+			++imgInc;
 			if(imgInc  == 23){
 				imgInc == 0;
 			}
