@@ -95,7 +95,12 @@ function brain(context, positions){
 			}
 		} else if (direction == "direction_NW"){
 			theBrain.brainIndex -= 1;
-			moveBrain(1);
+			//check if brain went off the grid
+			if(theBrain.brainIndex < 0 || theBrain.brainIndex % 6 == 5){
+				lose();
+			} else {
+				moveBrain(1);
+			}
 		} else if (direction == "direction_SE"){
 			theBrain.brainIndex += 1;
 			//check if brain went off the grid
@@ -106,7 +111,12 @@ function brain(context, positions){
 			}
 		} else if (direction == "direction_NE"){
 			theBrain.brainIndex -= 6;
-			moveBrain(3);
+			//check if brain went off the grid
+			if(theBrain.brainIndex < 0){
+				lose();
+			} else {
+				moveBrain(3);
+			}
 		}
 	}
 	
@@ -139,11 +149,21 @@ function brain(context, positions){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
 				theBrain.brainIndex -= 1;
-				moveBrain(1);
+				//check if brain went off the grid
+				if(theBrain.brainIndex < 0 || theBrain.brainIndex % 6 == 5){
+					lose();
+				} else {
+					moveBrain(1);
+				}
 			} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_NW"){
 				theBrain.brainIndex -= 1;
 				theBrain.brainLayer -=1;
-				moveBrain(5);
+				//check if brain went off the grid
+				if(theBrain.brainIndex < 0 || theBrain.brainIndex % 6 == 5){
+					lose();
+				} else {
+					moveBrain(5);
+				}
 			}
 		} else {
 			lose();
@@ -179,11 +199,21 @@ function brain(context, positions){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
 				theBrain.brainIndex -= 6;
-				moveBrain(3);
+				//check if brain went off the grid
+				if(theBrain.brainIndex < 0){
+					lose();
+				} else {
+					moveBrain(3);
+				}
 			} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_NE"){
 				theBrain.brainIndex -= 6;
 				theBrain.brainLayer -=1;
-				moveBrain(7);
+				//check if brain went off the grid
+				if(theBrain.brainIndex < 0){
+					lose();
+				} else {
+					moveBrain(7);
+				}
 			}
 		} else {
 			lose();
