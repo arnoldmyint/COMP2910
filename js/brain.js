@@ -199,6 +199,7 @@ function brain(context, positions){
 		}
 		
         var movement = setInterval(function (){
+            console.log(imgInc);
 			brain.src = "images/brain/" + imgInc + ".png";
 			context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0,0,canvas.width,canvas.height);
@@ -215,7 +216,6 @@ function brain(context, positions){
 			if(imgInc  == 24){
 				imgInc = 0;
 			}
-			console.log(imgInc);
 		}, 50);
     }
 	
