@@ -238,6 +238,8 @@ function control(context) {
         $("#mycanvas").hide();        
         $("#pauseGame").toggle();
 	}
+    
+    
 	
     
 	/*
@@ -247,25 +249,30 @@ function control(context) {
         var slopeTypes = "slope_SW";
         var directionTypes = "direction_SW";
         var clicking = false;
-        $(canvas).on("click mousedown", function (e) {
+        $(canvas).on("click mousedown touchstart", function (e) {
             moving = false;
             mouseUp = false;
             var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
             var x = point.x;
             var y = point.y;
             if (x > 136 && y > 900 && x < 223 && y < 987) {
-                if(e.type == "click"){
+                if(e.type == "click" || e.type == "touchstart"){
                     clicking = true;
                     return false;
-                }else if(e.type == "mousedown" && !clicking){
+                }else if((e.type == "mousedown" || e.type == "touchstart") && !clicking){
                     shapeType = "box";
                     clicking = false;
-                    $(canvas).on("mousemove", move);
-                    $(canvas).on("mouseup", up);   
+                    if(device.desktop()){
+                        $(canvas).on("mousemove", move);
+                        $(canvas).on("mouseup", up);      
+                    }else if(device.mobile() || device.tablet()){
+                        $(canvas).on("touchmove", move);
+                        $(canvas).on("touchend", up);   
+                    }
                 }
                 clicking = false;
             } else if(x>283 && y>904 && x<371 && y<981){
-                 if(e.type == "click"){
+                 if(e.type == "click" || e.type == "touchstart"){
                      clicking = true;
                      slope++;
                      context.clearRect(272,890,114,98);
@@ -291,11 +298,16 @@ function control(context) {
 //                         console.log("down "+slope);
 //                         console.log("down "+types);
                     //console.log(clicking);
-                    if(e.type == "mousedown" && !clicking){
+                    if((e.type == "mousedown" || e.type == "touchstart") && !clicking){
                         shapeType = slopeTypes;
                         clicking = false;
-                        $(canvas).on("mousemove", move);
-                        $(canvas).on("mouseup", up);
+                        if(device.desktop()){
+                            $(canvas).on("mousemove", move);
+                            $(canvas).on("mouseup", up);      
+                        }else if(device.mobile() || device.tablet()){
+                            $(canvas).on("touchmove", move);
+                            $(canvas).on("touchend", up);   
+                        }
                     }
                 }, 500);
                 clicking = false;
@@ -356,38 +368,23 @@ function control(context) {
 	/*
 	 * Controls for mobile
 	 */
-    if (device.mobile()) {
-        $(canvas).on("touchstart", function (e) {
-            e.preventDefault();
-            moving = false;
-            mouseUp = false;
-            var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
-            var x = point.x;
-            var y = point.y;
-            //alert(x);
-            //alert(y);
-            if (x > 136 && y > 900 && x < 223 && y < 987) {
-                shapeType = "box";
-                $(canvas).on('touchmove', move);
-                $(canvas).on('touchend', up);
-            }
-        });
-    }
-    if (device.tablet()) {
-        $(canvas).on("touchstart", function (e) {
-            e.preventDefault();
-            moving = false;
-            mouseUp = false;
-            var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
-            var x = point.x;
-            var y = point.y;
-            if (x > 0 && y > 0 && x < 87 && y < 87) {
-                shapeType = "box";
-                $(canvas).on('touchmove', move);
-                $(canvas).on('touchend', up);
-            }
-        });
-    }
+//    if (device.mobile() || device.tablet()) {
+//        $(canvas).on("touchstart", function (e) {
+//            e.preventDefault();
+//            moving = false;
+//            mouseUp = false;
+//            var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
+//            var x = point.x;
+//            var y = point.y;
+//            //alert(x);
+//            //alert(y);
+//            if (x > 136 && y > 900 && x < 223 && y < 987) {
+//                shapeType = "box";
+//                $(canvas).on('touchmove', move);
+//                $(canvas).on('touchend', up);
+//            }
+//        });
+//    }
 }
 
 /**
