@@ -13,6 +13,7 @@
  *	Initializing of brain, all functions for movement contained.
  */
 function brain(context, positions){
+    var movement;
 	var startPoint = getStart();
 	var brain=document.getElementById("brain");
 	var theBrain ={
@@ -197,9 +198,17 @@ function brain(context, positions){
 			theX = 2.2916666666;
 			theY = -3.2083333333;
 		}
+        
 		
-        var movement = setInterval(function (){
-            console.log(imgInc);
+        movement = setInterval(function (){    
+            //console.log(imgInc);
+            $(canvas).unbind('click');
+            $(canvas).unbind('mousedown');
+            $(canvas).unbind('mouseup');
+            $(canvas).unbind('mousemove');
+            $(canvas).unbind('touchstart');
+            $(canvas).unbind('touchmove');
+            $(canvas).unbind('touchend');
 			brain.src = "images/brain/" + imgInc + ".png";
 			context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0,0,canvas.width,canvas.height);
@@ -232,6 +241,7 @@ function brain(context, positions){
 	}
 	
 	function lose(){
+        clearInterval(movement);
         $("#mycanvas").hide();
         $("#time").hide();
         $("#gameOver").show();
@@ -239,6 +249,7 @@ function brain(context, positions){
 	}
 	
 	function win(){
+        clearInterval(movement);
         theScore = (time/4) * 10;
         $("#mycanvas").hide();
         $("#time").hide();
