@@ -211,11 +211,11 @@ function brain(context, positions){
 				whereTo();
 			}
 			moveInc++;
-			++imgInc;
-			if(imgInc  == 23){
-				imgInc == 0;
+			imgInc++;
+			if(imgInc  == 24){
+				imgInc = 0;
 			}
-			//console.log(1);
+			console.log(imgInc);
 		}, 50);
     }
 	
