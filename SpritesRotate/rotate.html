@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+
+        <script>
+            var number = 0;
+            
+            function changeimage(num){
+                if((num + 1) == 24){
+                    $('.brain'+num).removeClass('brain'+ num).addClass('brain0');
+                } else{
+                    $('.brain'+num).removeClass('brain'+ num).addClass('brain'+(num + 1));
+                }
+            }
+
+            function clicking(){
+                changeimage(number);
+                number++;
+                if(number == 24){
+                    number = 0; 
+                }
+                document.getElementById('time').innerHTML=number;
+            }
+            
+        </script>
+    </head>
+    <body>
+        <!-- <div id="brainLogo"> 
+            <img id="brain" src="images/ball.png" alt="logo">
+            <img id="textLogo" src="images/logo1.png" alt="textlogo">
+        </div>
+        -->
+        <img class="brain0" src="images/trans.gif">
+        <p id='time'>-</p>
+        <button onclick="clicking()"> test</button>
+        <!-- 
+        <img class="brain1" src="images/trans.gif">
+        <img class="brain2" src="images/trans.gif">
+        <img class="brain3" src="images/trans.gif">
+        <img class="brain4" src="images/trans.gif">
+        <img class="brain5" src="images/trans.gif">
+        <img class="brain6" src="images/trans.gif">
+        <img class="brain7" src="images/trans.gif">
+        <img class="brain8" src="images/trans.gif">
+        <img class="brain9" src="images/trans.gif">
+        <img class="brain10" src="images/trans.gif">
+        <img class="brain11" src="images/trans.gif">
+        <img class="brain12" src="images/trans.gif">
+        <img class="brain13" src="images/trans.gif">
+        <img class="brain14" src="images/trans.gif">
+        <img class="brain15" src="images/trans.gif">
+        <img class="brain16" src="images/trans.gif">
+        <img class="brain17" src="images/trans.gif">
+        <img class="brain18" src="images/trans.gif">
+        <img class="brain19" src="images/trans.gif">
+        <img class="brain20" src="images/trans.gif">
+        <img class="brain21" src="images/trans.gif">
+        <img class="brain22" src="images/trans.gif">
+        <img class="brain23" src="images/trans.gif">
+        -->
+    <body>
+</html>

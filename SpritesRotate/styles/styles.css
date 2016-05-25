@@ -1,0 +1,163 @@
+/*
+body{
+	background-color: black;
+}
+*/
+#brainLogo{
+	margin: 100px 100px;
+    display : inline-block;
+}
+
+
+#brain {
+    -webkit-animation:spin 2 linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
+.brain0{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") 0 0;
+}
+
+.brain1{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -100px 0;
+}
+
+.brain2{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -200px 0;
+}
+
+.brain3{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -300px 0;
+}
+
+.brain4{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -400px 0;
+}
+
+.brain5{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -500px 0;
+}
+
+.brain6{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") 0 -100px;
+}
+
+.brain7{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -100px -100px;
+}
+
+.brain8{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -200px -100px;
+}
+
+.brain9{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -300px -100px;
+}
+
+.brain10{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -400px -100px;
+}
+
+.brain11{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -500px -100px;
+}
+
+.brain12{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") 0 -200px;
+}
+
+.brain13{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -100px -200px;
+}
+
+.brain14{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -201px -200px;
+}
+
+.brain15{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -301px -200px;
+}
+
+.brain16{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -401px -200px;
+}
+
+.brain17{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -501px -200px;
+}
+
+.brain18{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") 0 -300px;
+}
+
+.brain19{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -100px -300px;
+}
+
+.brain20{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -200px -300px;
+}
+
+.brain21{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -300px -300px;
+}
+
+.brain22{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -400px -300px;
+}
+
+.brain23{
+    width: 101px;
+    height: 101px;
+    background: url("../images/brain.gif") -500px -300px;
+}
