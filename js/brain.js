@@ -87,16 +87,23 @@ function brain(context, positions){
 	function rollGround(){
 		if(direction == "direction_SW"){
 			theBrain.brainIndex += 6;
+			//check if brain went off the grid
 			if(theBrain.brainIndex > 35){
 				lose();
+			} else {
+				moveBrain(0);
 			}
-			moveBrain(0);
 		} else if (direction == "direction_NW"){
 			theBrain.brainIndex -= 1;
 			moveBrain(1);
 		} else if (direction == "direction_SE"){
 			theBrain.brainIndex += 1;
-			moveBrain(2);
+			//check if brain went off the grid
+			if(theBrain.brainIndex % 6 == 0){
+				lose();
+			} else {
+				moveBrain(2);
+			}
 		} else if (direction == "direction_NE"){
 			theBrain.brainIndex -= 6;
 			moveBrain(3);
@@ -107,16 +114,21 @@ function brain(context, positions){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
 				theBrain.brainIndex += 6;
-				//check if went off grid
+				//check if brain went off grid
 				if(theBrain.brainIndex > 35){
 					lose();
+				} else {
+					moveBrain(0);
 				}
-				
-				moveBrain(0);
 			} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_SW"){
 				theBrain.brainIndex += 6;
 				theBrain.brainLayer -=1;
-				moveBrain(4);
+				//check if brain went off grid
+				if(theBrain.brainIndex > 35){
+					lose();
+				} else {
+					moveBrain(4);
+				}
 			}
 		} else {
 			lose();
@@ -142,11 +154,21 @@ function brain(context, positions){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
 				theBrain.brainIndex += 1;
-				moveBrain(2)
+				//check if brain went off grid
+				if(theBrain.brainIndex % 6 == 0){
+					lose();
+				} else {
+					moveBrain(2);
+				}
 			} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_SE"){
 				theBrain.brainIndex += 1;
 				theBrain.brainLayer -=1;
-				moveBrain(6)
+				//check if brain went off grid
+				if(theBrain.brainIndex % 6 == 0){
+					lose();
+				} else {
+					moveBrain(6);
+				}
 			}
 		} else {
 			lose();
@@ -287,7 +309,7 @@ function getStart(){
 	 *	Send the score.
 	 */
 function getScore(){
-    document.location.href="http://comp2910.azurewebsites.net/form.html?score=" + theScore;
+    document.location.href="http://comp2910.azurewebsites.net/form2.html?score=" + theScore;
 }
 
 
