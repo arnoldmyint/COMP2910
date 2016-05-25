@@ -356,10 +356,12 @@ function control(context) {
             e.preventDefault();
             moving = false;
             mouseUp = false;
-            var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
+            var point = getPointOnCanvas(canvas, e.originalEvent.changedTouches[0].pageX, e.originalEvent.changedTouches[0].pageY);
             var x = point.x;
             var y = point.y;
             if (x > 136 && y > 900 && x < 223 && y < 987) {
+                console.log(x);
+                console.log(y);
                 if(e.type == "touchend"){
                     tapping = true;
                     return false;
