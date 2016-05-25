@@ -12,7 +12,9 @@
 	 } else if(whichLevel == 2){
 		 end = 20;
 		 start = 20;
-	 }
+	 } else if(whichLevel == -1){
+         var i = parseInt(36 * Math.random());
+     }
  }
  
  /**

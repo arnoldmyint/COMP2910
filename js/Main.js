@@ -5,9 +5,6 @@
  * the game.
  */
  
-
-var c=0;
-
 /*	egg
  *	location
  */
@@ -57,6 +54,7 @@ var theScore = 0;
  *	time increment
  */
 var time = 200;
+
 
 var slope = 0;
 

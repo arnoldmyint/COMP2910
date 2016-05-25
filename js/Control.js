@@ -458,19 +458,19 @@ function control(context) {
  *	Randomizing a start and end point.
  *
  */
-function randomize(arr,context) {
-    do {
-        var i = parseInt(36 * Math.random());
-        //add constraint of the holes and balls
-        if (arr[i].index < 6 || (arr[i].index > 29 && arr[i].type == "right_wall")) {
-            arr[i].color = "red";
-        }
-    } while (arr[i].color == "red");
-    arr[i].color = "red";
-    context.fillStyle = arr[i].color;
-    context.fillRect(arr[i].x, arr[i].y, arr[i].width, arr[i].height);
-    if(arr[i].type == "right_wall"){
-        egg = arr[i];
-    }
-    return c++;
-}
+//function randomize(arr,context) {
+//    do {
+//        var i = parseInt(36 * Math.random());
+//        //add constraint of the holes and balls
+//        if (arr[i].index < 6 || (arr[i].index > 29 && arr[i].type == "right_wall")) {
+//            arr[i].color = "red";
+//        }
+//    } while (arr[i].color == "red");
+//    arr[i].color = "red";
+//    context.fillStyle = arr[i].color;
+//    context.fillRect(arr[i].x, arr[i].y, arr[i].width, arr[i].height);
+//    if(arr[i].type == "right_wall"){
+//        egg = arr[i];
+//    }
+//    return c++;
+//}
