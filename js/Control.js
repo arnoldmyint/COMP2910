@@ -67,12 +67,12 @@ function control_frame(context) {
 //    context.drawImage(slope2, 135, 1030);
 	//console.log(slopeTypes);
 	//FOR TESTING OF X AND Y LOCATION
-	canvas.onclick=function (e){
-		var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
-		console.log(point.x);
-		console.log(point.y);
-	}
-	
+//	canvas.onclick=function (e){
+//		var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
+//		console.log(point.x);
+//		console.log(point.y);
+//	}
+//	
 }
 
 /**
@@ -249,30 +249,25 @@ function control(context) {
         var slopeTypes = "slope_SW";
         var directionTypes = "direction_SW";
         var clicking = false;
-        $(canvas).on("click mousedown touchstart", function (e) {
+        $(canvas).on("click mousedown", function (e) {
             moving = false;
             mouseUp = false;
             var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
             var x = point.x;
             var y = point.y;
             if (x > 136 && y > 900 && x < 223 && y < 987) {
-                if(e.type == "click" || e.type == "touchstart"){
+                if(e.type == "click"){
                     clicking = true;
                     return false;
-                }else if((e.type == "mousedown" || e.type == "touchstart") && !clicking){
+                }else if(e.type == "mousedown" && !clicking){
                     shapeType = "box";
                     clicking = false;
-                    if(device.desktop()){
-                        $(canvas).on("mousemove", move);
-                        $(canvas).on("mouseup", up);      
-                    }else if(device.mobile() || device.tablet()){
-                        $(canvas).on("touchmove", move);
-                        $(canvas).on("touchend", up);   
-                    }
+                    $(canvas).on("mousemove", move);
+                    $(canvas).on("mouseup", up);      
                 }
                 clicking = false;
             } else if(x>283 && y>904 && x<371 && y<981){
-                 if(e.type == "click" || e.type == "touchstart"){
+                 if(e.type == "click"){
                      clicking = true;
                      slope++;
                      context.clearRect(272,890,114,98);
@@ -298,16 +293,11 @@ function control(context) {
 //                         console.log("down "+slope);
 //                         console.log("down "+types);
                     //console.log(clicking);
-                    if((e.type == "mousedown" || e.type == "touchstart") && !clicking){
+                    if(e.type == "mousedown" && !clicking){
                         shapeType = slopeTypes;
                         clicking = false;
-                        if(device.desktop()){
-                            $(canvas).on("mousemove", move);
-                            $(canvas).on("mouseup", up);      
-                        }else if(device.mobile() || device.tablet()){
-                            $(canvas).on("touchmove", move);
-                            $(canvas).on("touchend", up);   
-                        }
+                        $(canvas).on("mousemove", move);
+                        $(canvas).on("mouseup", up);  
                     }
                 }, 500);
                 clicking = false;
@@ -341,17 +331,7 @@ function control(context) {
                         $(canvas).on("mouseup", up);
                     }
                 }, 500);
-                clicking = false;
-			} else if(x > 566 && x < 686 && y < 1000 && y > 890){
-				shapeType = "slope_SE";
-                $(canvas).on("mousemove", move);
-                $(canvas).on("mouseup", up);
-                $(canvas).unbind("mousedown", this);				
-			} else if(x > 118 && x < 236 && y < 1128 && y > 1016){
-				shapeType = "slope_NE";
-                $(canvas).on("mousemove", move);
-                $(canvas).on("mouseup", up);
-                $(canvas).unbind("mousedown", this);				
+                clicking = false;			
 			} else if(polygonClicked(3, rollx = [405,787,785], rolly = [832,638,832], x, y) == true){
 				$(canvas).on("click", rollBrain);
 			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
@@ -368,23 +348,104 @@ function control(context) {
 	/*
 	 * Controls for mobile
 	 */
-//    if (device.mobile() || device.tablet()) {
-//        $(canvas).on("touchstart", function (e) {
-//            e.preventDefault();
-//            moving = false;
-//            mouseUp = false;
-//            var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
-//            var x = point.x;
-//            var y = point.y;
-//            //alert(x);
-//            //alert(y);
-//            if (x > 136 && y > 900 && x < 223 && y < 987) {
-//                shapeType = "box";
-//                $(canvas).on('touchmove', move);
-//                $(canvas).on('touchend', up);
-//            }
-//        });
-//    }
+    if (device.mobile() || device.tablet()) {
+        var slopeTypes = "slope_SW";
+        var directionTypes = "direction_SW";
+        var tapping = false;
+        $(canvas).on("touchstart touchend", function (e) {
+            e.preventDefault();
+            moving = false;
+            mouseUp = false;
+            var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
+            var x = point.x;
+            var y = point.y;
+            if (x > 136 && y > 900 && x < 223 && y < 987) {
+                if(e.type == "touchend"){
+                    tapping = true;
+                    return false;
+                }
+                 var timeOut = setTimeout(function (){
+                    if(e.type == "touchstart" && !tapping){
+                        shapeType = "box";
+                        tapping = false;
+                        $(canvas).on("touchmove", move);
+                        $(canvas).on("touchend", up);  
+                    }
+                }, 500);
+                tapping = false;
+            }else if(x>283 && y>904 && x<371 && y<981){
+                 if(e.type == "touchend"){
+                     tapping = true;
+                     slope++;
+                     context.clearRect(272,890,114,98);
+                     if(slope == 4){
+                         slopeTypes = "slope_SW";
+                         slope = 0;
+                         context.drawImage(slope0, 290, 890);
+                     }else if(slope == 1){
+                         slopeTypes = "slope_NW";
+                         context.drawImage(slope1, 290, 890);
+                     }else if(slope == 2){
+                         slopeTypes = "slope_NE";
+                         context.drawImage(slope2, 290, 890);
+                     }else if(slope == 3){
+                         slopeTypes = "slope_SE";
+                         context.drawImage(slope3, 290, 890);
+                     }
+                     return false;
+                }
+                var timeOut = setTimeout(function (){
+                    if(e.type == "touchstart" && !tapping){
+                        shapeType = slopeTypes;
+                        tapping = false;
+                        $(canvas).on("touchmove", move);
+                        $(canvas).on("touchend", up);  
+                    }
+                }, 500);
+                tapping = false;
+            }else if(x > 418 && x < 536 && y < 1000 && y > 890){
+                if(e.type == "touchend"){
+                     tapping = true;
+                     direction++;
+                     context.clearRect(421,890,114,98);
+                     if(direction == 4){
+                         directionTypes = "direction_SW";
+                         direction = 0;
+                         context.drawImage(direction0, 435, 890);
+                     }else if(direction == 1){
+                         directionTypes = "direction_NW";
+                         context.drawImage(direction1, 435, 890);
+                     }else if(direction == 2){
+                         directionTypes = "direction_NE";
+                         context.drawImage(direction2, 435, 890);
+                     }else if(direction == 3){
+                         directionTypes = "direction_SE";
+                         context.drawImage(direction3, 435, 890);
+                     }
+                     return false;
+                }
+                var timeOut = setTimeout(function (){
+                    if(e.type == "touchstart" && !tapping){
+                        shapeType = directionTypes;
+                        console.log(shapeType);
+                        tapping = false;
+                        $(canvas).on("touchmove", move);
+                        $(canvas).on("touchend", up);
+                    }
+                }, 500);
+                tapping = false;			
+			} else if(polygonClicked(3, rollx = [405,787,785], rolly = [832,638,832], x, y) == true){
+				$(canvas).on("touchstart", rollBrain);
+			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
+				$(canvas).on("touchstart", eraseAll);
+                //console.log(1);
+			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
+				$(canvas).on("touchstart", eraseAll);
+			}  else if(polygonClicked(3, rollx = [13,395,13], rolly = [24,24,220], x, y) == true){
+				paused();
+			}
+        });
+    }
 }
 
 /**
