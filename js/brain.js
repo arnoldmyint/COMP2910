@@ -40,7 +40,7 @@ function brain(context, positions){
 	
 	function whereTo(){
 		
-		console.log("Direction to move: " + direction + " Layer: " +theBrain.brainLayer + " index: " + theBrain.brainIndex);
+		//console.log("Direction to move: " + direction + " Layer: " +theBrain.brainLayer + " index: " + theBrain.brainIndex);
 		//Find out direction
 		if(positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_SW"
 				|| positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_NW"
@@ -87,6 +87,9 @@ function brain(context, positions){
 	function rollGround(){
 		if(direction == "direction_SW"){
 			theBrain.brainIndex += 6;
+			if(theBrain.brainIndex > 35){
+				lose();
+			}
 			moveBrain(0);
 		} else if (direction == "direction_NW"){
 			theBrain.brainIndex -= 1;
@@ -100,10 +103,15 @@ function brain(context, positions){
 		}
 	}
 	
-	function rollSW(){
+	function rollSW(){		
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
 				theBrain.brainIndex += 6;
+				//check if went off grid
+				if(theBrain.brainIndex > 35){
+					lose();
+				}
+				
 				moveBrain(0);
 			} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_SW"){
 				theBrain.brainIndex += 6;
