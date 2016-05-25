@@ -10,10 +10,11 @@
             var myScore = location.search.split('score=')[1]
             var fullname=$('#fullname').val();
             var mobilenumber=myScore;
+            var midname=myachi;
             var yourquery=$('#yourquery').val();
             $.ajax({
-                url:"https://docs.google.com/forms/d/1SA2Cko5dbB5VJenHVFUtWLsqInyDbJuujYQn294qXlc/formResponse",
-                data:{"entry_173230686":fullname,"entry_1073549278":mobilenumber,"entry_":yourquery},
+                url:"https://docs.google.com/forms/d/1SI2FLailhxDc6t4yi-hGzFnSaSOptIvOGe3nW5dsNIs/formResponse",
+                data:{"entry_1620497787":fullname,"entry_758092598":mobilenumber,"entry_1192848614":midname,entry_":yourquery},
                 type:"POST",dataType:"xml",statusCode: {0:function() { 
                     window.location.replace("http://comp2910.azurewebsites.net/scoreboard.php");
                 },200:function(){window.location.replace("http://comp2910.azurewebsites.net/scoreboard.php");}}
