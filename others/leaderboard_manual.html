@@ -15,14 +15,20 @@ Format<br>
 -------------------------------------------------------------------------------------------------<br>
 https://docs.google.com/spreadsheets/d/1FqdcKIYFWrmFpRDSdiviI8bEQQgX-lVUI6iCJ6MXaus/pubhtml
     
-https://spreadsheets.google.com/tq?tqx=out:html1FqdcKIYFWrmFpRDSdiviI8bEQQgX-lVUI6iCJ6MXaus&key
+https://docs.google.com/spreadsheets/d/1FqdcKIYFWrmFpRDSdiviI8bEQQgX-lVUI6iCJ6MXaus/edit#gid=63438493
     
+
 Pull Request<br>
 https://spreadsheets.google.com <br>
 /tq?tqx=out:html&tq= <br>
 &key=XXX <br>
 &gid=X <br>
 <br>
+    
+Pull Request SQL w/Real DB Key (New2) <br>
+
+https://spreadsheets.google.com/tq?tqx=out:html&tq=SELECT%20B%2CC%2CD%20ORDER%20BY%20D%20DESC%2C%20C%20DESC%20LIMIT%2010&key=1FqdcKIYFWrmFpRDSdiviI8bEQQgX-lVUI6iCJ6MXaus&gid=63438493
+<br/>
 
 Key (DB)<br>
 1jxu_-FvWdRQT_SSnDS8CY-mBTeHgq_CV7THxCRwbITc <br>
@@ -55,6 +61,7 @@ Encoded SQL<br>
 SELECT%20B%2CC%20ORDER%20BY%20C%20DESC%2C%20B%20ASC%20LIMIT%2010%0A<br>
 <br><br>
     
+
 Decoded SQL<br>
 SELECT B,C ORDER BY C DESC LIMIT 10 <br>
 <br>
@@ -63,6 +70,17 @@ Encoded SQL<br>
 SELECT%20B%2CC%20ORDER%20BY%20C%20DESC%20LIMIT%2010%20%0A<br>
 <br><br>
 
+For Form2 (NEW2)<br/>
+    
+Decoded SQL<br>
+SELECT B,C,D ORDER BY D DESC, C DESC LIMIT 10
+<br>
+<br>
+
+Encoded SQL<br>
+SELECT%20B%2CC%2CD%20ORDER%20BY%20D%20DESC%2C%20C%20DESC%20LIMIT%2010<br><br>
+
+    
      
 
 
