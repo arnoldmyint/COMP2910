@@ -87,36 +87,16 @@ function brain(context, positions){
 	function rollGround(){
 		if(direction == "direction_SW"){
 			theBrain.brainIndex += 6;
-			//check if brain went off the grid
-			if(theBrain.brainIndex > 35){
-				lose();
-			} else {
-				moveBrain(0);
-			}
+			moveBrain(0);
 		} else if (direction == "direction_NW"){
 			theBrain.brainIndex -= 1;
-			//check if brain went off the grid
-			if(theBrain.brainIndex < 0 || theBrain.brainIndex % 6 == 5){
-				lose();
-			} else {
-				moveBrain(1);
-			}
+			moveBrain(1);
 		} else if (direction == "direction_SE"){
 			theBrain.brainIndex += 1;
-			//check if brain went off the grid
-			if(theBrain.brainIndex % 6 == 0){
-				lose();
-			} else {
-				moveBrain(2);
-			}
+			moveBrain(2);
 		} else if (direction == "direction_NE"){
 			theBrain.brainIndex -= 6;
-			//check if brain went off the grid
-			if(theBrain.brainIndex < 0){
-				lose();
-			} else {
-				moveBrain(3);
-			}
+			moveBrain(3);
 		}
 	}
 	
@@ -124,21 +104,13 @@ function brain(context, positions){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
 				theBrain.brainIndex += 6;
-				//check if brain went off grid
-				if(theBrain.brainIndex > 35){
-					lose();
-				} else {
-					moveBrain(0);
-				}
+				moveBrain(0);
 			} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_SW"){
 				theBrain.brainIndex += 6;
 				theBrain.brainLayer -=1;
-				//check if brain went off grid
-				if(theBrain.brainIndex > 35){
-					lose();
-				} else {
-					moveBrain(4);
-				}
+				moveBrain(4);
+			} else {
+				lose();
 			}
 		} else {
 			lose();
@@ -149,21 +121,17 @@ function brain(context, positions){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
 				theBrain.brainIndex -= 1;
-				//check if brain went off the grid
-				if(theBrain.brainIndex < 0 || theBrain.brainIndex % 6 == 5){
-					lose();
+				if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_NW"){
+					moveBrain(8);
 				} else {
 					moveBrain(1);
 				}
 			} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_NW"){
 				theBrain.brainIndex -= 1;
 				theBrain.brainLayer -=1;
-				//check if brain went off the grid
-				if(theBrain.brainIndex < 0 || theBrain.brainIndex % 6 == 5){
-					lose();
-				} else {
-					moveBrain(5);
-				}
+				moveBrain(5);
+			} else {
+				lose();
 			}
 		} else {
 			lose();
@@ -174,21 +142,13 @@ function brain(context, positions){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
 				theBrain.brainIndex += 1;
-				//check if brain went off grid
-				if(theBrain.brainIndex % 6 == 0){
-					lose();
-				} else {
-					moveBrain(2);
-				}
+				moveBrain(2);
 			} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_SE"){
 				theBrain.brainIndex += 1;
 				theBrain.brainLayer -=1;
-				//check if brain went off grid
-				if(theBrain.brainIndex % 6 == 0){
-					lose();
-				} else {
-					moveBrain(6);
-				}
+				moveBrain(6);
+			} else {
+				lose();
 			}
 		} else {
 			lose();
@@ -199,21 +159,19 @@ function brain(context, positions){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
 				theBrain.brainIndex -= 6;
-				//check if brain went off the grid
-				if(theBrain.brainIndex < 0){
-					lose();
-				} else {
-					moveBrain(3);
+				if((theBrain.brainIndex - 6) >= 0){
+					if(positions[theBrain.brainLayer][theBrain.brainIndex-6].type == "slope_NE"){
+						moveBrain(9)
+					} else {
+						moveBrain(3);
+					}
 				}
 			} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_NE"){
 				theBrain.brainIndex -= 6;
 				theBrain.brainLayer -=1;
-				//check if brain went off the grid
-				if(theBrain.brainIndex < 0){
-					lose();
-				} else {
-					moveBrain(7);
-				}
+				moveBrain(7);
+			} else {
+				lose();
 			}
 		} else {
 			lose();
@@ -229,9 +187,75 @@ function brain(context, positions){
 			moveInc = 0;
 			imgInc = 0;
 		} else {
-			moveInc = 24;
+			moveInc = 23;
 			imgInc = 23;
 		}
+		var brainPoint = directionXY(direction);        
+		
+        movement = setInterval(function (){    
+            //console.log(imgInc);
+            removeAllEvent();
+			brain.src = "images/brain/" + imgInc + ".png";
+			context.setTransform(1, 0, 0, 1, 0, 0);
+			context.clearRect(0,0,canvas.width,canvas.height);
+			redraw(context);
+			addAllShapes(context, positions);
+			control_frame(context);
+			context.drawImage(brain,theBrain.x += brainPoint.x,theBrain.y += brainPoint.y, 30, 30);
+			if(direction == 0 || direction == 1 || direction == 4 || direction == 5){
+				if(moveInc == 23){
+					clearInterval(movement);
+					if(checkLoss() == true){
+						lose();
+					} else {
+						whereTo();
+					}
+				}
+				moveInc++;
+				imgInc++;
+				if(imgInc  == 23){
+					imgInc = 0;
+				}
+			} else {
+				if(moveInc == 0){
+					clearInterval(movement);
+					if(checkLoss() == true){
+						lose();
+					} else {
+						whereTo();
+					}
+				}
+				moveInc--;
+				imgInc--;
+				if(imgInc  == 0){
+					imgInc = 23;
+				}
+
+			}
+		}, 250);
+    }
+	
+	function checkLoss(){
+		if(direction == "direction_SW"){
+			if(theBrain.brainIndex > 35){
+				return true;
+			}
+		} else if (direction == "direction_NW"){
+			if(theBrain.brainIndex < 0 || theBrain.brainIndex % 6 == 5){
+				return true;
+			}
+		} else if (direction == "direction_SE"){
+			if(theBrain.brainIndex % 6 == 0){
+				return true;
+			}
+		} else if (direction == "direction_NE"){
+			if(theBrain.brainIndex < 0){
+				return true;
+			}
+		}
+	}
+	
+	function directionXY(direction){
 		var theX;
 		var theY;
 		if(direction == 0){
@@ -256,8 +280,8 @@ function brain(context, positions){
 			theY = 3.2083333333;
 		} else if (direction == 5){
 			//SLOPE NW
-			theX = 2.2916666666;
-			theY = -3.2083333333;
+			theX = -2.2916666666;
+			theY = 1;
 		} else if (direction == 6){
 			//SLOPE SE
 			theX = 2.2916666666;
@@ -265,44 +289,21 @@ function brain(context, positions){
 		} else if (direction == 7){
 			//SLOPE NE
 			theX = 2.2916666666;
-			theY = -3.2083333333;
+			theY = 1;
+		} else if (direction == 8){
+			//SPECIAL CASE: NW next shape slope
+			theX = -1.78125;
+			theY = 0.9236111105833333;
+		} else if (direction == 9){
+			//SPECIAL CASE: NE next shape slope
+			theX = 1.78125;
+			theY = 0.9236111105833333;
 		}
-        
 		
-        movement = setInterval(function (){    
-            //console.log(imgInc);
-            removeAllEvent();
-			brain.src = "images/brain/" + imgInc + ".png";
-			context.setTransform(1, 0, 0, 1, 0, 0);
-			context.clearRect(0,0,canvas.width,canvas.height);
-			redraw(context);
-			addAllShapes(context, positions);
-			control_frame(context);
-			context.drawImage(brain,theBrain.x += theX,theBrain.y += theY, 30, 30);
-			if(direction == 0 || direction == 1 || direction == 4 || direction == 5){
-				if(moveInc == 24){
-					clearInterval(movement);
-					whereTo();
-				}
-				moveInc++;
-				imgInc++;
-				if(imgInc  == 24){
-					imgInc = 0;
-				}
-			} else {
-				if(moveInc == 0){
-					clearInterval(movement);
-					whereTo();
-				}
-				moveInc--;
-				imgInc--;
-				if(imgInc  == 0){
-					imgInc = 23;
-				}
-
-			}
-		}, 50);
-    }
+		return { 	x: theX,
+					y: theY
+		};
+	}
 	
 	function isBlocked(){
 		if(positions[theBrain.brainLayer][theBrain.brainIndex].used == true
