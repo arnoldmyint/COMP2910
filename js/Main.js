@@ -55,24 +55,61 @@ var theScore = 0;
  */
 var time = 200;
 
-
+/*
+ number of slopes types
+*/
 var slope = 0;
 
+/*
+ number of direction types
+*/
 var direction = 0;
 
+/*
+ context of canvas
+*/
 var context;
 
+/*
+ timer of the time
+*/
 var mytimer;
+
+/*
+ 1-15 levels and 0 for randomize level
+*/
+var levels;
+
+/*
+ retry for the randomize level
+*/
+var isRetry = false;
+
+/*
+ number of slopes for pre-set levels
+*/
+var numberOfSlopes = 0;
+
+/*
+ number of boxes for pre-set levels
+*/
+var numberOfBoxes = 0;
+
+/*
+ number of directions for pre-set levels
+*/
+var numberOfDirections = 0;
 /**
  *	load
  *	
  *	Initiliazing of game.
  *	
  */
-function load(whichLevel){	
-	chooseLevel(whichLevel);
-
-
+function load(whichLevel){
+    if(!isRetry){
+        chooseLevel(whichLevel);   
+    }
+    isRetry = false;
     canvas=document.getElementById("mycanvas");
     container=document.getElementById("container");
     context=canvas.getContext("2d");
@@ -88,23 +125,6 @@ function load(whichLevel){
         canvas.style.width = window.innerWidth*window.devicePixelRatio;
         canvas.style.height = window.innerHeight*window.devicePixelRatio;
     }
-//            window.addEventListener("resize", resizeCanvas, false);
-//            function resizeCanvas() {
-//                if(canvas.width < window.innerWidth){
-//                    canvas.style.width="600px";
-//                    canvas.style.height="1200px";
-//                    container.style.backgroundColor="antiquewhite";
-//                } else {
-//                    canvas.style.width = window.innerWidth*window.devicePixelRatio;
-//                    canvas.style.height = window.innerWidth*window.devicePixelRatio;
-//                }
-//                floor(arr,context);
-//                right_wall(arr,context);
-//                left_wall(arr,context);
-//                frame_horizontal(context);
-//                frame_vertical(context);
-//                //addBox(arr,context);
-//            }
     context.save();
     floor(context);
     context.save();
@@ -119,6 +139,12 @@ function load(whichLevel){
     timer(context);
     context.save();
     control(context);
+    context.save();
+    if(!moving && !mouseUp){
+        $(canvas).on("click touchstart", function (e) {
+            easter(e,context);
+        });
+    }
 //    context.fillStyle="green";
 //    context.fillRect(0,0,800,10);
 
@@ -126,4 +152,13 @@ function load(whichLevel){
 	
 
     //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
+}
+function removeAllEvent(){
+    $(canvas).unbind('click');
+    $(canvas).unbind('mousedown');
+    $(canvas).unbind('mouseup');
+    $(canvas).unbind('mousemove');
+    $(canvas).unbind('touchstart');
+    $(canvas).unbind('touchmove');
+    $(canvas).unbind('touchend');
 }

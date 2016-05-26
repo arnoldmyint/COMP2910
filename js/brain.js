@@ -271,13 +271,7 @@ function brain(context, positions){
 		
         movement = setInterval(function (){    
             //console.log(imgInc);
-            $(canvas).unbind('click');
-            $(canvas).unbind('mousedown');
-            $(canvas).unbind('mouseup');
-            $(canvas).unbind('mousemove');
-            $(canvas).unbind('touchstart');
-            $(canvas).unbind('touchmove');
-            $(canvas).unbind('touchend');
+            removeAllEvent();
 			brain.src = "images/brain/" + imgInc + ".png";
 			context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0,0,canvas.width,canvas.height);
@@ -332,7 +326,41 @@ function brain(context, positions){
 	
 	function win(){
         clearInterval(movement);
-        theScore = (time/4) * 10;
+        theScore += (time/4) * 10;
+        console.log(theScore);
+        if(levels == 0){
+            for(i = 0; i < positions.length; i++){
+                for(j = 0; j < positions[i].length; j++){
+                    if(positions[i][j].used == true){
+                        switch(positions[i][j].shapeName){
+                            case "box":
+                                theScore -= 5;
+                                break;
+                            case "slope":
+                                theScore -= 10;
+                                break;
+                            case "direction":
+                                theScore -= 20;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            var height = parseInt((35-start) / 6);
+            var far = parseInt(end/6);
+            if(height == 0){
+                height == 1;
+            }
+            theScore *= height;
+            if(far < height){
+                theScore *= (height - far);
+            }
+            
+            //console.log(height);
+            //console.log(far);
+        }
         $("#mycanvas").hide();
         $("#time").hide();
         $("#gameWin").show();

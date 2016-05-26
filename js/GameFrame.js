@@ -5,19 +5,6 @@
  * 
  */
  
- function chooseLevel(whichLevel){
-	 if(whichLevel == 1){
-		end = 25;
-		start = 13;
-	 } else if(whichLevel == 2){
-		 end = 20;
-		 start = 20;
-	 } else if(whichLevel == 0){
-         //console.log(parseInt(Math.random()*29+1));
-         end = parseInt(Math.random()*29+6);
-         start = parseInt(Math.random()*29+6);
-     }
- }
  
  /**
   * createObj
@@ -177,12 +164,6 @@ function left_wall(context){
         getPoints(array_left[i],1,-0.5,0,1,70,203);
     }
     context.restore();
-//    context.save();
-//    if(!moving && !mouseUp){
-//        $(canvas).on("click touchstart", function (e) {
-//            easter(e,context);
-//        });
-//    }
 }
 
 /**
@@ -321,32 +302,6 @@ function redraw(context) {
 }
 
 /**
- *	easter
- *	@e click point x, y
- *	@context 
- *
- *	Checks to see if the left_wall bottom right point has been clicked,
- *	if so, changes the brain to an easter egg.
- *	
- */
-function easter(e,context) {
-    e.preventDefault();
-    context.setTransform(1,0.5,0,1,400,38);
-    //var i = parseInt(36 * Math.random());
-    var i = 35;
-    if(device.mobile() || device.tablet()){
-        var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
-    }else{
-        var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
-    }
-    if (point.x >= array_left[i].points[3].x && point.x <= array_left[i].points[1].x && point.y >= array_left[i].points[0].y && point.y <= array_left[i].points[2].y && !mouseUp && !moving){
-        context.fillStyle="black";
-        context.fillRect(egg.x,egg.y,egg.width,egg.height);
-        $(canvas).unbind("click touchstart", easter);
-    }
-}
-
-/**
  *	addAllShapes
  *	@context 
  *	@position Contains all shapes that have been placed on the grid.
@@ -355,29 +310,38 @@ function easter(e,context) {
  *	
  */
 function addAllShapes(context,position){
+    console.log(numberOfBoxes);
     context.setTransform(1, 0, 0, 1, 0, 0);
-	
 	for(i = 0; i < position.length;i++){
 		for(var j = 0; j < position[i].length;j++){
 			if(position[i][j].used == true){
 				if(position[i][j].type == "box"){
 					context.drawImage(box, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                    position[i][j].shapeName = "box";
 				} else if (position[i][j].type == "slope_SW"){
 					context.drawImage(slope0, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                    position[i][j].shapeName = "slope";
 				} else if (position[i][j].type == "slope_NW"){
 					context.drawImage(slope1, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                    position[i][j].shapeName = "slope";
 				} else if (position[i][j].type == "slope_NE"){
 					context.drawImage(slope2, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                    position[i][j].shapeName = "slope";
 				} else if (position[i][j].type == "slope_SE"){
 					context.drawImage(slope3, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                    position[i][j].shapeName = "slope";
 				}else if (position[i][j].type == "direction_SW"){
                     context.drawImage(direction0, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                    position[i][j].shapeName = "direction";
                 }else if (position[i][j].type == "direction_NW"){
                     context.drawImage(direction1, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                    position[i][j].shapeName = "direction";
                 }else if (position[i][j].type == "direction_NE"){
                     context.drawImage(direction2, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                    position[i][j].shapeName = "direction";
                 }else if (position[i][j].type == "direction_SE"){
                     context.drawImage(direction3, position[i][j].point.x, position[i][j].point.y-2,109,112);
+                    position[i][j].shapeName = "direction";
                 }
 			}
 		}
