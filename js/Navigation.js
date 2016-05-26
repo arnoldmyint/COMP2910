@@ -42,7 +42,7 @@ $(document).ready(function(){
     });
     
     $('.highscores').click(function() {
-        window.location.href="/scoreboard.php";
+        window.location.href="/board.php";
     });
     
     $(".tutorial").click(function(){
