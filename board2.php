@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>CSS Tabs</title>
-<link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/styles.css" />
 </head>
 <body>
 
