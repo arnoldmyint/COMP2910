@@ -1,9 +1,21 @@
 <!DOCTYPE>
 <html>
 <head>
-<title>Leaderboard</title>
-        <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <title>Leaderboard</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/Navigation.js"></script>
 </head>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 5px;
+    }
+</style>
 <body>
 
 <div id="background">
@@ -30,6 +42,9 @@
             </div>
         </li>
     </ul> 
+       <br/>
+                <br/>
+                <a href = "/index.html"><div class = "navigation return"></div></a> <br/>
     </center>
 </div>
 </body>
