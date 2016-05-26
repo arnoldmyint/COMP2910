@@ -221,8 +221,17 @@ function brain(context, positions){
 	}
 	
 	function moveBrain(direction){
-		var moveInc = 0;
-		var imgInc = 0;
+		var moveInc;
+		var imgInc;
+		//Counter Clockwise SW,NW
+		//Clockwise SE, NE
+		if(direction == 0 || direction == 1 || direction == 4 || direction == 5){
+			moveInc = 0;
+			imgInc = 0;
+		} else {
+			moveInc = 24;
+			imgInc = 23;
+		}
 		var theX;
 		var theY;
 		if(direction == 0){
@@ -276,14 +285,27 @@ function brain(context, positions){
 			addAllShapes(context, positions);
 			control_frame(context);
 			context.drawImage(brain,theBrain.x += theX,theBrain.y += theY, 30, 30);
-			if(moveInc == 24){
-				clearInterval(movement);
-				whereTo();
-			}
-			moveInc++;
-			imgInc++;
-			if(imgInc  == 24){
-				imgInc = 0;
+			if(direction == 0 || direction == 1 || direction == 4 || direction == 5){
+				if(moveInc == 24){
+					clearInterval(movement);
+					whereTo();
+				}
+				moveInc++;
+				imgInc++;
+				if(imgInc  == 24){
+					imgInc = 0;
+				}
+			} else {
+				if(moveInc == 0){
+					clearInterval(movement);
+					whereTo();
+				}
+				moveInc--;
+				imgInc--;
+				if(imgInc  == 0){
+					imgInc = 23;
+				}
+
 			}
 		}, 50);
     }
