@@ -6,8 +6,6 @@
 </head>
 <body>
 
-<h1>Leaderboard</h1>
-
 <div id="background">
    <center>
     <ul class="tabs">
