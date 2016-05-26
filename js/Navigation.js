@@ -92,9 +92,19 @@ $(document).ready(function(){
         $("#landingPage").slideToggle();  
     });
     
-        $("#gameWin .menu").click(function(){
+    $("#gameWin .menu").click(function(){
         $("#gameWin").slideToggle();
         $("#landingPage").slideToggle();  
+    });
+    
+    $(".label1").click(function(){
+        $("#label1").css("background", "#3498db");
+        $("#label2")css("background", "#2c3e50"); 
+    });
+    
+    $(".label1").click(function(){
+        $("#label1").css("background", "#2c3e50");
+        $("#label2")css("background", "#3498db"); 
     });
 });
 
