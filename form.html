@@ -15,8 +15,8 @@
                 url:"https://docs.google.com/forms/d/1SA2Cko5dbB5VJenHVFUtWLsqInyDbJuujYQn294qXlc/formResponse",
                 data:{"entry_173230686":fullname,"entry_1073549278":mobilenumber,"entry_":yourquery},
                 type:"POST",dataType:"xml",statusCode: {0:function() { 
-                    window.location.replace("/scoreboard.php");
-                },200:function(){window.location.replace("/scoreboard.php");}}
+                    window.location.replace("/board.php");
+                },200:function(){window.location.replace("/board.php");}}
             });
         }
     </script>
@@ -40,8 +40,8 @@
                                 <p>Only top 10 players will</p>
                                 <p>be shown in leaderboard.</p>
                                 <center>
-                                    <input type="button" name="Submit" id="Submit" onclick="postContactToGoogle()" value="Submit" />
-                                    <input type="reset" value="Reset" class ="navigation reset"/><br/>
+                                    <input type="button" name="Submit" id="Submit" onclick="postContactToGoogle()" value="Submit" class ="navigation reset"/>
+                                    <input type="image" value="Reset" class ="navigation reset"/><br/>
 
                                     <div class ="navigation menu" ></div><br/><br/>
 
