@@ -167,7 +167,15 @@ body{
     width: 70px;
     height: 70px;
     }
-    
+
+.buttons:active {
+    background: url("../images/LevelButtons.png") no-repeat top left;
+    width: 70px;
+    height: 70px;
+    transition: 0s;
+    transform : rotate(5deg);
+}
+   
 .buttons.Level1 {
     background-position: 0 0;
 }
@@ -286,4 +294,155 @@ body{
 
 .buttons.Level15:active {
     background-position: -1120px -80px;
+}
+
+
+.navigation {
+	background: url("../images/NavigationButtons.png") no-repeat top left;
+	width: 222px;
+	height: 53px;
+}
+
+.navigation:active {
+	background: url("../images/NavigationButtons.png") no-repeat top left;
+	width: 222px;
+	height: 53px;
+	transition: 0s;
+	transform : rotate(5deg);
+}
+
+.navigation.Play {
+	background-position: 0 0;
+}
+
+.navigation.Play:active {
+	background-position: 0 -232px;
+}
+
+.navigation.Highscores {
+	background-position: -232px 0;
+}
+
+.navigation.Highscores:active {
+	background-position: -232px -232px;
+}
+
+.navigation.Tutorial {
+	background-position: -464px 0;
+}
+
+.navigation.Tutorial:active {
+	background-position: -464px -232px;
+}
+
+.navigation.Credits {
+	background-position: -696px 0;
+}
+
+.navigation.Credits:active {
+	background-position: -696px -232px;
+}
+
+.navigation.LoadLevel {
+	background-position: -928px 0;
+}
+
+.navigation.LoadLevel:active {
+	background-position: -928px -232px;
+}
+
+.navigation.Challenge {
+	background-position: -1160px 0;
+}
+
+.navigation.Challenge:active {
+	background-position: -1160px -232px;
+}
+
+.navigation.Return {
+	background-position: -1392px 0;
+}
+
+.navigation.Return:active {
+	background-position: -1392px -232px;
+}
+
+.navigation.Resume {
+	background-position: -1624px 0;
+}
+
+.navigation.Resume:active {
+	background-position: -1624px -232px;
+}
+
+.navigation.Menu {
+	background-position: -1856px 0;
+}
+
+.navigation.Menu:active {
+	background-position: -1856px -232px;
+}
+
+.navigation.NextLevel {
+	background-position: -2088px 0;
+}
+
+.navigation.NextLevel:active {
+	background-position: -2088px -232px;
+}
+
+.navigation.Retry {
+	background-position: -2320px 0;
+}
+
+.navigation.Retry:active {
+	background-position: -2320px -232px;
+}
+
+.navigation.Submit {
+	background-position: -2552px 0;
+}
+
+.navigation.Submit:active {
+	background-position: -2552px -232px;
+}
+
+.navigation.Reset {
+	background-position: -2784px 0;
+}
+
+.navigation.Reset:active {
+	background-position: -2784px -232px;
+}
+
+.navigation.Yes {
+	background-position: -3016px 0;
+}
+
+.navigation.Yes:active {
+	background-position: -3016px -232px;
+}
+
+.navigation.No {
+	background-position: -3248px 0;
+}
+
+.navigation.No:active {
+	background-position: -3248px -232px;
+}
+
+.navigation.Mute {
+	background-position: -3480px 0;
+}
+
+.navigation.Mute:active {
+	background-position: -3480px -232px;
+}
+
+.navigation.Unmute {
+	background-position: -3712px 0;
+}
+
+.navigation.Unmute:active {
+	background-position: -3712px -232px;
 }

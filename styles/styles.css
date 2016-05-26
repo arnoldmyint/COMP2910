@@ -1,5 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-
 
 /* make the body fill the window */
 
@@ -8,8 +6,6 @@ html, body {
     margin: 0px;
     width: 100%;
     overflow: hidden;
-    font-family: 'Open Sans', sans-serif;
-
 }
 
 table {
@@ -77,21 +73,12 @@ img{
     height: 98px;
 }
 
-#highscores {
-    display :none;
-}
-
 #tutorial {
-    display :none;
-    
+    display :none;   
 }
 
 #credits {
     text-align: center;
-    display :none;
-}
-
-#gameMenu {
     display :none;
 }
 
@@ -126,154 +113,160 @@ img{
     display :none;
 }
 
-.playbutton, .highscoresbutton, .tutorialbutton, .creditsbutton, .tutorialreturnbutton, 
-.creditsreturnbutton, .returnbutton, .choosegamereturnbutton, .loadlevelreturnbutton, .loadlevelbutton, .challengebutton, .menubutton, .rollbutton, .resetbutton, 
-.erasebutton, .resumebutton, .mutebutton, .retrybutton, .pausebutton, .nextlevelbutton {
+
+.navigation {
+	background: url("../images/NavigationButtons.png") no-repeat top left;
+	width: 222px;
+	height: 53px;
     margin:0 auto;
-    width : 222px;
-    height: 53px;
     display:block;
 }
 
-.playbutton:active, .playbutton:active, .highscoresbutton:active, 
-.tutorialbutton:active, .creditsbutton:active, .returnbutton:active, .tutorialreturnbutton:active, 
-.creditsreturnbutton:active, .choosegamereturnbutton:active, .loadlevelreturnbutton:active, .loadlevelbutton:active, .challengebutton:active, .menubutton:active, 
-.rollbutton:active, .resetbutton:active, .erasebutton:active, 
-.resumebutton:active, .mutebutton:active, .retrybutton:active, 
-.pausebutton:active, .nextlevelbutton:active{
-    width : 222px;
-    height: 53px;
-    transition: 0s;
-    transform : rotate(5deg);
+.navigation:active {
+	background: url("../images/NavigationButtons.png") no-repeat top left;
+	width: 222px;
+	height: 53px;
+    margin:0 auto;
+	transition: 0s;
+	transform : rotate(5deg);
 }
 
-.playbutton{
-    background-image : url("../images/buttons/normal/Play.png");
+.navigation.play {
+	background-position: 0 0;
 }
 
-.playbutton:active{
-    background-image : url("../images/buttons/clicked/Play.png");
+.navigation.play:active {
+	background-position: 0 -63px;
 }
 
-.highscoresbutton{
-    background-image : url("../images/buttons/normal/Highscores.png");
+.navigation.highscores {
+	background-position: -232px 0;
 }
 
-.highscoresbutton:active{
-    background-image : url("../images/buttons/clicked/Highscores.png");
+.navigation.highscores:active {
+	background-position: -232px -63px;
 }
 
-.tutorialbutton{
-    background-image : url("../images/buttons/normal/Tutorial.png");
+.navigation.tutorial {
+	background-position: -464px 0;
 }
 
-.tutorialbutton:active{
-    background-image : url("../images/buttons/clicked/Tutorial.png");
+.navigation.tutorial:active {
+	background-position: -464px -63px;
 }
 
-.creditsbutton{
-    background-image : url("../images/buttons/normal/Credits.png");
+.navigation.credits {
+	background-position: -696px 0;
 }
 
-.creditsbutton:active{
-    background-image : url("../images/buttons/clicked/Credits.png");
+.navigation.credits:active {
+	background-position: -696px -63px;
 }
 
-.returnbutton, .tutorialreturnbutton, .creditsreturnbutton, .choosegamereturnbutton, .loadlevelreturnbutton{
-    background-image : url("../images/buttons/normal/Return.png");
+.navigation.loadlevel {
+	background-position: -928px 0;
 }
 
-.returnbutton:active , .tutorialreturnbutton:active, .creditsreturnbutton:active, .choosegamereturnbutton:active, .loadlevelreturnbutton:active{
-    background-image : url("../images/buttons/clicked/Return.png");
+.navigation.loadlevel:active {
+	background-position: -928px -63px;
 }
 
-.loadlevelbutton{
-    background-image : url("../images/buttons/normal/LoadLevel.png");
+.navigation.challenge {
+	background-position: -1160px 0;
 }
 
-.loadlevelbutton:active{
-    background-image : url("../images/buttons/clicked/LoadLevel.png");
+.navigation.challenge:active {
+	background-position: -1160px -63px;
 }
 
-.challengebutton{
-    background-image : url("../images/buttons/normal/Challenge.png");
+.navigation.return {
+	background-position: -1392px 0;
 }
 
-.challengebutton:active{
-    background-image : url("../images/buttons/clicked/Challenge.png");
+.navigation.return:active {
+	background-position: -1392px -63px;
 }
 
-.menubutton{
-    background-image : url("../images/buttons/normal/Menu.png");
+.navigation.resume {
+	background-position: -1624px 0;
 }
 
-.menubutton:active{
-    background-image : url("../images/buttons/clicked/Menu.png");
+.navigation.resume:active {
+	background-position: -1624px -63px;
 }
 
-.rollbutton{
-    background-image : url("../images/buttons/normal/Roll.png");
+.navigation.menu {
+	background-position: -1856px 0;
 }
 
-.rollbutton:active{
-    background-image : url("../images/buttons/clicked/Roll.png");
+.navigation.menu:active {
+	background-position: -1856px -63px;
 }
 
-.resetbutton{
-    background-image : url("../images/buttons/normal/Reset.png");
+.navigation.nextlevel {
+	background-position: -2088px 0;
 }
 
-.resetbutton:active{
-    background-image : url("../images/buttons/clicked/Reset.png");
+.navigation.nextlevel:active {
+	background-position: -2088px -63px;
 }
 
-.erasebutton{
-    background-image : url("../images/buttons/normal/Erase.png");
+.navigation.retry {
+	background-position: -2320px 0;
 }
 
-.erasebutton:active{
-    background-image : url("../images/buttons/clicked/Erase.png");
+.navigation.retry:active {
+	background-position: -2320px -63px;
 }
 
-.resumebutton{
-    background-image : url("../images/buttons/normal/Resume.png");
+.navigation.submit {
+	background-position: -2552px 0;
 }
 
-.resumebutton:active{
-    background-image : url("../images/buttons/clicked/Resume.png");
+.navigation.submit:active {
+	background-position: -2552px -63px;
 }
 
-.mutebutton{
-    background-image : url("../images/buttons/normal/Mute.png");
+.navigation.reset {
+	background-position: -2784px 0;
 }
 
-.mutebutton:active{
-    background-image : url("../images/buttons/clicked/Mute.png");
+.navigation.reset:active {
+	background-position: -2784px -63px;
 }
 
-.retrybutton{
-    background-image : url("../images/buttons/normal/Retry.png");
+.navigation.yes {
+	background-position: -3016px 0;
 }
 
-.retrybutton:active{
-    background-image : url("../images/buttons/clicked/Retry.png");
+.navigation.yes:active {
+	background-position: -3016px -63px;
 }
 
-.pausebutton{
-    background-image : url("../images/buttons/normal/Pause.png");
+.navigation.no {
+	background-position: -3248px 0;
 }
 
-.pausebutton:active{
-    background-image : url("../images/buttons/clicked/Pause.png");
+.navigation.no:active {
+	background-position: -3248px -63px;
 }
 
-.nextlevelbutton{
-    background-image : url("../images/buttons/normal/NextLevel.png");
+.navigation.mute {
+	background-position: -3480px 0;
 }
 
-.nextlevelbutton:active{
-    background-image : url("../images/buttons/clicked/NextLevel.png");
+.navigation.mute:active {
+	background-position: -3480px -63px;
 }
+
+.navigation.unmute {
+	background-position: -3712px 0;
+}
+
+.navigation.unmute:active {
+	background-position: -3712px -63px;
+}
+
 
 .selectionTable {
 	margin-left: auto;

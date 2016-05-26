@@ -1,11 +1,11 @@
 $(document).ready(function(){
     
-    $(".playbutton").click(function(){
+    $(".play").click(function(){
         $("#landingPage").slideToggle();
         $("#chooseGame").slideToggle();
     });
 
-    $(".loadlevelbutton").click(function(){
+    $(".loadlevel").click(function(){
         $("#chooseGame").slideToggle();
         $("#loadLevel").slideToggle();
     });
@@ -24,58 +24,67 @@ $(document).ready(function(){
         load(2);
     });    
     
-    $(".loadlevelreturnbutton").click(function(){
+    $("#loadLevel .return").click(function(){
         $("#loadLevel").slideToggle();
         $("#chooseGame").slideToggle();
     });
     
-    $(".challengebutton").click(function(){
+    $(".challenge").click(function(){
         $("#chooseGame").slideToggle();
         $("#mycanvas").slideToggle();
         $("#time").show();
         load(0);
     });    
     
-    $(".choosegamereturnbutton").click(function(){
+    $("#chooseGame .return").click(function(){
         $("#chooseGame").slideToggle();        
         $("#landingPage").slideToggle();
     });
     
-    $('.highscoresbutton').click(function() {
+    $('.highscores').click(function() {
         window.location.href="http://comp2910.azurewebsites.net/scoreboard.php";
     });
     
-    $(".tutorialbutton").click(function(){
+    $(".tutorial").click(function(){
         $("#landingPage").slideToggle();
         $("#tutorial").slideToggle();
     });
 
-    $(".tutorialreturnbutton").click(function(){
+    $("#tutorial .return").click(function(){
         $("#tutorial").slideToggle();        
         $("#landingPage").slideToggle();
     });
   
-    $(".creditsbutton").click(function(){
+    $(".credits").click(function(){
         $("#landingPage").slideToggle();
         $("#credits").slideToggle();
     });
     
-    $(".creditsreturnbutton").click(function(){
+    $("#credits .return").click(function(){
         $("#credits").slideToggle();        
         $("#landingPage").slideToggle();
     });
     
-    $(".resumebutton").click(function(){
+    $(".resume").click(function(){
         $("#pauseGame").slideToggle();
         $("#mycanvas").slideToggle();   
         $("#time").show();
         timer(context);
     });
     
-    $(".menubutton").click(function(){
+    $("#pauseGame .menu").click(function(){
         $("#pauseGame").slideToggle();
         $("#landingPage").slideToggle();  
     });
     
+    $("#gameOver .menu").click(function(){
+        $("#gameOver").slideToggle();
+        $("#landingPage").slideToggle();  
+    });
+    
+        $("#gameWin .menu").click(function(){
+        $("#gameWin").slideToggle();
+        $("#landingPage").slideToggle();  
+    });
 });
 
