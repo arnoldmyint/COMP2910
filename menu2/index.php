@@ -27,6 +27,7 @@
             <input type="radio" name="tabs" id="tab2">
             <div id="tab-content2" class="tab-content">
                 <h3>Tab 2</h3>
+                <?php
                          echo file_get_contents("https://spreadsheets.google.com/tq?tqx=out:html&tq=SELECT%20B%2CC%2CD%20ORDER%20BY%20D%20DESC%2C%20C%20DESC%20LIMIT%2010&key=1FqdcKIYFWrmFpRDSdiviI8bEQQgX-lVUI6iCJ6MXaus&gid=63438493");
                 ?><br/>
             </div>
