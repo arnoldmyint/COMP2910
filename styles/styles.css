@@ -455,7 +455,7 @@ img{
     background: #3498db;
 }
 
-.tabs label:active {
+.tabs label:active label{
     background: #3498db;
 }
  
