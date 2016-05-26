@@ -97,14 +97,5 @@ $(document).ready(function(){
         $("#landingPage").slideToggle();  
     });
     
-    $(".label1").click(function(){
-        $("#label1").css("background", "#3498db");
-        $("#label2")css("background", "#2c3e50"); 
-    });
-    
-    $(".label2").click(function(){
-        $("#label1").css("background", "#2c3e50");
-        $("#label2")css("background", "#3498db"); 
-    });
 });
 
