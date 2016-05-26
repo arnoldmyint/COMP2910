@@ -20,7 +20,7 @@
             <center>
                 <ul class="tabs">
                     <li class="labels">
-                        <label for="tab1" id="label1" text-align="center">Scoreboard</label>
+                        <label for="tab1" id="label1" text-align="center">Scoreboard</label><br/>
                         <label for="tab2" id="label2">Challenge</label><br/>
                     </li>
                     <li>
