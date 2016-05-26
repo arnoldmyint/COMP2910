@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1>Pure CSS Tabs</h1>
+<h1>Board 2</h1>
 
 
     <ul class="tabs">
