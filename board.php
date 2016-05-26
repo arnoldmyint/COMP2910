@@ -12,7 +12,6 @@
         }
         th, td {
         text-align: center;
-        padding: 5px;
         }
     </style>
     <body>
@@ -40,9 +39,7 @@
                         </div>
                     </li>
                 </ul>
-                <a href = "/index.html">
-                    <div class = "navigation return"></div>
-                </a>
+                <a href = "/index.html"><div class = "navigation return"></div></a>
                 <br/>
             </center>
         </div>
