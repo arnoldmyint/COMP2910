@@ -19,6 +19,10 @@
                 },200:function(){window.location.replace("/board.php");}}
             });
         }
+        
+        function resetForm(){
+        document.getElementById("formRequest").reset();
+        }
     </script>
     </head>
     
@@ -41,10 +45,9 @@
                                 <p>Only top 10 players will</p>
                                 <p>be shown in leaderboard.</p>
                                 <center>
-                                    <input type="button" name="Submit" id="Submit" onclick="postContactToGoogle()" value="Submit" class ="navigation submit"/><br/><br/>
-                                    <input type="reset" value="Reset" class ="navigation reset"/><br/>
-
-                                    <div class ="navigation menu" ></div><br/><br/>
+                                    <div class ="navigation submit" onclick="postContactToGoogle()"></div><br/><br/>
+                                    <div class ="navigation reset" onclick="resetForm()"></div><br/>
+                                    <a href = "/index.html"> <div class ="navigation menu" ></div></a><br/><br/>
 
                                 </center>
                             </form>
