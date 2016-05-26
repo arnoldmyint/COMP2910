@@ -361,7 +361,7 @@ function getStart(){
 	 *	Send the score.
 	 */
 function getScore(){
-    document.location.href="http://comp2910.azurewebsites.net/form2.html?score=" + theScore;
+    document.location.href="/form2.html?score=" + theScore;
 }
 
 
