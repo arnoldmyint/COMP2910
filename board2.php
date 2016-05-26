@@ -8,8 +8,8 @@
 
 <h1>Board 2</h1>
 
-
-    <ul class="tabs">
+<div id="background">
+   <ul class="tabs">
         <li class="labels">
             <label for="tab1" id="label1">tab 1</label>
             <label for="tab2" id="label2">tab 2</label>
@@ -33,6 +33,6 @@
             </div>
         </li>
     </ul>  
-
+</div>
 </body>
 </html>
