@@ -10,14 +10,14 @@ $(document).ready(function(){
         $("#loadLevel").slideToggle();
     });
 	
-    $("#level1").click(function(){
+    $(".level1").click(function(){
         $("#loadLevel").slideToggle();
 		$("#mycanvas").slideToggle();
         $("#time").show();
         load(1);
     });
 	
-    $("#level2").click(function(){
+    $(".level2").click(function(){
         $("#loadLevel").slideToggle();
 		$("#mycanvas").slideToggle();
         $("#time").show();
