@@ -74,7 +74,17 @@ $(document).ready(function(){
     
     $("#pauseGame .menu").click(function(){
         $("#pauseGame").slideToggle();
+        $("#confirmationPage").slideToggle();  
+    });
+
+    $("#confirmationPage .yes").click(function(){
+        $("#confirmationPage").slideToggle();
         $("#landingPage").slideToggle();  
+    });
+
+    $("#confirmationPage .no").click(function(){
+        $("#confirmationPage").slideToggle();
+        $("#pauseGame").slideToggle();  
     });
     
     $("#gameOver .menu").click(function(){

@@ -94,6 +94,11 @@ img{
     display :none;
 }
 
+#confirmationPage {
+    text-align: center;
+    display :none;
+}
+
 #loadLevel{
     display :none;
 }
