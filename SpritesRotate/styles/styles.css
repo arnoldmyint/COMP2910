@@ -161,3 +161,129 @@ body{
     height: 101px;
     background: url("../images/brain.gif") -500px -300px;
 }
+
+.buttons {
+    background: url("../images/LevelButtons.png") no-repeat top left;
+    width: 70px;
+    height: 70px;
+    }
+    
+.buttons.Level1 {
+    background-position: 0 0;
+}
+
+.buttons.Level1:active {
+    background-position: 0 -80px;
+}
+
+.buttons.Level2 {
+    background-position: -80px 0;
+}
+
+.buttons.Level2:active {
+    background-position: -80px -80px;
+}
+
+.buttons.Level3 {
+    background-position: -160px 0;
+}
+
+.buttons.Level3:active {
+    background-position: -160px -80px;
+}
+
+.buttons.Level4 {
+    background-position: -240px 0;
+}
+
+.buttons.Level4:active {
+    background-position: -240px -80px;
+}
+
+.buttons.Level5 {
+    background-position: -320px 0;
+}
+
+.buttons.Level5:active {
+    background-position: -320px -80px;
+}
+
+.buttons.Level6 {
+    background-position: -400px 0;
+}
+
+.buttons.Level6:active {
+    background-position: -400px -80px;
+}
+
+.buttons.Level7 {
+    background-position: -480px 0;
+}
+
+.buttons.Level7:active {
+    background-position: -480px -80px;
+}
+
+.buttons.Level8 {
+    background-position: -560px 0;
+}
+
+.buttons.Level8:active {
+    background-position: -560px -80px;
+}
+
+.buttons.Level9 {
+    background-position: -640px 0;
+}
+
+.buttons.Level9:active {
+    background-position: -640px -80px;
+}
+
+.buttons.Level10 {
+    background-position: -720px 0;
+}
+
+.buttons.Level10:active {
+    background-position: -720px -80px;
+}
+
+.buttons.Level11 {
+    background-position: -800px 0;
+}
+
+.buttons.Level11:active {
+    background-position: -800px -80px;
+}
+
+.buttons.Level12 {
+    background-position: -880px 0;
+}
+
+.buttons.Level12:active {
+    background-position: -880px -80px;
+}
+
+.buttons.Level13 {
+    background-position: -960px 0;
+}
+
+.buttons.Level13:active {
+    background-position: -960px -80px;
+}
+
+.buttons.Level14 {
+    background-position: -1040px 0;
+}
+
+.buttons.Level14:active {
+    background-position: -1040px -80px;
+}
+
+.buttons.Level15 {
+    background-position: -1120px 0;
+}
+
+.buttons.Level15:active {
+    background-position: -1120px -80px;
+}
