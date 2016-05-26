@@ -454,6 +454,10 @@ img{
 .tabs label:hover {
     background: #3498db;
 }
+
+.tabs label:active {
+    background: #3498db;
+}
  
 .tab-content {
     display: none;
