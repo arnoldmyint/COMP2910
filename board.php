@@ -18,7 +18,7 @@
         <div id="background">
             <center>
                 <ul class="tabs">
-                    <li class="labels">                        <br/><br/><br/><br/>
+                    <li class="labels"><br/><br/>
 
                         <label for="tab1" id="label1" text-align="center">Scoreboard</label>
                         <label for="tab2" id="label2">Challenge</label><br/>
