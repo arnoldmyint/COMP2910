@@ -455,10 +455,6 @@ img{
     background: #3498db;
 }
 
-.tabs label:active label{
-    background: #3498db;
-}
- 
 .tab-content {
     display: none;
     width: 100%;
