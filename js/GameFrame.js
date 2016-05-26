@@ -310,7 +310,6 @@ function redraw(context) {
  *	
  */
 function addAllShapes(context,position){
-    console.log(numberOfBoxes);
     context.setTransform(1, 0, 0, 1, 0, 0);
 	for(i = 0; i < position.length;i++){
 		for(var j = 0; j < position[i].length;j++){

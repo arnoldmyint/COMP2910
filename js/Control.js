@@ -172,7 +172,7 @@ function control(context) {
         clearInterval(mytimer);
         $("#time").hide();
         $("#mycanvas").hide();        
-        $("#pauseGame").toggle();
+        $("#pauseGame").slideToggle();
 	}
     
     

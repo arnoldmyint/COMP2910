@@ -40,6 +40,8 @@ function control_frame(context) {
     }else if(slope == 0){
         context.drawImage(slope0, 290, 890);
     }
+    context.font = "30px Georgia";
+    context.fillText(numberOfBoxes, 169,890);
 //    context.clearRect(421,890,105,95);
 //    context.fillStyle = "#D6FFCD";
 //    context.fillRect(421,890,114,98);
@@ -54,11 +56,11 @@ function control_frame(context) {
     }else if(direction == 0){
         context.drawImage(direction0, 435, 890);
     }
-//    canvas.onclick = function (e){
-//        var point = getPointOnCanvas(canvas,e.pageX, e.pageY);
-//        console.log(point.x);
-//        console.log(point.y);
-//    }
+    canvas.onclick = function (e){
+        var point = getPointOnCanvas(canvas,e.pageX, e.pageY);
+        console.log(point.x);
+        console.log(point.y);
+    }
 }
 
 function checkShapes(positions){
