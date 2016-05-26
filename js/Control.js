@@ -56,7 +56,9 @@ function control(context) {
         }
         redraw(context);
         control_frame(context);
-        checkShapes(positions);
+        if(levels != 0){
+            removeShapes();   
+        }
         addAllShapes(context, positions);
         for (var i = 0; i < array_floor.length; i++) {
             var Xvertices = [array_floor[i].points[0].x, array_floor[i].points[1].x, array_floor[i].points[2].x, array_floor[i].points[3].x];
@@ -112,17 +114,25 @@ function control(context) {
         //context.save();
         addAllShapes(context, positions);
         control_frame(context);
-        checkShapes(positions);
-        if (device.mobile()) {
+        if (device.mobile() || device.tablet()) {
             $(canvas).unbind('touchmove', move);
             $(canvas).unbind('touchend', up);
         } else if (device.desktop()) {
             $(canvas).unbind("mousemove", move);
             $(canvas).unbind("mouseup", up);
             //$(canvas).unbind("mousedown", down);
-        } else if (device.tablet()) {
-            $(canvas).unbind('touchmove', move);
-            $(canvas).unbind('touchend', up);
+        }
+        if(levels != 0 && clicking == false){
+            if(shapeType == "box"){
+                checkShapes(positions, shapeType);
+            } else if(shapeType == "slope_SW" || shapeType == "slope_SE" || shapeType == "slope_NE" || shapeType == "slope_NW"){
+                console.log("fuck");
+                checkShapes(positions, "slope");
+            } else if(shapeType == "direction_SW" || shapeType == "direction_SE" || shapeType == "direction_NE" || shapeType == "direction_NW"){
+                console.log("fuck");
+                checkShapes(positions, "direction");
+            }
+            removeShapes();   
         }
     }
 	
@@ -154,7 +164,9 @@ function control(context) {
 		
 		redraw(context);
 		control_frame(context);
-        checkShapes(positions);
+        if(levels != 0){
+            removeShapes();   
+        }
 		$(canvas).unbind("click", eraseAll);
 	}
     
@@ -319,8 +331,6 @@ function control(context) {
                 if(levels != 0 && numberOfBoxes <= 0){
                     return;
                 }
-                //console.log(x);
-                //console.log(y);
                 if(e.type == "touchend"){
                     tapping = true;
                     return false;

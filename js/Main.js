@@ -99,6 +99,7 @@ var numberOfBoxes = 0;
  number of directions for pre-set levels
 */
 var numberOfDirections = 0;
+
 /**
  *	load
  *	

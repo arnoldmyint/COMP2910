@@ -40,8 +40,6 @@ function control_frame(context) {
     }else if(slope == 0){
         context.drawImage(slope0, 290, 890);
     }
-    context.font = "30px Georgia";
-    context.fillText(numberOfBoxes, 169,890);
 //    context.clearRect(421,890,105,95);
 //    context.fillStyle = "#D6FFCD";
 //    context.fillRect(421,890,114,98);
@@ -56,48 +54,67 @@ function control_frame(context) {
     }else if(direction == 0){
         context.drawImage(direction0, 435, 890);
     }
-    canvas.onclick = function (e){
-        var point = getPointOnCanvas(canvas,e.pageX, e.pageY);
-        console.log(point.x);
-        console.log(point.y);
+    if(levels != 0){
+        number();   
     }
+//    canvas.onclick = function (e){
+//        var point = getPointOnCanvas(canvas,e.pageX, e.pageY);
+//        console.log(point.x);
+//        console.log(point.y);
+//    }
 }
 
-function checkShapes(positions){
+function number(){
+    context.fillStyle = "black";
+    context.font = "30px Georgia";
+    context.fillText(numberOfBoxes, 169,890);
+    context.fillText(numberOfSlopes, 330, 890);
+    context.fillText(numberOfDirections, 477, 890);
+}
+
+function checkShapes(positions, type){
     if(levels != 0){
         for(var i = 0; i < positions.length; i++){
             for(var j = 0; j < positions[i].length; j++){
                 if(positions[i][j].used == true){
-                    if(positions[i][j].shapeName == "box"){
+                    if(positions[i][j].shapeName == "box" && type == "box"){
                         numberOfBoxes--;
-                    } else if(positions[i][j].shapeName == "slope"){
+                        console.log(numberOfBoxes);
+                    } else if(positions[i][j].shapeName == "slope" && type == "slope"){
                         numberOfSlopes--;
-                    } else if(positions[i][j].shapeName == "direction"){
+                        console.log(numberOfSlopes);
+                    } else if(positions[i][j].shapeName == "direction" && type == "direction"){
                         numberOfDirections--;
+                        console.log(numberOfDirections);
                     }
                 }
             }
         }
-        if(numberOfBoxes <= 0){
-            context.clearRect(120, 890, 105, 95);
-            context.fillStyle = "#D6FFCD";
-            context.fillRect(120, 890,114,98);
+    }
+}
+function removeShapes(){
+    if(numberOfBoxes <= 0){
+        context.clearRect(120, 870, 105, 118);
+        context.fillStyle = "#D6FFCD";
+        context.fillRect(120, 870,114,118);
 //            $(canvas).unbind("mousedown");
 //            $(canvas).unbind("touchstart");
-        }
-        if(numberOfDirections <= 0){
-            context.clearRect(421,894,105,95);
-            context.fillStyle = "#D6FFCD";
-            context.fillRect(421,894,105,95);
+    }
+    if(numberOfDirections <= 0){
+        context.clearRect(421,870,105,118);
+        context.fillStyle = "#D6FFCD";
+        context.fillRect(421,870,105,118);
 //            $(canvas).unbind("mousedown");
 //            $(canvas).unbind("touchstart");
-        }
-        if(numberOfSlopes <= 0){
-            context.fillRect(272,894,105,95);
-            context.fillStyle = "#D6FFCD";
-            context.fillRect(272,894,105,95);
+    }
+    if(numberOfSlopes <= 0){
+        context.clearRect(272,870,105,118);
+        context.fillStyle = "#D6FFCD";
+        context.fillRect(272,870,105,118);
 //            $(canvas).unbind("mousedown");
 //            $(canvas).unbind("touchstart");
-        }
+    }
+    if(levels != 0){
+        number();   
     }
 }
