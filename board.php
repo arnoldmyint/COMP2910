@@ -40,7 +40,6 @@
                     </li>
                 </ul>
                 <a href = "/index.html"><div class = "navigation return"></div></a>
-                <br/>
             </center>
         </div>
     </body>
