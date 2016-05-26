@@ -102,7 +102,7 @@ $(document).ready(function(){
         $("#label2")css("background", "#2c3e50"); 
     });
     
-    $(".label1").click(function(){
+    $(".label2").click(function(){
         $("#label1").css("background", "#2c3e50");
         $("#label2")css("background", "#3498db"); 
     });
