@@ -42,7 +42,7 @@ $(document).ready(function(){
     });
     
     $('.highscores').click(function() {
-        window.location.href="http://comp2910.azurewebsites.net/scoreboard.php";
+        window.location.href="/scoreboard.php";
     });
     
     $(".tutorial").click(function(){
