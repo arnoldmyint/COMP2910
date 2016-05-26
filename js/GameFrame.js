@@ -12,8 +12,10 @@
 	 } else if(whichLevel == 2){
 		 end = 20;
 		 start = 20;
-	 } else if(whichLevel == -1){
-         var i = parseInt(36 * Math.random());
+	 } else if(whichLevel == 0){
+         //console.log(parseInt(Math.random()*29+1));
+         end = parseInt(Math.random()*29+6);
+         start = parseInt(Math.random()*29+6);
      }
  }
  
@@ -294,7 +296,6 @@ function timer(context){
             $("#gameOver").show();
         }
     }, 1000);
-    control(context);
     //return false;
 }
 

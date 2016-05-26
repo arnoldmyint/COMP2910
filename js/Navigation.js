@@ -33,7 +33,7 @@ $(document).ready(function(){
         $("#chooseGame").slideToggle();
         $("#mycanvas").slideToggle();
         $("#time").show();
-        load(1);
+        load(0);
     });    
     
     $(".choosegamereturnbutton").click(function(){
@@ -72,7 +72,7 @@ $(document).ready(function(){
         timer(context);
     });
     
-        $(".menubutton").click(function(){
+    $(".menubutton").click(function(){
         $("#pauseGame").slideToggle();
         $("#landingPage").slideToggle();  
     });

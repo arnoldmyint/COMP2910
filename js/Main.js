@@ -118,8 +118,9 @@ function load(whichLevel){
     context.save();
     timer(context);
     context.save();
-    context.fillStyle="green";
-    context.fillRect(0,0,800,10);
+    control(context);
+//    context.fillStyle="green";
+//    context.fillRect(0,0,800,10);
 
 	
 	
