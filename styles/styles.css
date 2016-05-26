@@ -428,7 +428,7 @@ img{
 .tabs {
     list-style: none;
     padding: 0;
-    margin: 75px auto;
+    margin: 0 auto;
 }
  
 .tabs li {
