@@ -104,12 +104,25 @@ var numberOfDirections = 0;
  Number of shapes added
 */
 var numShapes = 0;
-
+/*
+ Orignal number of slopes
+*/
 var slopeNo = 0;
-
+/*
+ Orignal number of box
+*/
 var boxNo = 0;
-
+/*
+ Orignal number of direction
+*/
 var directionNo = 0;
+
+var achieve_1 = 0;
+
+var achieve_2 = 0;
+
+var achieve_3 = 0;
+
 /**
  *	load
  *	
@@ -124,6 +137,7 @@ function load(whichLevel){
     directionNo = numberOfDirections;
     boxNo = numberOfBoxes;
     isRetry = false;
+    time = 200;
     canvas=document.getElementById("mycanvas");
     container=document.getElementById("container");
     context=canvas.getContext("2d");
