@@ -23,8 +23,9 @@ Short Description: The game consist of a grid that randomly generates a starting
 c)Description of code structure
 
 index.html		game menu also the game itself is here
-form.html		to submit the name for highscores (user won’t be able to go 				here directly)
-scoreboard.php		to view the highscores (online)
+form.html		to submit the name for highscores from Set levels (user won’t be able to go here directly)
+form2.html		to submit the name for highscores for Randomized levels (user won’t be able to go here directly)
+board.php		to view the highscores. This includes both from.html and form2.html submitions. 
 
 styles\style.css	Styling the whole game
 
@@ -38,6 +39,7 @@ js\Main.js		Holds all globals and start of game
 js\Points.js		Calculations for points, shapes, polygons specifically.
 
 images			all images for the whole game
+
 d)Technologies used
 
 Most of game was coded in JS without 3rd party library.
@@ -46,8 +48,8 @@ Google Spreadsheet (with php) to submit and retrieve highscore.
 
 
 e)Issues/problems encountered
-	1) We made most of the game on our own which took a lot of time. We should have used some 3rd party libraries.
-	2) Really hard to make the game playable on both desktop and laptop across all OS using different browsers. 
+1) We made most of the game on our own which took a lot of time. We should have used some 3rd party libraries.
+2) Really hard to make the game playable on both desktop and laptop across all OS using different browsers. 
 
 
 USER GUIDE
