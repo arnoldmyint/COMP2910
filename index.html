@@ -36,194 +36,200 @@
     </head>
 
     <body>
-        <div id= "background">
-            <div id= "page">
-                <div id="landingPage">
-                    <br/><br/>
-                    <div id="logo">
-                        <img class="rolling" src="images/ball.png" alt="logo">
-                        <img id="textLogo" src="images/logo1.png" alt="textlogo">
-                    </div>​
-                    <br/>
-                    <div class="navigation play"></div><br/>
-                    <div class="navigation highscores"></div><br/>
-                    <div class="navigation tutorial"></div><br/>
-                    <div class="navigation credits"></div><br/>
-                    <p align="center">Made with <i class="em em-heart"></i> in <i class="em em-sunny"></i> Vancouver.</p>
-                </div>
+        <!-- Menu Page -->
+        <div id="landingPage">
+            <br/><br/>
+            <div id="logo">
+                <img class="rolling" src="images/ball.png" alt="logo">
+                <img id="textLogo" src="images/logo1.png" alt="textlogo">
+            </div>​
+            <br/>
+            <div class="navigation play"></div><br/>
+            <div class="navigation highscores"></div><br/>
+            <div class="navigation tutorial"></div><br/>
+            <div class="navigation credits"></div><br/>
+            <p align="center">Made with <i class="em em-heart"></i> in <i class="em em-sunny"></i> Vancouver.</p>
+        </div>
 
-                <div id="tutorial">
-                    <br/><br/>
-                    <div class="navigation return"></div> <br/>
-                </div>
+        <!-- Tutorial Page -->
+        <div id="tutorial">
+            <br/><br/>
+            <div class="navigation return"></div> <br/>
+        </div>
 
-                <div id="credits">
-                    <br/>
-                    <h1>Created by Group 1</h1>
-                    <h3>Arnold Myint</h3>
-                    <h3>Arvin Rolos</h3>
-                    <h3>Matt Rosenlund</h3>
-                    <h3>Tom Nam</h3>
-                    <h3>Wayne Wang</h3>
-                    <br/><br/>
-                    <div class="navigation return"></div> <br/>
-                </div>
+        <!-- Credits Page -->
+        <div id="credits">
+            <br/>
+            <h1>Created by Group 1</h1>
+            <h3>Arnold Myint</h3>
+            <h3>Arvin Rolos</h3>
+            <h3>Matt Rosenlund</h3>
+            <h3>Tom Nam</h3>
+            <h3>Wayne Wang</h3>
+            <br/><br/>
+            <div class="navigation return"></div> <br/>
+        </div>
 
-                 <div id="pauseGame">
-                    <br/><br/><br/>
-                    <div class="navigation resume"></div><br/><br/>
-                    <div class ="navigation menu" ></div><br/><br/>
-                </div> 
+        <!-- Pause Page -->
+         <div id="pauseGame">
+            <br/><br/><br/>
+            <div class="navigation resume"></div><br/><br/>
+            <div class ="navigation menu" ></div><br/><br/>
+        </div> 
+        
+        <!-- Exit to menu Confirmation Page -->
+        <div id="confirmationPage">
+        <br/><br/>
+        <h1> Are you sure? </h1> <br/><br/>
+        <div class ="navigation yes" ></div><br/><br/>
+        <div class ="navigation no" ></div><br/><br/>
+        </div>
+        
+        <!-- Choose Game Page -->
+        <div id="chooseGame">
+            <br/><br/><br/>
+            <img class="rolling" src="images/ball.png" alt="logo"><br/><br/><br/>
+            <div class="navigation loadlevel"></div> <br/>
+            <div class="navigation challenge"></div><br/>
+            <div class="navigation return"></div> <br/>
+        </div>
+        
+        <!-- Load Level Page -->
+        <div id="loadLevel">
+            <br/>          
+            <table class="selectionTable">
                 
-                <div id="confirmationPage">
-                <br/><br/>
-                <h1> Are you sure? </h1> <br/><br/>
-                <div class ="navigation yes" ></div><br/><br/>
-                <div class ="navigation no" ></div><br/><br/>
-                </div>
-                
-                <div id="chooseGame">
-                    <br/><br/><br/>
-                    <img class="rolling" src="images/ball.png" alt="logo"><br/><br/><br/>
-                    <div class="navigation loadlevel"></div> <br/>
-                    <div class="navigation challenge"></div><br/>
-                    <div class="navigation return"></div> <br/>
-                </div>
-                
-                <div id="loadLevel">
-                    <br/>          
-                    <table class="selectionTable">
-                        
-                        <caption> <h1>Select Level</h1> </caption>
-                        <col class="col1"/> 
-                        <col class="col2"/>
-                        <col class="col3"/>
-                        <col class="col4"/>
-                            <tr>
-                                <td><div class="buttons level1"></div></td>
-                                <td><div class="buttons level2"></div></td>
-                                <td><div class="buttons level3"></div></td>
-                                <td><div class="buttons level4"></div></td>
-                            </tr>
-                            <tr>
-                                <td><div class="buttons level5"></div></td>
-                                <td><div class="buttons level6"></div></td>
-                                <td><div class="buttons level7"></div></td>
-                                <td><div class="buttons level8"></div></td>
-                            </tr>
-                            <tr>
-                                <td><div class="buttons level9"></div></td>
-                                <td><div class="buttons level10"></div></td>
-                                <td><div class="buttons level11"></div></td>
-                                <td><div class="buttons level12"></div></td>
-                            </tr>
-                            <tr>
-                                <td><div class="buttons level13"></div></td>
-                                <td><div class="buttons level14"></div></td>
-                                <td><div class="buttons level15"></div></td>
-                                <td></td>
-                            </tr>
-                    </table>
-                    <br/><br/> 
-                    <div class="navigation return"></div>
-                </div>
-                
-                <div id="gameOver">
-                    <h1>Game Over</h1> 
-                    <h2> Score : </h2> 
-                    <h2 id="loseScore"> - </h2> <br/>
-                    <div class="navigation retry" onclick="retry()"></div><br/>
-                    <div class="navigation menu" onclick="getScore()"></div><br/>
-                </div>
-                
-                <div id="gameWin">
-                    <h1>Nice Job!</h1> 
-                    <h2> Score : </h2> 
-                    <h2 id="winScore"> - </h2> <br/>
-                    <div class="navigation nextlevel" onclick="nextLevel()"></div> <br/>
-                    <div class="navigation menu" onclick="getScore()"></div><br/>
-                </div>
+                <caption> <h1>Select Level</h1> </caption>
+                <col class="col1"/> 
+                <col class="col2"/>
+                <col class="col3"/>
+                <col class="col4"/>
+                    <tr>
+                        <td><div class="buttons level1"></div></td>
+                        <td><div class="buttons level2"></div></td>
+                        <td><div class="buttons level3"></div></td>
+                        <td><div class="buttons level4"></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="buttons level5"></div></td>
+                        <td><div class="buttons level6"></div></td>
+                        <td><div class="buttons level7"></div></td>
+                        <td><div class="buttons level8"></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="buttons level9"></div></td>
+                        <td><div class="buttons level10"></div></td>
+                        <td><div class="buttons level11"></div></td>
+                        <td><div class="buttons level12"></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="buttons level13"></div></td>
+                        <td><div class="buttons level14"></div></td>
+                        <td><div class="buttons level15"></div></td>
+                        <td></td>
+                    </tr>
+            </table>
+            <br/><br/> 
+            <div class="navigation return"></div>
+        </div>
+        
+        <!-- Game Over Page -->
+        <div id="gameOver">
+            <h1>Game Over</h1> 
+            <h2> Score : </h2> 
+            <h2 id="loseScore"> - </h2> <br/>
+            <div class="navigation retry" onclick="retry()"></div><br/>
+            <div class="navigation menu" onclick="getScore()"></div><br/>
+        </div>
+        
+        <!-- Win Page -->
+        <div id="gameWin">
+            <h1>Nice Job!</h1> 
+            <h2> Score : </h2> 
+            <h2 id="winScore"> - </h2> <br/>
+            <div class="navigation nextlevel" onclick="nextLevel()"></div> <br/>
+            <div class="navigation menu" onclick="getScore()"></div><br/>
+        </div>
 
-                <div id="container"  align="center">
-                    <div id="time">200 seconds</div>
-                    <canvas id="mycanvas" width="800" height="1600">
-                        Your browser does not support canvas
-                    </canvas>
-                    <img id="roll" src="images/Roll Button.png " />
-                    <img id="eraser" src="images/Erase_Button.png" />
-                    <img id="clear" src="images/Clear Button.png " />
-                    <img id="pause" src="images/Menu Button.png " />
-                    <img id="control_panel" src="images/Selector.png" />
-                    <img id="box" src="images/NewBlock.png" />
-                    <img id="slope_NE" src="images/NewSlpNE.png" />
-                    <img id="slope_NW" src="images/NewSlpNW.png" />
-                    <img id="slope_SE" src="images/NewSlpSE.png" />
-                    <img id="slope_SW" src="images/NewSlpSW.png" />
-                    <img id="trn_slope_NE" src="images/TransSlpNE.png" />
-                    <img id="trn_slope_NW" src="images/TransSlpNW.png" />
-                    <img id="trn_slope_SE" src="images/TransSlpSE.png" />
-                    <img id="trn_slope_SW" src="images/TransSlpSW.png" />
-                    <img id="trn_box" src="images/TransBlock.png" />
-                    <img id="end" src="images/GoalHole.png" />
-                    <img id="start" src="images/Entrance.png" />
-                    <img id="direction_SW" src="images/ArwSW.png" />
-                    <img id="direction_SE" src="images/ArwSE.png" />
-                    <img id="direction_NE" src="images/ArwNE.png" />
-                    <img id="direction_NW" src="images/ArwNW.png" />
-					<img id="trn_direction_SW" src="images/TransArwSW.png" />
-                    <img id="trn_direction_SE" src="images/TransArwSE.png" />
-                    <img id="trn_direction_NE" src="images/TransArwNE.png" />
-                    <img id="trn_direction_NW" src="images/TransArwNW.png" />
-                    <img id="brain" src="images/brain/0.png" />
-                    <img id="brain1" src="images/brain/1.png" />
-                    <img id="brain2" src="images/brain/2.png" />
-                    <img id="brain3" src="images/brain/3.png" />
-                    <img id="brain4" src="images/brain/4.png" />
-                    <img id="brain5" src="images/brain/5.png" />
-                    <img id="brain6" src="images/brain/6.png" />
-                    <img id="brain7" src="images/brain/7.png" />
-                    <img id="brain8" src="images/brain/8.png" />
-                    <img id="brain9" src="images/brain/9.png" />
-                    <img id="brain10" src="images/brain/10.png" />
-                    <img id="brain11" src="images/brain/11.png" />
-                    <img id="brain12" src="images/brain/12.png" />
-                    <img id="brain13" src="images/brain/13.png" />
-                    <img id="brain14" src="images/brain/14.png" />
-                    <img id="brain15" src="images/brain/15.png" />
-                    <img id="brain16" src="images/brain/16.png" />
-                    <img id="brain17" src="images/brain/17.png" />
-                    <img id="brain18" src="images/brain/18.png" />
-                    <img id="brain19" src="images/brain/19.png" />
-                    <img id="brain20" src="images/brain/20.png" />
-                    <img id="brain21" src="images/brain/21.png" />
-                    <img id="brain22" src="images/brain/22.png" />
-                    <img id="brain23" src="images/brain/23.png" />
-					<img id="egg" src="images/egg/egg0.png" />
-                    <img id="egg1" src="images/egg/egg1.png" />
-                    <img id="egg2" src="images/egg/egg2.png" />
-                    <img id="egg3" src="images/egg/egg3.png" />
-                    <img id="egg4" src="images/egg/egg4.png" />
-                    <img id="egg5" src="images/egg/egg5.png" />
-                    <img id="egg6" src="images/egg/egg6.png" />
-                    <img id="egg7" src="images/egg/egg7.png" />
-                    <img id="egg8" src="images/egg/egg8.png" />
-                    <img id="egg9" src="images/egg/egg9.png" />
-                    <img id="egg10" src="images/egg/egg10.png" />
-                    <img id="egg11" src="images/egg/egg11.png" />
-                    <img id="egg12" src="images/egg/egg12.png" />
-                    <img id="egg13" src="images/egg/egg13.png" />
-                    <img id="egg14" src="images/egg/egg14.png" />
-                    <img id="egg15" src="images/egg/egg15.png" />
-                    <img id="egg16" src="images/egg/egg16.png" />
-                    <img id="egg17" src="images/egg/egg17.png" />
-                    <img id="egg18" src="images/egg/egg18.png" />
-                    <img id="egg19" src="images/egg/egg19.png" />
-                    <img id="egg20" src="images/egg/egg20.png" />
-                    <img id="egg21" src="images/egg/egg21.png" />
-                    <img id="egg22" src="images/egg/egg22.png" />
-                    <img id="egg23" src="images/egg/egg23.png" />
-                </div>
-            </div>
+        <!-- Canvas for drawing the game -->
+        <div id="container"  align="center">
+            <div id="time">200 seconds</div>
+            <canvas id="mycanvas" width="800" height="1600">
+                Your browser does not support canvas
+            </canvas>
+            <img id="roll" src="images/Roll Button.png " />
+            <img id="eraser" src="images/Erase_Button.png" />
+            <img id="clear" src="images/Clear Button.png " />
+            <img id="pause" src="images/Menu Button.png " />
+            <img id="control_panel" src="images/Selector.png" />
+            <img id="box" src="images/NewBlock.png" />
+            <img id="slope_NE" src="images/NewSlpNE.png" />
+            <img id="slope_NW" src="images/NewSlpNW.png" />
+            <img id="slope_SE" src="images/NewSlpSE.png" />
+            <img id="slope_SW" src="images/NewSlpSW.png" />
+            <img id="trn_slope_NE" src="images/TransSlpNE.png" />
+            <img id="trn_slope_NW" src="images/TransSlpNW.png" />
+            <img id="trn_slope_SE" src="images/TransSlpSE.png" />
+            <img id="trn_slope_SW" src="images/TransSlpSW.png" />
+            <img id="trn_box" src="images/TransBlock.png" />
+            <img id="end" src="images/GoalHole.png" />
+            <img id="start" src="images/Entrance.png" />
+            <img id="direction_SW" src="images/ArwSW.png" />
+            <img id="direction_SE" src="images/ArwSE.png" />
+            <img id="direction_NE" src="images/ArwNE.png" />
+            <img id="direction_NW" src="images/ArwNW.png" />
+            <img id="trn_direction_SW" src="images/TransArwSW.png" />
+            <img id="trn_direction_SE" src="images/TransArwSE.png" />
+            <img id="trn_direction_NE" src="images/TransArwNE.png" />
+            <img id="trn_direction_NW" src="images/TransArwNW.png" />
+            <img id="brain" src="images/brain/0.png" />
+            <img id="brain1" src="images/brain/1.png" />
+            <img id="brain2" src="images/brain/2.png" />
+            <img id="brain3" src="images/brain/3.png" />
+            <img id="brain4" src="images/brain/4.png" />
+            <img id="brain5" src="images/brain/5.png" />
+            <img id="brain6" src="images/brain/6.png" />
+            <img id="brain7" src="images/brain/7.png" />
+            <img id="brain8" src="images/brain/8.png" />
+            <img id="brain9" src="images/brain/9.png" />
+            <img id="brain10" src="images/brain/10.png" />
+            <img id="brain11" src="images/brain/11.png" />
+            <img id="brain12" src="images/brain/12.png" />
+            <img id="brain13" src="images/brain/13.png" />
+            <img id="brain14" src="images/brain/14.png" />
+            <img id="brain15" src="images/brain/15.png" />
+            <img id="brain16" src="images/brain/16.png" />
+            <img id="brain17" src="images/brain/17.png" />
+            <img id="brain18" src="images/brain/18.png" />
+            <img id="brain19" src="images/brain/19.png" />
+            <img id="brain20" src="images/brain/20.png" />
+            <img id="brain21" src="images/brain/21.png" />
+            <img id="brain22" src="images/brain/22.png" />
+            <img id="brain23" src="images/brain/23.png" />
+            <img id="egg" src="images/egg/egg0.png" />
+            <img id="egg1" src="images/egg/egg1.png" />
+            <img id="egg2" src="images/egg/egg2.png" />
+            <img id="egg3" src="images/egg/egg3.png" />
+            <img id="egg4" src="images/egg/egg4.png" />
+            <img id="egg5" src="images/egg/egg5.png" />
+            <img id="egg6" src="images/egg/egg6.png" />
+            <img id="egg7" src="images/egg/egg7.png" />
+            <img id="egg8" src="images/egg/egg8.png" />
+            <img id="egg9" src="images/egg/egg9.png" />
+            <img id="egg10" src="images/egg/egg10.png" />
+            <img id="egg11" src="images/egg/egg11.png" />
+            <img id="egg12" src="images/egg/egg12.png" />
+            <img id="egg13" src="images/egg/egg13.png" />
+            <img id="egg14" src="images/egg/egg14.png" />
+            <img id="egg15" src="images/egg/egg15.png" />
+            <img id="egg16" src="images/egg/egg16.png" />
+            <img id="egg17" src="images/egg/egg17.png" />
+            <img id="egg18" src="images/egg/egg18.png" />
+            <img id="egg19" src="images/egg/egg19.png" />
+            <img id="egg20" src="images/egg/egg20.png" />
+            <img id="egg21" src="images/egg/egg21.png" />
+            <img id="egg22" src="images/egg/egg22.png" />
+            <img id="egg23" src="images/egg/egg23.png" />
         </div>
     </body>
 </html>
