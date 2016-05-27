@@ -39,6 +39,7 @@ function brain(context, positions){
 	}
 	
 	function whereTo(){
+		console.log("moving");
 		//console.log("Direction to move: " + direction + " Layer: " +theBrain.brainLayer + " index: " + theBrain.brainIndex);
 		//Find out direction
 		if(positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_SW"
@@ -232,10 +233,14 @@ function brain(context, positions){
 					imgInc = 23;
 				}
 			}
-		}, 50);
+		}, 25);
     }
 	
 	function checkLoss(){
+		if (array_floor[theBrain.brainIndex].crevice == true){
+			return true;
+		}
+		
 		if(direction == "direction_SW"){
 			if(theBrain.brainIndex > 35){
 				return true;
@@ -253,6 +258,8 @@ function brain(context, positions){
 				return true;
 			}
 		}
+		
+		return false;
 	}
 	
 	function directionXY(direction){

@@ -16,7 +16,7 @@ function createObj() {
     var cols=0;
     for(var i=0; i<36; i++){
         var rect_floor={
-            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}], start:false
+            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}], end:false, crevice:false
         };
         if(i%6==0){
             rows++;
@@ -33,7 +33,7 @@ function createObj() {
     cols=0;
     for(var j=0; j<36; j++){
         var rect_right={
-            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}], end:false, crevice:false
+            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}], start:false
         };
         if(j%6==0){
             rows++;
@@ -74,6 +74,7 @@ function createObj() {
  */
 function floor(context){
 	endPoint=document.getElementById("end");
+	creviceImg=document.getElementById("theCrevice");
     for(var i=0; i<array_floor.length; i++){
 		if(i == end){
 			getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
@@ -106,26 +107,6 @@ function floor(context){
     }
 	*/
     context.restore();
-}
-
-function checkIfCrevice(pos){
-	for(var i = 0; i < crevices.length;i++){
-		if (crevice(i) == pos){
-			return true;
-		}
-	}
-	
-	return false;
-}
-
-function drawCrevices(context){
-	for(var i = 0; i < crevices.length;i++){
-		if(array_floor[i].crevice = true){
-			var pos = shapePoints(i,0);
-			context.setTransform(1,0,0,1,0,0);
-			context.drawImage(crevice, pos.x, pos.y,109,109);			
-		}
-	}
 }
 
 /**
@@ -403,6 +384,26 @@ function addTransparentShape(context,x,y,type){
 		context.drawImage(trn_direction_SE, x, y,109,109);
 	} else if (type == "direction_NE"){
 		context.drawImage(trn_direction_NE, x, y,109,109);
+	}
+}
+
+function checkIfCrevice(pos){
+	for(var i = 0; i < crevices.length;i++){
+		if (crevices[i] == pos){
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+function drawCrevices(context){
+	for(var i = 0; i < array_floor.length;i++){
+		if(array_floor[i].crevice == true){
+			var pos = shapePoints(i,0);
+			context.setTransform(1,0,0,1,0,0);
+			context.drawImage(creviceImg, pos.x, pos.y,109,109);			
+		}
 	}
 }
 

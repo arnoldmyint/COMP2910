@@ -74,7 +74,7 @@ function control(context) {
 					}
 				}
 				//checks to ensure shape is only drawn on floor or ontop of boxes and not higher than the grid.
-				if(posLayer != 0 && positions[posLayer-1][position].type != "box" || posLayer > 6  || position == end){
+				if(posLayer != 0 && positions[posLayer-1][position].type != "box" || posLayer > 6  || position == end || array_floor[position].crevice == true){
 					break;
 				}
 				addTransparentShape(context,positions[posLayer][position].point.x,positions[posLayer][position].point.y,shapeType);
@@ -102,7 +102,7 @@ function control(context) {
 			posLayer = 0;
 			return;
 		}
-        if(position != -1 && positions[posLayer][position].used != true){
+        if(position != -1 && positions[posLayer][position].used != true && array_floor[position].crevice != true){
 			numShapes++;
             positions[posLayer][position].type = shapeType;
 			positions[posLayer][position].used = true;
