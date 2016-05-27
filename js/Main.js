@@ -135,7 +135,6 @@ var crevices = [];
  */
 function load(whichLevel){
 	//reset globals
-	context.clearRect(0, 10, canvas.width, canvas.height);
 	crevices = [];
 	easterActivated = false;
 	numShapes = 0;
@@ -157,6 +156,7 @@ function load(whichLevel){
     canvas=document.getElementById("mycanvas");
     container=document.getElementById("container");
     context=canvas.getContext("2d");
+	context.clearRect(0, 10, canvas.width, canvas.height);
     createObj();
     if(device.desktop() || device.tablet()){
         canvas.style.width="400px";
