@@ -111,11 +111,9 @@ function control(context) {
                     numberOfBoxes--;
                 //checkShapes(positions, shapeType);
                 } else if(shapeType == "slope_SW" || shapeType == "slope_SE" || shapeType == "slope_NE" || shapeType == "slope_NW"){
-                    console.log("fuck");
                     numberOfSlopes--;
                 //checkShapes(positions, "slope");
                 } else if(shapeType == "direction_SW" || shapeType == "direction_SE" || shapeType == "direction_NE" || shapeType == "direction_NW"){
-                    console.log("fuck");
                     numberOfDirections--;
                 //checkShapes(positions, "direction");
                 }   
@@ -151,7 +149,7 @@ function control(context) {
         clearInterval(mytimer);
 		brain(context, positions);
 		
-		$(canvas).unbind("click", rollBrain);
+		$(canvas).unbind("click touchstart", rollBrain);
 	}
 	
 	/**
@@ -172,7 +170,7 @@ function control(context) {
         if(levels != 0){
             removeShapes();   
         }
-		$(canvas).unbind("click", eraseAll);
+		$(canvas).unbind("click touchstart", eraseAll);
 	}
     
     function erase(){
