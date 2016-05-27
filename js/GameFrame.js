@@ -189,7 +189,7 @@ function frame_horizontal(context) {
     grd_left.addColorStop(1, "#D6FFCD");
     //bottom_left
     context.fillStyle=grd_left;
-    context.setTransform(1,0.5,0,2,15,560);
+    context.setTransform(1,0.5,0,1.5,15,560);
     for(var i=0; i<7; i++) {
         context.strokeRect(i*55,0,55,55);
         context.fillRect(i*55,0,55,55);
@@ -200,7 +200,7 @@ function frame_horizontal(context) {
     grd_right.addColorStop(1, "#D6FFCD");
     //bottom_right
     context.fillStyle=grd_right;
-    context.setTransform(1,-0.5,0,2,400,753);
+    context.setTransform(1,-0.5,0,1.5,400,753);
     for(var j=0; j<7; j++) {
         context.strokeRect(j*55,0,55,55);
         context.fillRect(j*55,0,55,55);

@@ -50,6 +50,8 @@ var mouseUp = false;
  */
 var theScore = 0;
 
+var currentScore = 0;
+
 /*	time
  *	time increment
  */
@@ -147,16 +149,16 @@ function load(whichLevel){
 	numberOfBoxes = 0;
 	numberOfSlopes = 0;
 	array_floor = [];
-	//end reset globals
-	
-    if(!isRetry){
-        chooseLevel(whichLevel);   
-    }
     slopeNo = numberOfSlopes;
     directionNo = numberOfDirections;
     boxNo = numberOfBoxes;
     isRetry = false;
     time = 200;
+	//end reset globals
+	
+    if(!isRetry){
+        chooseLevel(whichLevel);   
+    }
     canvas=document.getElementById("mycanvas");
     container=document.getElementById("container");
     context=canvas.getContext("2d");

@@ -373,16 +373,16 @@ function brain(context, positions){
 				time= 0;
 			}
 			theScore += (time/4) * 10;
-			console.log(theScore);
+			//console.log(theScore);
 			if(levels == 0){
 				var height = parseInt((35-start) / 6);
 				var far = parseInt(end/6);
 				if(height == 0){
 					height = 1;
 				}
-				console.log(height);
+				//console.log(height);
 				theScore += height*(time/4)/10;
-				console.log(theScore);
+				//console.log(theScore);
 				if(far < height){
 					theScore += (height - far)*(time/4)/10;
 					theScore = parseInt(theScore);
@@ -421,7 +421,8 @@ function brain(context, positions){
 			if(achievement_three()){
 				$("#achieve_3").show();
 			}
-			printWinScore();
+			printWinScore(theScore-currentScore);
+            currentScore = theScore;
         },2000);
 	}
 }
@@ -457,7 +458,7 @@ function getScore(){
 	 *	Show score after losing the game.
 	 */
 function printLoseScore(){
-        document.getElementById('loseScore').innerHTML = theScore;
+    document.getElementById('loseScore').innerHTML = theScore;
 }
 
 	/**
@@ -465,6 +466,7 @@ function printLoseScore(){
 	 *
 	 *	Show score after winning the game.
 	 */
-function printWinScore(){
-        document.getElementById('winScore').innerHTML = theScore;
+function printWinScore(currentScore){
+    document.getElementById('winScore').innerHTML = theScore;
+    document.getElementById('levelScore').innerHTML = currentScore;
 }
