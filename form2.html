@@ -29,8 +29,8 @@
 			if (achievementThree == 1){
 				var combineThree = "1";
 			}
-            var midname2 = achievementOne.concat(achievementTwo);
-			midname2 = midname.concat(achievementThree);
+            var midname = achievementOne.concat(achievementTwo);
+			midname = midname.concat(achievementThree);
             //var myScore = location.search.split('score=')[1]
             var fullname=$('#fullname').val();
             var mobilenumber=myScore;
@@ -38,7 +38,7 @@
             var yourquery=$('#yourquery').val();
             $.ajax({
                 url:"https://docs.google.com/forms/d/1SI2FLailhxDc6t4yi-hGzFnSaSOptIvOGe3nW5dsNIs/formResponse",
-                data:{"entry_1620497787":fullname,"entry_758092598":mobilenumber,"entry_1192848614":midname,"entry_369106962":midname2,"entry_":yourquery},
+                data:{"entry_1620497787":fullname,"entry_758092598":mobilenumber,"entry_1192848614":midname,"entry_":yourquery},
                 type:"POST",dataType:"xml",statusCode: {0:function() { 
                     window.location.replace("/board.php");
                 },200:function(){window.location.replace("/board.php");}}
