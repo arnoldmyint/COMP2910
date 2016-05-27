@@ -24,7 +24,7 @@
 
                         <label for="tab1" id="label1" text-align="center">Scoreboard</label>
                         <label for="tab2" id="label2">Challenge</label>
-                        <label for="tab3" id="label3"><i class="em em-unlock"></i>Unlockables</label><br/>
+                        <label for="tab3" id="label3">Unlockables</label><br/>
                     </li>
                     <li>
                         <input type="radio" checked name="tabs" id="tab1">
