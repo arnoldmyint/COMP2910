@@ -22,3 +22,32 @@ function easter(e,context) {
         $(canvas).unbind("click touchstart", easter);
     }
 }
+
+function achievement_one(){
+    if(timesOfWin == 2 && !retried && levels == 0){
+        achievement1 = true;
+        console.log(111111111);
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function achievement_two(){
+    if(timesOfWin == 2 && timeOfErase == 0 && levels == 0){
+        achievement2 = true;
+        console.log(222222222);
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function achievement_three(){
+    if(timesOfWin == 50 && levels == 0){
+        achievement3 = true;
+        return true;
+    }else{
+        return false;
+    }
+}

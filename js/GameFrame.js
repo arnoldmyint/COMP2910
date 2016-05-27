@@ -280,6 +280,7 @@ function timer(context){
             clearInterval(timer);
             $("#mycanvas").hide();
             $("#time").hide();
+            printLoseScore();
             $("#gameOver").show();
         }
     }, 1000);

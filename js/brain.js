@@ -39,7 +39,7 @@ function brain(context, positions){
 	}
 	
 	function whereTo(){
-		console.log("moving");
+		//console.log("moving");
 		//console.log("Direction to move: " + direction + " Layer: " +theBrain.brainLayer + " index: " + theBrain.brainIndex);
 		//Find out direction
 		if(positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_SW"
@@ -329,7 +329,7 @@ function brain(context, positions){
         var i = 0;
         var explosion= setInterval(function (){
             brain.src = "images/EXPLOSION/e" + i + ".png";
-            console.log(brain);
+            //console.log(brain);
             context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0,0,canvas.width,canvas.height);
 			redraw(context);
@@ -420,11 +420,6 @@ function brain(context, positions){
 			}
         },2000);
 	}
-	
-	function restart(){
-		alert("DONT KNOW WHAT TO DO");		
-	}
-}
 
 /**
  *	getStart
