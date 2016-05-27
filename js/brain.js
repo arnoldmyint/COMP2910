@@ -330,6 +330,7 @@ function brain(context, positions){
         var explosion= setInterval(function (){
 			if(easterActivated == true){
 				brain.src = "images/EGGSPLOSION/ee" + imgInc + ".png";
+				console.log(brain.src);
 			} else {
 				brain.src = "images/EXPLOSION/e" + i + ".png";
 			}
