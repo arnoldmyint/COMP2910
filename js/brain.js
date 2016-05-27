@@ -39,7 +39,7 @@ function brain(context, positions){
 	}
 	
 	function whereTo(){
-		
+		alert("Rolling again");
 		//console.log("Direction to move: " + direction + " Layer: " +theBrain.brainLayer + " index: " + theBrain.brainIndex);
 		//Find out direction
 		if(positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_SW"
@@ -159,12 +159,10 @@ function brain(context, positions){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
 				theBrain.brainIndex -= 6;
-				if((theBrain.brainIndex - 6) >= 0){
-					if(positions[theBrain.brainLayer][theBrain.brainIndex-6].type == "slope_NE"){
-						moveBrain(9)
-					} else {
-						moveBrain(3);
-					}
+				if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_NE"){
+					moveBrain(9);
+				} else {
+					moveBrain(3);
 				}
 			} else if (positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "slope_NE"){
 				theBrain.brainIndex -= 6;
@@ -183,7 +181,7 @@ function brain(context, positions){
 		var imgInc;
 		//Counter Clockwise SW,NW
 		//Clockwise SE, NE
-		if(direction == 0 || direction == 1 || direction == 4 || direction == 5){
+		if(direction == 0 || direction == 1 || direction == 4 || direction == 5 || direction == 8){
 			moveInc = 0;
 			imgInc = 0;
 		} else {
@@ -202,7 +200,7 @@ function brain(context, positions){
 			addAllShapes(context, positions);
 			control_frame(context);
 			context.drawImage(brain,theBrain.x += brainPoint.x,theBrain.y += brainPoint.y, 30, 30);
-			if(direction == 0 || direction == 1 || direction == 4 || direction == 5){
+			if(direction == 0 || direction == 1 || direction == 4 || direction == 5 || direction == 8){
 				if(moveInc == 23){
 					clearInterval(movement);
 					if(checkLoss() == true){
@@ -230,9 +228,8 @@ function brain(context, positions){
 				if(imgInc  == 0){
 					imgInc = 23;
 				}
-
 			}
-		}, 250);
+		}, 50);
     }
 	
 	function checkLoss(){
@@ -296,8 +293,8 @@ function brain(context, positions){
 			theY = -0.9236111105833333;
 		} else if (direction == 9){
 			//SPECIAL CASE: NE next shape slope
-			theX = 1.78125;
-			theY = -0.9236111105833333;
+			theX = 1.125;
+			theY = -0.583333333;
 		}
 		
 		return { 	x: theX,

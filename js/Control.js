@@ -26,7 +26,7 @@ function control(context) {
 	for(i = 0; i < 6; i++){
 		for(var j = 0; j < 36; j++){
 			var shapeObject = {
-				index:0,type:null,point:{x:0,y:0}, used:false, direction:null,shapeName:null
+				index:0,type:null,point:{x:0,y:0}, used:false, direction:null,shapeName:null,undo:-1
 			};
 			shapeObject.index = j;
 			shapeObject.point = shapePoints(j,i);
@@ -103,9 +103,10 @@ function control(context) {
 			return;
 		}
         if(position != -1 && positions[posLayer][position].used != true){
+			numShapes++;
             positions[posLayer][position].type = shapeType;
-            //console.log(shapeType);
 			positions[posLayer][position].used = true;
+			positions[posLayer][position].undo = numShapes;
             if(levels != 0){
                 if(shapeType == "box"){
                     numberOfBoxes--;
@@ -175,8 +176,50 @@ function control(context) {
 		$(canvas).unbind("click", eraseAll);
 	}
     
-    function erase(){
-        
+    function undo(){
+		var undoIndex;
+		var undoLayer;
+		var lastPlaced = 0;
+		for(var i = 0; i < positions.length; i++){
+			for(var j = 0; j < positions[i].length; j++){
+				if(positions[i][j].used == true && positions[i][j].undo > lastPlaced){
+					lastPlaced = positions[i][j].undo;
+					undoIndex = j;
+					undoLayer = i;
+				}
+			}
+		}
+		
+		if(lastPlaced == 0){
+			return;
+		}
+		
+		if(levels != 0){
+			if(positions[undoLayer][undoIndex].type == "box"){
+				numberOfBoxes++;
+			} else if(positions[undoLayer][undoIndex].type == "slope_SW" || positions[undoLayer][undoIndex].type == "slope_SE" || positions[undoLayer][undoIndex].type == "slope_NE" || positions[undoLayer][undoIndex].type == "slope_NW"){
+				numberOfSlopes++;
+			} else if(positions[undoLayer][undoIndex].type == "direction_SW" || positions[undoLayer][undoIndex].type == "direction_SE" || positions[undoLayer][undoIndex].type == "direction_NE" || positions[undoLayer][undoIndex].type == "direction_NW"){
+				numberOfDirections++;
+			}   
+		}
+		
+		positions[undoLayer][undoIndex].type = null;
+		positions[undoLayer][undoIndex].used = false;
+		positions[undoLayer][undoIndex].shapeName = null;
+		positions[undoLayer][undoIndex].undo = -1;
+		positions[undoLayer][undoIndex].direction = null;		
+		
+		redraw(context);
+		control_frame(context);
+        addAllShapes(context, positions);
+		
+        if(levels != 0){
+            removeShapes();   
+        }
+		numShapes--;
+		
+		$(canvas).unbind("click", undo);
     }
 
     /**
@@ -304,7 +347,7 @@ function control(context) {
 			} else if(polygonClicked(3, rollx = [405,787,785], rolly = [832,638,832], x, y) == true){
 				$(canvas).on("click", rollBrain);
 			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
-				$(canvas).on("click", eraseAll);
+				$(canvas).on("click", undo);
                 //console.log(1);
 			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
 				$(canvas).on("click", eraseAll);
@@ -423,7 +466,7 @@ function control(context) {
 			} else if(polygonClicked(3, rollx = [405,787,785], rolly = [832,638,832], x, y) == true){
 				$(canvas).on("touchstart", rollBrain);
 			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
-				$(canvas).on("touchstart", eraseAll);
+				$(canvas).on("touchstart", undo);
                 //console.log(1);
 			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
 				$(canvas).on("touchstart", eraseAll);

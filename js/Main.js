@@ -100,6 +100,11 @@ var numberOfBoxes = 0;
 */
 var numberOfDirections = 0;
 
+/*
+ Number of shapes added
+*/
+var numShapes = 0;
+
 /**
  *	load
  *	
