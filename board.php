@@ -24,7 +24,7 @@
 
                         <label for="tab1" id="label1" text-align="center">Scoreboard</label>
                         <label for="tab2" id="label2">Challenge</label>
-                        <label for="tab3" id="label3">Unlockables</label><br/>
+                        <label for="tab3" id="label3"><i class="em em-unlock"></i>Unlockables</label><br/>
                     </li>
                     <li>
                         <input type="radio" checked name="tabs" id="tab1">
@@ -45,17 +45,19 @@
                     <li>
                         <input type="radio" checked name="tabs" id="tab3">
                         <div id="tab-content3" class="tab-content">
-                            <p><i class="em em-ok_hand"></i></p>
+                            <p>&#11088</p>
                             <p>10 wins in a row</p><br/>
                             <br/>
-                            <p><i class="em em-key"></i></p>
+                            <<p>&#128273</p>
                             <p>10 wins without erase/clear</p>
                             <br/>
-                            <p><i class="em em-100"></i></p>
+                            <p>&#127942</p>
                             <p>100 wins</p>
                         </div><br/>
                     </li>
                 </ul>
+
+
                 <a href = "/index.html"><div class = "navigation return"></div></a>
             </center>
         </div>
