@@ -370,6 +370,14 @@ function addTransparentShape(context,x,y,type){
 		context.drawImage(trn_slope_SE, x, y,109,109);
 	} else if (type == "slope_NE"){
 		context.drawImage(trn_slope_NE, x, y,109,109);
+	} else if (type == "direction_SW"){
+		context.drawImage(trn_direction_SW, x, y,109,109);
+	} else if (type == "direction_NW"){
+		context.drawImage(trn_direction_NW, x, y,109,109);
+	} else if (type == "direction_SE"){
+		context.drawImage(trn_direction_SE, x, y,109,109);
+	} else if (type == "direction_NE"){
+		context.drawImage(trn_direction_NE, x, y,109,109);
 	}
 }
 
