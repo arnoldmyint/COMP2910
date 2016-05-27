@@ -106,9 +106,9 @@ function chooseLevel(whichLevel){
          numberOfDirections = 4;
          numberOfSlopes = 1;
 	 } else if(whichLevel == 14){
-         levels = 18;
+         levels = 14;
 		 end = 5;
-		 start = 0;
+		 start = 18;
 		 crevices = [2, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 34];
          numberOfBoxes = 5;
          numberOfDirections = 5;
