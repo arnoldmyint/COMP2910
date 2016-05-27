@@ -331,6 +331,15 @@ function brain(context, positions){
         theScore += (time/4) * 10;
         console.log(theScore);
         if(levels == 0){
+            var height = parseInt((35-start) / 6);
+            var far = parseInt(end/6);
+            if(height = 0){
+                height = 1;
+            }
+            theScore *= height;
+            if(far < height){
+                theScore *= (height - far);
+            }
             for(i = 0; i < positions.length; i++){
                 for(j = 0; j < positions[i].length; j++){
                     if(positions[i][j].used == true){
@@ -339,10 +348,10 @@ function brain(context, positions){
                                 theScore -= 5;
                                 break;
                             case "slope":
-                                theScore -= 10;
+                                theScore -= 5;
                                 break;
                             case "direction":
-                                theScore -= 20;
+                                theScore -= 5;
                                 break;
                             default:
                                 break;
@@ -350,18 +359,6 @@ function brain(context, positions){
                     }
                 }
             }
-            var height = parseInt((35-start) / 6);
-            var far = parseInt(end/6);
-            if(height = 0){
-                height = 1;
-            }
-            theScore *= height;
-//            if(far < height){
-//                theScore *= (height - far);
-//            }
-            
-            //console.log(height);
-            //console.log(far);
         }
         $("#mycanvas").hide();
         $("#time").hide();
