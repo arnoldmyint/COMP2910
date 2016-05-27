@@ -56,11 +56,11 @@ function control_frame(context) {
         number();
         levelName();
     }
-    canvas.onclick = function (e){
-        var point = getPointOnCanvas(canvas,e.pageX, e.pageY);
-        console.log(point.x);
-        console.log(point.y);
-    }
+//    canvas.onclick = function (e){
+//        var point = getPointOnCanvas(canvas,e.pageX, e.pageY);
+//        console.log(point.x);
+//        console.log(point.y);
+//    }
 }
 
 function number(){
@@ -74,7 +74,7 @@ function number(){
 function levelName(){
     context.fillStyle = "White";
     context.font = "50px Georgia";
-    context.fillText("Level " + levels, 310, 1100);
+    context.fillText("Level " + levels, 310, 1060);
 }
 
 function removeShapes(clear){
