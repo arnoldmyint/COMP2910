@@ -118,13 +118,13 @@ var boxNo = 0;
  Orignal number of direction
 */
 var directionNo = 0;
-var achievement1 = false;
+var achievement1 = 0;
 
 var timeOfErase = 0;
-var achievement2 = false;
+var achievement2 = 0;
 
 var  timesOfWin = 0;
-var achievement3 = false;
+var achievement3 = 0;
 
 var easterActivated = false;
 

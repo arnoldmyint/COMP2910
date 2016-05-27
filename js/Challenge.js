@@ -25,7 +25,7 @@ function easter(e,context) {
 
 function achievement_one(){
     if(timesOfWin == 2 && !retried && levels == 0){
-        achievement1 = true;
+        achievement1 = 1;
         console.log(111111111);
         return true;
     }else{
@@ -35,7 +35,7 @@ function achievement_one(){
 
 function achievement_two(){
     if(timesOfWin == 2 && timeOfErase == 0 && levels == 0){
-        achievement2 = true;
+        achievement2 = 1;
         console.log(222222222);
         return true;
     }else{
@@ -45,7 +45,7 @@ function achievement_two(){
 
 function achievement_three(){
     if(timesOfWin == 50 && levels == 0){
-        achievement3 = true;
+        achievement3 = 1;
         return true;
     }else{
         return false;

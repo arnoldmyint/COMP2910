@@ -444,7 +444,7 @@ function getStart(){
 	 */
 function getScore(){
     if(levels == 0){
-        document.location.href="/form2.html?score=" + theScore;
+        document.location.href="/form2.html?score=" + theScore + "&achievement1=" + achievement1 + "&achievement2=" +achievement2 + "&achievement3=" + achievement3;
     }else {
         document.location.href="/form.html?score=" + theScore;   
     }
