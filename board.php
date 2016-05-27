@@ -45,7 +45,6 @@
                     <li>
                         <input type="radio" checked name="tabs" id="tab3">
                         <div id="tab-content3" class="tab-content"><br/>
-                            <br/>
                             <p><i class="em em-ok_hand"></i></p>
                             <p>10 wins in a row</p><br/>
                             <br/>
