@@ -44,6 +44,9 @@
                         <input type="radio" checked name="tabs" id="tab3">
                         <div id="tab-content3" class="tab-content"><br/>
                             <p>⛈⚰👌⭐️ 🌟🏅 🎖🔮🔑☔</p>
+                            <p>10 wins in a row</p>
+                            <p>10 wins without erase/clear</p>
+                            <p>50 wins</p>
                         </div><br/>
                     </li>
                 </ul>
