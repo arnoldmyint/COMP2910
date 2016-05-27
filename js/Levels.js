@@ -54,7 +54,7 @@ function chooseLevel(whichLevel){
 		 end = 13;
 		 start = 24;
 		 crevices = [6];
-         numberOfBoxes = 1;
+         numberOfBoxes = 2;
          numberOfDirections = 2;
          numberOfSlopes = 1;
 	 } else if(whichLevel == 8){
