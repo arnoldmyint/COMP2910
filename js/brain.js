@@ -39,7 +39,6 @@ function brain(context, positions){
 	}
 	
 	function whereTo(){
-		//alert("Rolling again");
 		//console.log("Direction to move: " + direction + " Layer: " +theBrain.brainLayer + " index: " + theBrain.brainIndex);
 		//Find out direction
 		if(positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_SW"
@@ -193,7 +192,11 @@ function brain(context, positions){
         movement = setInterval(function (){    
             //console.log(imgInc);
             removeAllEvent();
-			brain.src = "images/brain/" + imgInc + ".png";
+			if(easterActivated == true){
+				brain.src = "images/egg/egg" + imgInc + ".png";
+			} else {
+				brain.src = "images/brain/" + imgInc + ".png";
+			}
 			context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0,0,canvas.width,canvas.height);
 			redraw(context);

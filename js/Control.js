@@ -219,7 +219,7 @@ function control(context) {
         }
 		numShapes--;
 		
-		$(canvas).unbind("click", undo);
+		$(canvas).unbind("click touchstart touchend", undo);
     }
 
     /**

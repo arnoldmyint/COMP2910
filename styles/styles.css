@@ -1,49 +1,26 @@
+/*  Brain Roll  
+    Group 1
+     - Arnold Myint
+     - Arvin Rolos
+     - Matt Rosenlund
+     - Tommy Nam
+     - Wayne Wang
+*/
+    
 
 /* make the body fill the window */
-
 html, body {
     color: #FFFFFF;
     margin: 0px;
     width: 100%;
     overflow: hidden;
     text-align: center;
+    background-image : url("../images/background_14.jpg");
 }
 
+/* Color for form table font */
 table {
 	color: black;
-}
-
-#background{
-    z-index: 1;
-}
-
-#background:before {
-    content: "";
-    position: absolute;
-    background-color: #D6FFCD;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    background-image : url("../images/background_14.jpg");
-   	background-size: 100%;
-
-/*
-    opacity: 0.3;
-    background-repeat: no-repeat;    
-    filter:alpha(opacity=50);
-*/
-    height:100%;
-    width:100%;
- }
-
-#page{
-   margin:auto;
-   z-index:-1;
-   opacity: 1;
-   filter:alpha(opacity=100);
 }
 
 /* make any canvas fill its container */
@@ -53,66 +30,21 @@ canvas{
     display: block;
 }
 
+/* Images properties */
 img{
     position: absolute;
     display: none;
 }
 
-.logomini{
-    background-image : url("../images/ball.png");
-    margin:0 auto;
-    display: block;
-    width : 99px;
-    height: 99px;
-}
-
-#tutorial {
+/* Hide this pages and show them using Jquery (see Navigation.js) */
+#tutorial, #credits, #mycanvas, #chooseGame, #pauseGame, #confirmationPage,
+ #loadLevel, #gameOver, #gameWin, #time{
     display :none;   
 }
 
-#credits {
-    text-align: center;
-    display :none;
-}
 
-#mycanvas {
-    display :none;
-}
-
-#chooseGame {
-    display :none;
-}
-
-#pauseGame {
-    display :none;
-}
-
-#confirmationPage {
-    text-align: center;
-    display :none;
-}
-
-#loadLevel{
-    display :none;
-}
-
-#gameOver{
-    text-align: center;
-    display :none;
-}
-
-#gameWin{
-    text-align: center;
-    display :none;
-}
-
-#time{
-    text-align: center;
-    display :none;
-}
-
-
-.navigation {
+/* Navigation buttons and animation for button clicked using image sprites. */
+.navigation, .navigation:active {
 	background: url("../images/NavigationButtons.png") no-repeat top left;
 	width: 222px;
 	height: 53px;
@@ -122,9 +54,6 @@ img{
 
 .navigation:active {
 	background: url("../images/NavigationButtons.png") no-repeat top left;
-	width: 222px;
-	height: 53px;
-    margin:0 auto;
 	transition: 0s;
 	transform : rotate(5deg);
 }
@@ -249,23 +178,7 @@ img{
 	background-position: -3248px -63px;
 }
 
-.navigation.mute {
-	background-position: -3480px 0;
-}
-
-.navigation.mute:active {
-	background-position: -3480px -63px;
-}
-
-.navigation.unmute {
-	background-position: -3712px 0;
-}
-
-.navigation.unmute:active {
-	background-position: -3712px -63px;
-}
-
-
+/* Table to put load level images so it centered nicely */
 .selectionTable {
 	margin-left: auto;
 	margin-right: auto;
@@ -273,20 +186,20 @@ img{
     color: white;
 }
 
+/* Column for load level table */
 .col1, .col2, .col3, .col4{	
 	width: 10px;
 }
 
-.buttons {
+
+/* Load Level Buttons and animation for clicked button using Image sprites */
+.buttons, .buttons:active {
     background: url("../images/LevelButtons.png") no-repeat top left;
     width: 70px;
     height: 70px;
 }
    
 .buttons:active {
-    background: url("../images/LevelButtons.png") no-repeat top left;
-    width: 70px;
-    height: 70px;
     transition: 0s;
     transform : rotate(5deg);
 }
@@ -414,9 +327,7 @@ img{
 
 
 
-/* For Menu 2 Document */
-
-
+/* Styling for Highscores Tab */
  
 .tabs {
     list-style: none;
@@ -467,16 +378,19 @@ img{
     color: white;
 }
 
+/* Brain Roll logo */
 #logo{
     margin: auto;
     text-align:center;
 }
 
+/* Brain Roll logo text */
 #textLogo{
     position: relative;
     display: inline-block;
 }
 
+/* Rotating logo */
 .rolling {
     margin-bottom: 15px;
     position: relative;
