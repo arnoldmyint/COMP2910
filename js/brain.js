@@ -328,7 +328,12 @@ function brain(context, positions){
         clearInterval(movement);
         var i = 0;
         var explosion= setInterval(function (){
-            brain.src = "images/EXPLOSION/e" + i + ".png";
+			if(easterActivated == true){
+				brain.src = "images/EGGSPLOSION/ee" + imgInc + ".png";
+			} else {
+				brain.src = "images/Drop/d" + i + ".png";
+			}
+            
             //console.log(brain);
             context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0,0,canvas.width,canvas.height);
@@ -355,7 +360,12 @@ function brain(context, positions){
         clearInterval(movement);
 		var i = 0;
         var dropBall= setInterval(function (){
-            brain.src = "images/Drop/d" + i + ".png";
+			if(easterActivated == true){
+				brain.src = "images/eggDrop/ed" + imgInc + ".png";
+			} else {
+				brain.src = "images/Drop/d" + i + ".png";
+			}
+            
             context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0,0,canvas.width,canvas.height);
 			redraw(context);
