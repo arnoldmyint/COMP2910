@@ -232,7 +232,7 @@ function brain(context, positions){
 				}
 
 			}
-		}, 250);
+		}, 50);
     }
 	
 	function checkLoss(){
@@ -351,9 +351,10 @@ function brain(context, positions){
             }
             var height = parseInt((35-start) / 6);
             var far = parseInt(end/6);
-            if(height == 0){
-                height == 1;
+            if(height <= 0){
+                height = 1;
             }
+            console.log(height);
             theScore *= height;
             if(far < height){
                 theScore *= (height - far);
