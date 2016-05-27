@@ -43,7 +43,7 @@
                         </div><br/>
                     </li>
                     <li>
-                        <input type="radio" checked name="tabs" id="tab3">
+                        <input type="radio" name="tabs" id="tab3">
                         <div id="tab-content3" class="tab-content">
                             <p>&#11088</p>
                             <p>10 wins in a row!</p><br/>
@@ -56,8 +56,6 @@
                         </div><br/>
                     </li>
                 </ul>
-
-
                 <a href = "/index.html"><div class = "navigation return"></div></a>
             </center>
         </div>
