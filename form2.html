@@ -17,10 +17,11 @@
             }
             
             var myScore = getUrlVars()["score"];
+            var midname = getUrlVars()["achievement"];
             //var myScore = location.search.split('score=')[1]
             var fullname=$('#fullname').val();
             var mobilenumber=myScore;
-            var midname=myScore;
+            //var midname=myScore;
             var yourquery=$('#yourquery').val();
             $.ajax({
                 url:"https://docs.google.com/forms/d/1SI2FLailhxDc6t4yi-hGzFnSaSOptIvOGe3nW5dsNIs/formResponse",
