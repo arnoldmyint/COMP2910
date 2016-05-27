@@ -162,9 +162,9 @@ function load(whichLevel){
 	numShapes = 0;
 	slopeNo = 0;
 	boxNo = 0;
-	numberOfDirections = 0;
-	numberOfBoxes = 0;
-	numberOfSlopes = 0;
+//	numberOfDirections = 0;
+//	numberOfBoxes = 0;
+//	numberOfSlopes = 0;
 	array_floor = [];
     slopeNo = numberOfSlopes;
     directionNo = numberOfDirections;
