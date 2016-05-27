@@ -105,6 +105,11 @@ var numberOfDirections = 0;
 */
 var numShapes = 0;
 
+var slopeNo = 0;
+
+var boxNo = 0;
+
+var directionNo = 0;
 /**
  *	load
  *	
@@ -115,6 +120,9 @@ function load(whichLevel){
     if(!isRetry){
         chooseLevel(whichLevel);   
     }
+    slopeNo = numberOfSlopes;
+    directionNo = numberOfDirections;
+    boxNo = numberOfBoxes;
     isRetry = false;
     canvas=document.getElementById("mycanvas");
     container=document.getElementById("container");

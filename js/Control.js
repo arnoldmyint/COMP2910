@@ -57,7 +57,7 @@ function control(context) {
         redraw(context);
         control_frame(context);
         if(levels != 0){
-            removeShapes();   
+            removeShapes(false);   
         }
         addAllShapes(context, positions);
         for (var i = 0; i < array_floor.length; i++) {
@@ -112,11 +112,9 @@ function control(context) {
                     numberOfBoxes--;
                 //checkShapes(positions, shapeType);
                 } else if(shapeType == "slope_SW" || shapeType == "slope_SE" || shapeType == "slope_NE" || shapeType == "slope_NW"){
-                    console.log("fuck");
                     numberOfSlopes--;
                 //checkShapes(positions, "slope");
                 } else if(shapeType == "direction_SW" || shapeType == "direction_SE" || shapeType == "direction_NE" || shapeType == "direction_NW"){
-                    console.log("fuck");
                     numberOfDirections--;
                 //checkShapes(positions, "direction");
                 }   
@@ -130,7 +128,7 @@ function control(context) {
         addAllShapes(context, positions);
         control_frame(context);
         if(levels != 0){
-            removeShapes();
+            removeShapes(false);
         }
         if (device.mobile() || device.tablet()) {
             $(canvas).unbind('touchmove', move);
@@ -152,7 +150,7 @@ function control(context) {
         clearInterval(mytimer);
 		brain(context, positions);
 		
-		$(canvas).unbind("click", rollBrain);
+		$(canvas).unbind("click touchstart touchend", rollBrain);
 	}
 	
 	/**
@@ -167,13 +165,15 @@ function control(context) {
                 positions[i][j].used = false;
 			}
 		}
-		
 		redraw(context);
 		control_frame(context);
         if(levels != 0){
-            removeShapes();   
+            numberOfBoxes = boxNo;
+            numberOfSlopes = slopeNo;
+            numberOfDirections = directionNo;
+            removeShapes(true);   
         }
-		$(canvas).unbind("click", eraseAll);
+		$(canvas).unbind("click touchstart touchend", eraseAll);
 	}
     
     function undo(){
@@ -464,12 +464,12 @@ function control(context) {
                 }, 500);
                 tapping = false;			
 			} else if(polygonClicked(3, rollx = [405,787,785], rolly = [832,638,832], x, y) == true){
-				$(canvas).on("touchstart", rollBrain);
+				$(canvas).on("touchstart touchend", rollBrain);
 			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
-				$(canvas).on("touchstart", undo);
+				$(canvas).on("touchstart touchend", undo);
                 //console.log(1);
 			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
-				$(canvas).on("touchstart", eraseAll);
+				$(canvas).on("touchstart touchend", eraseAll);
 			}  else if(polygonClicked(3, rollx = [13,395,13], rolly = [24,24,220], x, y) == true){
 				paused();
 			}
