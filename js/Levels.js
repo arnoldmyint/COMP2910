@@ -3,9 +3,9 @@ function chooseLevel(whichLevel){
          levels = 1;
          end = 25;
          start = 13;
-         numberOfBoxes = 1;
-         numberOfDirections = 1;
-         numberOfSlopes = 1;
+         numberOfBoxes = 100;
+         numberOfDirections = 100;
+         numberOfSlopes = 1100;
 	 } else if(whichLevel == 2){
          levels = 2;
 		 end = 3;
