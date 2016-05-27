@@ -149,7 +149,7 @@ function control(context) {
         clearInterval(mytimer);
 		brain(context, positions);
 		
-		$(canvas).unbind("click touchstart", rollBrain);
+		$(canvas).unbind("click touchstart touchend", rollBrain);
 	}
 	
 	/**
@@ -170,7 +170,7 @@ function control(context) {
         if(levels != 0){
             removeShapes();   
         }
-		$(canvas).unbind("click touchstart", eraseAll);
+		$(canvas).unbind("click touchstart touchend", eraseAll);
 	}
     
     function erase(){
@@ -419,12 +419,12 @@ function control(context) {
                 }, 500);
                 tapping = false;			
 			} else if(polygonClicked(3, rollx = [405,787,785], rolly = [832,638,832], x, y) == true){
-				$(canvas).on("touchstart", rollBrain);
+				$(canvas).on("touchstart touchend", rollBrain);
 			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
-				$(canvas).on("touchstart", eraseAll);
+				$(canvas).on("touchstart touchend", eraseAll);
                 //console.log(1);
 			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
-				$(canvas).on("touchstart", eraseAll);
+				$(canvas).on("touchstart touchend", eraseAll);
 			}  else if(polygonClicked(3, rollx = [13,395,13], rolly = [24,24,220], x, y) == true){
 				paused();
 			}
