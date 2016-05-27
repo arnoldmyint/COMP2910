@@ -326,7 +326,6 @@ function brain(context, positions){
 	}
 	
 	function win(){
-        var n = 0;
         achieve_1++;
         clearInterval(movement);
         theScore += (time/4) * 10;
@@ -338,16 +337,15 @@ function brain(context, positions){
                 height = 1;
             }
             console.log(height);
-            theScore *= height;
+            theScore += height*(time/4);
             console.log(theScore);
             if(far < height){
-                theScore *= (height - far);
+                theScore += (height - far)*(time/4);
             }
             console.log(theScore);
             for(i = 0; i < positions.length; i++){
                 for(j = 0; j < positions[i].length; j++){
                     if(positions[i][j].used == true){
-                        n++;
                         switch(positions[i][j].shapeName){
                             case "box":
                                 theScore -= 5;
@@ -365,7 +363,6 @@ function brain(context, positions){
                 }
             }
             console.log(theScore);
-            console.log(n);
         }
         $("#mycanvas").hide();
         $("#time").hide();
