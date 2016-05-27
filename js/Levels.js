@@ -4,7 +4,8 @@ function chooseLevel(whichLevel){
          levels = 0;
          do{
             end = parseInt(Math.random()*36);
-            start = parseInt(Math.random()*36);   
+            //start = parseInt(Math.random()*36);
+			start = 32;
          }while(start%6 == end);
      } else if(whichLevel == 1){
          levels = 1;
