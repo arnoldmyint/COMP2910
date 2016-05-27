@@ -57,7 +57,7 @@ function control(context) {
         redraw(context);
         control_frame(context);
         if(levels != 0){
-            removeShapes();   
+            removeShapes(false);   
         }
         addAllShapes(context, positions);
         for (var i = 0; i < array_floor.length; i++) {
@@ -127,7 +127,7 @@ function control(context) {
         addAllShapes(context, positions);
         control_frame(context);
         if(levels != 0){
-            removeShapes();
+            removeShapes(false);
         }
         if (device.mobile() || device.tablet()) {
             $(canvas).unbind('touchmove', move);
@@ -164,11 +164,13 @@ function control(context) {
                 positions[i][j].used = false;
 			}
 		}
-		
 		redraw(context);
 		control_frame(context);
         if(levels != 0){
-            removeShapes();   
+            numberOfBoxes = boxNo;
+            numberOfSlopes = slopeNo;
+            numberOfDirections = directionNo;
+            removeShapes(true);   
         }
 		$(canvas).unbind("click touchstart touchend", eraseAll);
 	}

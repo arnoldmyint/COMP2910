@@ -55,11 +55,11 @@ function control_frame(context) {
     if(levels != 0){
         number();   
     }
-//    canvas.onclick = function (e){
-//        var point = getPointOnCanvas(canvas,e.pageX, e.pageY);
-//        console.log(point.x);
-//        console.log(point.y);
-//    }
+    canvas.onclick = function (e){
+        var point = getPointOnCanvas(canvas,e.pageX, e.pageY);
+        console.log(point.x);
+        console.log(point.y);
+    }
 }
 
 function number(){
@@ -70,7 +70,7 @@ function number(){
     context.fillText(numberOfDirections, 477, 890);
 }
 
-function removeShapes(){
+function removeShapes(clear){
     if(numberOfBoxes <= 0){
         context.clearRect(120, 870, 105, 118);
         context.fillStyle = "#D6FFCD";
@@ -88,5 +88,15 @@ function removeShapes(){
     }
     if(levels != 0){
         number();   
+    }
+    if(clear){
+        context.clearRect(120, 870, 105, 118);
+        context.clearRect(421,870,105,118);
+        context.clearRect(272,870,105,118);
+        context.fillStyle = "#D6FFCD";
+        context.fillRect(120, 870,114,118);
+        context.fillRect(421,870,105,118);
+        context.fillRect(272,870,105,118);
+        control_frame(context);
     }
 }
