@@ -329,7 +329,7 @@ function brain(context, positions){
         var i = 0;
         var explosion= setInterval(function (){
 			if(easterActivated == true){
-				brain.src = "images/EGGSPLOSION/ee" + imgInc + ".png";
+				brain.src = "images/EGGSPLOSION/ee" + i + ".png";
 				console.log(brain.src);
 			} else {
 				brain.src = "images/EXPLOSION/e" + i + ".png";
@@ -362,7 +362,7 @@ function brain(context, positions){
 		var i = 0;
         var dropBall= setInterval(function (){
 			if(easterActivated == true){
-				brain.src = "images/eggDrop/ed" + imgInc + ".png";
+				brain.src = "images/eggDrop/ed" + i + ".png";
 			} else {
 				brain.src = "images/Drop/d" + i + ".png";
 			}
