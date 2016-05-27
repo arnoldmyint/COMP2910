@@ -1,3 +1,7 @@
+/*
+ set up the 15 pre-set levels and the randomized level
+ @param determine which level it is
+*/
 function chooseLevel(whichLevel){
 	 if(whichLevel == 0){
          //console.log(parseInt(Math.random()*29+1));
@@ -124,6 +128,9 @@ function chooseLevel(whichLevel){
 	 }
  }
 
+/*
+ showing the next level 
+*/
 function nextLevel(){
     clearInterval(mytimer);
     time = 200;

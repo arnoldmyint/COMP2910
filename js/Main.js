@@ -210,7 +210,9 @@ function load(whichLevel){
         });
     }
 }
-
+/*
+ remove all the event listeners 
+*/
 function removeAllEvent(){
     $(canvas).unbind('click');
     $(canvas).unbind('mousedown');

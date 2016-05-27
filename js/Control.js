@@ -171,6 +171,9 @@ function control(context) {
         timeOfErase++;
 	}
     
+    /*
+     erase the shapes that added at last
+    */
     function undo(){
 		var undoIndex;
 		var undoLayer;
@@ -347,7 +350,7 @@ function control(context) {
     }
 
 	/*
-	 * Controls for mobile
+	 * Controls for touch screen
 	 */
     if (device.mobile() || device.tablet()) {
         var slopeTypes = "slope_SW";
@@ -465,6 +468,9 @@ function control(context) {
     }
 }
 
+/*
+ retry buttons for retrying the game
+*/
 function retry(){
     clearInterval(mytimer);
     time = 200;

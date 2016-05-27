@@ -23,6 +23,10 @@ function easter(e,context) {
     }
 }
 
+/*
+ check does the user get the achievement one or not
+ @return boolean that show the achievement complished or not
+*/
 function achievement_one(){
     if(timesOfWin == 2 && !retried && levels == 0){
         achievement1 = 1;
@@ -31,7 +35,10 @@ function achievement_one(){
         return false;
     }
 }
-
+/*
+ check does the user get the achievement two or not
+ @return boolean that show the achievement complished or not
+*/
 function achievement_two(){
     if(timesOfWin == 2 && timeOfErase == 0 && levels == 0){
         achievement2 = 1;
@@ -40,7 +47,10 @@ function achievement_two(){
         return false;
     }
 }
-
+/*
+ check does the user get the achievement three or not
+ @return boolean that show the achievement complished or not
+*/
 function achievement_three(){
     if(timesOfWin == 50 && levels == 0){
         achievement3 = 1;

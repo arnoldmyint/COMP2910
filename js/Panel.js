@@ -26,9 +26,6 @@ function control_frame(context) {
     context.drawImage(clear, 395, 20, 400, 210);
     context.drawImage(pause, 7, 20, 400, 210);
     context.drawImage(box, 135, 900);
-//    context.clearRect(272,890,105,95);
-//    context.fillStyle = "#D6FFCD";
-//    context.fillRect(272,890,114,98);
     if(slope == 1){
         context.drawImage(slope1, 290, 890);
     }else if(slope == 2){
@@ -38,9 +35,6 @@ function control_frame(context) {
     }else if(slope == 0){
         context.drawImage(slope0, 290, 890);
     }
-//    context.clearRect(421,890,105,95);
-//    context.fillStyle = "#D6FFCD";
-//    context.fillRect(421,890,114,98);
     if(direction == 4){
         context.drawImage(direction0, 435, 890);
     }else if(direction == 1){
@@ -56,13 +50,11 @@ function control_frame(context) {
         number();
         levelName();
     }
-//    canvas.onclick = function (e){
-//        var point = getPointOnCanvas(canvas,e.pageX, e.pageY);
-//        console.log(point.x);
-//        console.log(point.y);
-//    }
 }
 
+/*
+ draw the number of the shapes on the control panel
+*/
 function number(){
     context.fillStyle = "black";
     context.font = "30px Georgia";
@@ -71,12 +63,18 @@ function number(){
     context.fillText(numberOfDirections, 477, 890);
 }
 
+/*
+ draw the level name on the bottom of the canvas
+*/
 function levelName(){
     context.fillStyle = "White";
     context.font = "50px Georgia";
     context.fillText("Level " + levels, 310, 1060);
 }
-
+/*
+ remove the shapes on the control panel base on does the user used all shapes 
+ @param clear is the boolean type to determine should we redraw the shapes in the control panel
+*/
 function removeShapes(clear){
     if(numberOfBoxes <= 0){
         context.clearRect(120, 870, 105, 118);

@@ -27,7 +27,10 @@ function brain(context, positions){
 	var direction = "direction_SW";
 	
 	startBrainRoll();
-	
+    
+	/*
+     start rolling the brain
+    */
 	function startBrainRoll(){
 		context.setTransform(1, 0, 0, 1, 0, 0);
 		context.clearRect(0,0,canvas.width,canvas.height);
@@ -38,9 +41,10 @@ function brain(context, positions){
 		whereTo();
 	}
 	
+    /*
+     determine where is the brain rolling
+    */
 	function whereTo(){
-		//console.log("moving");
-		//console.log("Direction to move: " + direction + " Layer: " +theBrain.brainLayer + " index: " + theBrain.brainIndex);
 		//Find out direction
 		if(positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_SW"
 				|| positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_NW"
@@ -84,6 +88,9 @@ function brain(context, positions){
 		}
 	}
 	
+    /*
+     rolling on the ground 
+    */
 	function rollGround(){
 		if(direction == "direction_SW"){
 			theBrain.brainIndex += 6;
@@ -100,6 +107,9 @@ function brain(context, positions){
 		}
 	}
 	
+    /*
+     rolling to the south west
+    */
 	function rollSW(){		
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
@@ -117,6 +127,9 @@ function brain(context, positions){
 		}
 	}
 	
+    /*
+     rolling to the north west
+    */
 	function rollNW(){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
@@ -138,6 +151,9 @@ function brain(context, positions){
 		}
 	}
 	
+    /*
+     rolling to south east
+    */
 	function rollSE(){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
@@ -155,6 +171,9 @@ function brain(context, positions){
 		}
 	}
 	
+    /*
+     rolling to north east
+    */
 	function rollNE(){
 		if(positions[theBrain.brainLayer-1][theBrain.brainIndex].used == true){
 			if(positions[theBrain.brainLayer-1][theBrain.brainIndex].type == "box"){
@@ -176,6 +195,10 @@ function brain(context, positions){
 		}
 	}
 	
+    /*
+     showing the Brain on the game frame
+     @param direction is the direction that the brain will go
+    */
 	function moveBrain(direction){
 		var moveInc;
 		var imgInc;
@@ -191,7 +214,6 @@ function brain(context, positions){
 		var brainPoint = directionXY(direction);        
 		
         movement = setInterval(function (){    
-            //console.log(imgInc);
             removeAllEvent();
 			if(easterActivated == true){
 				brain.src = "images/egg/egg" + imgInc + ".png";
@@ -236,6 +258,10 @@ function brain(context, positions){
 		}, 25);
     }
 	
+    /*
+     check does it lose or not
+     @return does the user lose or not as boolean
+    */
 	function checkLoss(){
 		if(theBrain.brainIndex < 36 && theBrain.brainIndex >= 0){
 			if (array_floor[theBrain.brainIndex].crevice == true){
@@ -262,6 +288,11 @@ function brain(context, positions){
 		}
 	}
 	
+    /*
+     the direction values (cordination) for rolling 
+     @param direction is the direction that the brain will move to
+     @return the coordination of the brain moving
+    */
 	function directionXY(direction){
 		var theX;
 		var theY;
@@ -312,6 +343,10 @@ function brain(context, positions){
 		};
 	}
 	
+    /*
+     check does the shapes block the brain moving or not
+     @return the shapes blocked or not as boolean
+    */
 	function isBlocked(){
 		if(positions[theBrain.brainLayer][theBrain.brainIndex].used == true
 			&& positions[theBrain.brainLayer][theBrain.brainIndex].type != "direction_SW"
@@ -324,6 +359,9 @@ function brain(context, positions){
 		}
 	}
 	
+    /*
+     lose the game function will show the explosion animation and show the game over page
+    */
 	function lose(){
         clearInterval(movement);
         var i = 0;
@@ -335,7 +373,6 @@ function brain(context, positions){
 				brain.src = "images/EXPLOSION/e" + i + ".png";
 			}
             
-            //console.log(brain);
             context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0,0,canvas.width,canvas.height);
 			redraw(context);
@@ -356,6 +393,9 @@ function brain(context, positions){
         },2000);
 	}
 	
+    /*
+     the win function show the dropping animation and the game win page and calculate the score
+    */
 	function win(){
         timesOfWin++;
         clearInterval(movement);

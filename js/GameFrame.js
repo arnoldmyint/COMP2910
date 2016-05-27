@@ -284,7 +284,6 @@ function timer(context){
             $("#gameOver").show();
         }
     }, 1000);
-    //return false;
 }
 
 /**
@@ -388,6 +387,11 @@ function addTransparentShape(context,x,y,type){
 	}
 }
 
+/*
+ check if the tile is a crevice
+ @return true or false as boolean
+ @param pos just the floor tile
+*/
 function checkIfCrevice(pos){
 	for(var i = 0; i < crevices.length;i++){
 		if (crevices[i] == pos){
@@ -398,6 +402,10 @@ function checkIfCrevice(pos){
 	return false;
 }
 
+/*
+ draw the crevices 
+ @param context is the context for the canvas
+*/
 function drawCrevices(context){
 	for(var i = 0; i < array_floor.length;i++){
 		if(array_floor[i].crevice == true){
