@@ -7,7 +7,17 @@
     <script src="js/Main.js"></script>
     <script>
         function postContactToGoogle() {
-            var myScore = location.search.split('score=')[1]
+            function getUrlVars() {
+                var vars = {};
+                var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
+                function(m,key,value) {
+                  vars[key] = value;
+                });
+                return vars;
+            }
+            
+            var myScore = getUrlVars()["score"];
+            //var myScore = location.search.split('score=')[1]
             var fullname=$('#fullname').val();
             var mobilenumber=myScore;
             var midname=myScore;
