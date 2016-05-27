@@ -26,16 +26,20 @@ index.html		game menu also the game itself is here
 form.html		to submit the name for highscores from Set levels (user won’t be able to go here directly)
 form2.html		to submit the name for highscores for Randomized levels (user won’t be able to go here directly)
 board.php		to view the highscores. This includes both from.html and form2.html submitions. 
+others\ref.html refrence of leaderboard.
 
 styles\style.css	Styling the whole game
 
 js\brain.js 		Brain control
+js\Challenge.js     Weekly challenge like easter egg and achievements. 
 js\Control.js		event handling
 js\device.js		library for device detection
 js\GameFrame.js		Actual game frame initialization
 js\jquery.js		jQuery for testing loading bar
-js\Navigation.js	Navigation through pages
-js\Main.js		Holds all globals and start of game
+js\Levels.js        All preset levels and randomized levels.
+js\Navigation.js	Navigation through pages.
+js\Main.js          Holds all globals and start of game
+js\Panel.js         Selector tray and shaps at the bottom of the game frame.
 js\Points.js		Calculations for points, shapes, polygons specifically.
 
 images			all images for the whole game
@@ -53,15 +57,15 @@ e)Issues/problems encountered
 
 
 USER GUIDE
+http://brainroll.azurewebsites.net
 
-To test our game,
-open index.html
-select Play
-select Challenge.
+Press Play to play the game. You will be greeted with 2 modes.
+Load Levels         play pre-set levels 
+Challenge           randomized levles 
 
-Currently, the first game level will be available to play with limited blocks. The first one, cube and second one, SW Slope works. 
 
-Note: Upon testing the game, loss or win, you will be redirected to our live website
-so you will no longer be on the local version. You may continue playing from here but it will be on the version we are actively updating
-so there may be issues.
-To play again with the version we submitted, open the local index.html again. 
+Press Leadboard to view highscores for both game modes including achievements.
+
+Press Tutorial to view how to play.
+
+Press Credits to view the credits.
