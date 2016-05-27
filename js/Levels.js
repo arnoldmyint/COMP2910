@@ -43,40 +43,41 @@ function chooseLevel(whichLevel){
          numberOfSlopes = 100;
 	 } else if(whichLevel == 6){
          levels = 6;
-		 end = 18;
-		 start = 28;
-		 crevices = [17];
+		 end = 17;
+		 start = 27;
+		 crevices = [16];
          numberOfBoxes = 0;
          numberOfDirections = 2;
          numberOfSlopes = 1;
 	 } else if(whichLevel == 7){
          levels = 7;
-		 end = 14;
-		 start = 25;
-		 crevices = [7];
+		 end = 13;
+		 start = 24;
+		 crevices = [6];
          numberOfBoxes = 1;
-         numberOfDirections = 3;
+         numberOfDirections = 2;
          numberOfSlopes = 1;
 	 } else if(whichLevel == 8){
          levels = 8;
-		 end = 12;
-		 start = 19;
-		 crevices = [7,8,9,10,11];
+		 end = 11;
+		 start = 18;
+		 crevices = [6,7,8,9,10];
          numberOfBoxes = 3;
          numberOfDirections = 2;
          numberOfSlopes = 2;
 	 } else if(whichLevel == 9){
          levels = 9;
-		 end = 3;
-		 start = 8;
-		 crevices = [7,8,9,10];
+		 end = 18;
+		 start = 19;
+		 crevices = [6,7,8,9];
          numberOfBoxes = 3;
          numberOfDirections = 3;
          numberOfSlopes = 2;
 	 } else if(whichLevel == 10){
          levels = 10;
-		 end = 6;
-		 start = 1;
+		 end = 5;
+		 start = 0;
+		 crevices = [4, 10, 16, 22, 28];
          numberOfBoxes = 10;
          numberOfDirections = 2;
          numberOfSlopes = 5;
