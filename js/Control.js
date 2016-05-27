@@ -50,9 +50,9 @@ function control(context) {
         moving = true;
         context.clearRect(0, 10, canvas.width, canvas.height);
         if (device.mobile() || device.tablet()) {
-            var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY);
+            var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY-20);
         } else {
-            var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
+            var point = getPointOnCanvas(canvas, e.pageX, e.pageY-20);
         }
         redraw(context);
         control_frame(context);
