@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>Leaderboard</title>
+                <meta charset="UTF-8">
+
         <link rel="stylesheet" type="text/css" href="styles/styles.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="js/Navigation.js"></script>
