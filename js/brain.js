@@ -337,10 +337,12 @@ function brain(context, positions){
                 height = 1;
             }
             console.log(height);
-            theScore += height*(time/4);
+            theScore += height*(time/4)/10;
             console.log(theScore);
             if(far < height){
-                theScore += (height - far)*(time/4);
+                theScore += (height - far)*(time/4)/10;
+            }else {
+                theScore = theScore;
             }
             console.log(theScore);
             for(i = 0; i < positions.length; i++){
