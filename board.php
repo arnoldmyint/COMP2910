@@ -5,6 +5,8 @@
         <link rel="stylesheet" type="text/css" href="styles/styles.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="js/Navigation.js"></script>
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
     </head>
     <style>
         table {
