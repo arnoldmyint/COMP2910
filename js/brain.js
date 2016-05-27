@@ -412,12 +412,16 @@ function brain(context, positions){
 			$("#mycanvas").hide();
 			$("#time").hide();
 			$("#gameWin").show();
-			$("#achieve_1").hide();
-			printWinScore();
-			if(timesOfWin == 1 && levels == 0){
+			if(achievement_one()){
 				$("#achieve_1").show();
-				//document.location.href="/form2.html?score=" + theScore + "&achievement=" + "&#127775";
 			}
+			if(achievement_two()){
+				$("#achieve_2").show();
+			}
+			if(achievement_three()){
+				$("#achieve_3").show();
+			}
+			printWinScore();
         },2000);
 	}
 }
