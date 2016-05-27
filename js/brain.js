@@ -326,10 +326,28 @@ function brain(context, positions){
 	
 	function lose(){
         clearInterval(movement);
-        $("#mycanvas").hide();
-        $("#time").hide();
-        $("#gameOver").show();
-        printLoseScore();
+        var i = 0;
+        var explosion= setInterval(function (){
+            brain.src = "images/EXPLOSION/e" + i + ".png";
+            console.log(brain);
+            context.setTransform(1, 0, 0, 1, 0, 0);
+			context.clearRect(0,0,canvas.width,canvas.height);
+			redraw(context);
+			addAllShapes(context, positions);
+			control_frame(context);
+            context.drawImage(brain, theBrain.x, theBrain.y, 30, 30);
+            i++;
+            if(i==19){
+                i = 0;
+            }
+        },100);
+        setTimeout(function (){
+            clearInterval(explosion);
+            $("#mycanvas").hide();
+            $("#time").hide();
+            $("#gameOver").show();
+            printLoseScore(); 
+        },2000);
 	}
 	
 	function win(){
