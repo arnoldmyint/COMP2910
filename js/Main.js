@@ -169,13 +169,13 @@ function load(whichLevel){
     slopeNo = numberOfSlopes;
     directionNo = numberOfDirections;
     boxNo = numberOfBoxes;
-    isRetry = false;
     time = 200;
 	//end reset globals
 	
     if(!isRetry){
         chooseLevel(whichLevel);   
     }
+    isRetry = false;
     canvas=document.getElementById("mycanvas");
     container=document.getElementById("container");
     context=canvas.getContext("2d");
