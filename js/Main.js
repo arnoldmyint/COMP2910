@@ -135,7 +135,7 @@ var crevices = [];
  */
 function load(whichLevel){
 	//reset globals
-	crevices[];
+	crevices = [];
 	easterActivated = false;
 	numShapes = 0;
 	slopeNo = 0;
