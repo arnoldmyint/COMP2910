@@ -237,8 +237,10 @@ function brain(context, positions){
     }
 	
 	function checkLoss(){
-		if (array_floor[theBrain.brainIndex].crevice == true){
-			return true;
+		if(theBrain.brainIndex < 36 && theBrain.brainIndex >= 0){
+			if (array_floor[theBrain.brainIndex].crevice == true){
+				return true;
+			}
 		}
 		
 		if(direction == "direction_SW"){
@@ -258,8 +260,6 @@ function brain(context, positions){
 				return true;
 			}
 		}
-		
-		return false;
 	}
 	
 	function directionXY(direction){

@@ -21,20 +21,20 @@
 			var achievementTwo = getUrlVars()["achievement2"];
 			var achievementThree = getUrlVars()["achievement3"];
 			if(achievementOne == 1){
-				var combineOne = "&#11088 ";
+				var combineOne = "1";
 			}
 			if (achievementTwo == 1){
-				var combineTwo = "&#128273 ";
+				var combineTwo = "1";
 			}
 			if (achievementThree == 1){
-				var combineThree = "&#127942";
+				var combineThree = "1";
 			}
-            //var midname = achievementOne.concat(achievementTwo);
-			//midname = midname.concat(achievementThree);
+            var midname = achievementOne.concat(achievementTwo);
+			midname = midname.concat(achievementThree);
             //var myScore = location.search.split('score=')[1]
             var fullname=$('#fullname').val();
             var mobilenumber=myScore;
-            var midname=myScore;
+            //var midname=myScore;
             var yourquery=$('#yourquery').val();
             $.ajax({
                 url:"https://docs.google.com/forms/d/1SI2FLailhxDc6t4yi-hGzFnSaSOptIvOGe3nW5dsNIs/formResponse",
