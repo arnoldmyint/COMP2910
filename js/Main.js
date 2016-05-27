@@ -120,16 +120,33 @@ var boxNo = 0;
  Orignal number of direction
 */
 var directionNo = 0;
+/*
+ the achievement one 
+*/
 var achievement1 = 0;
-
+/*
+ does user use erase or not
+*/
 var timeOfErase = 0;
+/*
+ the achievement two
+*/
 var achievement2 = 0;
-
+/*
+ the times that user win
+*/
 var  timesOfWin = 0;
+/*
+ the achievement three
+*/
 var achievement3 = 0;
-
+/*
+ the easter trigger
+*/
 var easterActivated = false;
-
+/*
+ the crevices 
+*/
 var crevices = [];
 
 /**
@@ -167,9 +184,6 @@ function load(whichLevel){
     if(device.desktop() || device.tablet()){
         canvas.style.width="400px";
         canvas.style.height="800px";
-        //canvas.style.width=(document.body.clientHeight*window.devicePixelRatio)/2+"px";
-        //canvas.style.height=document.body.clientHeight*window.devicePixelRatio+"px";
-        //container.style.backgroundColor="antiquewhite";
 
     }else if (device.mobile()){
         canvas.style.width = window.innerWidth*window.devicePixelRatio;
@@ -195,14 +209,8 @@ function load(whichLevel){
             easter(e,context);
         });
     }
-//    context.fillStyle="green";
-//    context.fillRect(0,0,800,10);
-
-	
-	
-
-    //var myVar = setInterval(function(){floor(arr,context),right_wall(arr,context)}, 100);
 }
+
 function removeAllEvent(){
     $(canvas).unbind('click');
     $(canvas).unbind('mousedown');

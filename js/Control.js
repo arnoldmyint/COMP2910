@@ -78,8 +78,6 @@ function control(context) {
 					break;
 				}
 				addTransparentShape(context,positions[posLayer][position].point.x,positions[posLayer][position].point.y,shapeType);
-                //canvasimg.src = canvas.toDataURL();
-                //context.drawImage(canvasimg, 0, 0, 1600, 3200);
                 break;
             } else {
                 position = -1;
@@ -292,9 +290,6 @@ function control(context) {
                      return false;
                 }
                 var timeOut = setTimeout(function (){
-//                         console.log("down "+slope);
-//                         console.log("down "+types);
-                    //console.log(clicking);
                     if(e.type == "mousedown" && !clicking){
                         shapeType = slopeTypes;
                         clicking = false;
@@ -332,7 +327,6 @@ function control(context) {
                 var timeOut = setTimeout(function (){
                     if(e.type == "mousedown" && !clicking){
                         shapeType = directionTypes;
-                        //console.log(shapeType);
                         clicking = false;
                         $(canvas).on("mousemove", move);
                         $(canvas).on("mouseup", up);
@@ -343,7 +337,6 @@ function control(context) {
 				$(canvas).on("click", rollBrain);
 			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
 				$(canvas).on("click", undo);
-                //console.log(1);
 			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
 				$(canvas).on("click", eraseAll);
 			}  else if(polygonClicked(3, rollx = [13,395,13], rolly = [24,24,220], x, y) == true){
@@ -462,7 +455,6 @@ function control(context) {
 				$(canvas).on("touchstart touchend", rollBrain);
 			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
 				$(canvas).on("touchstart touchend", undo);
-                //console.log(1);
 			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
 				$(canvas).on("touchstart touchend", eraseAll);
 			}  else if(polygonClicked(3, rollx = [13,395,13], rolly = [24,24,220], x, y) == true){
