@@ -51,7 +51,7 @@
                             <p>10 wins without erase/clear</p>
                             <br/>
                             <p><i class="em em-100"></i></p>
-                            <p>50 wins</p>
+                            <p>100 wins</p>
                         </div><br/>
                     </li>
                 </ul>
