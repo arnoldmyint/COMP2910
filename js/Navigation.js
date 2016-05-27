@@ -94,8 +94,49 @@ $(document).ready(function(){
 		$("#mycanvas").slideToggle();
         $("#time").show();
         load(10);
-    });    
-    
+    });        
+	
+    /* Level 11 button clicked, hide Load level page and show Canvas and start the level 11 game.  */
+    $(".level11").click(function(){
+        $("#loadLevel").slideToggle();
+		$("#mycanvas").slideToggle();
+        $("#time").show();
+        load(10);
+    });            
+	
+    /* Level 12 button clicked, hide Load level page and show Canvas and start the level 12 game.  */
+    $(".level12").click(function(){
+        $("#loadLevel").slideToggle();
+		$("#mycanvas").slideToggle();
+        $("#time").show();
+        load(12);
+    });            
+	
+    /* Level 13 button clicked, hide Load level page and show Canvas and start the level 13 game.  */
+    $(".level13").click(function(){
+        $("#loadLevel").slideToggle();
+		$("#mycanvas").slideToggle();
+        $("#time").show();
+        load(13);
+    });            
+	
+    /* Level 14 button clicked, hide Load level page and show Canvas and start the level 14 game.  */
+    $(".level14").click(function(){
+        $("#loadLevel").slideToggle();
+		$("#mycanvas").slideToggle();
+        $("#time").show();
+        load(14);
+    });            
+	
+    /* Level 15 button clicked, hide Load level page and show Canvas and start the level 15 game.  */
+    $(".level15").click(function(){
+        $("#loadLevel").slideToggle();
+		$("#mycanvas").slideToggle();
+        $("#time").show();
+        load(15);
+    });
+	
+	
     /* Return button clicked, hide Load level page and show Choose game page.  */
     $("#loadLevel .return").click(function(){
         $("#loadLevel").slideToggle();
