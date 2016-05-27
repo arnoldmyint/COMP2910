@@ -265,18 +265,18 @@ function timer(context){
         var bar=time * 4;
         //console.log(time);
         if(time >= 150){
-            context.fillStyle="green";
+            context.fillStyle= "#00FF00";
         } else if(time >= 100){
-            context.fillStyle="blue";
+            context.fillStyle="#00FFFF";
         } else if(time >= 50){
-            context.fillStyle="yellow";
+            context.fillStyle="#FFFF00";
         } else{
-            context.fillStyle="red";
+            context.fillStyle="#FF0000";
         }
         
         context.fillRect(0,0,bar - 10,10);
             
-       if(time == 0){
+       if(time == -2){
             clearInterval(timer);
             $("#mycanvas").hide();
             $("#time").hide();

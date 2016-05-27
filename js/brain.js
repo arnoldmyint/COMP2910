@@ -353,6 +353,9 @@ function brain(context, positions){
 	function win(){
         timesOfWin++;
         clearInterval(movement);
+        if(time < 0){
+            time= 0;
+        }
         theScore += (time/4) * 10;
         console.log(theScore);
         if(levels == 0){
