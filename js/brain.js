@@ -361,7 +361,7 @@ function brain(context, positions){
 			redraw(context);
 			addAllShapes(context, positions);
 			control_frame(context);
-            context.drawImage(brain, theBrain.x, theBrain.y, 30, 30);
+            context.drawImage(brain, theBrain.x, theBrain.y += 3.5, 30, 30);
             i++;
             if(i==9){
                 i = 0;
