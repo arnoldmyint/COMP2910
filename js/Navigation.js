@@ -101,7 +101,7 @@ $(document).ready(function(){
         $("#loadLevel").slideToggle();
 		$("#mycanvas").slideToggle();
         $("#time").show();
-        load(10);
+        load(11);
     });            
 	
     /* Level 12 button clicked, hide Load level page and show Canvas and start the level 12 game.  */
