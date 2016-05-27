@@ -124,6 +124,9 @@ var achieve_2 = 0;
 var achieve_3 = 0;
 
 var easterActivated = false;
+
+var crevices = [];
+
 /**
  *	load
  *	
