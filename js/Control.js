@@ -201,14 +201,14 @@ function control(context) {
 				numberOfSlopes++;
 			} else if(positions[undoLayer][undoIndex].type == "direction_SW" || positions[undoLayer][undoIndex].type == "direction_SE" || positions[undoLayer][undoIndex].type == "direction_NE" || positions[undoLayer][undoIndex].type == "direction_NW"){
 				numberOfDirections++;
-			}   
+			}
 		}
 		
 		positions[undoLayer][undoIndex].type = null;
 		positions[undoLayer][undoIndex].used = false;
 		positions[undoLayer][undoIndex].shapeName = null;
 		positions[undoLayer][undoIndex].undo = -1;
-		positions[undoLayer][undoIndex].direction = null;		
+		positions[undoLayer][undoIndex].direction = null;
 		
 		redraw(context);
 		control_frame(context);

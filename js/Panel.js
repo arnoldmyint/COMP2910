@@ -55,11 +55,11 @@ function control_frame(context) {
     if(levels != 0){
         number();   
     }
-    canvas.onclick = function (e){
-        var point = getPointOnCanvas(canvas,e.pageX, e.pageY);
-        console.log(point.x);
-        console.log(point.y);
-    }
+//    canvas.onclick = function (e){
+//        var point = getPointOnCanvas(canvas,e.pageX, e.pageY);
+//        console.log(point.x);
+//        console.log(point.y);
+//    }
 }
 
 function number(){

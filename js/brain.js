@@ -326,6 +326,7 @@ function brain(context, positions){
 	}
 	
 	function win(){
+        achieve_1++;
         clearInterval(movement);
         theScore += (time/4) * 10;
         console.log(theScore);
@@ -351,14 +352,13 @@ function brain(context, positions){
             }
             var height = parseInt((35-start) / 6);
             var far = parseInt(end/6);
-            if(height <= 0){
+            if(height = 0){
                 height = 1;
             }
-            console.log(height);
             theScore *= height;
-            if(far < height){
-                theScore *= (height - far);
-            }
+//            if(far < height){
+//                theScore *= (height - far);
+//            }
             
             //console.log(height);
             //console.log(far);
@@ -366,7 +366,12 @@ function brain(context, positions){
         $("#mycanvas").hide();
         $("#time").hide();
         $("#gameWin").show();
+        $("#achieve_1").hide();
         printWinScore();
+        if(achieve_1 == 10 && levels == 0){
+            $("#achieve_1").show();
+            document.location.href="/form2.html?score=" + theScore + "&achievement=" + "&#127775";
+        }
 	}
 	
 	function restart(){

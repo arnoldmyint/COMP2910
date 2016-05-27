@@ -33,7 +33,7 @@ function createObj() {
     cols=0;
     for(var j=0; j<36; j++){
         var rect_right={
-            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}], end:false
+            width:55,height:55,color:"grey",x:0,y:0,index:0,type:null,points:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}], end:false, crevice:false
         };
         if(j%6==0){
             rows++;
@@ -79,6 +79,9 @@ function floor(context){
 			getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
 			var pos = shapePoints(i,0);
 			array_floor[i].end = true;
+		} else if(checkIfCrevice(i) == true) {
+			getPoints(array_floor[i],1,0.5,-1,0.5,455,395);
+			array_floor[i].crevice = true;
 		} else {
 			context.beginPath();
 			context.fillStyle="#65A658";
@@ -92,6 +95,8 @@ function floor(context){
     }
 	context.setTransform(1,0,0,1,0,0);
 	context.drawImage(endPoint, pos.x, pos.y,109,109);
+	
+	drawCrevices(context);
 	/*
     if(randomize(array_floor,context)%29 == 0){
         c=0;
@@ -101,6 +106,26 @@ function floor(context){
     }
 	*/
     context.restore();
+}
+
+function checkIfCrevice(pos){
+	for(var i = 0; i < crevices.length;i++){
+		if (crevice(i) == pos){
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+function drawCrevices(context){
+	for(var i = 0; i < crevices.length;i++){
+		if(array_floor[i].crevice = true){
+			var pos = shapePoints(i,0);
+			context.setTransform(1,0,0,1,0,0);
+			context.drawImage(crevice, pos.x, pos.y,109,109);			
+		}
+	}
 }
 
 /**
