@@ -117,11 +117,11 @@ var boxNo = 0;
 */
 var directionNo = 0;
 
-var achieve_1 = 0;
+var timesOfNoRetry = 0;
 
-var achieve_2 = 0;
+var timeOfErase = 0;
 
-var achieve_3 = 0;
+var  timesOfWin = 0;
 
 var easterActivated = false;
 
