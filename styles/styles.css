@@ -6,6 +6,7 @@ html, body {
     margin: 0px;
     width: 100%;
     overflow: hidden;
+    text-align: center;
 }
 
 table {
@@ -57,20 +58,12 @@ img{
     display: none;
 }
 
-.logo{
-    background-image : url("../images/logo.png");
-    margin:0 auto;
-    display: block;
-    width : 296px;
-    height: 122px;
-}
-
 .logomini{
-    background-image : url("../images/logomini.png");
+    background-image : url("../images/ball.png");
     margin:0 auto;
     display: block;
-    width : 111px;
-    height: 98px;
+    width : 99px;
+    height: 99px;
 }
 
 #tutorial {
@@ -474,3 +467,24 @@ img{
     color: white;
 }
 
+#logo{
+    margin: auto;
+    text-align:center;
+}
+
+#textLogo{
+    position: relative;
+    display: inline-block;
+}
+
+.rolling {
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    -webkit-animation:spin 2 linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
