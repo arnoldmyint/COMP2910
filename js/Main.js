@@ -110,6 +110,8 @@ var slopeNo = 0;
 var boxNo = 0;
 
 var directionNo = 0;
+
+var easterActivated = false;
 /**
  *	load
  *	
