@@ -164,7 +164,8 @@ function control(context) {
             numberOfBoxes = boxNo;
             numberOfSlopes = slopeNo;
             numberOfDirections = directionNo;
-            removeShapes(true);   
+            removeShapes(true);
+            load(levels);
         }
 		$(canvas).unbind("click touchstart touchend", eraseAll);
         timeOfErase++;
