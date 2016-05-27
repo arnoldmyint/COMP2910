@@ -331,7 +331,7 @@ function brain(context, positions){
 			if(easterActivated == true){
 				brain.src = "images/EGGSPLOSION/ee" + imgInc + ".png";
 			} else {
-				brain.src = "images/Drop/d" + i + ".png";
+				brain.src = "images/EXPLOSION/e" + i + ".png";
 			}
             
             //console.log(brain);
