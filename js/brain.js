@@ -390,7 +390,11 @@ function getStart(){
 	 *	Send the score.
 	 */
 function getScore(){
-    document.location.href="/form2.html?score=" + theScore;
+    if(levels == 0){
+        document.location.href="/form2.html?score=" + theScore;
+    }else {
+        document.location.href="/form.html?score=" + theScore;   
+    }
 }
 
 
