@@ -135,6 +135,7 @@ var crevices = [];
  */
 function load(whichLevel){
 	//reset globals
+	context.clearRect(0, 10, canvas.width, canvas.height);
 	crevices = [];
 	easterActivated = false;
 	numShapes = 0;
