@@ -1,0 +1,69 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <head>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/Main.js"></script>
+    <script>
+        function postContactToGoogle() {
+            function getUrlVars() {
+                var vars = {};
+                var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
+                function(m,key,value) {
+                  vars[key] = value;
+                });
+                return vars;
+            }
+            
+            var myScore = getUrlVars()["score"];
+            var midname = getUrlVars()["achievement"];
+            //var myScore = location.search.split('score=')[1]
+            var fullname=$('#fullname').val();
+            var mobilenumber=myScore;
+            //var midname=myScore;
+            var yourquery=$('#yourquery').val();
+            $.ajax({
+                url:"https://docs.google.com/forms/d/16aITlpOl1PS8i9VI-_wsmASq7RewyS8VHRLrr4o3oB8/formResponse",
+                data:{"entry_1802039671":fullname,"entry_1870854187":mobilenumber,"entry_1365466023":midname,"entry_":yourquery},
+                type:"POST",dataType:"xml",statusCode: {0:function() { 
+                    window.location.replace("/boarda.php");
+                },200:function(){window.location.replace("/boarda.php");}}
+            });
+        }
+        
+        function resetForm(){
+        document.getElementById("formRequest").reset();
+        }
+    </script>
+    </head>
+    
+    <body>
+        <div id= "background">
+            <div id= "page">
+                <table  class="FormRequest" align="center">
+                    <tr>
+                        <td>
+                            <form id="formRequest">
+                             <center>
+                                <br/>
+                                <p>Please type your username.</p>
+                                <br/>    
+                                Username:<br/><br/>
+                                <input type="text" name="fullname" placeholder="username" id="fullname" /><br/>
+                                <br/>
+                                <p>Only top 10 players will</p>
+                                <p>be shown in leaderboard.</p>
+        
+                                    <div class ="navigation submit" onclick="postContactToGoogle()"></div><br/>
+                                    <div class ="navigation reset" onclick="resetForm()"></div><br/>
+                                    <a href = "/index.html"> <div class ="navigation menu" ></div></a>
+                                </center>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>   
+    </body>
+</html>

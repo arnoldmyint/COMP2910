@@ -110,13 +110,10 @@ function control(context) {
             if(levels != 0){
                 if(shapeType == "box"){
                     numberOfBoxes--;
-                //checkShapes(positions, shapeType);
                 } else if(shapeType == "slope_SW" || shapeType == "slope_SE" || shapeType == "slope_NE" || shapeType == "slope_NW"){
                     numberOfSlopes--;
-                //checkShapes(positions, "slope");
                 } else if(shapeType == "direction_SW" || shapeType == "direction_SE" || shapeType == "direction_NE" || shapeType == "direction_NW"){
                     numberOfDirections--;
-                //checkShapes(positions, "direction");
                 }   
             }
             position = -1;
@@ -124,19 +121,17 @@ function control(context) {
         }
         context.clearRect(0, 10, canvas.width, canvas.height);
         redraw(context);
-        //context.save();
         addAllShapes(context, positions);
         control_frame(context);
         if(levels != 0){
             removeShapes(false);
         }
         if (device.mobile() || device.tablet()) {
-            $(canvas).unbind('touchmove', move);
-            $(canvas).unbind('touchend', up);
+            $(canvas).unbind("touchmove", move);
+            $(canvas).unbind("touchend", up);
         } else if (device.desktop()) {
             $(canvas).unbind("mousemove", move);
             $(canvas).unbind("mouseup", up);
-            //$(canvas).unbind("mousedown", down);
         }
     }
 	
