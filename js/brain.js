@@ -39,7 +39,6 @@ function brain(context, positions){
 	}
 	
 	function whereTo(){
-		alert("Rolling again");
 		//console.log("Direction to move: " + direction + " Layer: " +theBrain.brainLayer + " index: " + theBrain.brainIndex);
 		//Find out direction
 		if(positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_SW"
