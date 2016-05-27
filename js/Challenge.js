@@ -18,7 +18,6 @@ function easter(e,context) {
         var point = getPointOnCanvas(canvas,e.pageX,e.pageY);
     }
     if (point.x >= array_left[i].points[3].x && point.x <= array_left[i].points[1].x && point.y >= array_left[i].points[0].y && point.y <= array_left[i].points[2].y && !mouseUp && !moving){
-        alert("activated");
 		easterActivated = true;
         $(canvas).unbind("click touchstart", easter);
     }
