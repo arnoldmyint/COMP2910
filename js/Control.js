@@ -52,7 +52,7 @@ function control(context) {
         if (device.mobile() || device.tablet()) {
             var point = getPointOnCanvas(canvas, e.originalEvent.touches[0].pageX, e.originalEvent.touches[0].pageY-40);
         } else {
-            var point = getPointOnCanvas(canvas, e.pageX, e.pageY-20);
+            var point = getPointOnCanvas(canvas, e.pageX, e.pageY);
         }
         redraw(context);
         control_frame(context);
