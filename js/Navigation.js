@@ -223,6 +223,5 @@ $(document).ready(function(){
         $("#gameWin").slideToggle();
         $("#landingPage").slideToggle();  
     });
-    
 });
 

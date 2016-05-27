@@ -39,7 +39,7 @@ function brain(context, positions){
 	}
 	
 	function whereTo(){
-		console.log("moving");
+		//console.log("moving");
 		//console.log("Direction to move: " + direction + " Layer: " +theBrain.brainLayer + " index: " + theBrain.brainIndex);
 		//Find out direction
 		if(positions[theBrain.brainLayer][theBrain.brainIndex].type == "direction_SW"
@@ -329,7 +329,7 @@ function brain(context, positions){
         var i = 0;
         var explosion= setInterval(function (){
             brain.src = "images/EXPLOSION/e" + i + ".png";
-            console.log(brain);
+            //console.log(brain);
             context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0,0,canvas.width,canvas.height);
 			redraw(context);
@@ -353,6 +353,7 @@ function brain(context, positions){
 	function win(){
         timesOfWin++;
         clearInterval(movement);
+<<<<<<< Updated upstream
 		        var i = 0;
         var dropBall= setInterval(function (){
             brain.src = "images/Drop/d" + i + ".png";
@@ -423,6 +424,58 @@ function brain(context, positions){
 	
 	function restart(){
 		alert("DONT KNOW WHAT TO DO");		
+=======
+        theScore += (time/4) * 10;
+        //console.log(theScore);
+        if(levels == 0){
+            var height = parseInt((35-start) / 6);
+            var far = parseInt(end/6);
+            if(height == 0){
+                height = 1;
+            }
+            //console.log(height);
+            theScore += height*(time/4)/10;
+            //console.log(theScore);
+            if(far < height){
+                theScore += (height - far)*(time/4)/10;
+                theScore = parseInt(theScore);
+            }else {
+                theScore = parseInt(theScore);
+            }
+            for(i = 0; i < positions.length; i++){
+                for(j = 0; j < positions[i].length; j++){
+                    if(positions[i][j].used == true){
+                        switch(positions[i][j].shapeName){
+                            case "box":
+                                theScore -= 5;
+                                break;
+                            case "slope":
+                                theScore -= 10;
+                                break;
+                            case "direction":
+                                theScore -= 15;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+        $("#mycanvas").hide();
+        $("#time").hide();
+        $("#gameWin").show();
+        if(achievement_one()){
+            $("#achieve_1").show();
+        }
+        if(achievement_two()){
+            $("#achieve_2").show();
+        }
+        if(achievement_three()){
+            $("#achieve_3").show();
+        }
+        printWinScore();
+>>>>>>> Stashed changes
 	}
 }
 

@@ -85,6 +85,8 @@ var levels;
 */
 var isRetry = false;
 
+var retried = false;
+
 /*
  number of slopes for pre-set levels
 */
@@ -116,12 +118,13 @@ var boxNo = 0;
  Orignal number of direction
 */
 var directionNo = 0;
-
-var timesOfNoRetry = 0;
+var achievement1 = false;
 
 var timeOfErase = 0;
+var achievement2 = false;
 
 var  timesOfWin = 0;
+var achievement3 = false;
 
 var easterActivated = false;
 

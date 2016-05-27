@@ -169,6 +169,7 @@ function control(context) {
             removeShapes(true);   
         }
 		$(canvas).unbind("click touchstart touchend", eraseAll);
+        timeOfErase++;
 	}
     
     function undo(){
@@ -215,6 +216,7 @@ function control(context) {
 		numShapes--;
 		
 		$(canvas).unbind("click touchstart touchend", undo);
+        timeOfErase++;
     }
 
     /**
@@ -236,10 +238,10 @@ function control(context) {
 	 */
     if (device.desktop()) {   
         var slopeTypes = "slope_SW";
-        //context.drawImage(slope0, 290, 890);
+        context.drawImage(slope0, 290, 890);
         slope = 0;
         var directionTypes = "direction_SW";
-        //context.drawImage(direction0, 435, 890);
+        context.drawImage(direction0, 435, 890);
         direction = 0;
         var clicking = false;
         $(canvas).on("click mousedown", function (e) {
@@ -287,8 +289,6 @@ function control(context) {
                          slopeTypes = "slope_SE";
                          context.drawImage(slope3, 290, 890);
                      }
-//                     console.log(slope);
-//                     console.log(types);
                      return false;
                 }
                 var timeOut = setTimeout(function (){
@@ -478,6 +478,7 @@ function retry(){
     removeAllEvent();
     if(levels == 0){
         isRetry = true;
+        retried = true;
         load(0);
     } else {
         load(levels);

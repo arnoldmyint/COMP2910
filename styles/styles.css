@@ -399,6 +399,16 @@ img{
     -moz-animation:spin 2s linear infinite;
     animation:spin 2s linear infinite;
 }
+#achieve_1{
+    display: none;
+}
+#achieve_2{
+    display: none;
+}
+#achieve_3{
+    display: none;
+}
+
 @-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
