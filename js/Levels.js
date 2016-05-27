@@ -8,8 +8,11 @@ function chooseLevel(whichLevel){
          numberOfSlopes = 1;
 	 } else if(whichLevel == 2){
          levels = 2;
-		 end = 20;
-		 start = 20;
+		 end = 3;
+		 start = 26;
+         numberOfBoxes = 100;
+         numberOfDirections = 100;
+         numberOfSlopes = 100;
 	 } else if(whichLevel == 0){
          //console.log(parseInt(Math.random()*29+1));
          levels = 0;

@@ -281,7 +281,7 @@ function brain(context, positions){
 		} else if (direction == 5){
 			//SLOPE NW
 			theX = -2.2916666666;
-			theY = 1;
+			theY = 1.10;
 		} else if (direction == 6){
 			//SLOPE SE
 			theX = 2.2916666666;
@@ -293,11 +293,11 @@ function brain(context, positions){
 		} else if (direction == 8){
 			//SPECIAL CASE: NW next shape slope
 			theX = -1.78125;
-			theY = 0.9236111105833333;
+			theY = -0.9236111105833333;
 		} else if (direction == 9){
 			//SPECIAL CASE: NE next shape slope
 			theX = 1.78125;
-			theY = 0.9236111105833333;
+			theY = -0.9236111105833333;
 		}
 		
 		return { 	x: theX,
