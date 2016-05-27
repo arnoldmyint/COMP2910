@@ -1,0 +1,84 @@
+LEVEL 1
+s: 27
+e: 9
+h:none
+
+LEVEL 2
+s: 21
+e: 21
+h:none
+
+LEVEL 3
+s: 15
+e: 19
+h:none
+
+LEVEL 4
+s: 27
+e: 2
+h:none
+
+LEVEL 5
+s: 9
+e: 4
+h:none
+
+LEVEL 6
+s: 28
+e: 18
+h: 17
+need: 1 slope, 2 arrow
+
+LEVEL 7 
+s: 25
+e: 14
+h: 7
+need: 1 block, 2 arrow, 1 slope
+
+LEVEL 8
+s: 19
+e: 12
+h: 7, 8, 9, 10, 11
+need: 3 block, 2 arrow, 2 slope
+
+LEVEL 9
+s: 20
+e: 19
+h: 7, 8, 9, 10
+need: 3 block, 3 arrow, 2 slope
+
+LEVEL 10
+s: 1
+e: 6
+h: 5, 11, 17, 23, 29
+need: 10 block, 2 arrow, 5 slope
+
+LEVEL 11
+s: 25
+e: 30
+h: 2, 5, 8, 11, 14, 17, 20, 23, 26, 29
+need: 2 arrow, 1 slope
+
+LEVEL 12
+s: 19
+e: 6
+h: 5, 9, 11, 15, 17, 21, 23, 27, 29, 33
+need: 3 block, 4 arrow, 2 slope
+
+LEVEL 13
+s: 25
+e: 6
+h: 3, 7, 9, 13, 15, 19, 21, 25, 27, 31
+need: 2 block, 4 arrow, 1 slope
+
+LEVEL 14
+s: 19
+e: 6
+h: 3, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 35
+need: 5 block, 5 arrow, 2 slope
+
+LEVEL 15
+s: 25
+e: 13
+h: 3, 7, 10, 14, 17, 21, 24, 25, 28, 30, 32, 36
+need: 8 block, 14 arrow, 1 slope
