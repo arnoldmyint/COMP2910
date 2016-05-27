@@ -43,9 +43,14 @@
                     <li>
                         <input type="radio" checked name="tabs" id="tab3">
                         <div id="tab-content3" class="tab-content"><br/>
-                            <p>⛈⚰👌⭐️ 🌟🏅 🎖🔮🔑☔</p>
-                            <p>10 wins in a row</p>
+                            <br/>
+                            <p><i class="em em-ok_hand"></i></p>
+                            <p>10 wins in a row</p><br/>
+                            <br/>
+                            <p><i class="em em-key"></i></p>
                             <p>10 wins without erase/clear</p>
+                            <br/>
+                            <p><i class="em em-100"></i></p>
                             <p>50 wins</p>
                         </div><br/>
                     </li>
