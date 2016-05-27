@@ -48,7 +48,7 @@
                             <p>&#11088</p>
                             <p>10 wins in a row</p><br/>
                             <br/>
-                            <<p>&#128273</p>
+                            <p>&#128273</p>
                             <p>10 wins without erase/clear</p>
                             <br/>
                             <p>&#127942</p>
