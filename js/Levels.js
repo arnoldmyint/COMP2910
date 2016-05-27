@@ -119,7 +119,7 @@ function chooseLevel(whichLevel){
 		 start = 24;
 		 crevices = [2, 6, 9, 13, 16, 20, 23, 24, 27, 29, 31, 35];
          numberOfBoxes = 8;
-         numberOfDirections =142;
+         numberOfDirections =14;
          numberOfSlopes = 1;
 	 }
  }
