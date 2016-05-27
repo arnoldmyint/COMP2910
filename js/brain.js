@@ -420,6 +420,7 @@ function brain(context, positions){
 			}
         },2000);
 	}
+}
 
 /**
  *	getStart
