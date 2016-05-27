@@ -106,6 +106,20 @@ function control(context) {
             positions[posLayer][position].type = shapeType;
             //console.log(shapeType);
 			positions[posLayer][position].used = true;
+            if(levels != 0){
+                if(shapeType == "box"){
+                    numberOfBoxes--;
+                //checkShapes(positions, shapeType);
+                } else if(shapeType == "slope_SW" || shapeType == "slope_SE" || shapeType == "slope_NE" || shapeType == "slope_NW"){
+                    console.log("fuck");
+                    numberOfSlopes--;
+                //checkShapes(positions, "slope");
+                } else if(shapeType == "direction_SW" || shapeType == "direction_SE" || shapeType == "direction_NE" || shapeType == "direction_NW"){
+                    console.log("fuck");
+                    numberOfDirections--;
+                //checkShapes(positions, "direction");
+                }   
+            }
             position = -1;
             posLayer = 0;
         }
@@ -114,6 +128,9 @@ function control(context) {
         //context.save();
         addAllShapes(context, positions);
         control_frame(context);
+        if(levels != 0){
+            removeShapes();
+        }
         if (device.mobile() || device.tablet()) {
             $(canvas).unbind('touchmove', move);
             $(canvas).unbind('touchend', up);
@@ -121,18 +138,6 @@ function control(context) {
             $(canvas).unbind("mousemove", move);
             $(canvas).unbind("mouseup", up);
             //$(canvas).unbind("mousedown", down);
-        }
-        if(levels != 0 && clicking == false){
-            if(shapeType == "box"){
-                checkShapes(positions, shapeType);
-            } else if(shapeType == "slope_SW" || shapeType == "slope_SE" || shapeType == "slope_NE" || shapeType == "slope_NW"){
-                console.log("fuck");
-                checkShapes(positions, "slope");
-            } else if(shapeType == "direction_SW" || shapeType == "direction_SE" || shapeType == "direction_NE" || shapeType == "direction_NW"){
-                console.log("fuck");
-                checkShapes(positions, "direction");
-            }
-            removeShapes();   
         }
     }
 	

@@ -72,26 +72,26 @@ function number(){
     context.fillText(numberOfDirections, 477, 890);
 }
 
-function checkShapes(positions, type){
-    if(levels != 0){
-        for(var i = 0; i < positions.length; i++){
-            for(var j = 0; j < positions[i].length; j++){
-                if(positions[i][j].used == true){
-                    if(positions[i][j].shapeName == "box" && type == "box"){
-                        numberOfBoxes--;
-                        console.log(numberOfBoxes);
-                    } else if(positions[i][j].shapeName == "slope" && type == "slope"){
-                        numberOfSlopes--;
-                        console.log(numberOfSlopes);
-                    } else if(positions[i][j].shapeName == "direction" && type == "direction"){
-                        numberOfDirections--;
-                        console.log(numberOfDirections);
-                    }
-                }
-            }
-        }
-    }
-}
+//function checkShapes(positions, type){
+//    if(levels != 0){
+//        for(var i = 0; i < positions.length; i++){
+//            for(var j = 0; j < positions[i].length; j++){
+//                if(positions[i][j].used == true){
+//                    if(positions[i][j].shapeName == "box" && type == "box"){
+//                        numberOfBoxes--;
+//                        console.log(numberOfBoxes);
+//                    } else if(positions[i][j].shapeName == "slope" && type == "slope"){
+//                        numberOfSlopes--;
+//                        console.log(numberOfSlopes);
+//                    } else if(positions[i][j].shapeName == "direction" && type == "direction"){
+//                        numberOfDirections--;
+//                        console.log(numberOfDirections);
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 function removeShapes(){
     if(numberOfBoxes <= 0){
         context.clearRect(120, 870, 105, 118);
