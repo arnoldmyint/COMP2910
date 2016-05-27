@@ -143,6 +143,7 @@ function load(whichLevel){
 	numberOfDirections = 0;
 	numberOfBoxes = 0;
 	numberOfSlopes = 0;
+	array_floor = [];
 	//end reset globals
 	
     if(!isRetry){

@@ -353,7 +353,7 @@ function brain(context, positions){
 	function win(){
         timesOfWin++;
         clearInterval(movement);
-		        var i = 0;
+		var i = 0;
         var dropBall= setInterval(function (){
             brain.src = "images/Drop/d" + i + ".png";
             context.setTransform(1, 0, 0, 1, 0, 0);
