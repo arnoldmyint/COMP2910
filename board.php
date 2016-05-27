@@ -21,7 +21,8 @@
                     <li class="labels"><br/><br/>
 
                         <label for="tab1" id="label1" text-align="center">Scoreboard</label>
-                        <label for="tab2" id="label2">Challenge</label><br/>
+                        <label for="tab2" id="label2">Challenge</label>
+                        <label for="tab3" id="label3">Unlocks</label><br/>
                     </li>
                     <li>
                         <input type="radio" checked name="tabs" id="tab1">
@@ -37,6 +38,12 @@
                             <?php
                                 echo file_get_contents("https://spreadsheets.google.com/tq?tqx=out:html&tq=SELECT%20B%2CC%2CD%20ORDER%20BY%20D%20DESC%2C%20C%20DESC%20LIMIT%2010&key=1FqdcKIYFWrmFpRDSdiviI8bEQQgX-lVUI6iCJ6MXaus&gid=63438493");
                             ?>
+                        </div><br/>
+                    </li>
+                    <li>
+                        <input type="radio" checked name="tabs" id="tab3">
+                        <div id="tab-content3" class="tab-content"><br/>
+                            <p>⛈⚰👌⭐️ 🌟🏅 🎖🔮🔑☔</p>
                         </div><br/>
                     </li>
                 </ul>
