@@ -4,7 +4,6 @@
 */
 function chooseLevel(whichLevel){
 	 if(whichLevel == 0){
-         //console.log(parseInt(Math.random()*29+1));
          levels = 0;
          do{
             end = parseInt(Math.random()*36);

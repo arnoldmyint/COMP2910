@@ -66,7 +66,7 @@ function createObj() {
 
 /**
  *	floor
- *	@context 
+ *	@param context is the context for the canvas 
  *
  *	Draws each of the 36 tiles and transforms them for the 3D grid.
  *	Stores each point of the newly transformed tile back in the object.
@@ -98,14 +98,6 @@ function floor(context){
 	context.drawImage(endPoint, pos.x, pos.y,109,109);
 	
 	drawCrevices(context);
-	/*
-    if(randomize(array_floor,context)%29 == 0){
-        c=0;
-        for(var j=0; j<36; j++){
-            array_floor[j].color = "#D6FFCD";
-        }
-    }
-	*/
     context.restore();
 }
 
@@ -139,14 +131,6 @@ function right_wall(context){
     }
 	context.setTransform(1,0,0,1,0,0);
 	context.drawImage(startPoint, getPos.x, getPos.y,110,110);
-	/*
-    if(randomize(array_right,context)%29 == 0){
-        c=0;
-        for(var j=0; j<36; j++){
-            array_right[j].color = "#D6FFCD";
-        }
-    }
-	*/
     context.restore();
 }
 
@@ -174,8 +158,8 @@ function left_wall(context){
 
 /**
  *	frame_horizontal
- *	@context 
- *
+ *	@param context is the context for the canvas 
+ *  drawing the frame 
  *	
  *	
  *	
@@ -224,9 +208,9 @@ function frame_horizontal(context) {
 
 /**
  *	frame_vertical
- *	@context 
+ *	@param context is the context for the canvas 
  *
- *	
+ *	draw the frame
  *	
  *	
  */

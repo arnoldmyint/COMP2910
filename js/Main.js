@@ -159,9 +159,6 @@ function load(whichLevel){
 	//reset globals
 	crevices = [];
 	easterActivated = false;
-//	numShapes = 0;
-//	slopeNo = 0;
-//	boxNo = 0;
 	numberOfDirections = 0;
 	numberOfBoxes = 0;
 	numberOfSlopes = 0;
