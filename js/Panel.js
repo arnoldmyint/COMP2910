@@ -7,10 +7,10 @@
  */
 function control_frame(context) {
     frame = document.getElementById("control_panel");
-    eraser = document.getElementById("eraser");
-    roll = document.getElementById("roll");
-    clear = document.getElementById("clear");
-    pause = document.getElementById("pause");
+    eraser = document.getElementById("gameButtons");
+    roll = document.getElementById("gameButtons");
+    clear = document.getElementById("gameButtons");
+    pause = document.getElementById("gameButtons");
     box = document.getElementById("box");
     slope3 = document.getElementById("slope_SE");
     slope1 = document.getElementById("slope_NW");
@@ -21,10 +21,10 @@ function control_frame(context) {
     direction2 = document.getElementById("direction_NE");
     direction3 = document.getElementById("direction_SE");
     context.drawImage(frame, 8, 850, 789, 160);
-    context.drawImage(eraser, 7, 630, 400, 210);
-    context.drawImage(roll, 395, 630, 400, 210);
-    context.drawImage(clear, 395, 20, 400, 210);
-    context.drawImage(pause, 7, 20, 400, 210);
+    context.drawImage(eraser, 379, 0, 369, 195, 5, 650, 395, 200);
+    context.drawImage(roll,0, 0, 369, 195, 400, 650, 395, 200);
+    context.drawImage(clear, 758, 0, 369, 195, 405, 30, 390, 200);
+    context.drawImage(pause, 1137, 0, 369, 195, 5, 30, 390, 200);
     context.drawImage(box, 135, 900);
     if(slope == 1){
         context.drawImage(slope1, 290, 890);
