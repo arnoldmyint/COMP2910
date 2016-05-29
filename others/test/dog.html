@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>dog</title>
+        
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/device.js"></script>
+        <script src="js/Navigation.js"></script>
+	
+        <script>
+        $(document).ready(function() {
+            $.getScript("js/Control.js");
+            $.getScript("js/GameFrame.js");
+            $.getScript("js/Main.js");
+            $.getScript("js/brain.js");
+            $.getScript("js/Points.js");
+            $.getScript("js/Levels.js");
+            $.getScript("js/Challenge.js");
+            $.getScript("js/Panel.js");
+        });
+        </script>
+        <meta charset="utf-8">
+       
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+        <style>
+            #brain0{
+                object-fit: none;
+                object-position: 0 0;
+                width: 99px;
+                height: 99px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <img id="brain0" src="images/brain/brain.gif" alt="brain" />
+   
+    </body>
+</html>

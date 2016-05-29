@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Brain Roll</title>
+        
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/device.js" ></script>
+        <script src="js/Control.js"></script>
+        <script src="js/GameFrame.js"></script>
+        <script src="js/Main.js"></script>
+        <script src="js/Navigation.js"></script>
+		<script src="js/brain.js"></script>
+        <script src="js/Points.js"></script>
+        <script src="js/Levels.js"></script>
+        <script src="js/Challenge.js"></script>
+        <script src="js/Panel.js"></script>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        
+        <!-- Style -->
+        <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+
+        <!-- iOS icon -->        
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-iphone.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-touch-icon-iphone.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-ipad.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-iphone-retina-display.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-ipad-retina-display.png" />
+        
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <!-- Menu Page -->
+        <div id="landingPage">
+            <br/><br/>
+            <div id="logo">
+                <img class="rolling" src="images/ball.png" alt="logo">
+                <img id="textLogo" src="images/logo1.png" alt="textlogo">
+            </div>​
+            <br/>
+            <div class="navigation play"></div><br/>
+            <div class="navigation highscores"></div><br/>
+            <div class="navigation tutorial"></div><br/>
+            <div class="navigation credits"></div><br/>
+            <p>Made with <i class="em em-heart"></i> in <i class="em em-sunny"></i> Vancouver.</p>
+        </div>
+
+        <!-- Tutorial Page -->
+        <div id="tutorial">
+        	<iframe width="420" height="315" src="https://www.youtube.com/embed/TuGr8WZYfaE" frameborder="0" allowfullscreen></iframe>
+            <br/><br/>
+            <div class="navigation return"></div> <br/>
+        </div>
+
+        <!-- Credits Page -->
+        <div id="credits">
+            <br/>
+            <h1>Created by Group 1</h1>
+            <h3>Arnold Myint</h3>
+            <h3>Arvin Rolos</h3>
+            <h3>Matt Rosenlund</h3>
+            <h3>Tom Nam</h3>
+            <h3>Wayne Wang</h3>
+            <br/><br/>
+            <div class="navigation return"></div> <br/>
+        </div>
+
+        <!-- Pause Page -->
+         <div id="pauseGame">
+            <br/><br/><br/>
+            <div class="navigation resume"></div><br/><br/>
+            <div class ="navigation menu" ></div><br/><br/>
+        </div> 
+        
+        <!-- Exit to menu Confirmation Page -->
+        <div id="confirmationPage">
+        <br/><br/>
+        <h1> Are you sure? </h1> <br/><br/>
+        <div class ="navigation yes" ></div><br/><br/>
+        <div class ="navigation no" ></div><br/><br/>
+        </div>
+        
+        <!-- Choose Game Page -->
+        <div id="chooseGame">
+            <br/><br/><br/>
+            <img class="rolling" src="images/ball.png" alt="logo"><br/><br/><br/>
+            <div class="navigation loadlevel"></div> <br/>
+            <div class="navigation challenge"></div><br/>
+            <div class="navigation return"></div> <br/>
+        </div>
+        
+        <!-- Load Level Page -->
+        <div id="loadLevel">
+            <br/>          
+            <table class="selectionTable">
+                
+                <caption> <h1>Select Level</h1> </caption>
+                <col class="col1"/> 
+                <col class="col2"/>
+                <col class="col3"/>
+                <col class="col4"/>
+                    <tr>
+                        <td><div class="buttons level1"></div></td>
+                        <td><div class="buttons level2"></div></td>
+                        <td><div class="buttons level3"></div></td>
+                        <td><div class="buttons level4"></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="buttons level5"></div></td>
+                        <td><div class="buttons level6"></div></td>
+                        <td><div class="buttons level7"></div></td>
+                        <td><div class="buttons level8"></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="buttons level9"></div></td>
+                        <td><div class="buttons level10"></div></td>
+                        <td><div class="buttons level11"></div></td>
+                        <td><div class="buttons level12"></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="buttons level13"></div></td>
+                        <td><div class="buttons level14"></div></td>
+                        <td><div class="buttons level15"></div></td>
+                        <td></td>
+                    </tr>
+            </table>
+            <br/><br/> 
+            <div class="navigation return"></div>
+        </div>
+        
+        <!-- Game Over Page -->
+        <div id="gameOver">
+            <h1>Game Over</h1> 
+            <h2> Score : </h2> 
+            <h2 id="loseScore"> - </h2> <br/>
+            <div class="navigation retry" onclick="retry()"></div><br/>
+            <div class="navigation menu" onclick="getScore()"></div><br/>
+        </div>
+        
+        <!-- Win Page -->
+        <div id="gameWin">
+            <h1>Nice Job!</h1> 
+            <h2> Score : </h2> 
+            <h2 id="winScore"> - </h2> <br/>
+            <h2> Score for Level</h2>
+            <h2 id="levelScore"> - </h2> <br />
+            <div id="achieve_1">Congratulations! You have achieve 10 wins in a row<br /><i class="em em-star"></i></div><br />
+            <div id="achieve_2">Congratulations! You have 10 wins without undo/clear!<br /><i class="em em-key"></i></div><br />
+            <div id="achieve_3">Congratulations! You have win 50 games<br /><i class="em em-trophy"></i></div><br />
+            <div class="navigation nextlevel" onclick="nextLevel()"></div> <br/>
+            <div class="navigation menu" onclick="getScore()"></div><br/>
+        </div>
+
+        <!-- Canvas for drawing the game -->
+        <div id="container">
+            <div id="time">200 seconds</div>
+            <canvas id="mycanvas" width="800" height="1600">
+                Your browser does not support canvas
+            </canvas>
+            <img id="gameButtons" src="images/Game_Buttons.png" alt="Game Buttons" />
+            
+            <img id="control_panel" src="images/Selector.png" alt="Selector" />
+            <img id="box" src="images/NewBlock.png" alt="NewBlock" />
+            <img id="slope_NE" src="images/NewSlpNE.png" alt="NewSlpNE" />
+            <img id="slope_NW" src="images/NewSlpNW.png" alt="NewSlpNW" />
+            <img id="slope_SE" src="images/NewSlpSE.png" alt="NewSlpSE" />
+            <img id="slope_SW" src="images/NewSlpSW.png" alt="NewSlpSW" />
+            <img id="trn_slope_NE" src="images/TransSlpNE.png" alt="TransSlpNE" />
+            <img id="trn_slope_NW" src="images/TransSlpNW.png" alt="TransSlpNW" />
+            <img id="trn_slope_SE" src="images/TransSlpSE.png" alt="TransSlpSE" />
+            <img id="trn_slope_SW" src="images/TransSlpSW.png" alt="TransSlpSW" />
+            <img id="trn_box" src="images/TransBlock.png" alt="TransBlock" />
+            <img id="end" src="images/GoalHole.png" alt="GoalHole" />
+            <img id="start" src="images/Entrance.png" alt="Entrance" />
+            <img id="theCrevice" src="images/Crev.png" alt="Crevice" />
+            <img id="direction_SW" src="images/ArwSW.png" alt="ArwSW" />
+            <img id="direction_SE" src="images/ArwSE.png" alt="ArwSE" />
+            <img id="direction_NE" src="images/ArwNE.png" alt="ArwNE" />
+            <img id="direction_NW" src="images/ArwNW.png" alt="ArwNW" />
+            <img id="trn_direction_SW" src="images/TransArwSW.png" alt="TransArwSW" />
+            <img id="trn_direction_SE" src="images/TransArwSE.png" alt="TransArwSE" />
+            <img id="trn_direction_NE" src="images/TransArwNE.png" alt="TransArwNE" />
+            <img id="trn_direction_NW" src="images/TransArwNW.png" alt="TransArwNW" />
+            
+            <img id="brain" src="images/brain/brain.gif" alt="brain" />
+            
+            <img id="egg" src="images/egg/egg0.png" alt="egg0" />
+            
+            <img id="Drop" src="images/Drop/d0.png" alt="Drop0" />
+            
+			
+			<img id="eggDrop" src="images/eggDrop/ed0.png" alt="eggDrop0" />
+            
+			
+			<img id="eggsplosion" src="images/EGGSPLOSION/ee0.png" alt="ee0" />
+            
+			
+			<img id="EXPLOSION" src="images/EXPLOSION/e0.png" alt="e0" />
+            
+            
+        </div>
+    </body>
+</html>

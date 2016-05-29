@@ -1,0 +1,93 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <head>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/Main.js"></script>
+    <script>
+        function postContactToGoogle() {
+            function getUrlVars() {
+                var vars = {};
+                var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
+                function(m,key,value) {
+                  vars[key] = value;
+                });
+                return vars;
+            }
+			var aOne;
+			var aTwo;
+			var aThree;
+            
+            var myScore = getUrlVars()["score"];
+			var achievementOne = getUrlVars()["achievement1"];
+			var achievementTwo = getUrlVars()["achievement2"];
+			var achievementThree = getUrlVars()["achievement3"];
+			if(achievementOne == 1){
+				aOne = "YES";
+			} else {
+				aOne = "no";
+			}
+			
+			if (achievementTwo == 1){
+				aTwo = "YES";
+			} else {
+				aTwo = "no";
+			}
+			
+			if (achievementThree == 1){
+				aThree = "YES";
+			} else {
+				aThree = "no";
+			}
+            //var midname = achievementOne.concat(achievementTwo);
+			//midname = midname.concat(achievementThree);
+            //var myScore = location.search.split('score=')[1]
+            var fullname=$('#fullname').val();
+            var mobilenumber=myScore;
+            //var midname=myScore;
+            var yourquery=$('#yourquery').val();
+            $.ajax({
+                url:"https://docs.google.com/forms/d/1SI2FLailhxDc6t4yi-hGzFnSaSOptIvOGe3nW5dsNIs/formResponse",
+                data:{"entry_1620497787":fullname,"entry_758092598":mobilenumber,"entry_1192848614":aOne,"entry_369106962":aTwo,"entry_971424909":aThree,"entry_":yourquery},
+                type:"POST",dataType:"xml",statusCode: {0:function() { 
+                    window.location.replace("/board.php");
+                },200:function(){window.location.replace("/board.php");}}
+            });
+        }
+        
+        function resetForm(){
+        document.getElementById("formRequest").reset();
+        }
+    </script>
+    </head>
+    
+    <body>
+        <div id= "background">
+            <div id= "page">
+                <table  class="FormRequest" align="center">
+                    <tr>
+                        <td>
+                            <form id="formRequest">
+                             <center>
+                                <br/>
+                                <p>Please type your username.</p>
+                                <br/>    
+                                Username:<br/><br/>
+                                <input type="text" name="fullname" placeholder="username" id="fullname" /><br/>
+                                <br/>
+                                <p>Only top 10 players will</p>
+                                <p>be shown in leaderboard.</p>
+        
+                                    <div class ="navigation submit" onclick="postContactToGoogle()"></div><br/>
+                                    <div class ="navigation reset" onclick="resetForm()"></div><br/>
+                                    <a href = "/index.html"> <div class ="navigation menu" ></div></a>
+                                </center>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>   
+    </body>
+</html>

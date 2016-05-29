@@ -1,0 +1,517 @@
+/*  Brain Roll  
+    Group 1
+     - Arnold Myint
+     - Arvin Rolos
+     - Matt Rosenlund
+     - Tommy Nam
+     - Wayne Wang
+*/
+    
+
+/* make the body fill the window */
+html, body {
+    color: #FFFFFF;
+    margin: 0px;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+   /* background-image : url("../images/background_14.jpg"); */
+   background-color: black;
+}
+
+/* Color for form table font */
+table {
+	color: black;
+}
+
+/* make any canvas fill its container */
+canvas{
+    margin: 0 auto;
+    width: 100%;
+    display: block;
+}
+
+/* Images properties */
+img{
+    position: absolute;
+    display: none;
+}
+
+/* Hide this pages and show them using Jquery (see Navigation.js) */
+#tutorial, #credits, #mycanvas, #chooseGame, #pauseGame, #confirmationPage,
+ #loadLevel, #gameOver, #gameWin, #time{
+    display :none;   
+}
+
+
+/* Navigation buttons and animation for button clicked using image sprites. */
+.navigation, .navigation:active {
+	background: url("../images/NavigationButtons.png") no-repeat top left;
+	width: 222px;
+	height: 53px;
+    margin:0 auto;
+    display:block;
+}
+
+.navigation:active {
+	background: url("../images/NavigationButtons.png") no-repeat top left;
+	transition: 0s;
+	transform : rotate(5deg);
+}
+
+.navigation.play {
+	background-position: 0 0;
+}
+
+.navigation.play:active {
+	background-position: 0 -63px;
+}
+
+.navigation.highscores {
+	background-position: -232px 0;
+}
+
+.navigation.highscores:active {
+	background-position: -232px -63px;
+}
+
+.navigation.tutorial {
+	background-position: -464px 0;
+}
+
+.navigation.tutorial:active {
+	background-position: -464px -63px;
+}
+
+.navigation.credits {
+	background-position: -696px 0;
+}
+
+.navigation.credits:active {
+	background-position: -696px -63px;
+}
+
+.navigation.loadlevel {
+	background-position: -928px 0;
+}
+
+.navigation.loadlevel:active {
+	background-position: -928px -63px;
+}
+
+.navigation.challenge {
+	background-position: -1160px 0;
+}
+
+.navigation.challenge:active {
+	background-position: -1160px -63px;
+}
+
+.navigation.return {
+	background-position: -1392px 0;
+}
+
+.navigation.return:active {
+	background-position: -1392px -63px;
+}
+
+.navigation.resume {
+	background-position: -1624px 0;
+}
+
+.navigation.resume:active {
+	background-position: -1624px -63px;
+}
+
+.navigation.menu {
+	background-position: -1856px 0;
+}
+
+.navigation.menu:active {
+	background-position: -1856px -63px;
+}
+
+.navigation.nextlevel {
+	background-position: -2088px 0;
+}
+
+.navigation.nextlevel:active {
+	background-position: -2088px -63px;
+}
+
+.navigation.retry {
+	background-position: -2320px 0;
+}
+
+.navigation.retry:active {
+	background-position: -2320px -63px;
+}
+
+.navigation.submit {
+	background-position: -2552px 0;
+}
+
+.navigation.submit:active {
+	background-position: -2552px -63px;
+}
+
+.navigation.reset {
+	background-position: -2784px 0;
+}
+
+.navigation.reset:active {
+	background-position: -2784px -63px;
+}
+
+.navigation.yes {
+	background-position: -3016px 0;
+}
+
+.navigation.yes:active {
+	background-position: -3016px -63px;
+}
+
+.navigation.no {
+	background-position: -3248px 0;
+}
+
+.navigation.no:active {
+	background-position: -3248px -63px;
+}
+
+/* Table to put load level images so it centered nicely */
+.selectionTable {
+	margin-left: auto;
+	margin-right: auto;
+    border-spacing: 10px;
+    color: white;
+}
+
+/* Column for load level table */
+.col1, .col2, .col3, .col4{	
+	width: 10px;
+}
+
+
+/* Load Level Buttons and animation for clicked button using Image sprites */
+.buttons, .buttons:active {
+    background: url("../images/LevelButtons.png") no-repeat top left;
+    width: 70px;
+    height: 70px;
+}
+   
+.buttons:active {
+    transition: 0s;
+    transform : rotate(5deg);
+}
+    
+.buttons.level1 {
+    background-position: 0 0;
+}
+
+.buttons.level1:active {
+    background-position: 0 -80px;
+}
+
+.buttons.level2 {
+    background-position: -80px 0;
+}
+
+.buttons.level2:active {
+    background-position: -80px -80px;
+}
+
+.buttons.level3 {
+    background-position: -160px 0;
+}
+
+.buttons.level3:active {
+    background-position: -160px -80px;
+}
+
+.buttons.level4 {
+    background-position: -240px 0;
+}
+
+.buttons.level4:active {
+    background-position: -240px -80px;
+}
+
+.buttons.level5 {
+    background-position: -320px 0;
+}
+
+.buttons.level5:active {
+    background-position: -320px -80px;
+}
+
+.buttons.level6 {
+    background-position: -400px 0;
+}
+
+.buttons.level6:active {
+    background-position: -400px -80px;
+}
+
+.buttons.level7 {
+    background-position: -480px 0;
+}
+
+.buttons.level7:active {
+    background-position: -480px -80px;
+}
+
+.buttons.level8 {
+    background-position: -560px 0;
+}
+
+.buttons.level8:active {
+    background-position: -560px -80px;
+}
+
+.buttons.level9 {
+    background-position: -640px 0;
+}
+
+.buttons.level9:active {
+    background-position: -640px -80px;
+}
+
+.buttons.level10 {
+    background-position: -720px 0;
+}
+
+.buttons.level10:active {
+    background-position: -720px -80px;
+}
+
+.buttons.level11 {
+    background-position: -800px 0;
+}
+
+.buttons.level11:active {
+    background-position: -800px -80px;
+}
+
+.buttons.level12 {
+    background-position: -880px 0;
+}
+
+.buttons.level12:active {
+    background-position: -880px -80px;
+}
+
+.buttons.level13 {
+    background-position: -960px 0;
+}
+
+.buttons.level13:active {
+    background-position: -960px -80px;
+}
+
+.buttons.level14 {
+    background-position: -1040px 0;
+}
+
+.buttons.level14:active {
+    background-position: -1040px -80px;
+}
+
+.buttons.level15 {
+    background-position: -1120px 0;
+}
+
+.buttons.level15:active {
+    background-position: -1120px -80px;
+}
+
+
+
+
+/* Styling for Highscores Tab */
+ 
+.tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+ 
+.tabs li {
+    display: block;
+}
+
+.labels:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.tabs label {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: normal;
+    background: #2c3e50;
+    cursor: pointer;
+}
+ 
+.tabs label:hover {
+    background: #3498db;
+}
+
+.tab-content {
+    display: none;
+    width: 100%;
+}
+
+
+.tabs input[type=radio] {
+    display:none;
+}
+ 
+[id^=tab]:checked ~ div[id^=tab-content] {
+    display: block;
+}
+
+[id^=tab]:checked ~ [id^=label]  {
+    background: #08C;
+    color: white;
+}
+
+/* Brain Roll logo */
+#logo{
+    margin: auto;
+    text-align:center;
+}
+
+/* Brain Roll logo text */
+#textLogo{
+    position: relative;
+    display: inline-block;
+}
+
+/* Rotating logo */
+.rolling {
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    -webkit-animation:spin 2 linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
+/* Hide achievements */
+#achieve_1{
+    display: none;
+}
+#achieve_2{
+    display: none;
+}
+#achieve_3{
+    display: none;
+}
+
+
+#brain{
+    object-fit: none;
+    object-position: 0 0;
+    width: 99px;
+    height: 99px;
+}
+
+#brain1{
+    background: url("../images/brain/1.png");
+}
+
+#brain2{
+    background: url("../images/brain/2.png");
+}
+
+#brain3{
+    background: url("../images/brain/3.png");
+}
+
+#brain4{
+    background: url("../images/brain/4.png");
+}
+
+#brain5{
+    background: url("../images/brain/5.png");
+}
+
+#brain6{
+    background: url("../images/brain/6.png");
+}
+
+#brain7{
+    background: url("../images/brain/7.png");
+}
+
+#brain8{
+    background: url("../images/brain/8.png");
+}
+
+#brain9{
+    background: url("../images/brain/9.png");
+}
+
+#brain10{
+    background: url("../images/brain/10.png");
+}
+
+#brain11{
+    background: url("../images/brain/11.png");
+}
+
+#brain12{
+    background: url("../images/brain/12.png");
+}
+
+#brain13{
+    background: url("../images/brain/13.png");
+}
+
+#brain14{
+    background: url("../images/brain/14.png");
+}
+
+#brain15{
+    background: url("../images/brain/15.png");
+}
+
+#brain16{
+    background: url("../images/brain/16.png");
+}
+
+#brain17{
+    background: url("../images/brain/17.png");
+}
+
+#brain18{
+    background: url("../images/brain/18.png");
+}
+
+#brain19{
+    background: url("../images/brain/19.png");
+}
+
+#brain20{
+    background: url("../images/brain/20.png");
+}
+
+#brain21{
+    background: url("../images/brain/21.png");
+}
+
+#brain22{
+    background: url("../images/brain/22.png");
+}
+
+#brain23{
+    background: url("../images/brain/23.png");
+}
