@@ -337,13 +337,13 @@ function control(context) {
                     }
                 }, 500);
                 clicking = false;			
-			} else if(polygonClicked(3, rollx = [405,787,785], rolly = [832,638,832], x, y) == true){
+			} else if(polygonClicked(3, rollx = [405,791,791], rolly = [844,654,844], x, y) == true){
 				$(canvas).on("click", rollBrain);
-			} else if(polygonClicked(3, rollx = [13,387,15], rolly = [634,826,826], x, y) == true){
+			} else if(polygonClicked(3, rollx = [9,395,9], rolly = [652,844,844], x, y) == true){
 				$(canvas).on("click", undo);
-			} else if(polygonClicked(3, rollx = [405,787,789], rolly = [25,24,225], x, y) == true){
+			} else if(polygonClicked(3, rollx = [411,791,791], rolly = [34,24,224], x, y) == true){
 				$(canvas).on("click", eraseAll);
-			}  else if(polygonClicked(3, rollx = [13,395,13], rolly = [24,24,220], x, y) == true){
+			}  else if(polygonClicked(3, rollx = [9,395,9], rolly = [34,34,224], x, y) == true){
 				paused();
 			}
         });
