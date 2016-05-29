@@ -158,15 +158,15 @@ function control(context) {
                 positions[i][j].used = false;
 			}
 		}
-		redraw(context);
-		control_frame(context);
         if(levels != 0){
             numberOfBoxes = boxNo;
             numberOfSlopes = slopeNo;
             numberOfDirections = directionNo;
             removeShapes(true);
-            load(levels);
+            chooseLevel(levels);
         }
+        redraw(context);
+		control_frame(context);
 		$(canvas).unbind("click touchstart touchend", eraseAll);
         timeOfErase++;
 	}
